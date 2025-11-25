@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f4f4;
+  color: #111;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #111;
+  color: #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4vw;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 5rem 4vw 3rem;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  max-width: 540px;
+}
+
+.grid {
+  padding: 2rem 4vw 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.project img {
+  width: 100%;
+  display: block;
+}
+
+.project h2 {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem 0.25rem;
+}
+
+.project p {
+  font-size: 0.9rem;
+  padding: 0 1rem 0.75rem;
+  color: #555;
+}
+
+.block {
+  padding: 3rem 4vw;
+  background: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.block h2 {
+  margin-bottom: 1rem;
+}
+
+.block ul {
+  list-style: none;
+}
+
+.block li {
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  padding: 1.5rem 4vw 2rem;
+  font-size: 0.8rem;
+  color: #555;
+}
