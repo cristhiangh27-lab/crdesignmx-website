@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CR Design MX — Portafolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">CR Design MX</div>
+    <nav class="nav">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Arquitectura contemporánea para personas reales.</h1>
+      <p>Diseño y visualización arquitectónica para viviendas, comercio y espacios efímeros.</p>
+    </section>
+
+    <section id="proyectos" class="grid">
+        <article class="project">
+          <a href="projects/casa-lomas/index.html">
+            <img src="img/POR1.jpg" alt="Proyecto 1">
+            <h2>Penthouse Jaime Torres Bodet</h2>
+          </a>
+          <p>CDMX · 2023 · Vivienda</p>
+        </article>
+
+        <article class="project">
+          <a href="projects/aicm-t2/index.html">
+            <img src="img/POR2.jpg" alt="Proyecto 2">
+            <h2>Algarín Heights & Commerce</h2>
+          </a>
+          <p>CDMX · 2022 · Uso mixto</p>
+        </article>
+
+        <article class="project">
+          <a href="projects/casa-carmona/index.html">
+            <img src="img/TP3.png" alt="Proyecto 3">
+            <h2>Casa Carmona</h2>
+          </a>
+          <p>Cuautla · 2024 · Casa de descanso</p>
+        </article>
+      <!-- Puedes seguir agregando proyectos -->
+    </section>
+
+    <section id="servicios" class="block">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Anteproyecto arquitectónico</li>
+        <li>Modelado BIM y documentación</li>
+        <li>Renders y recorridos</li>
+        <li>Asesoría para autoconstrucción</li>
+      </ul>
+    </section>
+
+    <section id="sobre" class="block">
+      <h2>Sobre CR Design MX</h2>
+      <p>Estudio independiente dirigido por Cristhian Gómez Hernández, enfocado en crear espacios extraordinarios
+      con presupuestos reales y procesos claros para el cliente.</p>
+    </section>
+
+    <section id="contacto" class="block">
+      <h2>Contacto</h2>
+      <p>Escríbeme para platicar tu proyecto:</p>
+      <p><a href="mailto:tu-correo@crdesign.mx">tu-correo@crdesign.mx</a></p>
+      <p><a href="https://wa.me/52XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> CR Design MX · Creando espacios extraordinarios
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
