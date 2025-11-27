@@ -1,2 +1,2 @@
-# CR Design MX Website
+# CR COLLECTIVE Website
 Sitio en construcción.
