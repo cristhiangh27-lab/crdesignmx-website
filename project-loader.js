@@ -127,6 +127,18 @@
     return discovered;
   }
 
+  async function filterExistingImages(images) {
+    const results = [];
+
+    for (const image of images) {
+      if (await imageExists(image.src)) {
+        results.push(image);
+      }
+    }
+
+    return results;
+  }
+
   async function renderGallery(md) {
     const galleryGrid = document.querySelector(".project-gallery .grid");
     if (!galleryGrid) return;
@@ -134,8 +146,12 @@
     let images = extractGalleryImages(md);
     galleryGrid.innerHTML = "";
 
-    if (!images.length) {
+    const existingImages = await filterExistingImages(images);
+
+    if (!existingImages.length) {
       images = await discoverImagesFromFolder();
+    } else {
+      images = existingImages;
     }
 
     if (!images.length) {
