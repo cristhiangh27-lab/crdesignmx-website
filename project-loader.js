@@ -79,12 +79,64 @@
     descriptionContainer.innerHTML = markdownToHtml(descriptionMd);
   }
 
-  function renderGallery(md) {
+  function buildImageCandidateList() {
+    const exts = ["jpg", "jpeg", "png", "webp", "avif"];
+    const baseNames = new Set([
+      "preview",
+      "hero",
+      "cover",
+      "XMPL1"
+    ]);
+
+    for (let i = 1; i <= 24; i++) {
+      baseNames.add(String(i));
+      baseNames.add(i.toString().padStart(2, "0"));
+    }
+
+    const candidates = [];
+    baseNames.forEach((name) => {
+      exts.forEach((ext) => {
+        candidates.push(`${name}.${ext}`);
+      });
+    });
+
+    return candidates;
+  }
+
+  async function imageExists(path) {
+    try {
+      const response = await fetch(path, { method: "HEAD" });
+      return response.ok;
+    } catch (error) {
+      console.warn("No se pudo verificar la imagen", path, error);
+      return false;
+    }
+  }
+
+  async function discoverImagesFromFolder() {
+    const candidates = buildImageCandidateList();
+    const discovered = [];
+
+    for (const name of candidates) {
+      const fullPath = `img/${name}`;
+      if (await imageExists(fullPath)) {
+        discovered.push({ alt: "Imagen del proyecto", src: fullPath });
+      }
+    }
+
+    return discovered;
+  }
+
+  async function renderGallery(md) {
     const galleryGrid = document.querySelector(".project-gallery .grid");
     if (!galleryGrid) return;
 
-    const images = extractGalleryImages(md);
+    let images = extractGalleryImages(md);
     galleryGrid.innerHTML = "";
+
+    if (!images.length) {
+      images = await discoverImagesFromFolder();
+    }
 
     if (!images.length) {
       galleryGrid.innerHTML = "<p>Galería pendiente de actualización.</p>";
@@ -109,7 +161,7 @@
       const md = await response.text();
       applyHero(md);
       renderDescription(md);
-      renderGallery(md);
+      await renderGallery(md);
     } catch (error) {
       console.error("Error cargando proyecto:", error);
       const descriptionContainer = document.querySelector(".project-description .content");
