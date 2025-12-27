@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CR COLLECTIVE — Portafolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">CR COLLECTIVE</div>
+    <nav class="nav">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#sobre">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Arquitectura contemporánea para personas reales.</h1>
+      <p>Diseño y visualización arquitectónica para viviendas, comercio y espacios efímeros.</p>
+    </section>
+
+    <section id="proyectos" class="grid">
+        <article class="project">
+          <a href="projects/casa-lomas/">
+            <img src="img/casa-lomas/preview.jpg" alt="Casa Lomas">
+            <h2>Casa Lomas</h2>
+          </a>
+          <p>Veracruz · Residencial · 2024</p>
+        </article>
+
+        <article class="project">
+          <a href="projects/t2-aicm/">
+            <img src="img/t2-aicm/preview.jpg" alt="Dedo Norte — Terminal 2 del AICM">
+            <h2>Dedo Norte — Terminal 2 del AICM</h2>
+          </a>
+          <p>CDMX · Remodelación interior · 2024</p>
+        </article>
+
+        <article class="project">
+          <a href="projects/casa-carmona/">
+            <img src="img/casa-carmona/preview.jpg" alt="Casa Carmona">
+            <h2>Casa Carmona</h2>
+          </a>
+          <p>Cuautla · Casa de descanso · 2024</p>
+        </article>
+      <!-- Puedes seguir agregando proyectos -->
+    </section>
+
+    <section id="servicios" class="block">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Anteproyecto arquitectónico</li>
+        <li>Modelado BIM y documentación</li>
+        <li>Renders y recorridos</li>
+        <li>Asesoría para autoconstrucción</li>
+      </ul>
+    </section>
+
+    <section id="sobre" class="block">
+      <h2>Sobre CR COLLECTIVE</h2>
+      <p>Estudio independiente dirigido por Cristhian Gómez Hernández, enfocado en crear espacios extraordinarios
+      con presupuestos reales y procesos claros para el cliente.</p>
+    </section>
+
+    <section id="contacto" class="block">
+      <h2>Contacto</h2>
+      <p>Escríbeme para platicar tu proyecto:</p>
+      <p><a href="mailto:tu-correo@crdesign.mx">tu-correo@crdesign.mx</a></p>
+      <p><a href="https://wa.me/52XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> CR COLLECTIVE · Creando espacios extraordinarios
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
