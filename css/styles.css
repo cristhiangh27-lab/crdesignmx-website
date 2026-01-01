@@ -91,6 +91,11 @@ header.site-header {
   opacity: 0;
 }
 
+/* Asegura que el video no intente ocupar todo el contenedor */
+.logo-intro{
+  max-height: 40px;
+  max-width: none;
+}
 
 .primary-nav {
   display: flex;
