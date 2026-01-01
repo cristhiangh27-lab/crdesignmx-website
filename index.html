@@ -111,18 +111,30 @@
     import { renderFeaturedProjects } from './js/project-loader.js';
     renderFeaturedProjects(3);
   </script>
-  <script>
+<script>
   const introVideo = document.querySelector('.logo-intro');
   const staticLogo = document.querySelector('.logo-static');
 
   if (introVideo && staticLogo) {
+    // Arranque: video visible, PNG oculto
+    introVideo.style.opacity = '1';
+    staticLogo.style.opacity = '0';
+
     introVideo.play().catch(() => {});
 
-    introVideo.addEventListener('ended', () => {
-      introVideo.style.display = 'none';
+    const finish = () => {
+      introVideo.style.opacity = '0';
       staticLogo.style.opacity = '1';
-    });
+      // deja el video sin interacción pero sin cambiar layout
+      introVideo.style.pointerEvents = 'none';
+    };
+
+    introVideo.addEventListener('ended', finish);
+
+    // Por si el video no dispara "ended" por alguna razón
+    setTimeout(finish, 2500);
   }
 </script>
+
 </body>
 </html>
