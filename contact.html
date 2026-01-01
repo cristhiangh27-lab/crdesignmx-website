@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — CR Collective</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html">Proyectos</a>
+        <a href="services.html">Servicios</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html" aria-current="page">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="section-lead">Hablemos de tu proyecto</p>
+      <h1>Contacto</h1>
+      <p>Comparte tus objetivos y agenda una llamada para revisar el alcance, tiempos y presupuesto.</p>
+    </section>
+
+    <section class="project-hero" style="margin-bottom:1.5rem;">
+      <div class="form-card" style="width:100%;">
+        <form>
+          <div class="form-field">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="nombre@correo.com" required>
+          </div>
+          <div class="form-field">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Cuéntame sobre tu proyecto" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <p><strong>Correo:</strong> contacto@crcollective.mx</p>
+        <p><strong>Teléfono:</strong> +52 55 0000 0000</p>
+        <p><strong>Redes:</strong> <a href="#">Instagram</a> · <a href="#">LinkedIn</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -2,83 +2,88 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>CR COLLECTIVE — Portafolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CR Collective — Portafolio Arquitectónico</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="logo">CR COLLECTIVE</div>
-    <nav class="nav">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#sobre">Sobre mí</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html">Proyectos</a>
+        <a href="services.html">Servicios</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Arquitectura contemporánea para personas reales.</h1>
-      <p>Diseño y visualización arquitectónica para viviendas, comercio y espacios efímeros.</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="section-lead">Arquitectura y visualización</p>
+        <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
+        <p>Portafolio arquitectónico con enfoque en anteproyecto, modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+        <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
+          <a class="btn btn-ghost" href="services.html">Servicios</a>
+        </div>
+      </div>
     </section>
 
-    <section id="proyectos" class="grid">
-        <article class="project">
-          <a href="projects/casa-lomas/">
-            <img src="img/casa-lomas/preview.jpg" alt="Casa Lomas">
-            <h2>Casa Lomas</h2>
-          </a>
-          <p>Veracruz · Residencial · 2024</p>
-        </article>
-
-        <article class="project">
-          <a href="projects/t2-aicm/">
-            <img src="img/t2-aicm/preview.jpg" alt="Dedo Norte — Terminal 2 del AICM">
-            <h2>Dedo Norte — Terminal 2 del AICM</h2>
-          </a>
-          <p>CDMX · Remodelación interior · 2024</p>
-        </article>
-
-        <article class="project">
-          <a href="projects/casa-carmona/">
-            <img src="img/casa-carmona/preview.jpg" alt="Casa Carmona">
-            <h2>Casa Carmona</h2>
-          </a>
-          <p>Cuautla · Casa de descanso · 2024</p>
-        </article>
-      <!-- Puedes seguir agregando proyectos -->
+    <div class="section-header">
+      <div>
+        <h2>Proyectos destacados</h2>
+        <p class="section-lead">Tres casos recientes desarrollados bajo la marca CR Collective.</p>
+      </div>
+      <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+    </div>
+    <section class="projects-grid" id="featured-projects" aria-label="Proyectos destacados">
+      <p>Cargando proyectos…</p>
     </section>
 
-    <section id="servicios" class="block">
-      <h2>Servicios</h2>
-      <ul>
-        <li>Anteproyecto arquitectónico</li>
-        <li>Modelado BIM y documentación</li>
-        <li>Renders y recorridos</li>
-        <li>Asesoría para autoconstrucción</li>
-      </ul>
-    </section>
-
-    <section id="sobre" class="block">
-      <h2>Sobre CR COLLECTIVE</h2>
-      <p>Estudio independiente dirigido por Cristhian Gómez Hernández, enfocado en crear espacios extraordinarios
-      con presupuestos reales y procesos claros para el cliente.</p>
-    </section>
-
-    <section id="contacto" class="block">
-      <h2>Contacto</h2>
-      <p>Escríbeme para platicar tu proyecto:</p>
-      <p><a href="mailto:tu-correo@crdesign.mx">tu-correo@crdesign.mx</a></p>
-      <p><a href="https://wa.me/52XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+    <div class="section-header">
+      <div>
+        <h2>Servicios</h2>
+        <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+    </div>
+    <section class="services-grid" aria-label="Servicios">
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🏗️</div>
+        <h3>Anteproyecto arquitectónico</h3>
+        <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h3>Modelado BIM y documentación</h3>
+        <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🎥</div>
+        <h3>Renders y recorridos</h3>
+        <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🤝</div>
+        <h3>Asesoría personalizada</h3>
+        <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
-    © <span id="year"></span> CR COLLECTIVE · Creando espacios extraordinarios
+    © <span id="year"></span> CR Collective · Espacios claros y extraordinarios
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script type="module">
+    import { renderFeaturedProjects } from './js/project-loader.js';
+    renderFeaturedProjects(3);
   </script>
 </body>
 </html>

@@ -3,24 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles.css">
-  <title>Casa Lomas – CR COLLECTIVE</title>
+  <title>Casa Lomas – CR Collective</title>
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="project-page">
-  <header class="topbar">
-    <a href="../../index.html" class="logo">CR COLLECTIVE</a>
-    <nav>
-      <a href="../../index.html#proyectos">Proyectos</a>
-      <a href="../../index.html#servicios">Servicios</a>
-      <a href="../../index.html#sobre">Sobre mí</a>
-      <a href="../../index.html#contacto">Contacto</a>
-    </nav>
+<body class="project-page" data-project="casa-lomas">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../../index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="../../projects.html">Proyectos</a>
+        <a href="../../services.html">Servicios</a>
+        <a href="../../about.html">Sobre mí</a>
+        <a href="../../contact.html">Contacto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="project-hero">
-      <h1>Casa Lomas</h1>
-      <p></p>
+      <div class="project-hero-text">
+        <p class="section-lead">Proyecto residencial</p>
+        <h1>Casa Lomas</h1>
+        <div class="project-meta"></div>
+        <p class="summary"></p>
+      </div>
+      <div class="hero-visual">
+        <div class="placeholder">Galería próxima</div>
+        <img src="" alt="" hidden>
+      </div>
     </section>
 
     <section class="project-description">
@@ -30,11 +40,15 @@
 
     <section class="project-gallery">
       <h2>Galería</h2>
-      <div class="grid">
-      </div>
+      <div class="grid"></div>
     </section>
   </main>
 
-  <script src="../../project-loader.js"></script>
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module">
+    import { renderProjectDetail } from '../../js/project-loader.js';
+    renderProjectDetail('casa-lomas');
+  </script>
 </body>
 </html>

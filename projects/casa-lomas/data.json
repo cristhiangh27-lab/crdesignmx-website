@@ -1,0 +1,10 @@
+{
+  "title": "Casa Lomas",
+  "location": "Veracruz, México",
+  "year": "2024",
+  "type": "Residencial",
+  "area": "Vivienda unifamiliar",
+  "summary": "Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.",
+  "coverImage": "/img/casa-lomas/preview.jpg",
+  "images": ["01", "02", "03", "preview"]
+}

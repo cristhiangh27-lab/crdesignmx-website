@@ -1,17 +1,17 @@
 # Casa Carmona · Cuautla, Morelos · Casa de descanso · 2024
 
 ## Descripción general
-Casa Carmona es un proyecto integral de vivienda de descanso desarrollado para el Ing. Ricardo Carmona en un terreno dividido en polígonos funcionales. El diseño considera las necesidades específicas del cliente: una cocina protagonista por su gusto por la gastronomía, áreas amplias y ventiladas, integración de cristal templado reciclado que ya posee, y la posibilidad futura de crecimiento.
+Casa Carmona es un proyecto integral de vivienda de descanso desarrollado para el Ing. Ricardo Carmona en un terreno dividido en polígonos funcionales. El diseño se centró en las necesidades específicas del cliente: una cocina protagonista por su gusto por la gastronomía, áreas amplias y ventiladas, integración de cristal templado reciclado disponible, y la posibilidad futura de crecimiento.
 
-El proyecto se desarrolló mediante levantamiento completo del sitio, modelado BIM 3D y coordinación arquitectónica. Forma parte de mis proyectos recientes dentro de CR COLLECTIVE, combinando diseño arquitectónico, documentación técnica y propuestas de interiorismo.
+El proyecto se desarrolló mediante levantamiento completo del sitio, modelado BIM 3D y coordinación arquitectónica. Forma parte de los proyectos recientes de CR Collective, combinando diseño arquitectónico, documentación técnica y propuestas de interiorismo.
 
 ## Requerimientos del cliente
 - Cocina amplia como espacio central
 - Cuatro cuartos para nietos en el polígono rojo
-- Una capilla ecuménica pequeña en el polígono verde
+- Capilla ecuménica pequeña en el polígono verde
 - Estacionamiento y área de servicio en el mismo polígono verde
 - Integración de 24 paneles de cristal templado reciclado en fachada e iluminación natural
-- Preferencia por estilo contemporáneo (rechaza estilo rústico)
+- Preferencia por estilo contemporáneo (no rústico)
 - Considerar dificultades logísticas para transportar acero o chapa
 
 ## Concepto arquitectónico

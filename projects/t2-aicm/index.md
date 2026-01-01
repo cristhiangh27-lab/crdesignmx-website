@@ -1,7 +1,7 @@
 # Dedo Norte – Terminal 2 del AICM · Remodelación Interior · 2024
 
 ## Descripción general
-Proyecto conceptual desarrollado en colaboración con el arquitecto Guillermo Olvera Jiménez para renovar la imagen interior del Dedo Norte y ambulatorio principal de la Terminal 2 del Aeropuerto Internacional de la Ciudad de México. El proyecto considera lineamientos aeroportuarios, flujo de pasajeros, iluminación, señalización y una nueva lectura espacial acorde al contexto del Mundial 2026.
+Proyecto conceptual desarrollado en colaboración con el arquitecto Guillermo Olvera Jiménez para renovar la imagen interior del Dedo Norte y el ambulatorio principal de la Terminal 2 del Aeropuerto Internacional de la Ciudad de México. Se consideraron lineamientos aeroportuarios, flujo de pasajeros, iluminación, señalización y una nueva lectura espacial acorde al contexto del Mundial 2026.
 
 ## Concepto
 La propuesta plantea una actualización estética y funcional mediante:

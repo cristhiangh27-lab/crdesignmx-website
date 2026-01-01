@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos — CR Collective</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html" aria-current="page">Proyectos</a>
+        <a href="services.html">Servicios</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="section-lead">Portafolio</p>
+      <h1>Proyectos de CR Collective</h1>
+      <p>Explora las residencias, remodelaciones y conceptos desarrollados con enfoque BIM, visualización y narrativa arquitectónica clara.</p>
+    </section>
+
+    <div class="filter-bar" aria-label="Filtros de proyectos">
+      <select id="filter-type" aria-label="Filtrar por tipología"></select>
+      <select id="filter-location" aria-label="Filtrar por ubicación"></select>
+      <input type="search" id="filter-search" placeholder="Buscar por título, ubicación o palabra clave" aria-label="Buscar proyectos" />
+    </div>
+
+    <section class="projects-grid" id="projects-grid" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script type="module" src="js/filter.js"></script>
+</body>
+</html>
