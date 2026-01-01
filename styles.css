@@ -21,11 +21,28 @@ body {
   align-items: center;
   padding: 1rem 4vw;
 }
-
 .logo {
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.logo-intro,
+.logo-static {
+  height: 40px; /* el tamaño que ya decidimos */
+  width: auto;
+  display: block;
+}
+
+/* El video empieza visible */
+.logo-intro {
+  position: absolute;
+  inset: 0;
+}
+
+/* El logo fijo empieza oculto */
+.logo-static {
+  opacity: 0;
 }
 
 .nav a {
