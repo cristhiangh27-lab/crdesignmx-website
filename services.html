@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — CR Collective</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html">Proyectos</a>
+        <a href="services.html" aria-current="page">Servicios</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="section-lead">Servicios</p>
+      <h1>Arquitectura, BIM y visualización para decisiones seguras</h1>
+      <p>CR Collective acompaña a clientes con procesos claros, entregables accionables y comunicación directa en cada etapa.</p>
+    </section>
+
+    <section class="services-grid" aria-label="Servicios de CR Collective">
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">✏️</div>
+        <h3>Anteproyecto arquitectónico</h3>
+        <p>Concepto, volumetría, estrategia de sitio y layout funcional alineado a presupuesto y permisos.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">📐</div>
+        <h3>Modelado BIM + documentación</h3>
+        <p>Modelos coordinados en ArchiCAD/Revit, fichas técnicas, planos y detalles listos para licitar y construir.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🖥️</div>
+        <h3>Visualización y recorridos</h3>
+        <p>Renders, animaciones y recorridos interactivos para validar diseño con clientes, socios o autoridades.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h3>Asesoría y coordinación</h3>
+        <p>Planeación de obra, selección de acabados, revisión de proveedores y soporte en decisiones clave.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

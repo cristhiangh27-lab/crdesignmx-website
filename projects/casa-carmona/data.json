@@ -1,0 +1,10 @@
+{
+  "title": "Casa Carmona",
+  "location": "Cuautla, Morelos",
+  "year": "2024",
+  "type": "Casa de descanso",
+  "area": "Vivienda de descanso",
+  "summary": "Proyecto integral para el Ing. Ricardo Carmona con cocina central y crecimiento por polígonos funcionales.",
+  "coverImage": "/img/casa-carmona/preview.jpg",
+  "images": ["01", "02", "03", "preview"]
+}

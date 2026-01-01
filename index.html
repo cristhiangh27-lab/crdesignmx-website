@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CR Collective — Portafolio Arquitectónico</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html">Proyectos</a>
+        <a href="services.html">Servicios</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="section-lead">Arquitectura y visualización</p>
+        <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
+        <p>Portafolio arquitectónico con enfoque en anteproyecto, modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+        <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
+          <a class="btn btn-ghost" href="services.html">Servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-header">
+      <div>
+        <h2>Proyectos destacados</h2>
+        <p class="section-lead">Tres casos recientes desarrollados bajo la marca CR Collective.</p>
+      </div>
+      <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+    </div>
+    <section class="projects-grid" id="featured-projects" aria-label="Proyectos destacados">
+      <p>Cargando proyectos…</p>
+    </section>
+
+    <div class="section-header">
+      <div>
+        <h2>Servicios</h2>
+        <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+    </div>
+    <section class="services-grid" aria-label="Servicios">
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🏗️</div>
+        <h3>Anteproyecto arquitectónico</h3>
+        <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h3>Modelado BIM y documentación</h3>
+        <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🎥</div>
+        <h3>Renders y recorridos</h3>
+        <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+      </article>
+      <article class="service-card">
+        <div class="icon" aria-hidden="true">🤝</div>
+        <h3>Asesoría personalizada</h3>
+        <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> CR Collective · Espacios claros y extraordinarios
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script type="module">
+    import { renderFeaturedProjects } from './js/project-loader.js';
+    renderFeaturedProjects(3);
+  </script>
+</body>
+</html>

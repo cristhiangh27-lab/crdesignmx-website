@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí — CR Collective</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">CR Collective</a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="projects.html">Proyectos</a>
+        <a href="services.html">Servicios</a>
+        <a href="about.html" aria-current="page">Sobre mí</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="section-lead">Sobre CR Collective</p>
+      <h1>Cristhian Gómez Hernández</h1>
+      <p>Arquitecto independiente que combina modelado BIM, documentación y visualización para entregar proyectos claros y construibles. Experiencia en vivienda, remodelación comercial y equipamiento.</p>
+    </section>
+
+    <section class="project-description">
+      <h2>Misión</h2>
+      <div class="content">
+        <p>Crear espacios contemporáneos que respondan a necesidades reales con procesos transparentes, comunicación constante y decisiones informadas.</p>
+      </div>
+    </section>
+
+    <section class="project-description">
+      <h2>Valores</h2>
+      <div class="content">
+        <ul>
+          <li>Claridad en alcances, costos y entregables.</li>
+          <li>Colaboración con clientes y consultores especializados.</li>
+          <li>Responsabilidad técnica apoyada en BIM y documentación precisa.</li>
+          <li>Diseño sensible al contexto, clima y operación futura.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
