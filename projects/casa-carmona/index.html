@@ -9,7 +9,16 @@
 <body class="project-page" data-project="casa-carmona">
   <header class="site-header">
     <div class="header-inner">
-      <a class="logo" href="../../index.html">CR Collective</a>
+      <a class="logo" href="../../index.html" aria-label="CR Collective">
+  <!-- Video intro (solo home, aquí se ocultará por CSS) -->
+  <video class="logo-intro" muted playsinline preload="auto" aria-hidden="true">
+    <source src="../../img/brand/logo-anim.mp4" type="video/mp4">
+  </video>
+
+  <!-- Logo estático -->
+  <img class="logo-static" src="../../img/brand/logo-cr-collective.png" alt="CR Collective">
+</a>
+
       <nav class="primary-nav" aria-label="Principal">
         <a href="../../projects.html">Proyectos</a>
         <a href="../../services.html">Servicios</a>
