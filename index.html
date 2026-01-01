@@ -103,5 +103,18 @@
     import { renderFeaturedProjects } from './js/project-loader.js';
     renderFeaturedProjects(3);
   </script>
+  <script>
+  const introVideo = document.querySelector('.logo-intro');
+  const staticLogo = document.querySelector('.logo-static');
+
+  if (introVideo && staticLogo) {
+    introVideo.play().catch(() => {});
+
+    introVideo.addEventListener('ended', () => {
+      introVideo.style.display = 'none';
+      staticLogo.style.opacity = '1';
+    });
+  }
+</script>
 </body>
 </html>
