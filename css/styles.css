@@ -59,43 +59,29 @@ header.site-header {
   gap: 1.5rem;
 }
 
-/* Contenedor del logo (el link) */
+/* Logo container */
 .logo{
   position: relative;
   display: inline-block;
-  height: 40px;      /* MISMO tamaño que quieres */
-  width: auto;
-  line-height: 0;    /* evita espacio fantasma */
-  overflow: hidden;  /* por si el video se pasa */
+  height: 32px;          /* conserva tamaño */
+  width: 200px;          /* reserva ancho para evitar saltos */
 }
 
-/* Video e imagen ocupan el MISMO rectángulo */
-.logo-intro,
-.logo-static{
-  height: 40px;
-  width: auto;
-  display: block;
-}
-
-/* El video se “pega” encima del PNG */
-.logo-intro{
+/* Ambos ocupan el mismo espacio */
+.logo .logo-intro,
+.logo .logo-static{
   position: absolute;
-  left: 0;
-  top: 0;
-  height: 40px;
-  width: auto;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: contain;   /* que no se deforme */
 }
 
-/* El PNG al inicio oculto */
-.logo-static{
-  opacity: 0;
-}
+/* Estado por defecto: PNG visible */
+.logo .logo-static{ opacity: 1; }
+.logo .logo-intro{ opacity: 0; }
 
-/* Asegura que el video no intente ocupar todo el contenedor */
-.logo-intro{
-  max-height: 40px;
-  max-width: none;
-}
 
 .primary-nav {
   display: flex;
