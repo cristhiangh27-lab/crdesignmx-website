@@ -121,44 +121,35 @@ main {
   padding: 2.5rem 1.5rem 3rem;
 }
 
-.hero {
+.hero-video {
   position: relative;
-  background: linear-gradient(135deg, rgba(92, 75, 255, 0.12), rgba(92, 75, 255, 0.28)),
-    linear-gradient(120deg, #0f0f14 0%, #1b1b25 60%, #2c2c3a 100%);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 4rem;
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 
-.hero::after {
-  content: "";
+.hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.18), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(92, 75, 255, 0.16), transparent 30%);
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* clave para que llene bonito */
+  object-position: center;
+  z-index: 0;
 }
 
-.hero-content {
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /* Aquí simulamos tu gradiente para que el texto se lea */
+  background: linear-gradient(135deg, rgba(12,12,24,0.78), rgba(66,56,186,0.35));
+}
+
+.hero-video .hero-content {
   position: relative;
-  max-width: 720px;
-  display: grid;
-  gap: 1rem;
+  z-index: 2; /* texto encima del overlay */
 }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 3vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.hero p {
-  max-width: 620px;
-  font-size: 1.05rem;
-  opacity: 0.92;
-}
 
 .btn {
   display: inline-flex;
