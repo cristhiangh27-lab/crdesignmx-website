@@ -445,7 +445,7 @@ body.project-page main {
   color: var(--muted);
 }
 
-.whatsapp-button {
+.whatsapp-float {
   position: fixed;
   right: 1.25rem;
   bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
@@ -463,8 +463,8 @@ body.project-page main {
   z-index: 60;
 }
 
-.whatsapp-button:hover,
-.whatsapp-button:focus-visible {
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
 }
@@ -476,7 +476,7 @@ body.project-page main {
 }
 
 @media (max-width: 640px) {
-  .whatsapp-button {
+  .whatsapp-float {
     width: 52px;
     height: 52px;
     right: 1rem;
