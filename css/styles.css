@@ -445,6 +445,51 @@ body.project-page main {
   color: var(--muted);
 }
 
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  z-index: 60;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.whatsapp-icon {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.site-header .whatsapp,
+.footer .whatsapp,
+.social a.whatsapp {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 1rem;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (max-width: 760px) {
   .header-inner {
     flex-direction: column;
@@ -511,4 +556,3 @@ body.project-page main {
   border-color: rgba(255,255,255,0.35);
   color: #fff;
 }
-
