@@ -481,6 +481,10 @@ body.project-page main {
   display: none;
 }
 
+.whatsapp-button {
+  display: none !important;
+}
+
 @media (max-width: 640px) {
   .whatsapp-float {
     width: 52px;
