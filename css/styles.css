@@ -475,6 +475,12 @@ body.project-page main {
   display: block;
 }
 
+.site-header .whatsapp,
+.footer .whatsapp,
+.social a.whatsapp {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .whatsapp-float {
     width: 52px;
@@ -550,4 +556,3 @@ body.project-page main {
   border-color: rgba(255,255,255,0.35);
   color: #fff;
 }
-
