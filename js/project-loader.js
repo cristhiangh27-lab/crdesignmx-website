@@ -162,20 +162,53 @@ export async function loadProjectsData() {
 }
 
 function createProjectCard(project) {
-  const { slug, title, location, year, type, summary, coverImage } = project;
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
   const article = document.createElement('article');
   article.className = 'project-card';
 
   const link = document.createElement('a');
-  link.href = `${ROOT_PATH}/projects/${slug}/`;
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
   const media = document.createElement('div');
   media.className = 'project-media';
 
-  const img = document.createElement('img');
-  img.alt = title || 'Proyecto';
-  img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
-  img.loading = 'lazy';
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title || 'Proyecto';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'lazy';
+    media.append(img);
+  } else {
+    const fallback = document.createElement('div');
+    fallback.className = 'img-fallback';
+    media.append(fallback);
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const overlayContent = document.createElement('div');
+  overlayContent.className = 'project-overlay-content';
+
+  const overlayTitle = document.createElement('p');
+  overlayTitle.className = 'project-overlay-title';
+  overlayTitle.textContent = title;
+
+  const overlayMeta = document.createElement('p');
+  overlayMeta.className = 'project-overlay-meta';
+  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const overlaySummary = document.createElement('p');
+  overlaySummary.className = 'project-overlay-summary';
+  overlaySummary.textContent = summary || '';
+
+  const overlayCta = document.createElement('span');
+  overlayCta.className = 'project-overlay-cta';
+  overlayCta.textContent = 'Ver proyecto';
+
+  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
+  overlay.append(overlayContent);
+  media.append(overlay);
 
   const overlay = document.createElement('div');
   overlay.className = 'project-overlay';
@@ -224,13 +257,52 @@ function createProjectCard(project) {
 }
 
 export async function renderFeaturedProjects(limit = 3) {
-  const container = document.getElementById('featured-projects');
+  const container = document.querySelector('.carousel-track') || document.getElementById('featured-projects');
   if (!container) return;
 
   const projects = await loadProjectsData();
   const featured = projects.slice(0, limit);
+  const placeholders = [
+    {
+      slug: 'algarin-hc',
+      title: 'Algarín H&C',
+      location: 'CDMX',
+      type: 'Uso mixto',
+      summary: 'Descripción breve del proyecto con enfoque en coordinación BIM y claridad documental.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/ALGP2.jpg',
+    },
+    {
+      slug: 'coyoacan-retail-complex',
+      title: 'Coyoacán Retail Complex',
+      location: 'CDMX',
+      type: 'Comercial',
+      summary: 'Desarrollo comercial con visualizaciones claras y control de entregables.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR1.jpg',
+    },
+    {
+      slug: 'penthouse-santa-maria',
+      title: 'Penthouse Santa María',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Propuesta residencial con documentación precisa y soporte a obra.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/CLP2.jpg',
+    },
+    {
+      slug: 'pabellon-kubito',
+      title: 'Pabellón Kúbito',
+      location: 'CDMX',
+      type: 'Instalación efímera',
+      summary: 'Instalación temporal con coordinación BIM y entregables consistentes.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR2.jpg',
+    },
+  ];
+  const items = [...featured, ...placeholders];
   container.innerHTML = '';
-  featured.forEach((project) => {
+  items.forEach((project) => {
     const card = createProjectCard(project);
     card.classList.add('project-card--featured');
     container.appendChild(card);
