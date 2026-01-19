@@ -161,18 +161,68 @@ export async function loadProjectsData() {
   return projects;
 }
 
+function createMediaFallback() {
+  const fallback = document.createElement('div');
+  fallback.className = 'img-fallback';
+
+  const label = document.createElement('span');
+  label.className = 'img-fallback-label';
+  label.textContent = 'Proyecto';
+
+  fallback.append(label);
+  return fallback;
+}
+
 function createProjectCard(project) {
-  const { slug, title, location, year, type, summary, coverImage } = project;
-  const article = document.createElement('article');
-  article.className = 'project-card';
-
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
   const link = document.createElement('a');
-  link.href = `${ROOT_PATH}/projects/${slug}/`;
+  link.className = 'project-card';
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
-  const img = document.createElement('img');
-  img.alt = title || 'Proyecto';
-  img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
-  img.loading = 'lazy';
+  const media = document.createElement('div');
+  media.className = 'project-media';
+
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title || 'Proyecto';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'lazy';
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!media.querySelector('.img-fallback')) {
+        media.prepend(createMediaFallback());
+      }
+    });
+    media.append(img);
+  } else {
+    media.append(createMediaFallback());
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const overlayContent = document.createElement('div');
+  overlayContent.className = 'project-overlay-content';
+
+  const overlayTitle = document.createElement('p');
+  overlayTitle.className = 'project-overlay-title';
+  overlayTitle.textContent = title;
+
+  const overlayMeta = document.createElement('p');
+  overlayMeta.className = 'project-overlay-meta';
+  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const overlaySummary = document.createElement('p');
+  overlaySummary.className = 'project-overlay-summary';
+  overlaySummary.textContent = summary || '';
+
+  const overlayCta = document.createElement('span');
+  overlayCta.className = 'project-overlay-cta';
+  overlayCta.textContent = 'Ver proyecto';
+
+  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
+  overlay.append(overlayContent);
+  media.append(overlay);
 
   const body = document.createElement('div');
   body.className = 'card-body';
@@ -188,20 +238,156 @@ function createProjectCard(project) {
   summaryEl.textContent = summary || '';
 
   body.append(titleEl, meta, summaryEl);
-  link.append(img, body);
-  article.append(link);
+  link.append(media, body);
+  return link;
+}
 
-  return article;
+function createFeaturedProjectCard(project) {
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
+  const link = document.createElement('a');
+  link.className = 'project-card flip-card project-card--featured';
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
+
+  const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
+
+  const inner = document.createElement('div');
+  inner.className = 'flip-inner';
+
+  const front = document.createElement('div');
+  front.className = 'flip-face flip-front';
+
+  if (!resolvedCover) {
+    front.append(createMediaFallback());
+  }
+
+  const back = document.createElement('div');
+  back.className = 'flip-face flip-back';
+
+  if (resolvedCover) {
+    link.style.setProperty('--card-img', `url("${resolvedCover}")`);
+    const preload = new Image();
+    preload.src = resolvedCover;
+    preload.addEventListener('error', () => {
+      link.classList.add('flip-card--fallback');
+      link.style.removeProperty('--card-img');
+      if (!front.querySelector('.img-fallback')) {
+        front.append(createMediaFallback());
+      }
+      if (!back.querySelector('.img-fallback')) {
+        back.append(createMediaFallback());
+      }
+    });
+  } else {
+    link.classList.add('flip-card--fallback');
+  }
+
+  const backContent = document.createElement('div');
+  backContent.className = 'flip-content';
+
+  const backTitle = document.createElement('h3');
+  backTitle.textContent = title || 'Proyecto';
+
+  const backMeta = document.createElement('p');
+  backMeta.className = 'flip-meta';
+  backMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const backSummary = document.createElement('p');
+  backSummary.className = 'flip-summary';
+  backSummary.textContent = summary || '';
+
+  const backCta = document.createElement('span');
+  backCta.className = 'flip-cta';
+  backCta.textContent = 'Ver proyecto';
+
+  backContent.append(backTitle, backMeta, backSummary, backCta);
+  back.append(backContent);
+  if (!resolvedCover) {
+    back.append(createMediaFallback());
+  }
+  inner.append(front, back);
+  link.append(inner);
+
+  return link;
 }
 
 export async function renderFeaturedProjects(limit = 3) {
-  const container = document.getElementById('featured-projects');
+  const container = document.querySelector('.carousel-track') || document.getElementById('featured-projects');
   if (!container) return;
 
-  const projects = await loadProjectsData();
-  const featured = projects.slice(0, limit);
   container.innerHTML = '';
-  featured.forEach((project) => container.appendChild(createProjectCard(project)));
+  let projects = [];
+  try {
+    projects = await loadProjectsData();
+  } catch (error) {
+    console.error('No se pudieron cargar los proyectos destacados', error);
+  }
+  const featured = projects.slice(0, limit);
+  const fallbackExisting = [
+    {
+      slug: 'casa-lomas',
+      title: 'Casa Lomas',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Proyecto residencial con enfoque en documentación clara y soporte a obra.',
+    },
+    {
+      slug: 'casa-carmona',
+      title: 'Casa Carmona',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Modelado BIM coordinado y entregables consistentes.',
+    },
+    {
+      slug: 't2-aicm',
+      title: 'T2 AICM',
+      location: 'CDMX',
+      type: 'Infraestructura',
+      summary: 'Coordinación técnica y control de entregables para obra.',
+    },
+  ];
+  const placeholders = [
+    {
+      slug: 'algarin-hc',
+      title: 'Algarín H&C',
+      location: 'CDMX',
+      type: 'Uso mixto',
+      summary: 'Descripción breve del proyecto con enfoque en coordinación BIM y claridad documental.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/ALGP2.jpg',
+    },
+    {
+      slug: 'coyoacan-retail-complex',
+      title: 'Coyoacán Retail Complex',
+      location: 'CDMX',
+      type: 'Comercial',
+      summary: 'Desarrollo comercial con visualizaciones claras y control de entregables.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR1.jpg',
+    },
+    {
+      slug: 'penthouse-santa-maria',
+      title: 'Penthouse Santa María',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Propuesta residencial con documentación precisa y soporte a obra.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/CLP2.jpg',
+    },
+    {
+      slug: 'pabellon-kubito',
+      title: 'Pabellón Kúbito',
+      location: 'CDMX',
+      type: 'Instalación efímera',
+      summary: 'Instalación temporal con coordinación BIM y entregables consistentes.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR2.jpg',
+    },
+  ];
+  const items = featured.length ? [...featured, ...placeholders] : [...fallbackExisting, ...placeholders];
+  items.forEach((project) => {
+    const card = createFeaturedProjectCard(project);
+    container.appendChild(card);
+  });
 }
 
 export function filterProjects(projects, criteria) {
