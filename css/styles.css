@@ -147,21 +147,21 @@ main {
 }
 
 .btn-primary {
-  background: var(--ink-700);
+  background: linear-gradient(180deg, #2b303a, #1b1f27);
   color: #fff;
   box-shadow: 0 12px 30px rgba(15, 17, 21, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background: var(--ink-900);
+  background: #343a46;
   box-shadow: 0 16px 34px rgba(15, 17, 21, 0.26);
 }
 
 .btn-ghost {
   background: transparent;
   color: var(--ink-700);
-  border-color: var(--ink-700);
+  border-color: rgba(28, 31, 38, 0.5);
 }
 
 .btn-ghost:hover {
@@ -246,13 +246,13 @@ main {
 .projects-carousel .project-card {
   flex: 0 0 clamp(240px, 28vw, 320px);
   scroll-snap-align: start;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
-.projects-carousel .project-media,
-.projects-carousel .project-media img,
-.projects-carousel .project-media .img-fallback {
-  border-radius: 2px;
+.projects-carousel .flip-face,
+.projects-carousel .flip-face img,
+.projects-carousel .flip-face .img-fallback {
+  border-radius: 0;
 }
 
 .projects-grid {
@@ -270,26 +270,19 @@ main {
   flex-direction: column;
   min-height: 100%;
   border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-card--featured {
   perspective: 1200px;
-}
-
-.project-card a {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  border-radius: 0;
+  overflow: visible;
 }
 
 .project-media {
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d;
-  transform-origin: left center;
-  transition: transform 360ms cubic-bezier(0.2, 0.6, 0.25, 1);
-  will-change: transform;
 }
 
 .project-media img {
@@ -298,7 +291,6 @@ main {
   object-fit: cover;
   background: #101018;
   transform: scale(1);
-  transition: transform 220ms ease;
   display: block;
 }
 
@@ -401,28 +393,98 @@ main {
   opacity: 1;
 }
 
-.project-card--featured:hover .project-media,
-.project-card--featured:focus-within .project-media,
-.project-card--featured:focus-visible .project-media {
-  transform: rotateY(-10deg) translateZ(18px);
+.flip-card {
+  perspective: 1200px;
 }
 
-.project-card--featured:hover,
-.project-card--featured:focus-within,
-.project-card--featured:focus-visible {
-  box-shadow: 0 24px 40px rgba(15, 17, 21, 0.18);
+.flip-inner {
+  position: relative;
+  height: 190px;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
 }
 
-.project-card--featured .project-overlay {
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flip-front .img-fallback {
+  height: 100%;
+}
+
+.flip-back {
   background: rgba(255, 255, 255, 0.9);
   color: #0f1115;
+  transform: rotateX(180deg);
 }
 
-.project-card--featured .project-overlay-meta,
-.project-card--featured .project-overlay-summary,
-.project-card--featured .project-overlay-cta,
-.project-card--featured .project-overlay-title {
+.flip-content {
+  height: 100%;
+  padding: 1.1rem 1.2rem;
+  display: grid;
+  align-content: center;
+  gap: 0.4rem;
+}
+
+.flip-back h3 {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.flip-meta,
+.flip-summary {
+  font-size: 0.95rem;
   color: #0f1115;
+}
+
+.flip-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.flip-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.flip-card:focus-visible .flip-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card:focus-visible {
+  box-shadow: 0 18px 32px rgba(15, 17, 21, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flip-card:hover .flip-inner,
+  .flip-card:focus-within .flip-inner,
+  .flip-card:focus-visible .flip-inner {
+    transform: rotateX(180deg);
+  }
+
+  .flip-card:hover,
+  .flip-card:focus-within,
+  .flip-card:focus-visible {
+    box-shadow: 0 18px 32px rgba(15, 17, 21, 0.18);
+  }
 }
 
 .project-card--featured .card-body {
@@ -430,22 +492,6 @@ main {
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .project-card--featured .project-media {
-    transform: none;
-  }
-
-  .project-card--featured .project-overlay {
-    opacity: 1;
-  }
-
-  .project-card--featured .project-overlay-meta {
-    display: none;
-  }
-
-  .project-card--featured .project-overlay-summary {
-    -webkit-line-clamp: 1;
-  }
-
   .carousel-btn {
     display: none;
   }
@@ -504,6 +550,7 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .project-media img,
   .project-overlay,
+  .flip-inner,
   .service-card,
   .btn,
   .carousel-btn {
@@ -515,6 +562,9 @@ main {
   .project-card--featured:hover .project-media,
   .project-card--featured:focus-within .project-media,
   .project-card--featured:focus-visible .project-media,
+  .flip-card:hover .flip-inner,
+  .flip-card:focus-within .flip-inner,
+  .flip-card:focus-visible .flip-inner,
   .service-card:hover,
   .service-card:focus-visible,
   .service-card:focus-within {

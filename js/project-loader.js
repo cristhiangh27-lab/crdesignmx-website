@@ -175,10 +175,8 @@ function createMediaFallback() {
 
 function createProjectCard(project) {
   const { slug, title, location, year, type, summary, coverImage, href } = project;
-  const article = document.createElement('article');
-  article.className = 'project-card';
-
   const link = document.createElement('a');
+  link.className = 'project-card';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
   const media = document.createElement('div');
@@ -241,9 +239,64 @@ function createProjectCard(project) {
 
   body.append(titleEl, meta, summaryEl);
   link.append(media, body);
-  article.append(link);
+  return link;
+}
 
-  return article;
+function createFeaturedProjectCard(project) {
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
+  const link = document.createElement('a');
+  link.className = 'project-card flip-card project-card--featured';
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
+
+  const inner = document.createElement('div');
+  inner.className = 'flip-inner';
+
+  const front = document.createElement('div');
+  front.className = 'flip-face flip-front';
+
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title || 'Proyecto';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'lazy';
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!front.querySelector('.img-fallback')) {
+        front.append(createMediaFallback());
+      }
+    });
+    front.append(img);
+  } else {
+    front.append(createMediaFallback());
+  }
+
+  const back = document.createElement('div');
+  back.className = 'flip-face flip-back';
+
+  const backContent = document.createElement('div');
+  backContent.className = 'flip-content';
+
+  const backTitle = document.createElement('h3');
+  backTitle.textContent = title || 'Proyecto';
+
+  const backMeta = document.createElement('p');
+  backMeta.className = 'flip-meta';
+  backMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const backSummary = document.createElement('p');
+  backSummary.className = 'flip-summary';
+  backSummary.textContent = summary || '';
+
+  const backCta = document.createElement('span');
+  backCta.className = 'flip-cta';
+  backCta.textContent = 'Ver proyecto';
+
+  backContent.append(backTitle, backMeta, backSummary, backCta);
+  back.append(backContent);
+  inner.append(front, back);
+  link.append(inner);
+
+  return link;
 }
 
 export async function renderFeaturedProjects(limit = 3) {
@@ -321,8 +374,7 @@ export async function renderFeaturedProjects(limit = 3) {
   ];
   const items = featured.length ? [...featured, ...placeholders] : [...fallbackExisting, ...placeholders];
   items.forEach((project) => {
-    const card = createProjectCard(project);
-    card.classList.add('project-card--featured');
+    const card = createFeaturedProjectCard(project);
     container.appendChild(card);
   });
 }
