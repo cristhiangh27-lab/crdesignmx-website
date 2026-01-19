@@ -161,6 +161,18 @@ export async function loadProjectsData() {
   return projects;
 }
 
+function createMediaFallback() {
+  const fallback = document.createElement('div');
+  fallback.className = 'img-fallback';
+
+  const label = document.createElement('span');
+  label.className = 'img-fallback-label';
+  label.textContent = 'Proyecto';
+
+  fallback.append(label);
+  return fallback;
+}
+
 function createProjectCard(project) {
   const { slug, title, location, year, type, summary, coverImage, href } = project;
   const article = document.createElement('article');
@@ -177,11 +189,15 @@ function createProjectCard(project) {
     img.alt = title || 'Proyecto';
     img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
     img.loading = 'lazy';
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!media.querySelector('.img-fallback')) {
+        media.prepend(createMediaFallback());
+      }
+    });
     media.append(img);
   } else {
-    const fallback = document.createElement('div');
-    fallback.className = 'img-fallback';
-    media.append(fallback);
+    media.append(createMediaFallback());
   }
 
   const overlay = document.createElement('div');
@@ -210,32 +226,6 @@ function createProjectCard(project) {
   overlay.append(overlayContent);
   media.append(overlay);
 
-  const overlay = document.createElement('div');
-  overlay.className = 'project-overlay';
-
-  const overlayContent = document.createElement('div');
-  overlayContent.className = 'project-overlay-content';
-
-  const overlayTitle = document.createElement('p');
-  overlayTitle.className = 'project-overlay-title';
-  overlayTitle.textContent = title;
-
-  const overlayMeta = document.createElement('p');
-  overlayMeta.className = 'project-overlay-meta';
-  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
-
-  const overlaySummary = document.createElement('p');
-  overlaySummary.className = 'project-overlay-summary';
-  overlaySummary.textContent = summary || '';
-
-  const overlayCta = document.createElement('span');
-  overlayCta.className = 'project-overlay-cta';
-  overlayCta.textContent = 'Ver proyecto';
-
-  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
-  overlay.append(overlayContent);
-  media.append(img, overlay);
-
   const body = document.createElement('div');
   body.className = 'card-body';
 
@@ -260,8 +250,37 @@ export async function renderFeaturedProjects(limit = 3) {
   const container = document.querySelector('.carousel-track') || document.getElementById('featured-projects');
   if (!container) return;
 
-  const projects = await loadProjectsData();
+  container.innerHTML = '';
+  let projects = [];
+  try {
+    projects = await loadProjectsData();
+  } catch (error) {
+    console.error('No se pudieron cargar los proyectos destacados', error);
+  }
   const featured = projects.slice(0, limit);
+  const fallbackExisting = [
+    {
+      slug: 'casa-lomas',
+      title: 'Casa Lomas',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Proyecto residencial con enfoque en documentación clara y soporte a obra.',
+    },
+    {
+      slug: 'casa-carmona',
+      title: 'Casa Carmona',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Modelado BIM coordinado y entregables consistentes.',
+    },
+    {
+      slug: 't2-aicm',
+      title: 'T2 AICM',
+      location: 'CDMX',
+      type: 'Infraestructura',
+      summary: 'Coordinación técnica y control de entregables para obra.',
+    },
+  ];
   const placeholders = [
     {
       slug: 'algarin-hc',
@@ -300,8 +319,7 @@ export async function renderFeaturedProjects(limit = 3) {
       coverImage: 'img/POR2.jpg',
     },
   ];
-  const items = [...featured, ...placeholders];
-  container.innerHTML = '';
+  const items = featured.length ? [...featured, ...placeholders] : [...fallbackExisting, ...placeholders];
   items.forEach((project) => {
     const card = createProjectCard(project);
     card.classList.add('project-card--featured');
