@@ -169,10 +169,35 @@ function createProjectCard(project) {
   const link = document.createElement('a');
   link.href = `${ROOT_PATH}/projects/${slug}/`;
 
+  const media = document.createElement('div');
+  media.className = 'project-media';
+
   const img = document.createElement('img');
   img.alt = title || 'Proyecto';
   img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
   img.loading = 'lazy';
+
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const overlayContent = document.createElement('div');
+  overlayContent.className = 'project-overlay-content';
+
+  const overlayTitle = document.createElement('p');
+  overlayTitle.className = 'project-overlay-title';
+  overlayTitle.textContent = title;
+
+  const overlayMeta = document.createElement('p');
+  overlayMeta.className = 'project-overlay-meta';
+  overlayMeta.textContent = summary || [location, year, type].filter(Boolean).join(' · ');
+
+  const overlayCta = document.createElement('span');
+  overlayCta.className = 'project-overlay-cta';
+  overlayCta.textContent = 'Ver proyecto';
+
+  overlayContent.append(overlayTitle, overlayMeta, overlayCta);
+  overlay.append(overlayContent);
+  media.append(img, overlay);
 
   const body = document.createElement('div');
   body.className = 'card-body';
@@ -188,7 +213,7 @@ function createProjectCard(project) {
   summaryEl.textContent = summary || '';
 
   body.append(titleEl, meta, summaryEl);
-  link.append(img, body);
+  link.append(media, body);
   article.append(link);
 
   return article;
