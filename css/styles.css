@@ -265,6 +265,10 @@ main {
   border: 1px solid var(--border);
 }
 
+.project-card--featured {
+  perspective: 1200px;
+}
+
 .project-card a {
   text-decoration: none;
   display: flex;
@@ -275,6 +279,10 @@ main {
 .project-media {
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition: transform 360ms cubic-bezier(0.2, 0.6, 0.25, 1);
+  will-change: transform;
 }
 
 .project-media img {
@@ -315,7 +323,7 @@ main {
   background: linear-gradient(180deg, rgba(11, 11, 18, 0.1), rgba(11, 11, 18, 0.8));
   color: #fff;
   opacity: 0;
-  transition: opacity 220ms ease;
+  transition: opacity 360ms cubic-bezier(0.2, 0.6, 0.25, 1);
 }
 
 .project-overlay-content {
@@ -386,11 +394,33 @@ main {
   opacity: 1;
 }
 
+.project-card--featured:hover .project-media,
+.project-card--featured:focus-within .project-media,
+.project-card--featured:focus-visible .project-media {
+  transform: rotateY(-12deg) translateZ(18px);
+}
+
+.project-card--featured .project-overlay {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f1115;
+}
+
+.project-card--featured .project-overlay-meta,
+.project-card--featured .project-overlay-summary,
+.project-card--featured .project-overlay-cta,
+.project-card--featured .project-overlay-title {
+  color: #0f1115;
+}
+
 .project-card--featured .card-body {
   display: none;
 }
 
 @media (hover: none) and (pointer: coarse) {
+  .project-card--featured .project-media {
+    transform: none;
+  }
+
   .project-card--featured .project-overlay {
     opacity: 1;
   }
@@ -469,6 +499,9 @@ main {
 
   .project-card:hover .project-media img,
   .project-card:focus-within .project-media img,
+  .project-card--featured:hover .project-media,
+  .project-card--featured:focus-within .project-media,
+  .project-card--featured:focus-visible .project-media,
   .service-card:hover,
   .service-card:focus-visible,
   .service-card:focus-within {
