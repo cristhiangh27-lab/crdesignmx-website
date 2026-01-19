@@ -189,13 +189,17 @@ function createProjectCard(project) {
 
   const overlayMeta = document.createElement('p');
   overlayMeta.className = 'project-overlay-meta';
-  overlayMeta.textContent = summary || [location, year, type].filter(Boolean).join(' · ');
+  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const overlaySummary = document.createElement('p');
+  overlaySummary.className = 'project-overlay-summary';
+  overlaySummary.textContent = summary || '';
 
   const overlayCta = document.createElement('span');
   overlayCta.className = 'project-overlay-cta';
   overlayCta.textContent = 'Ver proyecto';
 
-  overlayContent.append(overlayTitle, overlayMeta, overlayCta);
+  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
   overlay.append(overlayContent);
   media.append(img, overlay);
 
@@ -226,7 +230,11 @@ export async function renderFeaturedProjects(limit = 3) {
   const projects = await loadProjectsData();
   const featured = projects.slice(0, limit);
   container.innerHTML = '';
-  featured.forEach((project) => container.appendChild(createProjectCard(project)));
+  featured.forEach((project) => {
+    const card = createProjectCard(project);
+    card.classList.add('project-card--featured');
+    container.appendChild(card);
+  });
 }
 
 export function filterProjects(projects, criteria) {
