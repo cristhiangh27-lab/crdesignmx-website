@@ -210,6 +210,32 @@ function createProjectCard(project) {
   overlay.append(overlayContent);
   media.append(overlay);
 
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const overlayContent = document.createElement('div');
+  overlayContent.className = 'project-overlay-content';
+
+  const overlayTitle = document.createElement('p');
+  overlayTitle.className = 'project-overlay-title';
+  overlayTitle.textContent = title;
+
+  const overlayMeta = document.createElement('p');
+  overlayMeta.className = 'project-overlay-meta';
+  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const overlaySummary = document.createElement('p');
+  overlaySummary.className = 'project-overlay-summary';
+  overlaySummary.textContent = summary || '';
+
+  const overlayCta = document.createElement('span');
+  overlayCta.className = 'project-overlay-cta';
+  overlayCta.textContent = 'Ver proyecto';
+
+  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
+  overlay.append(overlayContent);
+  media.append(img, overlay);
+
   const body = document.createElement('div');
   body.className = 'card-body';
 
