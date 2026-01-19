@@ -246,6 +246,13 @@ main {
 .projects-carousel .project-card {
   flex: 0 0 clamp(240px, 28vw, 320px);
   scroll-snap-align: start;
+  border-radius: 2px;
+}
+
+.projects-carousel .project-media,
+.projects-carousel .project-media img,
+.projects-carousel .project-media .img-fallback {
+  border-radius: 2px;
 }
 
 .projects-grid {
@@ -384,8 +391,8 @@ main {
   letter-spacing: 0.08em;
 }
 
-.project-card:hover .project-media img,
-.project-card:focus-within .project-media img {
+.project-card:not(.project-card--featured):hover .project-media img,
+.project-card:not(.project-card--featured):focus-within .project-media img {
   transform: scale(1.03);
 }
 
@@ -397,7 +404,13 @@ main {
 .project-card--featured:hover .project-media,
 .project-card--featured:focus-within .project-media,
 .project-card--featured:focus-visible .project-media {
-  transform: rotateY(-12deg) translateZ(18px);
+  transform: rotateY(-10deg) translateZ(18px);
+}
+
+.project-card--featured:hover,
+.project-card--featured:focus-within,
+.project-card--featured:focus-visible {
+  box-shadow: 0 24px 40px rgba(15, 17, 21, 0.18);
 }
 
 .project-card--featured .project-overlay {
