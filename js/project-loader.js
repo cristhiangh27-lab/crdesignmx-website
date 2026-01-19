@@ -248,30 +248,38 @@ function createFeaturedProjectCard(project) {
   link.className = 'project-card flip-card project-card--featured';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
+  const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
+
   const inner = document.createElement('div');
   inner.className = 'flip-inner';
 
   const front = document.createElement('div');
   front.className = 'flip-face flip-front';
 
-  if (coverImage) {
-    const img = document.createElement('img');
-    img.alt = title || 'Proyecto';
-    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
-    img.loading = 'lazy';
-    img.addEventListener('error', () => {
-      img.remove();
-      if (!front.querySelector('.img-fallback')) {
-        front.append(createMediaFallback());
-      }
-    });
-    front.append(img);
-  } else {
+  if (!resolvedCover) {
     front.append(createMediaFallback());
   }
 
   const back = document.createElement('div');
   back.className = 'flip-face flip-back';
+
+  if (resolvedCover) {
+    link.style.setProperty('--card-img', `url("${resolvedCover}")`);
+    const preload = new Image();
+    preload.src = resolvedCover;
+    preload.addEventListener('error', () => {
+      link.classList.add('flip-card--fallback');
+      link.style.removeProperty('--card-img');
+      if (!front.querySelector('.img-fallback')) {
+        front.append(createMediaFallback());
+      }
+      if (!back.querySelector('.img-fallback')) {
+        back.append(createMediaFallback());
+      }
+    });
+  } else {
+    link.classList.add('flip-card--fallback');
+  }
 
   const backContent = document.createElement('div');
   backContent.className = 'flip-content';
@@ -293,6 +301,9 @@ function createFeaturedProjectCard(project) {
 
   backContent.append(backTitle, backMeta, backSummary, backCta);
   back.append(backContent);
+  if (!resolvedCover) {
+    back.append(createMediaFallback());
+  }
   inner.append(front, back);
   link.append(inner);
 
