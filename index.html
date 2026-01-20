@@ -51,46 +51,51 @@
   </header>
 
   <main>
-   <section class="hero hero-video" aria-labelledby="hero-title">
-  <div class="hero-bleed">
-    <video class="hero-bg" autoplay muted loop playsinline preload="metadata">
-      <source src="img/hero/hero-reel.mp4" type="video/mp4">
-    </video>
+   <section class="abovefold">
+    <div class="abovefold-hero">
+      <section class="hero hero-video" aria-labelledby="hero-title">
+        <div class="hero-bleed">
+          <video class="hero-bg" autoplay muted loop playsinline preload="metadata">
+            <source src="img/hero/hero-reel.mp4" type="video/mp4">
+          </video>
 
-    <div class="hero-overlay" aria-hidden="true"></div>
+          <div class="hero-overlay" aria-hidden="true"></div>
 
-    <div class="hero-content">
-      <p class="section-lead">Arquitectura y visualización</p>
-      <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
-      <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+          <div class="hero-content">
+            <p class="section-lead">Arquitectura y visualización</p>
+            <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
+            <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
 
-      <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
-        <a class="btn btn-ghost" href="services.html">Servicios</a>
-      </div>
+            <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
+              <a class="btn btn-ghost" href="services.html">Servicios</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
 
-
-    <div class="section-header section-header--featured">
-      <div>
-        <h2>Proyectos destacados</h2>
-        <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
+    <aside class="abovefold-featured" aria-label="Proyectos destacados">
+      <div class="section-header section-header--featured">
+        <div>
+          <h2>Proyectos destacados</h2>
+          <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
+        </div>
+        <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
       </div>
-      <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
-    </div>
-    <section class="projects-carousel featured-gallery" aria-label="Proyectos destacados">
-      <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
-        <span aria-hidden="true">‹</span>
-      </button>
-      <div class="carousel-track" id="featured-projects" aria-live="polite">
-        <p>Cargando proyectos…</p>
-      </div>
-      <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
-        <span aria-hidden="true">›</span>
-      </button>
-    </section>
+      <section class="projects-carousel featured-gallery">
+        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="carousel-track" id="featured-projects" aria-live="polite">
+          <p>Cargando proyectos…</p>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
+          <span aria-hidden="true">›</span>
+        </button>
+      </section>
+    </aside>
+   </section>
 
     <div class="section-header">
       <div>
@@ -144,6 +149,12 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    const header = document.querySelector('.site-header');
+    if (header) {
+      setTimeout(() => header.classList.add('header--glass'), 1000);
+    }
   </script>
   <script type="module">
     import { renderFeaturedProjects } from './js/project-loader.js';

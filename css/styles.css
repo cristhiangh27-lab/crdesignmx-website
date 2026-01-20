@@ -20,7 +20,7 @@
 }
 
 body.home {
-  --bg: linear-gradient(180deg, #15171c 0%, #0e0f12 100%);
+  --bg: linear-gradient(180deg, #0e0f12 0%, #15171c 100%);
   --panel: #141820;
   --text: #f3f4f6;
   --muted: #aeb4bf;
@@ -83,8 +83,16 @@ body.home .services-grid--light .service-card {
 }
 
 body.home .site-header {
-  background: rgba(15, 17, 21, 0.7);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border-bottom-color: rgba(15, 17, 21, 0.08);
+}
+
+body.home .site-header .primary-nav a {
+  color: #0f1115;
+}
+
+body.home .site-header .primary-nav a::after {
+  background: rgba(15, 17, 21, 0.35);
 }
 
 * {
@@ -123,6 +131,13 @@ header.site-header {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+header.site-header.header--glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(15, 17, 21, 0.08);
 }
 
 .header-inner {
@@ -197,6 +212,46 @@ main {
   padding: 2.5rem 1.5rem 3rem;
 }
 
+.abovefold {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.abovefold-hero,
+.abovefold-featured {
+  display: flex;
+  flex-direction: column;
+}
+
+.abovefold-featured .section-header {
+  margin-top: 0;
+}
+
+.abovefold-featured .section-header h2,
+.abovefold-featured .section-lead {
+  color: #f3f4f6;
+}
+
+.abovefold-featured .section-lead {
+  color: rgba(243, 244, 246, 0.75);
+}
+
+.abovefold-featured .projects-carousel {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .abovefold {
+    grid-template-columns: 1fr;
+  }
+
+  .abovefold-featured {
+    margin-top: 1.5rem;
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -261,7 +316,7 @@ main {
 
 body.home .featured-gallery {
   background: linear-gradient(180deg, #0e0f12 0%, #15171c 100%);
-  padding: 1.5rem 0;
+  padding: 0.75rem 0 1rem;
 }
 
 body.home .featured-gallery .carousel-btn {
@@ -285,7 +340,7 @@ body.home .featured-gallery .carousel-btn:hover {
 
 #featured-projects {
   gap: 4px;
-  padding: 0.75rem 0.5rem 1rem;
+  padding: 0.5rem;
   scroll-padding: 0.5rem;
 }
 
@@ -334,7 +389,7 @@ body.home .featured-gallery .carousel-btn:hover {
 }
 
 .projects-carousel .project-card {
-  flex: 0 0 clamp(360px, 68vw, 560px);
+  flex: 0 0 clamp(240px, 40vw, 420px);
   scroll-snap-align: start;
   border-radius: 0;
   background: transparent;
@@ -956,9 +1011,8 @@ body.project-page main {
 }
 
 body.home .hero-bleed {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;
+  margin: 0;
   min-height: 420px;
   display: flex;
   align-items: center;
