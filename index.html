@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CR Collective — Arquitectura y diseño</title>
+  <meta name="description" content="CR Collective diseña espacios contemporáneos con enfoque en anteproyecto, modelado BIM, documentación y visualización arquitectónica.">
+  <link rel="canonical" href="https://crcollective.mx/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CR Collective — Arquitectura y diseño">
+  <meta property="og:description" content="Estudio de arquitectura especializado en anteproyecto, BIM, documentación y visualización para proyectos residenciales y comerciales.">
+  <meta property="og:url" content="https://crcollective.mx/">
+  <meta property="og:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CR Collective — Arquitectura y diseño">
+  <meta name="twitter:description" content="Arquitectura y visualización con procesos claros y entregables accionables.">
+  <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
+  <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home">
   <header class="site-header">
     <div class="header-inner">
 <a class="logo" href="index.html" aria-label="CR Collective">
@@ -24,6 +36,7 @@
   <img
     class="logo-static"
     src="img/brand/logo-cr-collective.png"
+    loading="lazy"
     alt="CR Collective"
   >
 </a>
@@ -38,36 +51,53 @@
   </header>
 
   <main>
-   <section class="hero hero-video" aria-labelledby="hero-title">
-  <video class="hero-bg" autoplay muted loop playsinline preload="metadata">
-    <source src="img/hero/hero-reel.mp4" type="video/mp4">
-  </video>
+   <section class="abovefold abovefold-wrap">
+    <div class="abovefold-hero">
+      <section class="hero hero-video" aria-labelledby="hero-title">
+        <div class="hero-bleed">
+          <video class="hero-bg" autoplay muted loop playsinline preload="metadata">
+            <source src="img/hero/hero-reel.mp4" type="video/mp4">
+          </video>
 
-  <div class="hero-overlay" aria-hidden="true"></div>
+          <div class="hero-overlay" aria-hidden="true"></div>
 
-  <div class="hero-content">
-    <p class="section-lead">Arquitectura y visualización</p>
-    <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
-    <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+          <div class="hero-content">
+            <p class="section-lead">Arquitectura y visualización</p>
+            <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
+            <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
 
-    <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-      <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
-      <a class="btn btn-ghost" href="services.html">Servicios</a>
+            <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="projects.html">Ver proyectos</a>
+              <a class="btn btn-ghost" href="services.html">Servicios</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
 
-
-    <div class="section-header">
-      <div>
-        <h2>Proyectos destacados</h2>
-        <p class="section-lead">Tres casos recientes desarrollados bajo la marca CR Collective.</p>
+    <aside class="abovefold-featured" aria-label="Proyectos destacados">
+      <div class="featured-overlay">
+        <div class="section-header section-header--featured">
+        <div>
+          <h2>Proyectos destacados</h2>
+          <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
+        </div>
+        <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+        </div>
       </div>
-      <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
-    </div>
-    <section class="projects-grid" id="featured-projects" aria-label="Proyectos destacados">
-      <p>Cargando proyectos…</p>
-    </section>
+      <section class="projects-carousel featured-gallery">
+        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="carousel-track" id="featured-projects" aria-live="polite">
+          <p>Cargando proyectos…</p>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
+          <span aria-hidden="true">›</span>
+        </button>
+      </section>
+    </aside>
+   </section>
 
     <div class="section-header">
       <div>
@@ -76,7 +106,7 @@
       </div>
       <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
     </div>
-    <section class="services-grid" aria-label="Servicios">
+    <section class="services-grid services-grid--light" aria-label="Servicios">
       <article class="service-card">
         <div class="icon" aria-hidden="true">🏗️</div>
         <h3>Anteproyecto arquitectónico</h3>
@@ -107,9 +137,39 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+    const header = document.querySelector('.site-header');
+    if (header) {
+      setTimeout(() => header.classList.add('header--glass'), 1000);
+    }
+  </script>
   <script type="module">
     import { renderFeaturedProjects } from './js/project-loader.js';
     renderFeaturedProjects(3);
+
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+    const getScrollAmount = () => {
+      if (!track) return 0;
+      const card = track.querySelector('.project-card');
+      if (!card) return track.clientWidth;
+      const styles = getComputedStyle(track);
+      const gapValue = parseFloat(styles.columnGap || styles.gap || 0);
+      return card.getBoundingClientRect().width + (Number.isNaN(gapValue) ? 0 : gapValue);
+    };
+
+    const scrollTrack = (direction) => {
+      if (!track) return;
+      track.scrollBy({ left: direction * getScrollAmount(), behavior: scrollBehavior });
+    };
+
+    prevBtn?.addEventListener('click', () => scrollTrack(-1));
+    nextBtn?.addEventListener('click', () => scrollTrack(1));
   </script>
 <script>
   const introVideo = document.querySelector('.logo-intro');
@@ -134,7 +194,22 @@
     // Por si el video no dispara "ended" por alguna razón
     setTimeout(finish, 2500);
   }
-</script>
+  </script>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/525514844480?text=Hola%2C%20vengo%20de%20crcollective.mx.%20Me%20interesa%20una%20asesor%C3%ADa%2Fcotizaci%C3%B3n."
+    aria-label="Chatear por WhatsApp"
+    target="_blank"
+    rel="noopener"
+  >
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill="currentColor"
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.67.15-.198.297-.767.966-.94 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.009-.372-.011-.571-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 4.403h-.001c-1.205 0-2.39-.322-3.43-.93l-.246-.146-2.552.669.683-2.486-.16-.255c-.671-1.07-1.025-2.306-1.024-3.57 0-3.701 3.008-6.709 6.71-6.709 1.789 0 3.465.696 4.727 1.958 1.262 1.262 1.956 2.939 1.955 4.727 0 3.701-3.009 6.709-6.712 6.709m5.613-12.322C16.905 3.659 15.028 2.92 13.05 2.92c-3.77 0-6.84 3.069-6.842 6.839 0 1.203.315 2.375.916 3.405l-1.095 4.004 4.095-1.074c1 .547 2.125.836 3.274.836h.003c3.77 0 6.84-3.069 6.842-6.839.001-1.827-.711-3.543-2.002-4.834"
+      />
+    </svg>
+  </a>
 
 </body>
 </html>
