@@ -264,9 +264,10 @@ function createFeaturedProjectCard(project) {
   back.className = 'flip-face flip-back';
 
   if (resolvedCover) {
-    link.style.setProperty('--card-img', `url("${resolvedCover}")`);
+    const absoluteCover = new URL(resolvedCover, window.location.href).href;
+    link.style.setProperty('--card-img', `url("${absoluteCover}")`);
     const preload = new Image();
-    preload.src = resolvedCover;
+    preload.src = absoluteCover;
     preload.addEventListener('error', () => {
       link.classList.add('flip-card--fallback');
       link.style.removeProperty('--card-img');
