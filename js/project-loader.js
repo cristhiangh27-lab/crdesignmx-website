@@ -7,22 +7,24 @@ const PROJECT_INDEX_PATH = `${ROOT_PATH}/projects/projects.json`;
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
-  if (path.startsWith('/')) return `${ROOT_PATH}${path}`;
-  return `${ROOT_PATH}/${path}`;
+  if (path.startsWith('/')) return new URL(`${ROOT_PATH}${path}`, window.location.href).toString();
+  return new URL(`${ROOT_PATH}/${path}`, window.location.href).toString();
 }
 
 async function fetchJSON(path) {
-  const response = await fetch(path);
+  const url = new URL(path, window.location.href).toString();
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`No se pudo cargar ${path} (${response.status})`);
+    throw new Error(`No se pudo cargar ${url} (${response.status})`);
   }
   return response.json();
 }
 
 async function fetchText(path) {
-  const response = await fetch(path);
+  const url = new URL(path, window.location.href).toString();
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`No se pudo cargar ${path} (${response.status})`);
+    throw new Error(`No se pudo cargar ${url} (${response.status})`);
   }
   return response.text();
 }
@@ -141,7 +143,7 @@ async function loadProjectIndex() {
     }
     return [];
   } catch (error) {
-    console.error('No se pudo cargar el índice de proyectos', error);
+    console.error(`No se pudo cargar el índice de proyectos desde ${PROJECT_INDEX_PATH}`, error);
     return [];
   }
 }
@@ -187,6 +189,9 @@ function createProjectCard(project) {
     img.alt = title || 'Proyecto';
     img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
     img.loading = 'lazy';
+    img.decoding = 'async';
+    img.width = 640;
+    img.height = 360;
     img.addEventListener('error', () => {
       img.remove();
       if (!media.querySelector('.img-fallback')) {
@@ -312,30 +317,69 @@ export async function renderFeaturedProjects(limit = 3) {
   try {
     projects = await loadProjectsData();
   } catch (error) {
-    console.error('No se pudieron cargar los proyectos destacados', error);
+    console.error(`No se pudieron cargar los proyectos destacados desde ${PROJECT_INDEX_PATH}`, error);
   }
   const featured = projects.slice(0, limit);
   const fallbackExisting = [
     {
-      slug: 'casa-lomas',
-      title: 'Casa Lomas',
+      slug: 'algarin-hc',
+      title: 'Algarín H&C',
       location: 'CDMX',
-      type: 'Residencial',
-      summary: 'Proyecto residencial con enfoque en documentación clara y soporte a obra.',
+      year: '2024',
+      type: 'Uso mixto',
+      summary: 'Proyecto conceptual con documentación clara y soporte técnico.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/ALGP2.jpg',
     },
     {
-      slug: 'casa-carmona',
-      title: 'Casa Carmona',
+      slug: 'coyoacan-retail-complex',
+      title: 'Coyoacán Retail Complex',
       location: 'CDMX',
-      type: 'Residencial',
-      summary: 'Modelado BIM coordinado y entregables consistentes.',
+      year: '2023',
+      type: 'Comercial',
+      summary: 'Desarrollo comercial con coordinación BIM y entregables consistentes.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR1.jpg',
     },
     {
-      slug: 't2-aicm',
-      title: 'T2 AICM',
+      slug: 'penthouse-santa-maria',
+      title: 'Penthouse Santa María',
       location: 'CDMX',
-      type: 'Infraestructura',
-      summary: 'Coordinación técnica y control de entregables para obra.',
+      year: '2024',
+      type: 'Residencial',
+      summary: 'Residencia con visualización cuidada y documentación ejecutiva.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/CLP2.jpg',
+    },
+    {
+      slug: 'pabellon-kubito',
+      title: 'Pabellón Kúbito',
+      location: 'CDMX',
+      year: '2022',
+      type: 'Instalación efímera',
+      summary: 'Instalación temporal con control de entregables y soporte a obra.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR2.jpg',
+    },
+    {
+      slug: 'timilpan-inst',
+      title: 'Timilpan INST',
+      location: 'Estado de México',
+      year: '2023',
+      type: 'Industrial',
+      summary: 'Propuesta industrial con coordinación y entregables claros.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/TP3.png',
+    },
+    {
+      slug: 'cubierta-cinetica',
+      title: 'Cubierta Cinética',
+      location: 'CDMX',
+      year: '2021',
+      type: 'Equipamiento',
+      summary: 'Estudio de cubierta con visualización técnica y control de alcance.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/TP4.png',
     },
   ];
   const placeholders = [
@@ -376,7 +420,8 @@ export async function renderFeaturedProjects(limit = 3) {
       coverImage: 'img/POR2.jpg',
     },
   ];
-  const items = featured.length ? [...featured, ...placeholders] : [...fallbackExisting, ...placeholders];
+  // Firefox/Pages fallback: if no data arrives, render a hardcoded set so the carousel is never empty.
+  const items = featured.length ? [...featured, ...placeholders] : fallbackExisting;
   items.forEach((project) => {
     const card = createFeaturedProjectCard(project);
     container.appendChild(card);

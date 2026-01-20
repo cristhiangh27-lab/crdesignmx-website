@@ -15,6 +15,8 @@
   <meta name="twitter:title" content="CR Collective — Arquitectura y diseño">
   <meta name="twitter:description" content="Arquitectura y visualización con procesos claros y entregables accionables.">
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
+  <link rel="preload" as="style" href="css/styles.css">
+  <link rel="preload" as="script" href="js/project-loader.js">
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -55,7 +57,7 @@
     <div class="abovefold-hero">
       <section class="hero hero-video" aria-labelledby="hero-title">
         <div class="hero-bleed">
-          <video class="hero-bg" autoplay muted loop playsinline preload="metadata">
+          <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="img/proyecto1.jpg">
             <source src="img/hero/hero-reel.mp4" type="video/mp4">
           </video>
 
@@ -176,31 +178,46 @@
   </script>
   <script type="module">
     import { renderFeaturedProjects } from './js/project-loader.js';
-    renderFeaturedProjects(3);
 
-    const track = document.querySelector('.carousel-track');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFeaturedProjects(3);
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+      const track = document.querySelector('.carousel-track');
+      const prevBtn = document.querySelector('.carousel-btn.prev');
+      const nextBtn = document.querySelector('.carousel-btn.next');
 
-    const getScrollAmount = () => {
-      if (!track) return 0;
-      const card = track.querySelector('.project-card');
-      if (!card) return track.clientWidth;
-      const styles = getComputedStyle(track);
-      const gapValue = parseFloat(styles.columnGap || styles.gap || 0);
-      return card.getBoundingClientRect().width + (Number.isNaN(gapValue) ? 0 : gapValue);
-    };
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+      // Firefox fallback: if scroll-snap isn't supported, translate the track manually.
+      const supportsSnap = CSS.supports('scroll-snap-type: x mandatory');
+      let currentIndex = 0;
 
-    const scrollTrack = (direction) => {
-      if (!track) return;
-      track.scrollBy({ left: direction * getScrollAmount(), behavior: scrollBehavior });
-    };
+      const getScrollAmount = () => {
+        if (!track) return 0;
+        const card = track.querySelector('.project-card');
+        if (!card) return track.clientWidth;
+        const styles = getComputedStyle(track);
+        const gapValue = parseFloat(styles.columnGap || styles.gap || 0);
+        return card.getBoundingClientRect().width + (Number.isNaN(gapValue) ? 0 : gapValue);
+      };
 
-    prevBtn?.addEventListener('click', () => scrollTrack(-1));
-    nextBtn?.addEventListener('click', () => scrollTrack(1));
+      const scrollTrack = (direction) => {
+        if (!track) return;
+        if (supportsSnap) {
+          track.scrollBy({ left: direction * getScrollAmount(), behavior: scrollBehavior });
+          return;
+        }
+        const cards = track.querySelectorAll('.project-card');
+        const maxIndex = Math.max(0, cards.length - 1);
+        currentIndex = Math.min(maxIndex, Math.max(0, currentIndex + direction));
+        track.style.transition = prefersReducedMotion ? 'none' : 'transform 0.3s ease';
+        track.style.transform = `translateX(-${currentIndex * getScrollAmount()}px)`;
+        track.style.overflow = 'hidden';
+      };
+
+      prevBtn?.addEventListener('click', () => scrollTrack(-1));
+      nextBtn?.addEventListener('click', () => scrollTrack(1));
+    });
   </script>
 <script>
   const introVideo = document.querySelector('.logo-intro');
