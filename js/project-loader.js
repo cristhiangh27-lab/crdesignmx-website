@@ -7,22 +7,24 @@ const PROJECT_INDEX_PATH = `${ROOT_PATH}/projects/projects.json`;
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
-  if (path.startsWith('/')) return `${ROOT_PATH}${path}`;
-  return `${ROOT_PATH}/${path}`;
+  if (path.startsWith('/')) return new URL(`${ROOT_PATH}${path}`, window.location.href).toString();
+  return new URL(`${ROOT_PATH}/${path}`, window.location.href).toString();
 }
 
 async function fetchJSON(path) {
-  const response = await fetch(path);
+  const url = new URL(path, window.location.href).toString();
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`No se pudo cargar ${path} (${response.status})`);
+    throw new Error(`No se pudo cargar ${url} (${response.status})`);
   }
   return response.json();
 }
 
 async function fetchText(path) {
-  const response = await fetch(path);
+  const url = new URL(path, window.location.href).toString();
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`No se pudo cargar ${path} (${response.status})`);
+    throw new Error(`No se pudo cargar ${url} (${response.status})`);
   }
   return response.text();
 }
@@ -141,7 +143,7 @@ async function loadProjectIndex() {
     }
     return [];
   } catch (error) {
-    console.error('No se pudo cargar el índice de proyectos', error);
+    console.error(`No se pudo cargar el índice de proyectos desde ${PROJECT_INDEX_PATH}`, error);
     return [];
   }
 }
@@ -161,18 +163,71 @@ export async function loadProjectsData() {
   return projects;
 }
 
+function createMediaFallback() {
+  const fallback = document.createElement('div');
+  fallback.className = 'img-fallback';
+
+  const label = document.createElement('span');
+  label.className = 'img-fallback-label';
+  label.textContent = 'Proyecto';
+
+  fallback.append(label);
+  return fallback;
+}
+
 function createProjectCard(project) {
-  const { slug, title, location, year, type, summary, coverImage } = project;
-  const article = document.createElement('article');
-  article.className = 'project-card';
-
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
   const link = document.createElement('a');
-  link.href = `${ROOT_PATH}/projects/${slug}/`;
+  link.className = 'project-card';
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
-  const img = document.createElement('img');
-  img.alt = title || 'Proyecto';
-  img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
-  img.loading = 'lazy';
+  const media = document.createElement('div');
+  media.className = 'project-media';
+
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title || 'Proyecto';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.width = 640;
+    img.height = 360;
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!media.querySelector('.img-fallback')) {
+        media.prepend(createMediaFallback());
+      }
+    });
+    media.append(img);
+  } else {
+    media.append(createMediaFallback());
+  }
+
+  const overlay = document.createElement('div');
+  overlay.className = 'project-overlay';
+
+  const overlayContent = document.createElement('div');
+  overlayContent.className = 'project-overlay-content';
+
+  const overlayTitle = document.createElement('p');
+  overlayTitle.className = 'project-overlay-title';
+  overlayTitle.textContent = title;
+
+  const overlayMeta = document.createElement('p');
+  overlayMeta.className = 'project-overlay-meta';
+  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
+
+  const overlaySummary = document.createElement('p');
+  overlaySummary.className = 'project-overlay-summary';
+  overlaySummary.textContent = summary || '';
+
+  const overlayCta = document.createElement('span');
+  overlayCta.className = 'project-overlay-cta';
+  overlayCta.textContent = 'Ver proyecto';
+
+  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
+  overlay.append(overlayContent);
+  media.append(overlay);
 
   const body = document.createElement('div');
   body.className = 'card-body';
@@ -188,20 +243,189 @@ function createProjectCard(project) {
   summaryEl.textContent = summary || '';
 
   body.append(titleEl, meta, summaryEl);
-  link.append(img, body);
-  article.append(link);
+  link.append(media, body);
+  return link;
+}
 
-  return article;
+function createFeaturedProjectCard(project) {
+  const { slug, title, location, year, type, summary, coverImage, href } = project;
+  const link = document.createElement('a');
+  link.className = 'project-card flip-card project-card--featured';
+  link.href = href || `${ROOT_PATH}/projects/${slug}/`;
+
+  const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
+
+  const inner = document.createElement('div');
+  inner.className = 'flip-inner';
+
+  const front = document.createElement('div');
+  front.className = 'flip-face flip-front';
+
+  if (!resolvedCover) {
+    front.append(createMediaFallback());
+  }
+
+  const back = document.createElement('div');
+  back.className = 'flip-face flip-back';
+
+  if (resolvedCover) {
+    const absoluteCover = new URL(resolvedCover, window.location.href).href;
+    link.style.setProperty('--card-img', `url("${absoluteCover}")`);
+    const preload = new Image();
+    preload.src = absoluteCover;
+    preload.addEventListener('error', () => {
+      link.classList.add('flip-card--fallback');
+      link.style.removeProperty('--card-img');
+      if (!front.querySelector('.img-fallback')) {
+        front.append(createMediaFallback());
+      }
+      if (!back.querySelector('.img-fallback')) {
+        back.append(createMediaFallback());
+      }
+    });
+  } else {
+    link.classList.add('flip-card--fallback');
+  }
+
+  const backContent = document.createElement('div');
+  backContent.className = 'flip-content';
+
+  const backTitle = document.createElement('h3');
+  backTitle.textContent = title || 'Proyecto';
+
+  const backCta = document.createElement('span');
+  backCta.className = 'flip-cta';
+  backCta.textContent = 'Ver proyecto';
+
+  backContent.append(backTitle, backCta);
+  back.append(backContent);
+  if (!resolvedCover) {
+    back.append(createMediaFallback());
+  }
+  inner.append(front, back);
+  link.append(inner);
+
+  return link;
 }
 
 export async function renderFeaturedProjects(limit = 3) {
-  const container = document.getElementById('featured-projects');
+  const container = document.querySelector('.carousel-track') || document.getElementById('featured-projects');
   if (!container) return;
 
-  const projects = await loadProjectsData();
-  const featured = projects.slice(0, limit);
   container.innerHTML = '';
-  featured.forEach((project) => container.appendChild(createProjectCard(project)));
+  let projects = [];
+  try {
+    projects = await loadProjectsData();
+  } catch (error) {
+    console.error(`No se pudieron cargar los proyectos destacados desde ${PROJECT_INDEX_PATH}`, error);
+  }
+  const featured = projects.slice(0, limit);
+  const fallbackExisting = [
+    {
+      slug: 'algarin-hc',
+      title: 'Algarín H&C',
+      location: 'CDMX',
+      year: '2024',
+      type: 'Uso mixto',
+      summary: 'Proyecto conceptual con documentación clara y soporte técnico.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/ALGP2.jpg',
+    },
+    {
+      slug: 'coyoacan-retail-complex',
+      title: 'Coyoacán Retail Complex',
+      location: 'CDMX',
+      year: '2023',
+      type: 'Comercial',
+      summary: 'Desarrollo comercial con coordinación BIM y entregables consistentes.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR1.jpg',
+    },
+    {
+      slug: 'penthouse-santa-maria',
+      title: 'Penthouse Santa María',
+      location: 'CDMX',
+      year: '2024',
+      type: 'Residencial',
+      summary: 'Residencia con visualización cuidada y documentación ejecutiva.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/CLP2.jpg',
+    },
+    {
+      slug: 'pabellon-kubito',
+      title: 'Pabellón Kúbito',
+      location: 'CDMX',
+      year: '2022',
+      type: 'Instalación efímera',
+      summary: 'Instalación temporal con control de entregables y soporte a obra.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR2.jpg',
+    },
+    {
+      slug: 'timilpan-inst',
+      title: 'Timilpan INST',
+      location: 'Estado de México',
+      year: '2023',
+      type: 'Industrial',
+      summary: 'Propuesta industrial con coordinación y entregables claros.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/TP3.png',
+    },
+    {
+      slug: 'cubierta-cinetica',
+      title: 'Cubierta Cinética',
+      location: 'CDMX',
+      year: '2021',
+      type: 'Equipamiento',
+      summary: 'Estudio de cubierta con visualización técnica y control de alcance.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/TP4.png',
+    },
+  ];
+  const placeholders = [
+    {
+      slug: 'algarin-hc',
+      title: 'Algarín H&C',
+      location: 'CDMX',
+      type: 'Uso mixto',
+      summary: 'Descripción breve del proyecto con enfoque en coordinación BIM y claridad documental.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/ALGP2.jpg',
+    },
+    {
+      slug: 'coyoacan-retail-complex',
+      title: 'Coyoacán Retail Complex',
+      location: 'CDMX',
+      type: 'Comercial',
+      summary: 'Desarrollo comercial con visualizaciones claras y control de entregables.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR1.jpg',
+    },
+    {
+      slug: 'penthouse-santa-maria',
+      title: 'Penthouse Santa María',
+      location: 'CDMX',
+      type: 'Residencial',
+      summary: 'Propuesta residencial con documentación precisa y soporte a obra.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/CLP2.jpg',
+    },
+    {
+      slug: 'pabellon-kubito',
+      title: 'Pabellón Kúbito',
+      location: 'CDMX',
+      type: 'Instalación efímera',
+      summary: 'Instalación temporal con coordinación BIM y entregables consistentes.',
+      href: `${ROOT_PATH}/projects.html`,
+      coverImage: 'img/POR2.jpg',
+    },
+  ];
+  // Firefox/Pages fallback: if no data arrives, render a hardcoded set so the carousel is never empty.
+  const items = featured.length ? [...featured, ...placeholders] : fallbackExisting;
+  items.forEach((project) => {
+    const card = createFeaturedProjectCard(project);
+    container.appendChild(card);
+  });
 }
 
 export function filterProjects(projects, criteria) {
