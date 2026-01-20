@@ -215,14 +215,27 @@ main {
 .abovefold {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 1.25rem;
+  gap: clamp(16px, 2vw, 28px);
   align-items: stretch;
+  min-height: calc(100vh - 88px);
+}
+
+.abovefold-wrap {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: clamp(16px, 3vw, 48px);
 }
 
 .abovefold-hero,
 .abovefold-featured {
   display: flex;
   flex-direction: column;
+}
+
+.abovefold-hero .hero-bleed {
+  height: 100%;
 }
 
 .abovefold-featured .section-header {
@@ -242,13 +255,60 @@ main {
   flex: 1;
 }
 
+.abovefold-featured {
+  position: relative;
+}
+
+.featured-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 1.2rem 1.1rem 1.5rem;
+  background: linear-gradient(180deg, rgba(8, 9, 12, 0.75) 0%, rgba(8, 9, 12, 0) 100%);
+}
+
+.abovefold-featured .projects-carousel {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.abovefold-featured .carousel-track {
+  height: 100%;
+}
+
+.abovefold-featured #featured-projects {
+  padding-top: clamp(120px, 20vh, 160px);
+  height: 100%;
+}
+
+.abovefold-featured .project-card,
+.abovefold-featured .flip-inner {
+  height: 100%;
+}
+
 @media (max-width: 900px) {
   .abovefold {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
 
   .abovefold-featured {
     margin-top: 1.5rem;
+    position: static;
+  }
+
+  .featured-overlay {
+    position: static;
+    background: none;
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .abovefold-featured #featured-projects {
+    padding-top: 0.5rem;
   }
 }
 
