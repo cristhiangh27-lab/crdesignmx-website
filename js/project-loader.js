@@ -288,19 +288,11 @@ function createFeaturedProjectCard(project) {
   const backTitle = document.createElement('h3');
   backTitle.textContent = title || 'Proyecto';
 
-  const backMeta = document.createElement('p');
-  backMeta.className = 'flip-meta';
-  backMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
-
-  const backSummary = document.createElement('p');
-  backSummary.className = 'flip-summary';
-  backSummary.textContent = summary || '';
-
   const backCta = document.createElement('span');
   backCta.className = 'flip-cta';
   backCta.textContent = 'Ver proyecto';
 
-  backContent.append(backTitle, backMeta, backSummary, backCta);
+  backContent.append(backTitle, backCta);
   back.append(backContent);
   if (!resolvedCover) {
     back.append(createMediaFallback());
