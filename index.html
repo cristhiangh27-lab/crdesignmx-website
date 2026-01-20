@@ -76,14 +76,12 @@
     </div>
 
     <aside class="abovefold-featured" aria-label="Proyectos destacados">
-      <div class="featured-overlay">
-        <div class="section-header section-header--featured">
+      <div class="section-header section-header--featured">
         <div>
           <h2>Proyectos destacados</h2>
           <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
         </div>
         <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
-        </div>
       </div>
       <section class="projects-carousel featured-gallery">
         <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
@@ -154,8 +152,26 @@
   </script>
   <script>
     const header = document.querySelector('.site-header');
+    let glassTimer;
+
+    const applyGlass = () => header?.classList.add('header--glass');
+    const resetGlass = () => {
+      if (!header) return;
+      header.classList.remove('header--glass');
+      clearTimeout(glassTimer);
+      glassTimer = setTimeout(applyGlass, 1000);
+    };
+
     if (header) {
-      setTimeout(() => header.classList.add('header--glass'), 1000);
+      resetGlass();
+      window.addEventListener('scroll', () => {
+        if (window.scrollY === 0) {
+          resetGlass();
+        } else {
+          clearTimeout(glassTimer);
+          applyGlass();
+        }
+      });
     }
   </script>
   <script type="module">

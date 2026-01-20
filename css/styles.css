@@ -20,7 +20,7 @@
 }
 
 body.home {
-  --bg: linear-gradient(180deg, #0e0f12 0%, #15171c 100%);
+  --bg: linear-gradient(180deg, #0b0c10 0%, #12141a 50%, #0b0c10 100%);
   --panel: #141820;
   --text: #f3f4f6;
   --muted: #aeb4bf;
@@ -217,7 +217,7 @@ main {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: clamp(16px, 2vw, 28px);
   align-items: stretch;
-  min-height: calc(100vh - 88px);
+  min-height: 90vh;
 }
 
 .abovefold-wrap {
@@ -225,7 +225,7 @@ main {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-inline: clamp(16px, 3vw, 48px);
+  padding-inline: 0;
 }
 
 .abovefold-hero,
@@ -238,8 +238,15 @@ main {
   height: 100%;
 }
 
+.abovefold-featured {
+  background: #141820;
+  padding: clamp(16px, 2vw, 28px);
+  display: flex;
+  flex-direction: column;
+}
+
 .abovefold-featured .section-header {
-  margin-top: 0;
+  margin: 0 0 0.75rem;
 }
 
 .abovefold-featured .section-header h2,
@@ -253,40 +260,19 @@ main {
 
 .abovefold-featured .projects-carousel {
   flex: 1;
-}
-
-.abovefold-featured {
-  position: relative;
-}
-
-.featured-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 5;
-  padding: 1.2rem 1.1rem 1.5rem;
-  background: linear-gradient(180deg, rgba(8, 9, 12, 0.75) 0%, rgba(8, 9, 12, 0) 100%);
-}
-
-.abovefold-featured .projects-carousel {
-  height: 100%;
   display: flex;
   align-items: stretch;
 }
 
-.abovefold-featured .carousel-track {
-  height: 100%;
-}
-
-.abovefold-featured #featured-projects {
-  padding-top: clamp(120px, 20vh, 160px);
-  height: 100%;
-}
-
+.abovefold-featured .carousel-track,
+.abovefold-featured #featured-projects,
 .abovefold-featured .project-card,
 .abovefold-featured .flip-inner {
   height: 100%;
+}
+
+.abovefold-featured .carousel-track {
+  padding: 0;
 }
 
 @media (max-width: 900px) {
@@ -297,18 +283,6 @@ main {
 
   .abovefold-featured {
     margin-top: 1.5rem;
-    position: static;
-  }
-
-  .featured-overlay {
-    position: static;
-    background: none;
-    padding: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  .abovefold-featured #featured-projects {
-    padding-top: 0.5rem;
   }
 }
 
@@ -375,7 +349,7 @@ main {
 }
 
 body.home .featured-gallery {
-  background: linear-gradient(180deg, #0e0f12 0%, #15171c 100%);
+  background: linear-gradient(180deg, #0b0c10 0%, #12141a 50%, #0b0c10 100%);
   padding: 0.75rem 0 1rem;
 }
 
@@ -805,6 +779,18 @@ body.home .featured-gallery .carousel-btn:hover {
   .carousel-track {
     scroll-behavior: auto;
   }
+
+  .flip-back {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .flip-card:hover .flip-back,
+  .flip-card:focus-within .flip-back,
+  .flip-card:focus-visible .flip-back {
+    opacity: 1;
+  }
 }
 
 .footer {
@@ -1097,7 +1083,7 @@ body.home .hero-bleed {
 }
 
 body.home .hero.hero-video {
-  background: linear-gradient(180deg, #0e0f12 0%, #15171c 100%);
+  background: linear-gradient(180deg, #0b0c10 0%, #12141a 50%, #0b0c10 100%);
 }
 
 body.home .hero.hero-video .hero-overlay {
