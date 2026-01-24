@@ -462,9 +462,9 @@ main {
   height: 100%;
   scroll-snap-align: start;
   border-radius: 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   outline: none;
 }
 
