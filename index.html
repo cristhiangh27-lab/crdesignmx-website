@@ -53,10 +53,10 @@
   </header>
 
   <main>
-   <section class="abovefold abovefold-wrap">
-    <div class="abovefold-hero">
-      <section class="hero hero-video" aria-labelledby="hero-title">
-        <div class="hero-bleed">
+   <section class="above-fold">
+    <div class="above-fold-grid">
+      <div class="hero-panel">
+        <section class="hero hero-video" aria-labelledby="hero-title">
           <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="img/proyecto1.jpg">
             <source src="img/hero/hero-reel.mp4" type="video/mp4">
           </video>
@@ -73,61 +73,61 @@
               <a class="btn btn-ghost" href="services.html">Servicios</a>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-
-    <aside class="abovefold-featured" aria-label="Proyectos destacados">
-      <div class="section-header section-header--featured">
-        <div>
-          <h2>Proyectos destacados</h2>
-          <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
-        </div>
-        <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+        </section>
       </div>
-      <section class="projects-carousel featured-gallery">
-        <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
-          <span aria-hidden="true">‹</span>
-        </button>
-        <div class="carousel-track" id="featured-projects" aria-live="polite">
-          <p>Cargando proyectos…</p>
-        </div>
-        <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
-          <span aria-hidden="true">›</span>
-        </button>
-      </section>
-    </aside>
 
-    <div class="abovefold-services">
-      <div class="section-header">
-        <div>
-          <h2>Servicios</h2>
-          <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+      <aside class="featured-panel" aria-label="Proyectos destacados">
+        <div class="featured-panel__header">
+          <div>
+            <h2>Proyectos destacados</h2>
+            <p class="section-lead">Selección reciente desarrollada bajo la marca CR Collective.</p>
+          </div>
+          <a class="btn btn-primary" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
         </div>
-        <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+        <section class="featured-gallery" aria-live="polite">
+          <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <div class="featured-grid" id="featured-projects">
+            <p>Cargando proyectos…</p>
+          </div>
+          <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
+            <span aria-hidden="true">›</span>
+          </button>
+        </section>
+      </aside>
+
+      <div class="services-panel">
+        <div class="section-header">
+          <div>
+            <h2>Servicios</h2>
+            <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+          </div>
+          <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+        </div>
+        <section class="services-grid services-grid--light" aria-label="Servicios">
+          <article class="service-card">
+            <div class="icon" aria-hidden="true">🏗️</div>
+            <h3>Anteproyecto arquitectónico</h3>
+            <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+          </article>
+          <article class="service-card">
+            <div class="icon" aria-hidden="true">🧭</div>
+            <h3>Modelado BIM y documentación</h3>
+            <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+          </article>
+          <article class="service-card">
+            <div class="icon" aria-hidden="true">🎥</div>
+            <h3>Renders y recorridos</h3>
+            <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+          </article>
+          <article class="service-card">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <h3>Asesoría personalizada</h3>
+            <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+          </article>
+        </section>
       </div>
-      <section class="services-grid services-grid--light" aria-label="Servicios">
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">🏗️</div>
-          <h3>Anteproyecto arquitectónico</h3>
-          <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">🧭</div>
-          <h3>Modelado BIM y documentación</h3>
-          <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">🎥</div>
-          <h3>Renders y recorridos</h3>
-          <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
-        </article>
-        <article class="service-card">
-          <div class="icon" aria-hidden="true">🤝</div>
-          <h3>Asesoría personalizada</h3>
-          <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
-        </article>
-      </section>
     </div>
    </section>
   </main>
@@ -158,10 +158,10 @@
     const header = document.querySelector('.site-header');
     let glassTimer;
 
-    const applyTranslucent = () => header?.classList.add('header--translucent');
+    const applyTranslucent = () => header?.classList.add('header--faded');
     const resetHeader = () => {
       if (!header) return;
-      header.classList.remove('header--translucent');
+      header.classList.remove('header--faded');
       clearTimeout(glassTimer);
       glassTimer = setTimeout(applyTranslucent, 1000);
     };
@@ -184,7 +184,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       renderFeaturedProjects(3);
 
-      const track = document.querySelector('.carousel-track');
+      const track = document.querySelector('#featured-projects');
       const prevBtn = document.querySelector('.carousel-btn.prev');
       const nextBtn = document.querySelector('.carousel-btn.next');
 
