@@ -97,37 +97,39 @@
         </button>
       </section>
     </aside>
-   </section>
 
-    <div class="section-header">
-      <div>
-        <h2>Servicios</h2>
-        <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+    <div class="abovefold-services">
+      <div class="section-header">
+        <div>
+          <h2>Servicios</h2>
+          <p class="section-lead">Acompaño a clientes en cada etapa del proyecto con una metodología clara.</p>
+        </div>
+        <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
       </div>
-      <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+      <section class="services-grid services-grid--light" aria-label="Servicios">
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">🏗️</div>
+          <h3>Anteproyecto arquitectónico</h3>
+          <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">🧭</div>
+          <h3>Modelado BIM y documentación</h3>
+          <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">🎥</div>
+          <h3>Renders y recorridos</h3>
+          <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+        </article>
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">🤝</div>
+          <h3>Asesoría personalizada</h3>
+          <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+        </article>
+      </section>
     </div>
-    <section class="services-grid services-grid--light" aria-label="Servicios">
-      <article class="service-card">
-        <div class="icon" aria-hidden="true">🏗️</div>
-        <h3>Anteproyecto arquitectónico</h3>
-        <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
-      </article>
-      <article class="service-card">
-        <div class="icon" aria-hidden="true">🧭</div>
-        <h3>Modelado BIM y documentación</h3>
-        <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
-      </article>
-      <article class="service-card">
-        <div class="icon" aria-hidden="true">🎥</div>
-        <h3>Renders y recorridos</h3>
-        <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
-      </article>
-      <article class="service-card">
-        <div class="icon" aria-hidden="true">🤝</div>
-        <h3>Asesoría personalizada</h3>
-        <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
-      </article>
-    </section>
+   </section>
   </main>
 
   <a
@@ -156,22 +158,22 @@
     const header = document.querySelector('.site-header');
     let glassTimer;
 
-    const applyGlass = () => header?.classList.add('header--glass');
-    const resetGlass = () => {
+    const applyTranslucent = () => header?.classList.add('header--translucent');
+    const resetHeader = () => {
       if (!header) return;
-      header.classList.remove('header--glass');
+      header.classList.remove('header--translucent');
       clearTimeout(glassTimer);
-      glassTimer = setTimeout(applyGlass, 1000);
+      glassTimer = setTimeout(applyTranslucent, 1000);
     };
 
     if (header) {
-      resetGlass();
+      resetHeader();
       window.addEventListener('scroll', () => {
         if (window.scrollY === 0) {
-          resetGlass();
+          resetHeader();
         } else {
           clearTimeout(glassTimer);
-          applyGlass();
+          applyTranslucent();
         }
       });
     }

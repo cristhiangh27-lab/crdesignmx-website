@@ -134,8 +134,8 @@ header.site-header {
   transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
 
-header.site-header.header--glass {
-  background: rgba(255, 255, 255, 0.78);
+header.site-header.header--translucent {
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 24px rgba(15, 17, 21, 0.08);
 }
@@ -217,7 +217,8 @@ main {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: clamp(16px, 2vw, 28px);
   align-items: stretch;
-  min-height: 90vh;
+  min-height: clamp(80vh, 90vh, 92vh);
+  grid-template-rows: minmax(0, 1fr) auto;
 }
 
 .abovefold-wrap {
@@ -225,7 +226,7 @@ main {
   max-width: none;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-inline: 0;
+  padding-inline: clamp(16px, 3vw, 40px);
 }
 
 .abovefold-hero,
@@ -243,6 +244,7 @@ main {
   padding: clamp(16px, 2vw, 28px);
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .abovefold-featured .section-header {
@@ -275,6 +277,22 @@ main {
   padding: 0;
 }
 
+.abovefold-hero {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.abovefold-featured {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.abovefold-services {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-top: clamp(16px, 3vw, 28px);
+}
+
 @media (max-width: 900px) {
   .abovefold {
     grid-template-columns: 1fr;
@@ -283,6 +301,13 @@ main {
 
   .abovefold-featured {
     margin-top: 1.5rem;
+  }
+
+  .abovefold-hero,
+  .abovefold-featured,
+  .abovefold-services {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 }
 
@@ -435,7 +460,7 @@ body.home .featured-gallery .carousel-btn:hover {
 
 /* Firefox/perf: keep carousel visible without relying on backdrop-filter */
 @supports not (backdrop-filter: blur(1px)) {
-  header.site-header.header--glass {
+  header.site-header.header--translucent {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 8px 20px rgba(15, 17, 21, 0.06);
   }
@@ -1073,6 +1098,10 @@ body.home .hero-bleed {
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+
+.abovefold-hero .hero-bleed {
+  min-height: 100%;
 }
 
 /* video de fondo */
