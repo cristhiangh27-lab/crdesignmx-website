@@ -158,12 +158,17 @@
     const header = document.querySelector('.site-header');
     let glassTimer;
 
-    const applyTranslucent = () => header?.classList.add('header--faded');
+    const applyGlass = () => {
+      if (!header) return;
+      header.classList.remove('header--solid');
+      header.classList.add('header--glass');
+    };
     const resetHeader = () => {
       if (!header) return;
-      header.classList.remove('header--faded');
+      header.classList.add('header--solid');
+      header.classList.remove('header--glass');
       clearTimeout(glassTimer);
-      glassTimer = setTimeout(applyTranslucent, 5000);
+      glassTimer = setTimeout(applyGlass, 5000);
     };
 
     if (header) {
@@ -173,7 +178,7 @@
           resetHeader();
         } else {
           clearTimeout(glassTimer);
-          applyTranslucent();
+          applyGlass();
         }
       });
     }

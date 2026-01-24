@@ -64,6 +64,11 @@ a:not(.btn):focus-visible {
   color: var(--accent);
 }
 
+header.site-header a:not(.btn):hover,
+header.site-header a:not(.btn):focus-visible {
+  color: inherit;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -73,16 +78,27 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(10, 11, 26, 0.9);
+  background: #ffffff;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+  border-bottom: 1px solid rgba(10, 11, 26, 0.08);
+  color: #0a0b1a;
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease,
+    box-shadow 0.6s ease, backdrop-filter 0.6s ease;
 }
 
-header.site-header.header--faded {
-  background: rgba(10, 11, 26, 0.78);
+header.site-header.header--solid {
+  background: #ffffff;
+  color: #0a0b1a;
+  border-bottom-color: rgba(10, 11, 26, 0.08);
+  box-shadow: none;
+}
+
+header.site-header.header--glass {
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 24px rgba(10, 11, 26, 0.4);
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 24px rgba(10, 11, 26, 0.32);
 }
 
 .header-inner {
@@ -128,7 +144,7 @@ header.site-header.header--faded {
 
 .primary-nav a {
   text-decoration: none;
-  color: var(--text);
+  color: inherit;
   font-weight: 500;
   position: relative;
 }
@@ -140,7 +156,7 @@ header.site-header.header--faded {
   bottom: -6px;
   width: 100%;
   height: 2px;
-  background: var(--accent-soft);
+  background: rgba(10, 11, 26, 0.4);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s ease;
@@ -149,6 +165,25 @@ header.site-header.header--faded {
 .primary-nav a:hover::after,
 .primary-nav a:focus-visible::after {
   transform: scaleX(1);
+}
+
+header.site-header .primary-nav a:hover,
+header.site-header .primary-nav a:focus-visible {
+  color: inherit;
+}
+
+header.site-header .primary-nav a:focus-visible {
+  outline: 2px solid rgba(10, 11, 26, 0.4);
+  outline-offset: 6px;
+  border-radius: 999px;
+}
+
+header.site-header.header--glass .primary-nav a::after {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+header.site-header.header--glass .primary-nav a:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.6);
 }
 
 main {
@@ -435,8 +470,8 @@ main {
 
 /* Firefox/perf: keep header visible without relying on backdrop-filter */
 @supports not (backdrop-filter: blur(1px)) {
-  header.site-header.header--faded {
-    background: rgba(10, 11, 26, 0.85);
+  header.site-header.header--glass {
+    background: rgba(255, 255, 255, 0.16);
     box-shadow: 0 8px 20px rgba(10, 11, 26, 0.3);
   }
 }
