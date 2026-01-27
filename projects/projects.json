@@ -2,6 +2,19 @@
   "projects": [
     { "slug": "casa-lomas" },
     { "slug": "casa-carmona" },
-    { "slug": "t2-aicm" }
+    { "slug": "t2-aicm" },
+    { "slug": "aicm-t2" },
+    { "slug": "algarin-heights-commerce" },
+    { "slug": "penthouse-jaime-torres-bodet" },
+    { "slug": "aurora-house" },
+    { "slug": "mirador-360" },
+    { "slug": "pasaje-algarin" },
+    { "slug": "coyoacan-retail" },
+    { "slug": "alfareria-lofts" },
+    { "slug": "lago-atelier" },
+    { "slug": "brisa-pavilion" },
+    { "slug": "prisma-office" },
+    { "slug": "cantera-courtyard" },
+    { "slug": "delta-residence" }
   ]
 }

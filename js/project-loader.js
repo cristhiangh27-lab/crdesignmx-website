@@ -250,7 +250,7 @@ function createProjectCard(project) {
 function createFeaturedProjectCard(project) {
   const { slug, title, location, year, type, summary, coverImage, href } = project;
   const link = document.createElement('a');
-  link.className = 'project-card flip-card project-card--featured';
+  link.className = 'project-card flip-card project-card--featured project-card-featured';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
   const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
@@ -314,11 +314,14 @@ function createFeaturedProjectCard(project) {
 
 function renderFeaturedSkeleton(container, count) {
   container.innerHTML = '';
+  const page = document.createElement('div');
+  page.className = 'featured-page';
   for (let i = 0; i < count; i += 1) {
     const skeleton = document.createElement('div');
     skeleton.className = 'featured-skeleton';
-    container.appendChild(skeleton);
+    page.appendChild(skeleton);
   }
+  container.appendChild(page);
 }
 
 function getFeaturedProjects(projects) {
@@ -331,12 +334,11 @@ export async function initFeaturedGallery(options = {}) {
     container = document.getElementById('featured-projects'),
     prevButton = document.querySelector('.carousel-btn.prev'),
     nextButton = document.querySelector('.carousel-btn.next'),
-    visibleCount = 4,
-    step = 1,
+    totalVisible = 4,
   } = options;
 
   if (!container) return;
-  renderFeaturedSkeleton(container, visibleCount);
+  renderFeaturedSkeleton(container, totalVisible);
 
   let projects = [];
   try {
@@ -345,7 +347,7 @@ export async function initFeaturedGallery(options = {}) {
     console.error(`No se pudieron cargar los proyectos destacados desde ${PROJECT_INDEX_PATH}`, error);
   }
 
-  const featuredProjects = getFeaturedProjects(projects);
+  const featuredProjects = getFeaturedProjects(projects).slice(0, 16);
   if (!featuredProjects.length) {
     container.innerHTML = '<p>No hay proyectos disponibles.</p>';
     prevButton?.setAttribute('disabled', 'disabled');
@@ -353,33 +355,63 @@ export async function initFeaturedGallery(options = {}) {
     return;
   }
 
-  let currentIndex = 0;
-  const stepAmount = Math.max(1, step);
+  const getPageSize = () => {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 4;
+  };
 
-  const render = () => {
+  let pageSize = getPageSize();
+  let totalPages = Math.ceil(featuredProjects.length / pageSize);
+  let currentPage = 0;
+
+  const buildPages = () => {
     container.innerHTML = '';
-    for (let i = 0; i < visibleCount; i += 1) {
-      const project = featuredProjects[(currentIndex + i) % featuredProjects.length];
-      container.appendChild(createFeaturedProjectCard(project));
+    totalPages = Math.ceil(featuredProjects.length / pageSize);
+    for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
+      const page = document.createElement('div');
+      page.className = 'featured-page';
+      for (let i = 0; i < pageSize; i += 1) {
+        const itemIndex = (pageIndex * pageSize + i) % featuredProjects.length;
+        page.appendChild(createFeaturedProjectCard(featuredProjects[itemIndex]));
+      }
+      container.appendChild(page);
     }
   };
 
-  const advance = (direction) => {
-    currentIndex = (currentIndex + direction * stepAmount) % featuredProjects.length;
-    if (currentIndex < 0) {
-      currentIndex += featuredProjects.length;
-    }
-    render();
+  const updateTrack = () => {
+    container.style.transform = `translateX(-${currentPage * 100}%)`;
   };
 
-  prevButton?.addEventListener('click', () => advance(-1));
-  nextButton?.addEventListener('click', () => advance(1));
+  // Circular carousel: move between pages and wrap at the ends.
+  const goToPage = (nextPage) => {
+    if (totalPages === 0) return;
+    currentPage = (nextPage + totalPages) % totalPages;
+    updateTrack();
+  };
 
-  render();
+  const handlePrev = () => goToPage(currentPage - 1);
+  const handleNext = () => goToPage(currentPage + 1);
+
+  prevButton?.addEventListener('click', handlePrev);
+  nextButton?.addEventListener('click', handleNext);
+
+  buildPages();
+  updateTrack();
+
+  window.addEventListener('resize', () => {
+    const nextSize = getPageSize();
+    if (nextSize === pageSize) return;
+    pageSize = nextSize;
+    totalPages = Math.ceil(featuredProjects.length / pageSize);
+    currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
+    buildPages();
+    updateTrack();
+  });
 }
 
 export async function renderFeaturedProjects(limit = 4) {
-  await initFeaturedGallery({ visibleCount: limit });
+  await initFeaturedGallery({ totalVisible: limit });
 }
 
 export function filterProjects(projects, criteria) {
