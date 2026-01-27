@@ -377,10 +377,11 @@ export async function initFeaturedGallery(options = {}) {
       }
       container.appendChild(page);
     }
+    container.style.width = `${totalPages * 100}%`;
   };
 
   const updateTrack = () => {
-    container.style.transform = `translateX(-${currentPage * 100}%)`;
+    container.style.transform = `translate3d(-${currentPage * 100}%, 0, 0)`;
   };
 
   // Circular carousel: move between pages and wrap at the ends.

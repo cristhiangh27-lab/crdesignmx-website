@@ -273,6 +273,7 @@ main {
 
 .projects-carousel.featured-gallery {
   overflow: hidden;
+  position: relative;
 }
 
 .projects-carousel .carousel-track {
@@ -282,6 +283,7 @@ main {
   padding: 0.5rem;
   scroll-padding: 0.5rem;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .featured-page {
@@ -473,7 +475,7 @@ main {
   place-items: center;
   box-shadow: 0 10px 24px rgba(10, 11, 26, 0.35);
   transition: background 0.2s ease, transform 0.2s ease;
-  z-index: 2;
+  z-index: 10;
 }
 
 .carousel-btn.prev {
@@ -520,42 +522,6 @@ main {
 }
 
 .featured-page .flip-face img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.featured-skeleton {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  background: rgba(255, 255, 255, 0.06);
-  position: relative;
-  overflow: hidden;
-}
-
-.featured-skeleton::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.12) 45%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: featured-shimmer 1.6s infinite;
-}
-
-@keyframes featured-shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.featured-grid .flip-face img {
   width: 100%;
   height: 100%;
   object-fit: cover;
