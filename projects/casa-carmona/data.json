@@ -5,6 +5,13 @@
   "type": "Casa de descanso",
   "area": "Vivienda de descanso",
   "summary": "Proyecto integral para el Ing. Ricardo Carmona con cocina central y crecimiento por polígonos funcionales.",
-  "coverImage": "/img/casa-carmona/preview.jpg",
-  "images": ["01", "02", "03", "preview"]
+  "coverImage": "/projects/casa-carmona/img/cover.jpg",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ],
+  "slug": "casa-carmona"
 }

@@ -5,6 +5,13 @@
   "type": "Remodelación interior",
   "area": "Equipamiento aeroportuario",
   "summary": "Actualización conceptual del Dedo Norte con nueva identidad interior, iluminación y materiales.",
-  "coverImage": "/img/t2-aicm/preview.jpg",
-  "images": ["01", "02", "03", "preview"]
+  "coverImage": "/projects/t2-aicm/img/cover.jpg",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ],
+  "slug": "t2-aicm"
 }

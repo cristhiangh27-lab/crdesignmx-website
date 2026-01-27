@@ -5,6 +5,13 @@
   "type": "Residencial",
   "area": "Vivienda unifamiliar",
   "summary": "Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.",
-  "coverImage": "/img/casa-lomas/preview.jpg",
-  "images": ["01", "02", "03", "preview"]
+  "coverImage": "/projects/casa-lomas/img/cover.jpg",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ],
+  "slug": "casa-lomas"
 }
