@@ -1,0 +1,16 @@
+{
+  "title": "Algarín Heights Commerce",
+  "location": "CDMX",
+  "year": "2024",
+  "type": "Uso mixto",
+  "summary": "Complejo comercial con estrategias de circulación clara y fachadas contemporáneas.",
+  "coverImage": "/projects/algarin-heights-commerce/img/cover.jpg",
+  "slug": "algarin-heights-commerce",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

@@ -250,7 +250,7 @@ function createProjectCard(project) {
 function createFeaturedProjectCard(project) {
   const { slug, title, location, year, type, summary, coverImage, href } = project;
   const link = document.createElement('a');
-  link.className = 'project-card flip-card project-card--featured';
+  link.className = 'project-card flip-card project-card--featured project-card-featured';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
 
   const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
@@ -261,19 +261,21 @@ function createFeaturedProjectCard(project) {
   const front = document.createElement('div');
   front.className = 'flip-face flip-front';
 
-  if (!resolvedCover) {
-    front.append(createMediaFallback());
-  }
-
   const back = document.createElement('div');
   back.className = 'flip-face flip-back';
 
   if (resolvedCover) {
     const absoluteCover = new URL(resolvedCover, window.location.href).href;
     link.style.setProperty('--card-img', `url("${absoluteCover}")`);
-    const preload = new Image();
-    preload.src = absoluteCover;
-    preload.addEventListener('error', () => {
+    const img = document.createElement('img');
+    img.src = absoluteCover;
+    img.alt = title || 'Proyecto';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.width = 640;
+    img.height = 640;
+    img.addEventListener('error', () => {
+      img.remove();
       link.classList.add('flip-card--fallback');
       link.style.removeProperty('--card-img');
       if (!front.querySelector('.img-fallback')) {
@@ -283,8 +285,10 @@ function createFeaturedProjectCard(project) {
         back.append(createMediaFallback());
       }
     });
+    front.append(img);
   } else {
     link.classList.add('flip-card--fallback');
+    front.append(createMediaFallback());
   }
 
   const backContent = document.createElement('div');
@@ -308,124 +312,110 @@ function createFeaturedProjectCard(project) {
   return link;
 }
 
-export async function renderFeaturedProjects(limit = 3) {
-  const container = document.querySelector('.carousel-track') || document.getElementById('featured-projects');
-  if (!container) return;
-
+function renderFeaturedSkeleton(container, count) {
   container.innerHTML = '';
+  const page = document.createElement('div');
+  page.className = 'featured-page';
+  for (let i = 0; i < count; i += 1) {
+    const skeleton = document.createElement('div');
+    skeleton.className = 'featured-skeleton';
+    page.appendChild(skeleton);
+  }
+  container.appendChild(page);
+}
+
+function getFeaturedProjects(projects) {
+  const featured = projects.filter((project) => project.featured === true);
+  return featured.length ? featured : projects;
+}
+
+export async function initFeaturedGallery(options = {}) {
+  const {
+    container = document.getElementById('featured-projects'),
+    prevButton = document.querySelector('.carousel-btn.prev'),
+    nextButton = document.querySelector('.carousel-btn.next'),
+    totalVisible = 4,
+  } = options;
+
+  if (!container) return;
+  const viewport = container.closest('.projects-carousel') || container.parentElement;
+  renderFeaturedSkeleton(container, totalVisible);
+
   let projects = [];
   try {
     projects = await loadProjectsData();
   } catch (error) {
     console.error(`No se pudieron cargar los proyectos destacados desde ${PROJECT_INDEX_PATH}`, error);
   }
-  const featured = projects.slice(0, limit);
-  const fallbackExisting = [
-    {
-      slug: 'algarin-hc',
-      title: 'Algarín H&C',
-      location: 'CDMX',
-      year: '2024',
-      type: 'Uso mixto',
-      summary: 'Proyecto conceptual con documentación clara y soporte técnico.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/ALGP2.jpg',
-    },
-    {
-      slug: 'coyoacan-retail-complex',
-      title: 'Coyoacán Retail Complex',
-      location: 'CDMX',
-      year: '2023',
-      type: 'Comercial',
-      summary: 'Desarrollo comercial con coordinación BIM y entregables consistentes.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/POR1.jpg',
-    },
-    {
-      slug: 'penthouse-santa-maria',
-      title: 'Penthouse Santa María',
-      location: 'CDMX',
-      year: '2024',
-      type: 'Residencial',
-      summary: 'Residencia con visualización cuidada y documentación ejecutiva.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/CLP2.jpg',
-    },
-    {
-      slug: 'pabellon-kubito',
-      title: 'Pabellón Kúbito',
-      location: 'CDMX',
-      year: '2022',
-      type: 'Instalación efímera',
-      summary: 'Instalación temporal con control de entregables y soporte a obra.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/POR2.jpg',
-    },
-    {
-      slug: 'timilpan-inst',
-      title: 'Timilpan INST',
-      location: 'Estado de México',
-      year: '2023',
-      type: 'Industrial',
-      summary: 'Propuesta industrial con coordinación y entregables claros.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/TP3.png',
-    },
-    {
-      slug: 'cubierta-cinetica',
-      title: 'Cubierta Cinética',
-      location: 'CDMX',
-      year: '2021',
-      type: 'Equipamiento',
-      summary: 'Estudio de cubierta con visualización técnica y control de alcance.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/TP4.png',
-    },
-  ];
-  const placeholders = [
-    {
-      slug: 'algarin-hc',
-      title: 'Algarín H&C',
-      location: 'CDMX',
-      type: 'Uso mixto',
-      summary: 'Descripción breve del proyecto con enfoque en coordinación BIM y claridad documental.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/ALGP2.jpg',
-    },
-    {
-      slug: 'coyoacan-retail-complex',
-      title: 'Coyoacán Retail Complex',
-      location: 'CDMX',
-      type: 'Comercial',
-      summary: 'Desarrollo comercial con visualizaciones claras y control de entregables.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/POR1.jpg',
-    },
-    {
-      slug: 'penthouse-santa-maria',
-      title: 'Penthouse Santa María',
-      location: 'CDMX',
-      type: 'Residencial',
-      summary: 'Propuesta residencial con documentación precisa y soporte a obra.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/CLP2.jpg',
-    },
-    {
-      slug: 'pabellon-kubito',
-      title: 'Pabellón Kúbito',
-      location: 'CDMX',
-      type: 'Instalación efímera',
-      summary: 'Instalación temporal con coordinación BIM y entregables consistentes.',
-      href: `${ROOT_PATH}/projects.html`,
-      coverImage: 'img/POR2.jpg',
-    },
-  ];
-  // Firefox/Pages fallback: if no data arrives, render a hardcoded set so the carousel is never empty.
-  const items = featured.length ? [...featured, ...placeholders] : fallbackExisting;
-  items.forEach((project) => {
-    const card = createFeaturedProjectCard(project);
-    container.appendChild(card);
+
+  const featuredProjects = getFeaturedProjects(projects).slice(0, 16);
+  if (!featuredProjects.length) {
+    container.innerHTML = '<p>No hay proyectos disponibles.</p>';
+    prevButton?.setAttribute('disabled', 'disabled');
+    nextButton?.setAttribute('disabled', 'disabled');
+    return;
+  }
+
+  const getPageSize = () => {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 4;
+  };
+
+  let pageSize = getPageSize();
+  let totalPages = Math.ceil(featuredProjects.length / pageSize);
+  let currentPage = 0;
+  let pageWidth = 0;
+
+  const buildPages = () => {
+    container.innerHTML = '';
+    totalPages = Math.ceil(featuredProjects.length / pageSize);
+    pageWidth = viewport ? viewport.getBoundingClientRect().width : container.getBoundingClientRect().width;
+    for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
+      const page = document.createElement('div');
+      page.className = 'featured-page';
+      page.style.width = `${pageWidth}px`;
+      for (let i = 0; i < pageSize; i += 1) {
+        const itemIndex = (pageIndex * pageSize + i) % featuredProjects.length;
+        page.appendChild(createFeaturedProjectCard(featuredProjects[itemIndex]));
+      }
+      container.appendChild(page);
+    }
+    container.style.width = `${totalPages * pageWidth}px`;
+  };
+
+  const updateTrack = () => {
+    container.style.transform = `translate3d(-${currentPage * pageWidth}px, 0, 0)`;
+  };
+
+  // Circular carousel: move between pages and wrap at the ends.
+  const goToPage = (nextPage) => {
+    if (totalPages === 0) return;
+    currentPage = (nextPage + totalPages) % totalPages;
+    updateTrack();
+  };
+
+  const handlePrev = () => goToPage(currentPage - 1);
+  const handleNext = () => goToPage(currentPage + 1);
+
+  prevButton?.addEventListener('click', handlePrev);
+  nextButton?.addEventListener('click', handleNext);
+
+  buildPages();
+  updateTrack();
+
+  window.addEventListener('resize', () => {
+    const nextSize = getPageSize();
+    pageSize = nextSize;
+    totalPages = Math.ceil(featuredProjects.length / pageSize);
+    currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
+    buildPages();
+    updateTrack();
   });
+}
+
+export async function renderFeaturedProjects(limit = 4) {
+  await initFeaturedGallery({ totalVisible: limit });
 }
 
 export function filterProjects(projects, criteria) {
@@ -568,6 +558,7 @@ export function populateFilterOptions(projects) {
 
 export const ProjectLoader = {
   loadProjectsData,
+  initFeaturedGallery,
   renderFeaturedProjects,
   filterProjects,
   renderProjects,

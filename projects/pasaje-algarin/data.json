@@ -1,0 +1,16 @@
+{
+  "title": "Pasaje Algarín",
+  "location": "CDMX",
+  "year": "2022",
+  "type": "Comercial",
+  "summary": "Pasaje urbano con locales flexibles y circulación cubierta.",
+  "coverImage": "/projects/pasaje-algarin/img/cover.jpg",
+  "slug": "pasaje-algarin",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Cantera Courtyard",
+  "location": "San Luis Potosí",
+  "year": "2024",
+  "type": "Residencial",
+  "summary": "Conjunto residencial articulado por patios y piedra local.",
+  "coverImage": "/projects/cantera-courtyard/img/cover.jpg",
+  "slug": "cantera-courtyard",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Prisma Office",
+  "location": "Monterrey, México",
+  "year": "2023",
+  "type": "Corporativo",
+  "summary": "Oficinas con módulos flexibles y control lumínico.",
+  "coverImage": "/projects/prisma-office/img/cover.jpg",
+  "slug": "prisma-office",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

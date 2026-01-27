@@ -1,0 +1,16 @@
+{
+  "title": "Coyoacán Retail",
+  "location": "CDMX",
+  "year": "2023",
+  "type": "Comercial",
+  "summary": "Nodo retail con imagen contemporánea y recorridos lineales.",
+  "coverImage": "/projects/coyoacan-retail/img/cover.jpg",
+  "slug": "coyoacan-retail",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

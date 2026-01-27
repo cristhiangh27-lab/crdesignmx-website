@@ -1,0 +1,16 @@
+{
+  "title": "Brisa Pavilion",
+  "location": "Riviera Nayarit",
+  "year": "2022",
+  "type": "Hospitalidad",
+  "summary": "Pabellón ligero con cubiertas ventiladas y vistas al mar.",
+  "coverImage": "/projects/brisa-pavilion/img/cover.jpg",
+  "slug": "brisa-pavilion",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

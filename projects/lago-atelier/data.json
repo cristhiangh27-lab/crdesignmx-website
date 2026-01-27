@@ -1,0 +1,16 @@
+{
+  "title": "Lago Atelier",
+  "location": "Guadalajara, México",
+  "year": "2023",
+  "type": "Cultural",
+  "summary": "Atelier artístico con iluminación cenital y espacios flexibles.",
+  "coverImage": "/projects/lago-atelier/img/cover.jpg",
+  "slug": "lago-atelier",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

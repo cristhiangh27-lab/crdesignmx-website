@@ -84,14 +84,14 @@
           </div>
           <a class="btn btn-ghost" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
         </div>
-        <section class="featured-gallery" aria-live="polite">
-          <button class="carousel-btn prev" type="button" aria-label="Proyecto anterior">
+        <section class="projects-carousel featured-gallery" aria-live="polite">
+          <button class="carousel-btn prev" type="button" aria-label="Anterior">
             <span aria-hidden="true">‹</span>
           </button>
-          <div class="featured-grid" id="featured-projects">
+          <div class="carousel-track" id="featured-projects">
             <p>Cargando proyectos…</p>
           </div>
-          <button class="carousel-btn next" type="button" aria-label="Siguiente proyecto">
+          <button class="carousel-btn next" type="button" aria-label="Siguiente">
             <span aria-hidden="true">›</span>
           </button>
         </section>
@@ -184,46 +184,10 @@
     }
   </script>
   <script type="module">
-    import { renderFeaturedProjects } from './js/project-loader.js';
+    import { initFeaturedGallery } from './js/project-loader.js';
 
     window.addEventListener('DOMContentLoaded', () => {
-      renderFeaturedProjects(3);
-
-      const track = document.querySelector('#featured-projects');
-      const prevBtn = document.querySelector('.carousel-btn.prev');
-      const nextBtn = document.querySelector('.carousel-btn.next');
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
-      // Firefox fallback: if scroll-snap isn't supported, translate the track manually.
-      const supportsSnap = CSS.supports('scroll-snap-type: x mandatory');
-      let currentIndex = 0;
-
-      const getScrollAmount = () => {
-        if (!track) return 0;
-        const card = track.querySelector('.project-card');
-        if (!card) return track.clientWidth;
-        const styles = getComputedStyle(track);
-        const gapValue = parseFloat(styles.columnGap || styles.gap || 0);
-        return card.getBoundingClientRect().width + (Number.isNaN(gapValue) ? 0 : gapValue);
-      };
-
-      const scrollTrack = (direction) => {
-        if (!track) return;
-        if (supportsSnap) {
-          track.scrollBy({ left: direction * getScrollAmount(), behavior: scrollBehavior });
-          return;
-        }
-        const cards = track.querySelectorAll('.project-card');
-        const maxIndex = Math.max(0, cards.length - 1);
-        currentIndex = Math.min(maxIndex, Math.max(0, currentIndex + direction));
-        track.style.transition = prefersReducedMotion ? 'none' : 'transform 0.3s ease';
-        track.style.transform = `translateX(-${currentIndex * getScrollAmount()}px)`;
-        track.style.overflow = 'hidden';
-      };
-
-      prevBtn?.addEventListener('click', () => scrollTrack(-1));
-      nextBtn?.addEventListener('click', () => scrollTrack(1));
+      initFeaturedGallery({ totalVisible: 4 });
     });
   </script>
 <script>

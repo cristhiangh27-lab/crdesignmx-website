@@ -1,0 +1,16 @@
+{
+  "title": "Alfarería Lofts",
+  "location": "Puebla, México",
+  "year": "2024",
+  "type": "Residencial",
+  "summary": "Lofts con patios interiores y terrazas compartidas.",
+  "coverImage": "/projects/alfareria-lofts/img/cover.jpg",
+  "slug": "alfareria-lofts",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

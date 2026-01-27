@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prisma Office – CR Collective</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="project-page" data-project="prisma-office">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../../index.html" aria-label="CR Collective">
+        <video class="logo-intro" muted playsinline preload="auto" aria-hidden="true">
+          <source src="../../img/brand/logo-anim.mp4" type="video/mp4">
+        </video>
+        <img class="logo-static" src="../../img/brand/logo-cr-collective.png" alt="CR Collective">
+      </a>
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="../../projects.html">Proyectos</a>
+        <a href="../../services.html">Servicios</a>
+        <a href="../../about.html">Sobre mí</a>
+        <a href="../../contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="project-hero">
+      <div class="project-hero-text">
+        <p class="section-lead">Corporativo</p>
+        <h1>Prisma Office</h1>
+        <div class="project-meta"></div>
+        <p class="summary"></p>
+      </div>
+      <div class="hero-visual">
+        <div class="placeholder">Galería próxima</div>
+        <img src="" alt="" hidden>
+      </div>
+    </section>
+
+    <section class="project-description">
+      <h2>Descripción</h2>
+      <div class="content"></div>
+    </section>
+
+    <section class="project-gallery">
+      <h2>Galería</h2>
+      <div class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module">
+    import { renderProjectDetail } from '../../js/project-loader.js';
+    renderProjectDetail('prisma-office');
+  </script>
+</body>
+</html>

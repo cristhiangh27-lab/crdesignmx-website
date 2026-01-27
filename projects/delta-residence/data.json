@@ -1,0 +1,16 @@
+{
+  "title": "Delta Residence",
+  "location": "Mérida, México",
+  "year": "2022",
+  "type": "Residencial",
+  "summary": "Vivienda tropical con patios sombreados y ventilación cruzada.",
+  "coverImage": "/projects/delta-residence/img/cover.jpg",
+  "slug": "delta-residence",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

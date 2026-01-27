@@ -1,0 +1,16 @@
+{
+  "title": "Penthouse Jaime Torres Bodet",
+  "location": "CDMX",
+  "year": "2024",
+  "type": "Residencial",
+  "summary": "Interiores residenciales con énfasis en iluminación natural y materialidad sobria.",
+  "coverImage": "/projects/penthouse-jaime-torres-bodet/img/cover.jpg",
+  "slug": "penthouse-jaime-torres-bodet",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

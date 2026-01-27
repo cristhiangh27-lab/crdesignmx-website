@@ -1,0 +1,16 @@
+{
+  "title": "Mirador 360",
+  "location": "Valle de Bravo, México",
+  "year": "2023",
+  "type": "Hospitalidad",
+  "summary": "Refugio con vistas panorámicas y terrazas escalonadas.",
+  "coverImage": "/projects/mirador-360/img/cover.jpg",
+  "slug": "mirador-360",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Aurora House",
+  "location": "Querétaro, México",
+  "year": "2024",
+  "type": "Residencial",
+  "summary": "Residencia contemporánea con patios luminosos y conexión interior-exterior.",
+  "coverImage": "/projects/aurora-house/img/cover.jpg",
+  "slug": "aurora-house",
+  "images": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "cover"
+  ]
+}
