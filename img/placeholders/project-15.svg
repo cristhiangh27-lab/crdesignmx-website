@@ -1,0 +1,13 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a0b1a" />
+      <stop offset="1" stop-color="#102945" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect x="80" y="80" width="1040" height="640" rx="32" stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="rgba(255,255,255,0.04)" />
+  <text x="600" y="380" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="48" letter-spacing="6">CR COLLECTIVE</text>
+  <text x="600" y="450" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="3">PROYECTO PLACEHOLDER</text>
+  <text x="600" y="520" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, Arial, sans-serif" font-size="32">PROYECTO 15</text>
+</svg>
