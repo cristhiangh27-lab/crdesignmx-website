@@ -19,6 +19,6 @@ El diseño parte de la intención de generar dobles alturas, una circulación ve
 Este proyecto forma parte del portafolio profesional de CR Collective, modelado en BIM y con representación arquitectónica detallada, privilegiando procesos claros y viables para el cliente.
 
 ## Galería
-![Imagen 1](img/01.jpg)
+![Imagen 1](projects/casa-lomas/img/Vista princ2.jpg)
 ![Imagen 2](img/02.jpg)
 ![Imagen 3](img/03.jpg)
