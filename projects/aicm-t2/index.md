@@ -1,22 +1,30 @@
 # Star Médica Santa Fe · Ciudad de México · Hospitalario · 2024
 
 ## Descripción
-Casa Lomas es un proyecto residencial ubicado en Veracruz, México, diseñado para una familia que buscaba un espacio contemporáneo, funcional y con identidad arquitectónica. El proyecto se basa en darle protagonismo a los espacios sociales —particularmente la cocina y el comedor— integrándolos con el exterior mediante aperturas controladas, geometrías limpias y una lectura volumétrica clara.
+Star Médica Santa Fe es un proyecto hospitalario de alta complejidad desarrollado en Ciudad de México, donde CR Collective participó en la coordinación BIM y documentación técnica de instalaciones, enfocándose en la integración entre diseño, modelado y ejecución en sitio. El trabajo se centró en convertir información dispersa y cambios constantes en un sistema ordenado: modelos 3D confiables, cuantificación precisa y documentación clara para construcción, priorizando trazos eficientes, compatibilización con arquitectura/estructura y toma de decisiones basada en datos.
 
 ## Concepto arquitectónico
-El diseño parte de la intención de generar dobles alturas, una circulación vertical ordenada y una envolvente con equilibrio entre luz natural, privacidad y expresión arquitectónica contemporánea. Las geometrías se definen con planos limpios y contrastes entre sólidos y aperturas, priorizando materialidad sobria y durabilidad en clima cálido.
+La prioridad del proyecto fue lograr instalaciones ejecutables y verificables, no solo “bonitas en 3D”. Se trabajó con un enfoque de control técnico: rutas óptimas, jerarquías de líneas, validación de interferencias y criterios de montaje. El modelo se utilizó como herramienta de coordinación y como base para cuantificar, programar y documentar, asegurando coherencia entre lo que se diseña, lo que se compra y lo que se instala.
 
-## Programa arquitectónico
-- Acceso principal
-- Sala de doble altura
-- Cocina protagonista con barra central
-- Comedor integrado
-- Recámaras familiares
-- Roof garden
-- Área de servicio
+## Alcance de CR Collective
+-Modelado BIM de instalaciones (trazos, accesorios, conexiones y criterios de montaje).
+-Diseño y ajuste de rutas de tubería y canalizaciones conforme a restricciones reales de obra.
+-Compatibilización interdisciplinaria (detección y corrección de interferencias).
+-Generación y actualización de planos para construcción (plantas, isométricos, detalles y notas).
+-Cuantificación de materiales (longitudes, diámetros, accesorios y elementos asociados).
+-Soporte a ejecución: revisión en sitio, validación de cambios y documentación “as-built” cuando aplica.
+-Estandarización de entregables para asegurar lectura clara por cuadrillas y supervisión.
+
+## Programa / entregables típicos
+-Planos de instalación por nivel y por sistema
+-Isométricos por áreas críticas
+-Detalles de cruces, cambios de nivel y pasos técnicos
+-Cuadros de cuantificación y listados de materiales
+-Coordinación de ajustes por compatibilidad y obra
+-Registro de modificaciones y control de versiones
 
 ## Notas adicionales
-Este proyecto forma parte del portafolio profesional de CR Collective, modelado en BIM y con representación arquitectónica detallada, privilegiando procesos claros y viables para el cliente.
+Proyecto desarrollado en entorno hospitalario con alta demanda de precisión y coordinación. Se priorizó un flujo de trabajo ágil, capaz de absorber cambios sin perder control del modelo ni de las cuantificaciones, manteniendo consistencia entre documentación, suministro y montaje.
 
 ## Galería
 ![Imagen 1](img/01.jpg)
