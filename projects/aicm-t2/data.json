@@ -1,10 +1,10 @@
 {
-  "title": "Casa Lomas",
-  "location": "Veracruz, México",
+  "title": "Star Médica Santa Fé",
+  "location": "Ciudad de México, México",
   "year": "2024",
-  "type": "Residencial",
-  "area": "Vivienda unifamiliar",
-  "summary": "Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.",
+  "type": "Hospitalario",
+  "area": "Clínicas privadas",
+  "summary": "Diseño y canalización de subestaciones eléctricas para el edificio: Sistema de Alimentadores generales y conexión a tierras",
   "coverImage": "projects/casa-lomas/img/XMPL1.png",
   "images": ["projects/casa-lomas/img/Vista princ2.jpg","01", "02", "03", "preview"]
 }
