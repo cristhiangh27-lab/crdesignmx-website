@@ -3,37 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles.css">
-  <title>Remodelación T2 AICM – CR COLLECTIVE</title>
+  <title>Casa Lomas – CR Collective</title>
+  <link rel="stylesheet" href="../../css/styles.css">
 </head>
-<body class="project-page">
-  <header class="topbar">
-    <a href="../../index.html" class="logo">CR COLLECTIVE</a>
-    <nav>
-      <a href="../../index.html#proyectos">Proyectos</a>
-      <a href="../../index.html#servicios">Servicios</a>
-      <a href="../../index.html#sobre-mi">Sobre mí</a>
-      <a href="../../index.html#contacto">Contacto</a>
-    </nav>
+<body class="project-page" data-project="casa-lomas">
+  <header class="site-header">
+    <div class="header-inner">
+     <a class="logo" href="../../index.html" aria-label="CR Collective">
+  <!-- Video intro (solo home, aquí se ocultará por CSS) -->
+  <video class="logo-intro" muted playsinline preload="auto" aria-hidden="true">
+    <source src="../../img/brand/logo-anim.mp4" type="video/mp4">
+  </video>
+
+  <!-- Logo estático -->
+  <img class="logo-static" src="../../img/brand/logo-cr-collective.png" alt="CR Collective">
+</a>
+
+      <nav class="primary-nav" aria-label="Principal">
+        <a href="../../projects.html">Proyectos</a>
+        <a href="../../services.html">Servicios</a>
+        <a href="../../about.html">Sobre mí</a>
+        <a href="../../contact.html">Contacto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="project-hero">
-      <h1>Remodelación T2 AICM</h1>
-      <p>[Ubicación · Año · Tipo de proyecto]</p>
+      <div class="project-hero-text">
+        <p class="section-lead">Proyecto residencial</p>
+        <h1>Casa Lomas</h1>
+        <div class="project-meta"></div>
+        <p class="summary"></p>
+      </div>
+      <div class="hero-visual">
+        <div class="placeholder">Galería próxima</div>
+        <img src="projects/casa-lomas/img/XMPL1.png" alt="" hidden>
+      </div>
     </section>
 
     <section class="project-description">
       <h2>Descripción</h2>
-      <p>[Descripción detallada del proyecto]</p>
+      <div class="content"></div>
     </section>
 
     <section class="project-gallery">
       <h2>Galería</h2>
-      <div class="grid">
-        <!-- Aquí irán las imágenes -->
-      </div>
+      <div class="grid"></div>
     </section>
   </main>
+
+  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module">
+    import { renderProjectDetail } from '../../js/project-loader.js';
+    renderProjectDetail('casa-lomas');
+  </script>
 </body>
 </html>
