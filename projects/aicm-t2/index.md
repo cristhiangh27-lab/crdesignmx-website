@@ -1,6 +1,5 @@
 # Star Médica Santa Fe · Ciudad de México · Hospitalario · 2024
 
-## Descripción
 Star Médica Santa Fe es un proyecto hospitalario de alta complejidad desarrollado en Ciudad de México, donde CR Collective participó en la coordinación BIM y documentación técnica de instalaciones, enfocándose en la integración entre diseño, modelado y ejecución en sitio. El trabajo se centró en convertir información dispersa y cambios constantes en un sistema ordenado: modelos 3D confiables, cuantificación precisa y documentación clara para construcción, priorizando trazos eficientes, compatibilización con arquitectura/estructura y toma de decisiones basada en datos.
 
 ## Concepto arquitectónico
