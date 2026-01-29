@@ -1,8 +1,10 @@
 {
-  "title": "Remodelación T2 AICM",
-  "location": "CDMX",
-  "year": "2023",
-  "type": "Infraestructura",
-  "summary": "Rehabilitación de áreas clave con enfoque en flujo de pasajeros y eficiencia operativa.",
-  "coverImage": "/img/placeholders/project-01.svg"
+  "title": "Casa Lomas",
+  "location": "Veracruz, México",
+  "year": "2024",
+  "type": "Residencial",
+  "area": "Vivienda unifamiliar",
+  "summary": "Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.",
+  "coverImage": "projects/casa-lomas/img/XMPL1.png",
+  "images": ["projects/casa-lomas/img/Vista princ2.jpg","01", "02", "03", "preview"]
 }
