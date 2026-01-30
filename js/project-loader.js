@@ -365,6 +365,11 @@ export async function initFeaturedGallery(options = {}) {
   let totalPages = Math.ceil(featuredProjects.length / pageSize);
   let currentPage = 0;
 
+  const setTrackWidth = () => {
+    const trackWidth = Math.max(totalPages, 1) * 100;
+    container.style.width = `${trackWidth}%`;
+  };
+
   const buildPages = () => {
     container.innerHTML = '';
     totalPages = Math.ceil(featuredProjects.length / pageSize);
@@ -377,7 +382,7 @@ export async function initFeaturedGallery(options = {}) {
       }
       container.appendChild(page);
     }
-    container.style.width = `${totalPages * 100}%`;
+    setTrackWidth();
   };
 
   const updateTrack = () => {
