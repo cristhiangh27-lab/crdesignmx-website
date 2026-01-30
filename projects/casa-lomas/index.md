@@ -21,4 +21,10 @@ Este proyecto forma parte del portafolio profesional de CR Collective, modelado 
 ## Galería
 ![Vista principal](img/Vista%20princ2.jpg)
 ![Vista principal](img/Miradorlomas01.jpg)
+![Vista principal](img/CALOM1.jpg)
+![Vista principal](img/CALOM2.jpg)
+![Vista principal](img/CALOM3.jpg)
+![Vista principal](img/CALOM4.jpg)
+![Vista principal](img/CALOM5.jpg)
+![Vista principal](img/CALOM6.jpg)
 
