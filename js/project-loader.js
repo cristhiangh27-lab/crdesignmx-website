@@ -355,15 +355,14 @@ export async function initFeaturedGallery(options = {}) {
     return;
   }
 
-  const getPageSize = () => {
-    if (window.innerWidth < 640) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 4;
-  };
-
-  let pageSize = getPageSize();
+  const pageSize = 4;
   let totalPages = Math.ceil(featuredProjects.length / pageSize);
   let currentPage = 0;
+
+  const setTrackWidth = () => {
+    const trackWidth = Math.max(totalPages, 1) * 100;
+    container.style.width = `${trackWidth}%`;
+  };
 
   const buildPages = () => {
     container.innerHTML = '';
@@ -371,13 +370,12 @@ export async function initFeaturedGallery(options = {}) {
     for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
       const page = document.createElement('div');
       page.className = 'featured-page';
-      for (let i = 0; i < pageSize; i += 1) {
-        const itemIndex = (pageIndex * pageSize + i) % featuredProjects.length;
-        page.appendChild(createFeaturedProjectCard(featuredProjects[itemIndex]));
-      }
+      const startIndex = pageIndex * pageSize;
+      const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
+      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project)));
       container.appendChild(page);
     }
-    container.style.width = `${totalPages * 100}%`;
+    setTrackWidth();
   };
 
   const updateTrack = () => {
@@ -401,9 +399,6 @@ export async function initFeaturedGallery(options = {}) {
   updateTrack();
 
   window.addEventListener('resize', () => {
-    const nextSize = getPageSize();
-    if (nextSize === pageSize) return;
-    pageSize = nextSize;
     totalPages = Math.ceil(featuredProjects.length / pageSize);
     currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
     buildPages();
