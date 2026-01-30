@@ -326,7 +326,8 @@ function renderFeaturedSkeleton(container, count) {
 
 function getFeaturedProjects(projects) {
   const featured = projects.filter((project) => project.featured === true);
-  return featured.length ? featured : projects;
+  const nonFeatured = projects.filter((project) => project.featured !== true);
+  return featured.length ? [...featured, ...nonFeatured] : projects;
 }
 
 export async function initFeaturedGallery(options = {}) {
