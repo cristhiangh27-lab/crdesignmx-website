@@ -19,5 +19,9 @@ La propuesta plantea una actualización estética y funcional mediante:
 
 ## Galería
 ![Imagen 1](img/AICM01.jpg)
-![Imagen 2](img/02.jpg)
-![Imagen 3](img/03.jpg)
+![Imagen 2](img/AICM02.jpg)
+![Imagen 3](img/AICM03.jpg)
+![Imagen 3](img/AICM04.jpg)
+![Imagen 3](img/AICM05.jpg)
+![Imagen 3](img/AICM06.jpg)
+![Imagen 3](img/AICM07.jpg)
