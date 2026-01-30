@@ -26,6 +26,6 @@ La prioridad del proyecto fue lograr instalaciones ejecutables y verificables, n
 Proyecto desarrollado en entorno hospitalario con alta demanda de precisión y coordinación. Se priorizó un flujo de trabajo ágil, capaz de absorber cambios sin perder control del modelo ni de las cuantificaciones, manteniendo consistencia entre documentación, suministro y montaje.
 
 ## Galería
-![Imagen 1](img/01.jpg)
+![Imagen 1](img/SMELE01.jpg)
 ![Imagen 2](img/02.jpg)
 ![Imagen 3](img/03.jpg)
