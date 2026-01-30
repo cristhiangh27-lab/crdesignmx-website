@@ -18,6 +18,6 @@ La propuesta plantea una actualización estética y funcional mediante:
 - Integración con criterios aeroportuarios
 
 ## Galería
-![Imagen 1](img/01.jpg)
+![Imagen 1](img/AICM01.jpg)
 ![Imagen 2](img/02.jpg)
 ![Imagen 3](img/03.jpg)
