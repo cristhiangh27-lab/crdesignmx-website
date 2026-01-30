@@ -1250,3 +1250,26 @@ body.home .hero.hero-video .btn-ghost:hover {
   background: var(--surface-2);
   border-color: rgba(193, 141, 33, 0.45);
 }
+
+/* FIX: Selects en tema oscuro */
+:root {
+  color-scheme: dark;
+}
+
+.filter-bar select {
+  background: rgba(10, 15, 25, 0.88);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.filter-bar select option {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+
+.filter-bar select:focus {
+  border-color: rgba(255, 255, 255, 0.28);
+}
