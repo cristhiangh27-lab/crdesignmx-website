@@ -339,6 +339,7 @@ export async function initFeaturedGallery(options = {}) {
 
   if (!container) return;
   renderFeaturedSkeleton(container, totalVisible);
+  const viewport = container.closest('.carousel-viewport');
 
   let projects = [];
   try {
@@ -355,13 +356,7 @@ export async function initFeaturedGallery(options = {}) {
     return;
   }
 
-  const getPageSize = () => {
-    if (window.innerWidth < 640) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 4;
-  };
-
-  let pageSize = getPageSize();
+  const pageSize = 4;
   let totalPages = Math.ceil(featuredProjects.length / pageSize);
   let currentPage = 0;
 
@@ -376,17 +371,17 @@ export async function initFeaturedGallery(options = {}) {
     for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
       const page = document.createElement('div');
       page.className = 'featured-page';
-      for (let i = 0; i < pageSize; i += 1) {
-        const itemIndex = (pageIndex * pageSize + i) % featuredProjects.length;
-        page.appendChild(createFeaturedProjectCard(featuredProjects[itemIndex]));
-      }
+      const startIndex = pageIndex * pageSize;
+      const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
+      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project)));
       container.appendChild(page);
     }
     setTrackWidth();
   };
 
   const updateTrack = () => {
-    container.style.transform = `translate3d(-${currentPage * 100}%, 0, 0)`;
+    const viewportWidth = viewport?.clientWidth || container.clientWidth;
+    container.style.transform = `translate3d(${-currentPage * viewportWidth}px, 0, 0)`;
   };
 
   // Circular carousel: move between pages and wrap at the ends.
@@ -406,9 +401,6 @@ export async function initFeaturedGallery(options = {}) {
   updateTrack();
 
   window.addEventListener('resize', () => {
-    const nextSize = getPageSize();
-    if (nextSize === pageSize) return;
-    pageSize = nextSize;
     totalPages = Math.ceil(featuredProjects.length / pageSize);
     currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
     buildPages();
