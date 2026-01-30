@@ -326,7 +326,8 @@ function renderFeaturedSkeleton(container, count) {
 
 function getFeaturedProjects(projects) {
   const featured = projects.filter((project) => project.featured === true);
-  return featured.length ? featured : projects;
+  const nonFeatured = projects.filter((project) => project.featured !== true);
+  return featured.length ? [...featured, ...nonFeatured] : projects;
 }
 
 export async function initFeaturedGallery(options = {}) {
@@ -355,33 +356,38 @@ export async function initFeaturedGallery(options = {}) {
     return;
   }
 
-  const getPageSize = () => {
-    if (window.innerWidth < 640) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 4;
-  };
-
-  let pageSize = getPageSize();
+  const pageSize = 4;
   let totalPages = Math.ceil(featuredProjects.length / pageSize);
   let currentPage = 0;
+
+  const setTrackWidth = () => {
+    const trackWidth = Math.max(totalPages, 1) * 100;
+    container.style.width = `${trackWidth}%`;
+  };
 
   const buildPages = () => {
     container.innerHTML = '';
     totalPages = Math.ceil(featuredProjects.length / pageSize);
+    const pageWidthPct = totalPages ? 100 / totalPages : 100;
     for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
       const page = document.createElement('div');
       page.className = 'featured-page';
-      for (let i = 0; i < pageSize; i += 1) {
-        const itemIndex = (pageIndex * pageSize + i) % featuredProjects.length;
-        page.appendChild(createFeaturedProjectCard(featuredProjects[itemIndex]));
-      }
+      page.style.flex = `0 0 ${pageWidthPct}%`;
+      page.style.minWidth = `${pageWidthPct}%`;
+      const startIndex = pageIndex * pageSize;
+      const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
+      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project)));
       container.appendChild(page);
     }
-    container.style.width = `${totalPages * 100}%`;
+    setTrackWidth();
   };
 
   const updateTrack = () => {
-    container.style.transform = `translate3d(-${currentPage * 100}%, 0, 0)`;
+    const pageEl = container.querySelector('.featured-page');
+    const pageWidth = pageEl
+      ? pageEl.getBoundingClientRect().width
+      : container.clientWidth;
+    container.style.transform = `translate3d(${-currentPage * pageWidth}px, 0, 0)`;
   };
 
   // Circular carousel: move between pages and wrap at the ends.
@@ -401,9 +407,6 @@ export async function initFeaturedGallery(options = {}) {
   updateTrack();
 
   window.addEventListener('resize', () => {
-    const nextSize = getPageSize();
-    if (nextSize === pageSize) return;
-    pageSize = nextSize;
     totalPages = Math.ceil(featuredProjects.length / pageSize);
     currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
     buildPages();
