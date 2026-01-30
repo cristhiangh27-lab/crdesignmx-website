@@ -339,6 +339,7 @@ export async function initFeaturedGallery(options = {}) {
 
   if (!container) return;
   renderFeaturedSkeleton(container, totalVisible);
+  const viewport = container.closest('.carousel-viewport');
 
   let projects = [];
   try {
@@ -379,7 +380,8 @@ export async function initFeaturedGallery(options = {}) {
   };
 
   const updateTrack = () => {
-    container.style.transform = `translate3d(-${currentPage * 100}%, 0, 0)`;
+    const viewportWidth = viewport?.clientWidth || container.clientWidth;
+    container.style.transform = `translate3d(${-currentPage * viewportWidth}px, 0, 0)`;
   };
 
   // Circular carousel: move between pages and wrap at the ends.
