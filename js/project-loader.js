@@ -340,6 +340,7 @@ export async function initFeaturedGallery(options = {}) {
 
   if (!container) return;
   renderFeaturedSkeleton(container, totalVisible);
+  const viewport = container.closest('.carousel-viewport');
 
   let projects = [];
   try {
