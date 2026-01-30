@@ -369,9 +369,12 @@ export async function initFeaturedGallery(options = {}) {
   const buildPages = () => {
     container.innerHTML = '';
     totalPages = Math.ceil(featuredProjects.length / pageSize);
+    const pageWidthPct = totalPages ? 100 / totalPages : 100;
     for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
       const page = document.createElement('div');
       page.className = 'featured-page';
+      page.style.flex = `0 0 ${pageWidthPct}%`;
+      page.style.minWidth = `${pageWidthPct}%`;
       const startIndex = pageIndex * pageSize;
       const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
       pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project)));
@@ -381,8 +384,11 @@ export async function initFeaturedGallery(options = {}) {
   };
 
   const updateTrack = () => {
-    const viewportWidth = viewport?.clientWidth || container.clientWidth;
-    container.style.transform = `translate3d(${-currentPage * viewportWidth}px, 0, 0)`;
+    const pageEl = container.querySelector('.featured-page');
+    const pageWidth = pageEl
+      ? pageEl.getBoundingClientRect().width
+      : container.clientWidth;
+    container.style.transform = `translate3d(${-currentPage * pageWidth}px, 0, 0)`;
   };
 
   // Circular carousel: move between pages and wrap at the ends.
