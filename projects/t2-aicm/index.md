@@ -25,3 +25,4 @@ La propuesta plantea una actualización estética y funcional mediante:
 ![Imagen 3](img/AICM05.jpg)
 ![Imagen 3](img/AICM06.jpg)
 ![Imagen 3](img/AICM07.jpg)
+![Imagen 3](img/AICM08.jpg)
