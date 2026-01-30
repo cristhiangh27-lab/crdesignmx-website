@@ -272,8 +272,13 @@ main {
 }
 
 .projects-carousel.featured-gallery {
-  overflow: hidden;
   position: relative;
+  overflow: visible;
+}
+
+.projects-carousel .carousel-viewport {
+  flex: 1;
+  overflow: hidden;
 }
 
 .projects-carousel .carousel-track {
@@ -284,10 +289,12 @@ main {
   scroll-padding: 0.5rem;
   will-change: transform;
   transform: translate3d(0, 0, 0);
+  z-index: 1;
 }
 
 .featured-page {
   flex: 0 0 100%;
+  min-width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -445,7 +452,7 @@ main {
 
 .projects-carousel .carousel-track {
   gap: 0;
-  overflow: hidden;
+  overflow: visible;
   padding: 0.5rem;
   scroll-snap-type: none;
   scroll-padding: 0;
@@ -475,7 +482,8 @@ main {
   place-items: center;
   box-shadow: 0 10px 24px rgba(10, 11, 26, 0.35);
   transition: background 0.2s ease, transform 0.2s ease;
-  z-index: 10;
+  z-index: 50;
+  pointer-events: auto;
 }
 
 .carousel-btn.prev {
