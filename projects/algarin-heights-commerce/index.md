@@ -7,16 +7,16 @@ El planteamiento parte de una **planta baja abierta y activa**, donde se incorpo
 
 ## Colaboración
 Proyecto desarrollado en colaboración con:
-- **Arq. Guillermo Olvera Jiménez**
-- **Arq. David Alexis Flores Ventura**
-- **Arq. Andre Eduardo Miranda Nava**
+- *Arq. Guillermo Olvera Jiménez*
+- *Arq. David Alexis Flores Ventura*
+- *Arq. Andre Eduardo Miranda Nava*
 
 ## Ficha del proyecto
-- **Ubicación:** Colonia Algarín, CDMX  
-- **Tipología:** Uso mixto (vivienda + comercio)  
-- **Programa:** Departamentos + pasaje comercial + locales en PB + sótano de estacionamiento  
-- **Estrategia urbana:** Activación de banqueta y conexión peatonal mediante pasaje  
-- **Enfoque:** Integración de flujos, claridad de circulaciones y fachadas contemporáneas
+- *Ubicación:* Colonia Algarín, CDMX  
+- *Tipología:* Uso mixto (vivienda + comercio)  
+- *Programa:* Departamentos + pasaje comercial + locales en PB + sótano de estacionamiento  
+- *Estrategia urbana:* Activación de banqueta y conexión peatonal mediante pasaje  
+- *Enfoque:* Integración de flujos, claridad de circulaciones y fachadas contemporáneas
 
 ## Concepto urbano–arquitectónico
 El proyecto se organiza como un **pasaje** que articula el conjunto y funciona como “columna vertebral” del comercio, conectando los accesos desde calle y distribuyendo a los locales. Sobre esta base, la vivienda se plantea como un volumen eficiente, con **circulaciones claras** y un sistema de accesos que separa adecuadamente lo público (comercio) de lo privado (departamentos).
