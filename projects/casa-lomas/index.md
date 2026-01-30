@@ -19,4 +19,5 @@ El diseño parte de la intención de generar dobles alturas, una circulación ve
 Este proyecto forma parte del portafolio profesional de CR Collective, modelado en BIM y con representación arquitectónica detallada, privilegiando procesos claros y viables para el cliente.
 
 ## Galería
-"images": ["Vista%20princ2.jpg"]
+![Vista principal](img/Vista%20princ2.jpg)
+
