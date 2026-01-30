@@ -27,5 +27,5 @@ Proyecto desarrollado en entorno hospitalario con alta demanda de precisión y c
 
 ## Galería
 ![Imagen 1](img/SMELE01.jpg)
-![Imagen 2](img/02.jpg)
+![Imagen 2](img/SMELE02.jpg)
 ![Imagen 3](img/03.jpg)
