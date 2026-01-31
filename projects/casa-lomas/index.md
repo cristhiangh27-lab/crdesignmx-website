@@ -1,6 +1,5 @@
 # Casa Lomas · Veracruz · Residencial · 2024
 
-## Descripción
 Casa Lomas es un proyecto residencial ubicado en Veracruz, México, diseñado para una familia que buscaba un espacio contemporáneo, funcional y con identidad arquitectónica. El proyecto se basa en darle protagonismo a los espacios sociales —particularmente la cocina y el comedor— integrándolos con el exterior mediante aperturas controladas, geometrías limpias y una lectura volumétrica clara.
 
 ## Concepto arquitectónico
