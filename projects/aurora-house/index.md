@@ -6,3 +6,5 @@ Residencia contemporánea con patios luminosos y conexión interior-exterior.
 ## Galería
 ![Imagen 1](img/AURORA2.jpg)
 ![Imagen 1](img/AURORA3.jpg)
+![Imagen 1](img/AURORA4.jpg)
+![Imagen 1](img/AURORA5.jpg)
