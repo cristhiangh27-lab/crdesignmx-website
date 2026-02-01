@@ -18,4 +18,7 @@ La propuesta nace del diálogo entre arte, intimidad y ciudad. Se plantea una ar
 Este proyecto fue concebido para volverse tangible desde el inicio: se modeló, se cortó y se armó como parte del proceso de diseño, asegurando claridad espacial, proporciones honestas y una materialidad sobria. PH Santa María sintetiza una forma accesible y sensible de habitar la ciudad: una vivienda que entiende que el hogar también puede ser un mundo creativo.
 
 ## Galería
-![Vista principal](img/PH1.jpg)
+![Vista principal](img/PH2.jpg)
+![Vista principal](img/PH3.jpg)
+![Vista principal](img/PH4.jpg)
+![Vista principal](img/PH5.jpg)
