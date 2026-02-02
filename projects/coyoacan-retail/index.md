@@ -22,6 +22,6 @@ El corazón del proyecto es un espacio de circulación y estancia con iluminaci�
 El proyecto propone una solución comercial de escala contenida, pero con una identidad fuerte: estructura metálica expuesta, grandes claros, transparencias y una envolvente que trabaja como filtro climático y visual. Se privilegia la experiencia del usuario (recorridos, luz, orientación) y la viabilidad constructiva mediante un sistema estructural claro y repetible.
 
 ## Galería
-[Vista principal](img/COYO02.jpg)
-[Vista principal](img/COYO03.jpg)
-[Vista principal](img/COYO04.jpg)
+[Vista principal](img/COYO2.jpg)
+[Vista principal](img/COYO3.jpg)
+[Vista principal](img/COYO4.jpg)
