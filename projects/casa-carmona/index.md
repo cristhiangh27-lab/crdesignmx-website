@@ -33,6 +33,11 @@ El uso de cristal templado reciclado permite crear juegos de luz y texturas, int
 - Áreas exteriores y circulaciones
 
 ## Galería
-![Render 1](img/01.jpg)
-![Render 2](img/02.jpg)
-![Render 3](img/03.jpg)
+![Render 1](img/CC1.jpg)
+![Render 2](img/CC2.jpg)
+![Render 3](img/CC3.jpg)
+![Render 3](img/CC4.jpg)
+![Render 3](img/CC5.jpg)
+![Render 3](img/CC6.jpg)
+![Render 3](img/CC7.jpg)
+![Render 3](img/CC8.jpg)
