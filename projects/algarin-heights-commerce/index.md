@@ -40,9 +40,9 @@ La propuesta busca equilibrar:
 
 ## Galería
 
-![Render 1](img/01.jpg)
-![Render 2](img/02.jpg)
-![Render 3](img/03.jpg)
+![Render 1](img/COYO2.jpg)
+![Render 2](img/COYO3.jpg)
+![Render 3](img/COYO4.jpg)
 
 <!-- Alternativa con placeholder general (si todavía no hay imágenes):
 ![Imagen 1](../../img/placeholders/project-02.svg)
