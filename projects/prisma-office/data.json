@@ -1,8 +1,8 @@
 {
   "title": "Prisma Office",
-  "location": "Monterrey, México",
-  "year": "2023",
+  "location": "Santa Fe, CDMX",
+  "year": "2026",
   "type": "Corporativo",
-  "summary": "Oficinas con módulos flexibles y control lumínico.",
-  "coverImage": "/img/placeholders/project-11.svg"
+  "summary": "Intervención integral de acabados para el acceso principal y recepción de Prisma Office dentro de un piso corporativo en Santa Fe.",
+  "coverImage": "projects/prisma-office/img/PRISMA01.jpg"
 }
