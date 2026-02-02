@@ -37,7 +37,3 @@ La propuesta conceptual se construye con la idea de onda (flujo / frecuencia / m
 ![Imagen 2](img/PRISMA02.jpg)
 ![Imagen 3](img/PRISMA03.jpg)
 ![Imagen 4](img/PRISMA04.jpg)
-![Imagen 5](img/PRISMA05.jpg)
-![Imagen 6](img/PRISMA06.jpg)
-![Imagen 7](img/PRISMA07.jpg)
-![Imagen 8](img/PRISMA08.jpg)
