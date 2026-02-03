@@ -51,19 +51,26 @@
     <section class="project-hero" style="margin-bottom:1.5rem;">
       <div class="form-card" style="width:100%;">
         <form>
-          <div class="form-field">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-          </div>
-          <div class="form-field">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="nombre@correo.com" required>
-          </div>
-          <div class="form-field">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" placeholder="Cuéntame sobre tu proyecto" required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
+          <form id="contactForm">
+  <div class="form-field">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="nombre" placeholder="Tu nombre" required>
+  </div>
+
+  <div class="form-field">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" placeholder="nombre@correo.com" required>
+  </div>
+
+  <div class="form-field">
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="mensaje" placeholder="Cuéntame sobre tu proyecto" required></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit" aria-label="Enviar formulario de contacto">Enviar</button>
+
+  <p id="formStatus" style="margin-top:.75rem; opacity:.9;"></p>
+</form>
         </form>
       </div>
       <div class="contact-info">
@@ -106,5 +113,37 @@
       />
     </svg>
   </a>
+<script>
+  // año footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // formulario
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbyD73xf6NQZHA7O3vfmSTGnga6_GgUuP7kEHqSIifd2C64GrmwL7UDR0E9sNvTYjk3B7A/exec";
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "Enviando…";
+
+    const data = new URLSearchParams(new FormData(form));
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        body: data
+      });
+
+      // aunque el response sea simple "ok", con esto basta
+      if (!res.ok) throw new Error("HTTP " + res.status);
+
+      statusEl.textContent = "✅ Listo. Te responderemos pronto.";
+      form.reset();
+    } catch (err) {
+      statusEl.textContent = "❌ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.";
+    }
+  });
+</script>
+
 </body>
 </html>
