@@ -22,7 +22,7 @@ El uso de cristal templado reciclado permite crear juegos de luz y texturas, int
 ## Elementos clave
 - Lambrines en áreas sociales
 - Cajillos de tablaroca con luz indirecta
-- Diseño de cocina y barra (diseñado junto a Brenda)
+- Diseño de cocina y barra (diseñado por la Arq. Brenda González Aguilar)
 - Difusores lineales integrados al soffit del sistema de fancoils
 - Modelado completo BIM en ArchiCAD
 
