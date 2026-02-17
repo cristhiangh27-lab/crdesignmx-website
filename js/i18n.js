@@ -64,6 +64,15 @@ function applyTranslations(dict) {
       node.setAttribute('aria-label', value);
     }
   });
+
+  const placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+  placeholderNodes.forEach((node) => {
+    const key = node.dataset.i18nPlaceholder;
+    const value = dict[key];
+    if (typeof value === 'string') {
+      node.setAttribute('placeholder', value);
+    }
+  });
 }
 
 function setHtmlLang(lang) {
@@ -95,6 +104,7 @@ async function setLang(lang) {
   }
 
   window.__i18n = { lang: normalizedLang, dict, t };
+  window.dispatchEvent(new CustomEvent('langchange', { detail: { lang: normalizedLang } }));
 }
 
 function bindSelectorEvents() {

@@ -29,5 +29,20 @@
   "language.selector": "Language selector",
   "project.card.cta": "View project",
   "project.card.titleFallback": "Project",
-  "featured.empty": "No projects available."
+  "featured.empty": "No projects available.",
+  "projects.kicker": "Portfolio",
+  "projects.title": "Projects by CR Collective",
+  "projects.subtitle": "Explore residences, renovations, and concepts developed with a BIM-focused approach, visualization, and clear architectural storytelling.",
+  "projects.filters.all": "All",
+  "projects.search.placeholder": "Search by title, location, or keyword",
+  "projects.empty": "No projects found.",
+  "categories.residential": "Residential",
+  "categories.interior_renovation": "Interior renovation",
+  "categories.healthcare": "Healthcare",
+  "categories.mixed_use": "Mixed use",
+  "categories.hospitality": "Hospitality",
+  "categories.commercial": "Commercial",
+  "categories.corporate": "Corporate",
+  "categories.cultural": "Cultural",
+  "categories.vacation_home": "Vacation home"
 }

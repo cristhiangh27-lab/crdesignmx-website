@@ -29,5 +29,20 @@
   "language.selector": "Sprachauswahl",
   "project.card.cta": "Projekt ansehen",
   "project.card.titleFallback": "Projekt",
-  "featured.empty": "Keine Projekte verfügbar."
+  "featured.empty": "Keine Projekte verfügbar.",
+  "projects.kicker": "Portfolio",
+  "projects.title": "Projekte von CR Collective",
+  "projects.subtitle": "Entdecken Sie Wohnprojekte, Umbauten und Konzepte mit Fokus auf BIM, Visualisierung und klare architektonische Erzählung.",
+  "projects.filters.all": "Alle",
+  "projects.search.placeholder": "Suche nach Titel, Ort oder Stichwort",
+  "projects.empty": "Keine Projekte gefunden.",
+  "categories.residential": "Wohnen",
+  "categories.interior_renovation": "Innenumbau",
+  "categories.healthcare": "Gesundheitswesen",
+  "categories.mixed_use": "Mischnutzung",
+  "categories.hospitality": "Gastgewerbe",
+  "categories.commercial": "Einzelhandel",
+  "categories.corporate": "Unternehmensbereich",
+  "categories.cultural": "Kultur",
+  "categories.vacation_home": "Ferienhaus"
 }
