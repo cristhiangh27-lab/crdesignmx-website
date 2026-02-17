@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link rel="canonical" href="https://crcollective.mx/" />
 <meta charset="UTF-8">
@@ -28,36 +28,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="home">
-  <header class="site-header">
-    <div class="header-inner">
-<a class="logo" href="index.html" aria-label="CR Collective">
-  <!-- Logo animado (solo intro) -->
-  <video
-    class="logo-intro"
-    muted
-    playsinline
-    preload="auto"
-  >
-    <source src="img/brand/logo-anim.mp4" type="video/mp4">
-  </video>
-
-  <!-- Logo estático -->
-  <img
-    class="logo-static"
-    src="img/brand/logo-cr-collective.png"
-    loading="lazy"
-    alt="CR Collective"
-  >
-</a>
-
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html">Proyectos</a>
-        <a href="services.html">Servicios</a>
-        <a href="about.html">Nosotros</a>
-        <a href="contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
    <section class="above-fold">
@@ -71,13 +42,13 @@
           <div class="hero-overlay" aria-hidden="true"></div>
 
           <div class="hero-content">
-            <p class="section-lead">Arquitectura y visualización</p>
-            <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
-            <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+            <p class="section-lead" data-i18n="hero.lead">Architecture and visualization</p>
+            <h1 id="hero-title" data-i18n="hero.title">CR Collective designs contemporary, functional, and clear spaces for real people.</h1>
+            <p data-i18n="hero.description">Architecture studio focused on concept design, BIM modeling, documentation, and visualization for residential, renovation, and mixed-use projects.</p>
 
             <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a class="btn btn-ghost" href="projects.html">Ver proyectos</a>
-              <a class="btn btn-ghost" href="services.html">Servicios</a>
+              <a class="btn btn-ghost" href="projects.html" data-i18n="hero.ctaProjects">View projects</a>
+              <a class="btn btn-ghost" href="services.html" data-i18n="hero.ctaServices">Services</a>
             </div>
           </div>
         </section>
@@ -86,21 +57,21 @@
       <aside class="featured-panel" aria-label="Proyectos destacados">
         <div class="featured-panel__header">
           <div>
-            <h2>Proyectos destacados</h2>
-            <p class="section-lead">Selección reciente desarrollada por CR Collective.</p>
+            <h2 data-i18n="featured.title">Featured projects</h2>
+            <p class="section-lead" data-i18n="featured.lead">Recent selection developed by CR Collective.</p>
           </div>
-          <a class="btn btn-ghost" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+          <a class="btn btn-ghost" href="projects.html" aria-label="View all projects" data-i18n="featured.viewAll">View all</a>
         </div>
         <section class="projects-carousel featured-gallery" aria-live="polite">
-          <button class="carousel-btn prev" type="button" aria-label="Anterior">
+          <button class="carousel-btn prev" type="button" aria-label="Previous" data-i18n-aria-label="featured.prev">
             <span aria-hidden="true">‹</span>
           </button>
           <div class="carousel-viewport">
             <div class="carousel-track" id="featured-projects">
-              <p>Cargando proyectos…</p>
+              <p data-i18n="featured.loading">Loading projects…</p>
             </div>
           </div>
-          <button class="carousel-btn next" type="button" aria-label="Siguiente">
+          <button class="carousel-btn next" type="button" aria-label="Next" data-i18n-aria-label="featured.next">
             <span aria-hidden="true">›</span>
           </button>
         </section>
@@ -109,27 +80,27 @@
       <div class="services-panel">
         <div class="section-header">
           <div>
-            <h2>Servicios</h2>
-            <p class="section-lead">Acompañamos a los clientes en cada etapa del proyecto con una metodología clara.</p>
+            <h2 data-i18n="services.title">Services</h2>
+            <p class="section-lead" data-i18n="services.lead">We support clients at every project stage with a clear methodology.</p>
           </div>
-          <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+          <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Schedule a call</a>
         </div>
         <section class="services-grid services-grid--light" aria-label="Servicios">
           <article class="service-card" style="--card-bg: url('./img/services/anteproyecto.jpg');">
-            <h3>Anteproyecto arquitectónico</h3>
-            <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+            <h3 data-i18n="services.card1.title">Architectural concept design</h3>
+            <p data-i18n="services.card1.description">Concept development, functional schemes, and spatial narrative aligned with goals and budget.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/bim.jpg');">
-            <h3>Modelado BIM y documentación</h3>
-            <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+            <h3 data-i18n="services.card2.title">BIM modeling and documentation</h3>
+            <p data-i18n="services.card2.description">Coordinated models and clear technical deliverables for construction and permits.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/renders.jpg');">
-            <h3>Renders y recorridos</h3>
-            <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+            <h3 data-i18n="services.card3.title">Renders and walkthroughs</h3>
+            <p data-i18n="services.card3.description">Photorealistic visualizations, walkthroughs, and presentation materials for clients and investors.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/asesoria.jpg');">
-            <h3>Asesoría personalizada</h3>
-            <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+            <h3 data-i18n="services.card4.title">Personalized advisory</h3>
+            <p data-i18n="services.card4.description">Strategic guidance for self-builds, renovations, or supplier management.</p>
           </article>
         </section>
       </div>
@@ -152,88 +123,48 @@
     </svg>
   </a>
 
-  <footer class="footer">
-    © <span id="year"></span> CR Collective · Espacios claros y extraordinarios
-  </footer>
-
+  <div data-include="footer"></div>
+  
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script>
-    const header = document.querySelector('.site-header');
-    let glassTimer;
-
-    const applyGlass = () => {
-      if (!header) return;
-      header.classList.remove('header--solid');
-      header.classList.add('header--glass');
-    };
-    const resetHeader = () => {
-      if (!header) return;
-      header.classList.add('header--solid');
-      header.classList.remove('header--glass');
-      clearTimeout(glassTimer);
-      glassTimer = setTimeout(applyGlass, 5000);
-    };
-
-    if (header) {
-      resetHeader();
-      window.addEventListener('scroll', () => {
-        if (window.scrollY === 0) {
-          resetHeader();
-        } else {
-          clearTimeout(glassTimer);
-          applyGlass();
-        }
-      });
-    }
+    window.addEventListener('site-ready', () => {
+      const header = document.querySelector('.site-header');
+      let glassTimer;
+      const applyGlass = () => {
+        if (!header) return;
+        header.classList.remove('header--solid');
+        header.classList.add('header--glass');
+      };
+      const resetHeader = () => {
+        if (!header) return;
+        header.classList.add('header--solid');
+        header.classList.remove('header--glass');
+        clearTimeout(glassTimer);
+        glassTimer = setTimeout(applyGlass, 5000);
+      };
+      if (header) {
+        resetHeader();
+        window.addEventListener('scroll', () => {
+          if (window.scrollY === 0) resetHeader();
+          else { clearTimeout(glassTimer); applyGlass(); }
+        });
+      }
+    });
   </script>
   <script type="module">
     import { initFeaturedGallery } from './js/project-loader.js';
-
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('site-ready', () => {
       initFeaturedGallery({ totalVisible: 4 });
     });
   </script>
-<script>
-  const introVideo = document.querySelector('.logo-intro');
-  const staticLogo = document.querySelector('.logo-static');
 
-  if (introVideo && staticLogo) {
-    // Arranque: video visible, PNG oculto
-    introVideo.style.opacity = '1';
-    staticLogo.style.opacity = '0';
-
-    introVideo.play().catch(() => {});
-
-    const finish = () => {
-      introVideo.style.opacity = '0';
-      staticLogo.style.opacity = '1';
-      // deja el video sin interacción pero sin cambiar layout
-      introVideo.style.pointerEvents = 'none';
-    };
-
-    introVideo.addEventListener('ended', finish);
-
-    // Por si el video no dispara "ended" por alguna razón
-    setTimeout(finish, 2500);
-  }
+  <script src="assets/js/includes.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
+    });
   </script>
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/525514844480?text=Hola%2C%20vengo%20de%20crcollective.mx.%20Me%20interesa%20una%20asesor%C3%ADa%2Fcotizaci%C3%B3n."
-    aria-label="Chatear por WhatsApp"
-    target="_blank"
-    rel="noopener"
-  >
-    <svg class="whatsapp-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fill="currentColor"
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.67.15-.198.297-.767.966-.94 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.009-.372-.011-.571-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 4.403h-.001c-1.205 0-2.39-.322-3.43-.93l-.246-.146-2.552.669.683-2.486-.16-.255c-.671-1.07-1.025-2.306-1.024-3.57 0-3.701 3.008-6.709 6.71-6.709 1.789 0 3.465.696 4.727 1.958 1.262 1.262 1.956 2.939 1.955 4.727 0 3.701-3.009 6.709-6.712 6.709m5.613-12.322C16.905 3.659 15.028 2.92 13.05 2.92c-3.77 0-6.84 3.069-6.842 6.839 0 1.203.315 2.375.916 3.405l-1.095 4.004 4.095-1.074c1 .547 2.125.836 3.274.836h.003c3.77 0 6.84-3.069 6.842-6.839.001-1.827-.711-3.543-2.002-4.834"
-      />
-    </svg>
-  </a>
-
 </body>
 </html>

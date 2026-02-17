@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link rel="canonical" href="https://crcollective.mx/about.html" />
 <meta charset="UTF-8">
@@ -26,38 +26,24 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-<a class="logo" href="index.html" aria-label="CR Collective">
-  <img class="logo-static" src="img/brand/logo-cr-collective.png" loading="lazy" alt="CR Collective">
-</a>
-
-
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html">Proyectos</a>
-        <a href="services.html">Servicios</a>
-        <a href="about.html" aria-current="page">Nosotros</a>
-        <a href="contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <section class="page-hero">
-      <p class="section-lead">Diseño + Ejecución + Supervisión</p>
-      <h1>CR Collective</h1>
-      <p>Somos un estudio colaborativo de arquitectura y visualización. Diseñamos y coordinamos proyectos contemporáneos con metodología BIM para asegurar coherencia entre propuesta, documentación y ejecución. Operamos como una red de trabajo con arquitectos e ingenieros civiles, integrando estructura e instalaciones para generar soluciones construibles, eficientes y alineadas a presupuesto. Nuestro enfoque: claridad en alcances, orden en procesos y comunicación constante con el cliente.</p>
+      <p class="section-lead" data-i18n="about.kicker">Design + Execution + Supervision</p>
+      <h1 data-i18n="about.title">CR Collective</h1>
+      <p><span data-i18n="about.intro">We are a collaborative architecture and visualization studio. We design and coordinate contemporary projects with BIM methodology to ensure coherence between concept, documentation, and execution. We operate as a work network with architects and civil engineers, integrating structure and MEP to deliver buildable, efficient solutions aligned with budget. Our approach: clear scope, orderly processes, and constant communication with the client.</span></p>
     </section>
 
     <section class="project-description">
-      <h2>Misión</h2>
+      <h2 data-i18n="about.mission.title">Mission</h2>
       <div class="content">
-        <p>Crear espacios contemporáneos que respondan a necesidades reales con procesos transparentes, comunicación constante y decisiones informadas.</p>
+        <p><span data-i18n="about.mission.body">Create contemporary spaces that respond to real needs through transparent processes, constant communication, and informed decisions.</span></p>
       </div>
     </section>
 
     <section class="project-description">
-      <h2>Valores</h2>
+      <h2 data-i18n="about.values.title">Values</h2>
       <div class="content">
         <ul>
           <li>Claridad en alcances, costos y entregables.</li>
@@ -69,7 +55,7 @@
     </section>
 
     <section class="project-description">
-      <h2>Equipo</h2>
+      <h2 data-i18n="about.team.title">Team</h2>
       <div class="content">
         <ul>
           <li><strong>Cristhian Gómez Hernández — Gerente de Proyectos</strong><br>Coordina procesos BIM, documentación clara y control de entregables para mantener el rumbo de cada proyecto.</li>
@@ -96,8 +82,7 @@
     </svg>
   </a>
 
-  <footer class="footer">© <span id="year"></span> CR Collective</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <div data-include="footer"></div>
 
   <a
     class="whatsapp-float"
@@ -113,5 +98,14 @@
       />
     </svg>
   </a>
+  <script src="assets/js/includes.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
+    });
+  </script>
 </body>
 </html>
