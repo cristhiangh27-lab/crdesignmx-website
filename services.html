@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link rel="canonical" href="https://crcollective.mx/services.html" />
 <meta charset="UTF-8">
@@ -26,49 +26,35 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-<a class="logo" href="index.html" aria-label="CR Collective">
-  <img class="logo-static" src="img/brand/logo-cr-collective.png" loading="lazy" alt="CR Collective">
-</a>
-
-
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html">Proyectos</a>
-        <a href="services.html" aria-current="page">Servicios</a>
-        <a href="about.html">Nosotros</a>
-        <a href="contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <section class="page-hero">
-      <p class="section-lead">Servicios</p>
-      <h1>Arquitectura, BIM y visualización para decisiones seguras</h1>
-      <p>CR Collective acompaña a clientes con procesos claros, entregables accionables y comunicación directa en cada etapa.</p>
+      <p class="section-lead" data-i18n="servicesPage.kicker">Services</p>
+      <h1 data-i18n="servicesPage.title">Architecture, BIM, and visualization for confident decisions</h1>
+      <p data-i18n="servicesPage.subtitle">CR Collective supports clients with clear processes, actionable deliverables, and direct communication at every stage.</p>
     </section>
 
-    <section class="services-grid" aria-label="Servicios de CR Collective">
+    <section class="services-grid" aria-label="CR Collective services" data-i18n-aria="servicesPage.gridAria">
       <article class="service-card">
         <div class="icon" aria-hidden="true">✏️</div>
-        <h3>Anteproyecto arquitectónico</h3>
-        <p>Concepto, volumetría, estrategia de sitio y layout funcional alineado a presupuesto y permisos.</p>
+        <h3 data-i18n="servicesPage.card1.title">Architectural concept design</h3>
+        <p data-i18n="servicesPage.card1.body">Concept, massing, site strategy, and functional layout aligned with budget and permits.</p>
       </article>
       <article class="service-card">
         <div class="icon" aria-hidden="true">📐</div>
-        <h3>Modelado BIM + documentación</h3>
-        <p>Modelos coordinados en ArchiCAD/Revit, fichas técnicas, planos y detalles listos para licitar y construir.</p>
+        <h3 data-i18n="servicesPage.card2.title">BIM modeling + documentation</h3>
+        <p data-i18n="servicesPage.card2.body">Coordinated ArchiCAD/Revit models, technical sheets, plans, and details ready for bidding and construction.</p>
       </article>
       <article class="service-card">
         <div class="icon" aria-hidden="true">🖥️</div>
-        <h3>Visualización y recorridos</h3>
-        <p>Renders, animaciones y recorridos interactivos para validar diseño con clientes, socios o autoridades.</p>
+        <h3 data-i18n="servicesPage.card3.title">Visualization and walkthroughs</h3>
+        <p data-i18n="servicesPage.card3.body">Renders, animations, and interactive walkthroughs to validate design with clients, partners, or authorities.</p>
       </article>
       <article class="service-card">
         <div class="icon" aria-hidden="true">🧭</div>
-        <h3>Asesoría y coordinación</h3>
-        <p>Planeación de obra, selección de acabados, revisión de proveedores y soporte en decisiones clave.</p>
+        <h3 data-i18n="servicesPage.card4.title">Advisory and coordination</h3>
+        <p data-i18n="servicesPage.card4.body">Construction planning, finish selection, supplier review, and support in key decisions.</p>
       </article>
     </section>
   </main>
@@ -88,8 +74,7 @@
     </svg>
   </a>
 
-  <footer class="footer">© <span id="year"></span> CR Collective</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <div data-include="footer"></div>
 
   <a
     class="whatsapp-float"
@@ -105,5 +90,14 @@
       />
     </svg>
   </a>
+  <script src="assets/js/includes.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
+    });
+  </script>
 </body>
 </html>

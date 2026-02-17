@@ -577,11 +577,11 @@ function setHero(data) {
   const heroImage = document.querySelector('.hero-visual img');
   const heroPlaceholder = document.querySelector('.hero-visual .placeholder');
 
-  if (titleEl) titleEl.textContent = data.title || 'Proyecto';
+  if (titleEl) titleEl.textContent = tField(data.title, getCurrentLang()) || 'Project';
 
   if (metaContainer) {
     metaContainer.innerHTML = '';
-    [data.location, data.year, data.type]
+    [getLocationLabel(data, getCurrentLang()), data.year, getCategoryLabel(data, getCurrentLang())]
       .filter(Boolean)
       .forEach((label) => {
         const span = document.createElement('span');
@@ -591,13 +591,13 @@ function setHero(data) {
       });
   }
 
-  if (summaryEl && data.summary) {
-    summaryEl.textContent = data.summary;
+  if (summaryEl) {
+    summaryEl.textContent = tField(data.shortDescription, getCurrentLang()) || tField(data.summary, getCurrentLang());
   }
 
   if (heroImage && data.coverImage) {
     heroImage.src = resolveAsset(data.coverImage, '');
-    heroImage.alt = data.title || 'Imagen principal';
+    heroImage.alt = tField(data.title, getCurrentLang()) || 'Project hero image';
     heroImage.hidden = false;
     if (heroPlaceholder) heroPlaceholder.hidden = true;
   }

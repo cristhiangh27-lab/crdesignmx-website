@@ -2,6 +2,15 @@ const supportedLangs = ['en', 'es', 'de'];
 const defaultLang = 'en';
 let currentDict = {};
 
+function resolveRootPath() {
+  if (window.__SITE_ROOT__) return window.__SITE_ROOT__;
+  const path = window.location.pathname;
+  if (path.includes('/projects/') && !path.endsWith('/projects.html')) {
+    return '../..';
+  }
+  return '.';
+}
+
 function isSupportedLang(lang) {
   return supportedLangs.includes((lang || '').toLowerCase());
 }
@@ -18,14 +27,15 @@ function getInitialLang() {
 
 async function loadLocale(lang) {
   const normalizedLang = isSupportedLang(lang) ? lang.toLowerCase() : defaultLang;
+  const root = resolveRootPath();
 
   try {
-    const response = await fetch(`/locales/${normalizedLang}.json`);
+    const response = await fetch(`${root}/locales/${normalizedLang}.json`);
     if (!response.ok) throw new Error(`Locale not found: ${normalizedLang}`);
     return await response.json();
   } catch (error) {
     if (normalizedLang !== defaultLang) {
-      const fallbackResponse = await fetch(`/locales/${defaultLang}.json`);
+      const fallbackResponse = await fetch(`${root}/locales/${defaultLang}.json`);
       if (!fallbackResponse.ok) {
         throw new Error(`Default locale not found: ${defaultLang}`);
       }
@@ -41,37 +51,31 @@ function t(key, fallback = '') {
 
 function applyTranslations(dict) {
   currentDict = dict;
-  const nodes = document.querySelectorAll('[data-i18n]');
 
-  nodes.forEach((node) => {
-    const key = node.dataset.i18n;
-    const value = dict[key];
-    if (typeof value !== 'string') return;
-
-    if (node.dataset.i18nHtml === 'true') {
-      node.innerHTML = value;
-      return;
-    }
-
-    node.textContent = value;
+  document.querySelectorAll('[data-i18n]').forEach((node) => {
+    const value = dict[node.dataset.i18n];
+    if (typeof value === 'string') node.textContent = value;
   });
 
-  const ariaLabelNodes = document.querySelectorAll('[data-i18n-aria-label]');
-  ariaLabelNodes.forEach((node) => {
-    const key = node.dataset.i18nAriaLabel;
-    const value = dict[key];
-    if (typeof value === 'string') {
-      node.setAttribute('aria-label', value);
-    }
+  document.querySelectorAll('[data-i18n-html]').forEach((node) => {
+    const value = dict[node.dataset.i18nHtml];
+    if (typeof value === 'string') node.innerHTML = value;
   });
 
-  const placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
-  placeholderNodes.forEach((node) => {
-    const key = node.dataset.i18nPlaceholder;
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((node) => {
+    const value = dict[node.dataset.i18nPlaceholder];
+    if (typeof value === 'string') node.setAttribute('placeholder', value);
+  });
+
+  document.querySelectorAll('[data-i18n-title]').forEach((node) => {
+    const value = dict[node.dataset.i18nTitle];
+    if (typeof value === 'string') node.setAttribute('title', value);
+  });
+
+  document.querySelectorAll('[data-i18n-aria], [data-i18n-aria-label]').forEach((node) => {
+    const key = node.dataset.i18nAria || node.dataset.i18nAriaLabel;
     const value = dict[key];
-    if (typeof value === 'string') {
-      node.setAttribute('placeholder', value);
-    }
+    if (typeof value === 'string') node.setAttribute('aria-label', value);
   });
 }
 
@@ -80,8 +84,7 @@ function setHtmlLang(lang) {
 }
 
 function setActiveSelector(lang) {
-  const buttons = document.querySelectorAll('[data-lang]');
-  buttons.forEach((button) => {
+  document.querySelectorAll('[data-lang]').forEach((button) => {
     const isActive = button.dataset.lang === lang;
     button.classList.toggle('is-active', isActive);
     button.setAttribute('aria-pressed', String(isActive));
@@ -91,6 +94,7 @@ function setActiveSelector(lang) {
 async function setLang(lang) {
   const normalizedLang = isSupportedLang(lang) ? lang.toLowerCase() : defaultLang;
   const dict = await loadLocale(normalizedLang);
+
   applyTranslations(dict);
   setHtmlLang(normalizedLang);
   setActiveSelector(normalizedLang);
@@ -108,19 +112,16 @@ async function setLang(lang) {
 }
 
 function bindSelectorEvents() {
-  const buttons = document.querySelectorAll('[data-lang]');
-  buttons.forEach((button) => {
+  document.querySelectorAll('[data-lang]').forEach((button) => {
     button.addEventListener('click', () => {
-      const lang = button.dataset.lang;
-      setLang(lang);
+      setLang(button.dataset.lang);
     });
   });
 }
 
 async function initI18n() {
   bindSelectorEvents();
-  const initialLang = getInitialLang();
-  await setLang(initialLang);
+  await setLang(getInitialLang());
 }
 
 window.I18n = {

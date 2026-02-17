@@ -26,26 +26,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-<a class="logo" href="index.html" aria-label="CR Collective">
-  <img class="logo-static" src="img/brand/logo-cr-collective.png" loading="lazy" alt="CR Collective">
-</a>
-
-
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html" aria-current="page" data-i18n="nav.projects">Projects</a>
-        <a href="services.html" data-i18n="nav.services">Services</a>
-        <a href="about.html" data-i18n="nav.about">About</a>
-        <a href="contact.html" data-i18n="nav.contact">Contact</a>
-      </nav>
-      <div class="language-selector" aria-label="Language selector" data-i18n-aria-label="language.selector">
-        <button type="button" class="language-selector__btn" data-lang="en" aria-pressed="false">EN</button>
-        <button type="button" class="language-selector__btn" data-lang="es" aria-pressed="false">ES</button>
-        <button type="button" class="language-selector__btn" data-lang="de" aria-pressed="false">DE</button>
-      </div>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <section class="page-hero">
@@ -54,10 +35,10 @@
       <p data-i18n="projects.subtitle">Explore residences, renovations, and concepts developed with a BIM-focused approach, visualization, and clear architectural storytelling.</p>
     </section>
 
-    <div class="filter-bar" aria-label="Filtros de proyectos">
-      <select id="filter-type" aria-label="Filter by category"></select>
-      <select id="filter-location" aria-label="Filter by location"></select>
-      <input type="search" id="filter-search" data-i18n-placeholder="projects.search.placeholder" placeholder="Search by title, location, or keyword" aria-label="Search projects" />
+    <div class="filter-bar" aria-label="Project filters" data-i18n-aria="projects.filters.aria">
+      <select id="filter-type" aria-label="Filter by category" data-i18n-aria="projects.filters.type"></select>
+      <select id="filter-location" aria-label="Filter by location" data-i18n-aria="projects.filters.location"></select>
+      <input type="search" id="filter-search" data-i18n-placeholder="projects.search.placeholder" placeholder="Search by title, location, or keyword" aria-label="Search projects" data-i18n-aria="projects.search.aria" />
     </div>
 
     <section class="projects-grid" id="projects-grid" aria-live="polite"></section>
@@ -78,31 +59,16 @@
     </svg>
   </a>
 
-  <footer class="footer">© <span id="year"></span> CR Collective</footer>
-
+  <div data-include="footer"></div>
+  <script type="module" src="js/filter.js"></script>
+  <script src="assets/js/includes.js"></script>
   <script src="js/i18n.js"></script>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    window.addEventListener('DOMContentLoaded', () => {
-      window.I18n?.initI18n();
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
     });
   </script>
-  <script type="module" src="js/filter.js"></script>
-
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/525514844480?text=Hola%2C%20vengo%20de%20crcollective.mx.%20Me%20interesa%20una%20asesor%C3%ADa%2Fcotizaci%C3%B3n."
-    aria-label="Chatear por WhatsApp"
-    target="_blank"
-    rel="noopener"
-  >
-    <svg class="whatsapp-icon" viewBox="0 0 24 24" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fill="currentColor"
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.67.15-.198.297-.767.966-.94 1.165-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.009-.372-.011-.571-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 4.403h-.001c-1.205 0-2.39-.322-3.43-.93l-.246-.146-2.552.669.683-2.486-.16-.255c-.671-1.07-1.025-2.306-1.024-3.57 0-3.701 3.008-6.709 6.71-6.709 1.789 0 3.465.696 4.727 1.958 1.262 1.262 1.956 2.939 1.955 4.727 0 3.701-3.009 6.709-6.712 6.709m5.613-12.322C16.905 3.659 15.028 2.92 13.05 2.92c-3.77 0-6.84 3.069-6.842 6.839 0 1.203.315 2.375.916 3.405l-1.095 4.004 4.095-1.074c1 .547 2.125.836 3.274.836h.003c3.77 0 6.84-3.069 6.842-6.839.001-1.827-.711-3.543-2.002-4.834"
-      />
-    </svg>
-  </a>
-
 </body>
 </html>
