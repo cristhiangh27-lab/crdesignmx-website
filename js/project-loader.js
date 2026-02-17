@@ -4,6 +4,75 @@ const ROOT_PATH = window.location.pathname.includes('/projects/') && !window.loc
 
 const PROJECT_INDEX_PATH = `${ROOT_PATH}/projects/projects.json`;
 
+function translate(key, fallback) {
+  return window.__i18n?.dict?.[key] || fallback;
+}
+
+
+
+function getCurrentLang() {
+  return window.__i18n?.lang || document.documentElement.lang || 'en';
+}
+
+export function tField(value, lang, fallback = 'en') {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object') {
+    if (typeof value[lang] === 'string') return value[lang];
+    if (typeof value[fallback] === 'string') return value[fallback];
+    const firstAvailable = Object.values(value).find((entry) => typeof entry === 'string' && entry.trim());
+    return firstAvailable || '';
+  }
+  return '';
+}
+
+function normalizeKey(value = '') {
+  return String(value)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function mapLegacyTypeToCategoryKey(typeValue = '') {
+  const raw = normalizeKey(typeValue);
+  if (raw === 'residencial') return 'residential';
+  if (raw === 'remodelacion-interior') return 'interior_renovation';
+  if (raw === 'hospitalario') return 'healthcare';
+  if (raw === 'uso-mixto') return 'mixed_use';
+  if (raw === 'hospitalidad') return 'hospitality';
+  if (raw === 'comercial') return 'commercial';
+  if (raw === 'corporativo') return 'corporate';
+  if (raw === 'cultural') return 'cultural';
+  if (raw === 'casa-de-descanso') return 'vacation_home';
+  return raw || 'uncategorized';
+}
+
+function getCategoryKey(project) {
+  if (typeof project.categoryKey === 'string' && project.categoryKey.trim()) {
+    return project.categoryKey.trim();
+  }
+  const typeValue = tField(project.type, getCurrentLang()) || '';
+  return mapLegacyTypeToCategoryKey(typeValue);
+}
+
+function getLocationKey(project) {
+  if (typeof project.locationKey === 'string' && project.locationKey.trim()) {
+    return project.locationKey.trim();
+  }
+  const locationValue = tField(project.locationLabel, getCurrentLang()) || tField(project.location, getCurrentLang()) || '';
+  return normalizeKey(locationValue);
+}
+
+function getCategoryLabel(project, lang) {
+  const key = getCategoryKey(project);
+  return translate(`categories.${key}`, tField(project.categoryLabel, lang) || tField(project.type, lang) || key);
+}
+
+function getLocationLabel(project, lang) {
+  return tField(project.locationLabel, lang) || tField(project.location, lang);
+}
+
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
@@ -169,14 +238,18 @@ function createMediaFallback() {
 
   const label = document.createElement('span');
   label.className = 'img-fallback-label';
-  label.textContent = 'Proyecto';
+  label.textContent = translate('project.card.titleFallback', 'Project');
 
   fallback.append(label);
   return fallback;
 }
 
-function createProjectCard(project) {
-  const { slug, title, location, year, type, summary, coverImage, href } = project;
+function createProjectCard(project, lang = getCurrentLang()) {
+  const { slug, year, coverImage, href } = project;
+  const title = tField(project.title, lang);
+  const location = getLocationLabel(project, lang);
+  const type = getCategoryLabel(project, lang);
+  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
   const link = document.createElement('a');
   link.className = 'project-card';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -223,7 +296,7 @@ function createProjectCard(project) {
 
   const overlayCta = document.createElement('span');
   overlayCta.className = 'project-overlay-cta';
-  overlayCta.textContent = 'Ver proyecto';
+  overlayCta.textContent = translate('project.card.cta', 'View project');
 
   overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
   overlay.append(overlayContent);
@@ -247,8 +320,12 @@ function createProjectCard(project) {
   return link;
 }
 
-function createFeaturedProjectCard(project) {
-  const { slug, title, location, year, type, summary, coverImage, href } = project;
+function createFeaturedProjectCard(project, lang = getCurrentLang()) {
+  const { slug, year, coverImage, href } = project;
+  const title = tField(project.title, lang);
+  const location = getLocationLabel(project, lang);
+  const type = getCategoryLabel(project, lang);
+  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
   const link = document.createElement('a');
   link.className = 'project-card flip-card project-card--featured project-card-featured';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -295,11 +372,11 @@ function createFeaturedProjectCard(project) {
   backContent.className = 'flip-content';
 
   const backTitle = document.createElement('h3');
-  backTitle.textContent = title || 'Proyecto';
+  backTitle.textContent = title || translate('project.card.titleFallback', 'Project');
 
   const backCta = document.createElement('span');
   backCta.className = 'flip-cta';
-  backCta.textContent = 'Ver proyecto';
+  backCta.textContent = translate('project.card.cta', 'View project');
 
   backContent.append(backTitle, backCta);
   back.append(backContent);
@@ -349,9 +426,10 @@ export async function initFeaturedGallery(options = {}) {
     console.error(`No se pudieron cargar los proyectos destacados desde ${PROJECT_INDEX_PATH}`, error);
   }
 
+  const lang = getCurrentLang();
   const featuredProjects = getFeaturedProjects(projects).slice(0, 16);
   if (!featuredProjects.length) {
-    container.innerHTML = '<p>No hay proyectos disponibles.</p>';
+    container.innerHTML = `<p>${translate('featured.empty', 'No projects available.')}</p>`;
     prevButton?.setAttribute('disabled', 'disabled');
     nextButton?.setAttribute('disabled', 'disabled');
     return;
@@ -377,7 +455,7 @@ export async function initFeaturedGallery(options = {}) {
       page.style.minWidth = `${pageWidthPct}%`;
       const startIndex = pageIndex * pageSize;
       const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
-      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project)));
+      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project, lang)));
       container.appendChild(page);
     }
     setTrackWidth();
@@ -419,28 +497,77 @@ export async function renderFeaturedProjects(limit = 4) {
   await initFeaturedGallery({ totalVisible: limit });
 }
 
-export function filterProjects(projects, criteria) {
+export function filterProjects(projects, criteria, lang = getCurrentLang()) {
   const query = (criteria.search || '').toLowerCase().trim();
   return projects.filter((project) => {
-    const matchesType = criteria.type ? project.type === criteria.type : true;
-    const matchesLocation = criteria.location ? project.location === criteria.location : true;
+    const projectTypeKey = getCategoryKey(project);
+    const projectLocationKey = getLocationKey(project);
+    const matchesType = criteria.type ? projectTypeKey === criteria.type : true;
+    const matchesLocation = criteria.location ? projectLocationKey === criteria.location : true;
+
+    const searchableFields = [
+      tField(project.title, lang),
+      tField(project.shortDescription, lang) || tField(project.summary, lang),
+      getLocationLabel(project, lang),
+      getCategoryLabel(project, lang),
+    ];
+
     const matchesQuery = query
-      ? [project.title, project.summary, project.location, project.type]
+      ? searchableFields
           .filter(Boolean)
           .some((field) => field.toLowerCase().includes(query))
       : true;
+
     return matchesType && matchesLocation && matchesQuery;
   });
 }
 
-export function renderProjects(container, projects) {
+export function renderProjects(container, projects, lang = getCurrentLang()) {
   if (!container) return;
   container.innerHTML = '';
   if (!projects.length) {
-    container.innerHTML = '<p>No hay proyectos que coincidan con el filtro.</p>';
+    container.innerHTML = `<p>${translate('projects.empty', 'No projects found.')}</p>`;
     return;
   }
-  projects.forEach((project) => container.appendChild(createProjectCard(project)));
+  projects.forEach((project) => container.appendChild(createProjectCard(project, lang)));
+}
+
+export function populateFilterOptions(projects, lang = getCurrentLang(), state = {}) {
+  const typeSelect = document.getElementById('filter-type');
+  const locationSelect = document.getElementById('filter-location');
+  if (!typeSelect || !locationSelect) return;
+
+  const categories = new Map();
+  const locations = new Map();
+
+  projects.forEach((project) => {
+    const categoryKey = getCategoryKey(project);
+    const categoryLabel = getCategoryLabel(project, lang);
+    if (categoryKey && categoryLabel && !categories.has(categoryKey)) {
+      categories.set(categoryKey, categoryLabel);
+    }
+
+    const locationKey = getLocationKey(project);
+    const locationLabel = getLocationLabel(project, lang);
+    if (locationKey && locationLabel && !locations.has(locationKey)) {
+      locations.set(locationKey, locationLabel);
+    }
+  });
+
+  const addOptions = (select, values, selectedValue = '') => {
+    const allLabel = translate('projects.filters.all', 'All');
+    const options = [`<option value="">${allLabel}</option>`];
+    [...values.entries()]
+      .sort((a, b) => a[1].localeCompare(b[1]))
+      .forEach(([value, label]) => {
+        options.push(`<option value="${value}">${label}</option>`);
+      });
+    select.innerHTML = options.join('');
+    select.value = selectedValue || '';
+  };
+
+  addOptions(typeSelect, categories, state.type || typeSelect.value);
+  addOptions(locationSelect, locations, state.location || locationSelect.value);
 }
 
 function setHero(data) {
@@ -532,29 +659,6 @@ export async function renderProjectDetail(slug) {
     const description = document.querySelector('.project-description .content');
     if (description) description.innerHTML = '<p>No se pudo cargar el contenido del proyecto.</p>';
   }
-}
-
-export function populateFilterOptions(projects) {
-  const typeSelect = document.getElementById('filter-type');
-  const locationSelect = document.getElementById('filter-location');
-  if (!typeSelect || !locationSelect) return;
-
-  const types = new Set();
-  const locations = new Set();
-  projects.forEach((project) => {
-    if (project.type) types.add(project.type);
-    if (project.location) locations.add(project.location);
-  });
-
-  const addOptions = (select, values) => {
-    select.innerHTML = '<option value="">Todos</option>' + [...values]
-      .sort((a, b) => a.localeCompare(b))
-      .map((value) => `<option value="${value}">${value}</option>`)
-      .join('');
-  };
-
-  addOptions(typeSelect, types);
-  addOptions(locationSelect, locations);
 }
 
 export const ProjectLoader = {

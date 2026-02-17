@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link rel="canonical" href="https://crcollective.mx/" />
 <meta charset="UTF-8">
@@ -51,11 +51,16 @@
 </a>
 
       <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html">Proyectos</a>
-        <a href="services.html">Servicios</a>
-        <a href="about.html">Nosotros</a>
-        <a href="contact.html">Contacto</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
+      <div class="language-selector" aria-label="Language selector" data-i18n-aria-label="language.selector">
+        <button type="button" class="language-selector__btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="language-selector__btn" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" class="language-selector__btn" data-lang="de" aria-pressed="false">DE</button>
+      </div>
     </div>
   </header>
 
@@ -71,13 +76,13 @@
           <div class="hero-overlay" aria-hidden="true"></div>
 
           <div class="hero-content">
-            <p class="section-lead">Arquitectura y visualización</p>
-            <h1 id="hero-title">CR Collective diseña espacios contemporáneos, funcionales y claros para personas reales.</h1>
-            <p>Estudio arquitectónico con enfoque en Anteproyecto, Modelado BIM, documentación y visualización de proyectos residenciales, remodelaciones y uso mixto.</p>
+            <p class="section-lead" data-i18n="hero.lead">Architecture and visualization</p>
+            <h1 id="hero-title" data-i18n="hero.title">CR Collective designs contemporary, functional, and clear spaces for real people.</h1>
+            <p data-i18n="hero.description">Architecture studio focused on concept design, BIM modeling, documentation, and visualization for residential, renovation, and mixed-use projects.</p>
 
             <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a class="btn btn-ghost" href="projects.html">Ver proyectos</a>
-              <a class="btn btn-ghost" href="services.html">Servicios</a>
+              <a class="btn btn-ghost" href="projects.html" data-i18n="hero.ctaProjects">View projects</a>
+              <a class="btn btn-ghost" href="services.html" data-i18n="hero.ctaServices">Services</a>
             </div>
           </div>
         </section>
@@ -86,21 +91,21 @@
       <aside class="featured-panel" aria-label="Proyectos destacados">
         <div class="featured-panel__header">
           <div>
-            <h2>Proyectos destacados</h2>
-            <p class="section-lead">Selección reciente desarrollada por CR Collective.</p>
+            <h2 data-i18n="featured.title">Featured projects</h2>
+            <p class="section-lead" data-i18n="featured.lead">Recent selection developed by CR Collective.</p>
           </div>
-          <a class="btn btn-ghost" href="projects.html" aria-label="Ver todos los proyectos">Ver todos</a>
+          <a class="btn btn-ghost" href="projects.html" aria-label="View all projects" data-i18n="featured.viewAll">View all</a>
         </div>
         <section class="projects-carousel featured-gallery" aria-live="polite">
-          <button class="carousel-btn prev" type="button" aria-label="Anterior">
+          <button class="carousel-btn prev" type="button" aria-label="Previous" data-i18n-aria-label="featured.prev">
             <span aria-hidden="true">‹</span>
           </button>
           <div class="carousel-viewport">
             <div class="carousel-track" id="featured-projects">
-              <p>Cargando proyectos…</p>
+              <p data-i18n="featured.loading">Loading projects…</p>
             </div>
           </div>
-          <button class="carousel-btn next" type="button" aria-label="Siguiente">
+          <button class="carousel-btn next" type="button" aria-label="Next" data-i18n-aria-label="featured.next">
             <span aria-hidden="true">›</span>
           </button>
         </section>
@@ -109,27 +114,27 @@
       <div class="services-panel">
         <div class="section-header">
           <div>
-            <h2>Servicios</h2>
-            <p class="section-lead">Acompañamos a los clientes en cada etapa del proyecto con una metodología clara.</p>
+            <h2 data-i18n="services.title">Services</h2>
+            <p class="section-lead" data-i18n="services.lead">We support clients at every project stage with a clear methodology.</p>
           </div>
-          <a class="btn btn-primary" href="contact.html">Agenda una llamada</a>
+          <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Schedule a call</a>
         </div>
         <section class="services-grid services-grid--light" aria-label="Servicios">
           <article class="service-card" style="--card-bg: url('./img/services/anteproyecto.jpg');">
-            <h3>Anteproyecto arquitectónico</h3>
-            <p>Conceptualización, esquemas funcionales y narrativa espacial alineada a objetivos y presupuesto.</p>
+            <h3 data-i18n="services.card1.title">Architectural concept design</h3>
+            <p data-i18n="services.card1.description">Concept development, functional schemes, and spatial narrative aligned with goals and budget.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/bim.jpg');">
-            <h3>Modelado BIM y documentación</h3>
-            <p>Modelos coordinados y entregables técnicos claros para obra y licencias.</p>
+            <h3 data-i18n="services.card2.title">BIM modeling and documentation</h3>
+            <p data-i18n="services.card2.description">Coordinated models and clear technical deliverables for construction and permits.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/renders.jpg');">
-            <h3>Renders y recorridos</h3>
-            <p>Visualizaciones fotorrealistas, recorridos y material de presentación para clientes e inversionistas.</p>
+            <h3 data-i18n="services.card3.title">Renders and walkthroughs</h3>
+            <p data-i18n="services.card3.description">Photorealistic visualizations, walkthroughs, and presentation materials for clients and investors.</p>
           </article>
           <article class="service-card" style="--card-bg: url('./img/services/asesoria.jpg');">
-            <h3>Asesoría personalizada</h3>
-            <p>Guía estratégica para autoconstrucción, remodelaciones o gestión de proveedores.</p>
+            <h3 data-i18n="services.card4.title">Personalized advisory</h3>
+            <p data-i18n="services.card4.description">Strategic guidance for self-builds, renovations, or supplier management.</p>
           </article>
         </section>
       </div>
@@ -153,11 +158,16 @@
   </a>
 
   <footer class="footer">
-    © <span id="year"></span> CR Collective · Espacios claros y extraordinarios
+    © <span id="year"></span> CR Collective · <span data-i18n="footer.tagline">Clear and extraordinary spaces</span>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      window.I18n?.initI18n();
+    });
   </script>
   <script>
     const header = document.querySelector('.site-header');

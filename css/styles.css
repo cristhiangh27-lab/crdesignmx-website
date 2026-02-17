@@ -186,6 +186,42 @@ header.site-header.header--glass .primary-nav a:focus-visible {
   outline-color: rgba(255, 255, 255, 0.6);
 }
 
+
+.language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem;
+  border: 1px solid rgba(10, 11, 26, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.language-selector__btn {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.55rem;
+  line-height: 1.2;
+}
+
+.language-selector__btn.is-active {
+  background: rgba(10, 11, 26, 0.12);
+}
+
+header.site-header.header--glass .language-selector {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(10, 11, 26, 0.2);
+}
+
+header.site-header.header--glass .language-selector__btn.is-active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 main {
   max-width: calc(var(--max-width) + 120px);
   margin: 0 auto;
@@ -1202,6 +1238,10 @@ body.project-page main {
   .primary-nav {
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .language-selector {
+    align-self: flex-end;
   }
 }
 /* HERO con video (misma estética/proporción tipo "tarjeta" como tu foto 2) */
