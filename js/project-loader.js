@@ -4,6 +4,10 @@ const ROOT_PATH = window.location.pathname.includes('/projects/') && !window.loc
 
 const PROJECT_INDEX_PATH = `${ROOT_PATH}/projects/projects.json`;
 
+function translate(key, fallback) {
+  return window.__i18n?.dict?.[key] || fallback;
+}
+
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
@@ -169,7 +173,7 @@ function createMediaFallback() {
 
   const label = document.createElement('span');
   label.className = 'img-fallback-label';
-  label.textContent = 'Proyecto';
+  label.textContent = translate('project.card.titleFallback', 'Project');
 
   fallback.append(label);
   return fallback;
@@ -223,7 +227,7 @@ function createProjectCard(project) {
 
   const overlayCta = document.createElement('span');
   overlayCta.className = 'project-overlay-cta';
-  overlayCta.textContent = 'Ver proyecto';
+  overlayCta.textContent = translate('project.card.cta', 'View project');
 
   overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
   overlay.append(overlayContent);
@@ -295,11 +299,11 @@ function createFeaturedProjectCard(project) {
   backContent.className = 'flip-content';
 
   const backTitle = document.createElement('h3');
-  backTitle.textContent = title || 'Proyecto';
+  backTitle.textContent = title || translate('project.card.titleFallback', 'Project');
 
   const backCta = document.createElement('span');
   backCta.className = 'flip-cta';
-  backCta.textContent = 'Ver proyecto';
+  backCta.textContent = translate('project.card.cta', 'View project');
 
   backContent.append(backTitle, backCta);
   back.append(backContent);
@@ -351,7 +355,7 @@ export async function initFeaturedGallery(options = {}) {
 
   const featuredProjects = getFeaturedProjects(projects).slice(0, 16);
   if (!featuredProjects.length) {
-    container.innerHTML = '<p>No hay proyectos disponibles.</p>';
+    container.innerHTML = `<p>${translate('featured.empty', 'No projects available.')}</p>`;
     prevButton?.setAttribute('disabled', 'disabled');
     nextButton?.setAttribute('disabled', 'disabled');
     return;
