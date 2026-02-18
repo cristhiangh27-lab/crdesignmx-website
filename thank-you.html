@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://crcollective.mx/thank-you.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <title>Thank you — CR Collective</title>
+  <meta name="description" content="Thank you for contacting CR Collective. We received your message and will get back to you shortly.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main>
+    <section class="page-hero">
+      <h1 data-i18n="thankyou.title">Thank you — we received your message.</h1>
+      <p data-i18n="thankyou.message">We’ll contact you shortly to understand your project and share next steps.</p>
+      <p class="section-lead" data-i18n="thankyou.responseTime">Typical response time: 1–2 business days.</p>
+    </section>
+
+    <section class="project-description">
+      <h2 data-i18n="thankyou.next.title">Next steps</h2>
+      <div class="content">
+        <div class="actions" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="contact.html" data-i18n="thankyou.next.bookCall">Book a call</a>
+          <a class="btn btn-ghost" href="projects.html" data-i18n="thankyou.next.viewProjects">View projects</a>
+          <a class="btn btn-ghost" href="https://wa.me/525514844480" target="_blank" rel="noopener" data-i18n="thankyou.next.whatsapp">Message us on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-description">
+      <div class="content">
+        <p data-i18n="thankyou.note">If you don’t hear back, please check your spam folder.</p>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="assets/js/includes.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
+    });
+  </script>
+</body>
+</html>

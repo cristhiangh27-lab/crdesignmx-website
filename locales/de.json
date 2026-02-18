@@ -89,5 +89,13 @@
   "project.detail.kicker": "Ausgewähltes Projekt",
   "project.detail.gallerySoon": "Galerie folgt",
   "project.detail.description": "Beschreibung",
-  "project.detail.gallery": "Galerie"
+  "project.detail.gallery": "Galerie",
+  "thankyou.title": "Danke — wir haben Ihre Nachricht erhalten.",
+  "thankyou.message": "Wir melden uns in Kürze, um Ihr Projekt zu verstehen und die nächsten Schritte zu teilen.",
+  "thankyou.responseTime": "Übliche Antwortzeit: 1–2 Werktage.",
+  "thankyou.next.title": "Nächste Schritte",
+  "thankyou.next.bookCall": "Termin vereinbaren",
+  "thankyou.next.viewProjects": "Projekte ansehen",
+  "thankyou.next.whatsapp": "Per WhatsApp schreiben",
+  "thankyou.note": "Falls keine Antwort kommt, bitte den Spam-Ordner prüfen."
 }
