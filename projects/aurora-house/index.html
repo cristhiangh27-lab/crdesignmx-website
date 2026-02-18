@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <link rel="canonical" href="https://crcollective.mx/projects/aurora-house/" />
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,53 +14,51 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body class="project-page" data-project="aurora-house">
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="../../index.html" aria-label="CR Collective">
-        <video class="logo-intro" muted playsinline preload="auto" aria-hidden="true">
-          <source src="../../img/brand/logo-anim.mp4" type="video/mp4">
-        </video>
-        <img class="logo-static" src="../../img/brand/logo-cr-collective.png" alt="CR Collective">
-      </a>
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="../../projects.html">Proyectos</a>
-        <a href="../../services.html">Servicios</a>
-        <a href="../../about.html">Sobre mí</a>
-        <a href="../../contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <section class="project-hero">
       <div class="project-hero-text">
-        <p class="section-lead">Residencial</p>
+        <p class="section-lead" data-i18n="project.detail.kicker">Featured project</p>
         <h1>Aurora House</h1>
         <div class="project-meta"></div>
         <p class="summary"></p>
       </div>
       <div class="hero-visual">
-        <div class="placeholder">Galería próxima</div>
+        <div class="placeholder" data-i18n="project.detail.gallerySoon">Gallery coming soon</div>
         <img src="" alt="" hidden>
       </div>
     </section>
 
     <section class="project-description">
-      <h2>Descripción</h2>
+      <h2 data-i18n="project.detail.description">Description</h2>
       <div class="content"></div>
     </section>
 
     <section class="project-gallery">
-      <h2>Galería</h2>
+      <h2 data-i18n="project.detail.gallery">Gallery</h2>
       <div class="grid"></div>
     </section>
   </main>
 
-  <footer class="footer">© <span id="year"></span> CR Collective</footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <div data-include="footer"></div>
+
+  <script src="../../assets/js/includes.js"></script>
+  <script src="../../js/i18n.js"></script>
   <script type="module">
     import { renderProjectDetail } from '../../js/project-loader.js';
-    renderProjectDetail('aurora-house');
+
+    const slug = document.body.dataset.project;
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      renderProjectDetail(slug);
+    });
+
+    window.addEventListener('langchange', () => {
+      renderProjectDetail(slug);
+    });
   </script>
 </body>
 </html>

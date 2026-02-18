@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <link rel="canonical" href="https://crcollective.mx/contact.html" />
   <meta charset="UTF-8" />
@@ -32,26 +32,13 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="index.html" aria-label="CR Collective">
-        <img class="logo-static" src="img/brand/logo-cr-collective.png" loading="lazy" alt="CR Collective">
-      </a>
-
-      <nav class="primary-nav" aria-label="Principal">
-        <a href="projects.html">Proyectos</a>
-        <a href="services.html">Servicios</a>
-        <a href="about.html">Nosotros</a>
-        <a href="contact.html" aria-current="page">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <section class="page-hero">
-      <p class="section-lead">Hablemos de tu proyecto</p>
-      <h1>Contacto</h1>
-      <p>Comparte tus objetivos y agenda una llamada para revisar el alcance, tiempos y presupuesto.</p>
+      <p class="section-lead" data-i18n="contact.kicker">Let's talk about your project</p>
+      <h1 data-i18n="contact.title">Contact</h1>
+      <p data-i18n="contact.subtitle">Share your goals and schedule a call to review scope, timeline, and budget.</p>
     </section>
 
     <section class="project-hero" style="margin-bottom:1.5rem;">
@@ -59,22 +46,22 @@
         <!-- ✅ SOLO UN FORM -->
         <form id="contactForm">
           <div class="form-field">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="nombre" placeholder="Tu nombre" required>
+            <label for="name" data-i18n="contact.form.name">Name</label>
+            <input type="text" id="name" name="nombre" placeholder="Your name" data-i18n-placeholder="contact.form.namePlaceholder" required>
           </div>
 
           <div class="form-field">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="nombre@correo.com" required>
+            <label for="email" data-i18n="contact.form.email">Email</label>
+            <input type="email" id="email" name="email" placeholder="name@email.com" data-i18n-placeholder="contact.form.emailPlaceholder" required>
           </div>
 
           <div class="form-field">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="mensaje" placeholder="Cuéntame sobre tu proyecto" required></textarea>
+            <label for="message" data-i18n="contact.form.message">Message</label>
+            <textarea id="message" name="mensaje" placeholder="Tell me about your project" data-i18n-placeholder="contact.form.messagePlaceholder" required></textarea>
           </div>
 
-          <button class="btn btn-primary" id="submitBtn" type="submit" aria-label="Enviar formulario de contacto">
-            Enviar
+          <button class="btn btn-primary" id="submitBtn" type="submit" aria-label="Send contact form" data-i18n-aria="contact.form.submitAria">
+            <span data-i18n="contact.form.submit">Send</span>
           </button>
 
           <p id="formStatus" style="margin-top:.75rem; opacity:.9;"></p>
@@ -82,14 +69,14 @@
       </div>
 
       <div class="contact-info">
-        <p><strong>Correo:</strong> <a href="mailto:crpartners11@gmail.com">crpartners11@gmail.com</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/525514844480">+52 55 1484 4480</a></p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/cr.designmx/">@cr.designmx</a></p>
+        <p><strong data-i18n="contact.info.email">Email:</strong> <a href="mailto:crpartners11@gmail.com">crpartners11@gmail.com</a></p>
+        <p><strong data-i18n="contact.info.whatsapp">WhatsApp:</strong> <a href="https://wa.me/525514844480">+52 55 1484 4480</a></p>
+        <p><strong data-i18n="contact.info.instagram">Instagram:</strong> <a href="https://www.instagram.com/cr.designmx/">@cr.designmx</a></p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">© <span id="year"></span> CR Collective</footer>
+  <div data-include="footer"></div>
 
   <!-- ✅ Deja solo un WhatsApp (float) -->
   <a
@@ -106,7 +93,6 @@
 
   <script>
     // Año footer
-    document.getElementById('year').textContent = new Date().getFullYear();
 
     // Formulario -> Apps Script
     const ENDPOINT = "https://script.google.com/macros/s/AKfycbzVbL12WIhjYYD7z_-VLF7w5_Ys1XZP4-_el0BglC4I1Yha-qDYGxCO6zSh9o29avs0Ow/exec";
@@ -118,7 +104,7 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      statusEl.textContent = "Enviando…";
+      statusEl.textContent = window.I18n?.t('contact.form.sending', 'Sending…');
       submitBtn.disabled = true;
 
       const data = new URLSearchParams(new FormData(form));
@@ -131,14 +117,26 @@
           body: data.toString()
         });
 
-        statusEl.textContent = "✅ Listo. Te responderemos pronto.";
+        statusEl.textContent = window.I18n?.t('contact.form.success', '✅ Done. We will reply soon.');
         form.reset();
+
+        const currentLang = window.__i18n?.lang || localStorage.getItem('lang') || 'en';
+        window.location.href = `./thank-you.html?lang=${currentLang}`;
       } catch (err) {
         console.error(err);
-        statusEl.textContent = "❌ No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.";
+        statusEl.textContent = window.I18n?.t('contact.form.error', '❌ Could not send. Please try again or message us on WhatsApp.');
       } finally {
         submitBtn.disabled = false;
       }
+    });
+  </script>
+  <script src="assets/js/includes.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
     });
   </script>
 </body>

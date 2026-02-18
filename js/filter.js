@@ -14,20 +14,42 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!grid) return;
 
   const projects = await loadProjectsData();
-  populateFilterOptions(projects);
+
+  const getLang = () => window.__i18n?.lang || document.documentElement.lang || 'en';
+
+  const getState = () => ({
+    type: typeSelect?.value || '',
+    location: locationSelect?.value || '',
+    search: searchInput?.value || '',
+  });
+
+  const rerenderProjects = (lang = getLang(), incomingState = getState()) => {
+    populateFilterOptions(projects, lang, incomingState);
+    if (searchInput && typeof incomingState.search === 'string') {
+      searchInput.value = incomingState.search;
+    }
+
+    const filtered = filterProjects(projects, {
+      type: incomingState.type,
+      location: incomingState.location,
+      search: incomingState.search,
+    }, lang);
+
+    renderProjects(grid, filtered, lang);
+  };
 
   const applyFilters = () => {
-    const filtered = filterProjects(projects, {
-      type: typeSelect?.value || '',
-      location: locationSelect?.value || '',
-      search: searchInput?.value || '',
-    });
-    renderProjects(grid, filtered);
+    rerenderProjects(getLang(), getState());
   };
 
   typeSelect?.addEventListener('change', applyFilters);
   locationSelect?.addEventListener('change', applyFilters);
   searchInput?.addEventListener('input', applyFilters);
 
-  renderProjects(grid, projects);
+  window.addEventListener('langchange', (event) => {
+    const lang = event.detail?.lang || getLang();
+    rerenderProjects(lang, getState());
+  });
+
+  rerenderProjects(getLang(), getState());
 });
