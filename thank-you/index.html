@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17914484762"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17914484762');
+  </script>
+  <script>
+    gtag('event', 'conversion', {'send_to': 'AW-17914484762/PEGAR_LABEL_AQUI'});
+  </script>
+  <link rel="canonical" href="https://crcollective.mx/thank-you" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <title>Thank you — CR Collective</title>
+  <meta name="description" content="Gracias, te contactaremos pronto.">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main>
+    <section class="page-hero">
+      <h1>Gracias, te contactaremos pronto.</h1>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="../assets/js/includes.js"></script>
+  <script src="../js/i18n.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      await window.SiteIncludes?.loadIncludes();
+      await window.I18n?.initI18n();
+      window.dispatchEvent(new Event('site-ready'));
+    });
+  </script>
+</body>
+</html>

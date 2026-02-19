@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17914484762"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17914484762');
+  </script>
   <link rel="canonical" href="https://crcollective.mx/contact.html" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -121,7 +129,7 @@
         form.reset();
 
         const currentLang = window.__i18n?.lang || localStorage.getItem('lang') || 'en';
-        window.location.href = `./thank-you.html?lang=${currentLang}`;
+        window.location.href = `/thank-you?lang=${currentLang}`;
       } catch (err) {
         console.error(err);
         statusEl.textContent = window.I18n?.t('contact.form.error', '❌ Could not send. Please try again or message us on WhatsApp.');
