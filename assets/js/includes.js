@@ -4,6 +4,10 @@
     if (path.includes('/projects/') && !path.endsWith('/projects.html')) {
       return '../..';
     }
+    const segments = path.split('/').filter(Boolean);
+    if (segments.length === 1 && !path.endsWith('.html')) {
+      return '..';
+    }
     return '.';
   }
 
