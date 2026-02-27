@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (!grid) return;
 
-  const projects = await loadProjectsData();
+  let projects = await loadProjectsData();
 
   const getLang = () => window.__i18n?.lang || document.documentElement.lang || 'en';
 
@@ -46,8 +46,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   locationSelect?.addEventListener('change', applyFilters);
   searchInput?.addEventListener('input', applyFilters);
 
-  window.addEventListener('langchange', (event) => {
+  window.addEventListener('langchange', async (event) => {
     const lang = event.detail?.lang || getLang();
+    projects = await loadProjectsData(lang);
     rerenderProjects(lang, getState());
   });
 
