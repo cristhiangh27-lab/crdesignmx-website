@@ -11,7 +11,43 @@ function translate(key, fallback) {
 
 
 function getCurrentLang() {
-  return window.__i18n?.lang || document.documentElement.lang || 'en';
+  return window.__i18n?.lang
+    || localStorage.getItem('lang')
+    || document.documentElement.lang
+    || 'en';
+}
+
+function parseFrontmatterMarkdown(rawMarkdown = '') {
+  const normalized = rawMarkdown.replace(/^\uFEFF/, '');
+  if (!normalized.startsWith('---\n')) {
+    return { frontmatter: {}, body: normalized };
+  }
+
+  const endIndex = normalized.indexOf('\n---\n', 4);
+  if (endIndex === -1) {
+    return { frontmatter: {}, body: normalized };
+  }
+
+  const fmBlock = normalized.slice(4, endIndex);
+  const body = normalized.slice(endIndex + 5);
+  const frontmatter = {};
+
+  fmBlock.split('\n').forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) return;
+    const separatorIndex = trimmed.indexOf(':');
+    if (separatorIndex === -1) return;
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    let value = trimmed.slice(separatorIndex + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith('\'') && value.endsWith('\''))) {
+      value = value.slice(1, -1);
+    }
+
+    frontmatter[key] = value;
+  });
+
+  return { frontmatter, body };
 }
 
 export function tField(value, lang, fallback = 'en') {
@@ -92,6 +128,16 @@ async function fetchJSON(path) {
 async function fetchText(path) {
   const url = new URL(path, window.location.href).toString();
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`No se pudo cargar ${url} (${response.status})`);
+  }
+  return response.text();
+}
+
+async function fetchTextIfExists(path) {
+  const url = new URL(path, window.location.href).toString();
+  const response = await fetch(url);
+  if (response.status === 404) return null;
   if (!response.ok) {
     throw new Error(`No se pudo cargar ${url} (${response.status})`);
   }
@@ -195,13 +241,52 @@ async function discoverImages(slug, declaredImages = []) {
   return found;
 }
 
-async function loadProjectMarkdown(slug) {
-  return fetchText(`${ROOT_PATH}/projects/${slug}/index.md`);
+async function loadLocalizedProjectMarkdown(slug, lang = getCurrentLang()) {
+  const activeLang = (lang || 'es').toLowerCase();
+  const localizedPath = `${ROOT_PATH}/content/projects/${slug}/index.${activeLang}.md`;
+  const fallbackPath = `${ROOT_PATH}/content/projects/${slug}/index.es.md`;
+  const legacyPath = `${ROOT_PATH}/projects/${slug}/index.md`;
+
+  const localized = await fetchTextIfExists(localizedPath);
+  if (localized) {
+    return { markdown: localized, resolvedLang: activeLang, path: localizedPath };
+  }
+
+  if (activeLang !== 'es') {
+    const fallback = await fetchTextIfExists(fallbackPath);
+    if (fallback) {
+      return { markdown: fallback, resolvedLang: 'es', path: fallbackPath };
+    }
+  }
+
+  const legacy = await fetchTextIfExists(legacyPath);
+  if (legacy) {
+    return { markdown: legacy, resolvedLang: 'legacy', path: legacyPath };
+  }
+
+  throw new Error(`No se encontró markdown para ${slug} (${activeLang})`);
 }
 
-async function loadProjectData(slug) {
+async function loadProjectMarkdown(slug, lang = getCurrentLang()) {
+  const { markdown } = await loadLocalizedProjectMarkdown(slug, lang);
+  return markdown;
+}
+
+async function loadProjectData(slug, lang = getCurrentLang()) {
   const data = await fetchJSON(`${ROOT_PATH}/projects/${slug}/data.json`);
-  return { ...data, slug };
+  const localizedMarkdown = await loadProjectMarkdown(slug, lang);
+  const { frontmatter } = parseFrontmatterMarkdown(localizedMarkdown);
+
+  const localizedFields = {
+    title: frontmatter.title || data.title,
+    locationLabel: frontmatter.location || data.locationLabel || data.location,
+    categoryLabel: frontmatter.category || data.categoryLabel || data.type,
+    shortDescription: frontmatter.excerpt || data.shortDescription || data.summary,
+    summary: frontmatter.excerpt || data.summary,
+    year: frontmatter.year || data.year,
+  };
+
+  return { ...data, ...localizedFields, slug };
 }
 
 async function loadProjectIndex() {
@@ -217,13 +302,13 @@ async function loadProjectIndex() {
   }
 }
 
-export async function loadProjectsData() {
+export async function loadProjectsData(lang = getCurrentLang()) {
   const entries = await loadProjectIndex();
   const projects = [];
   for (const entry of entries) {
     const slug = entry.slug || entry;
     try {
-      const data = await loadProjectData(slug);
+      const data = await loadProjectData(slug, lang);
       projects.push(data);
     } catch (error) {
       console.warn(`No se pudo cargar el proyecto ${slug}`, error);
@@ -607,7 +692,7 @@ function renderDescriptionFromMarkdown(md) {
   const container = document.querySelector('.project-description .content');
   if (!container) return;
 
-  const galleryIndex = md.search(/^##\s+Galería/m);
+  const galleryIndex = md.search(/^##\s+(Galería|Gallery|Galerie)\b/im);
   const descriptionMd = galleryIndex !== -1 ? md.slice(0, galleryIndex) : md;
   const sanitized = descriptionMd.replace(/^#.+$/m, '').trim();
   container.innerHTML = markdownToHtml(sanitized);
@@ -650,10 +735,12 @@ async function renderGallery(slug, md, data) {
 
 export async function renderProjectDetail(slug) {
   try {
-    const [data, md] = await Promise.all([loadProjectData(slug), loadProjectMarkdown(slug)]);
+    const lang = getCurrentLang();
+    const [data, md] = await Promise.all([loadProjectData(slug, lang), loadProjectMarkdown(slug, lang)]);
+    const { body } = parseFrontmatterMarkdown(md);
     setHero(data);
-    renderDescriptionFromMarkdown(md);
-    await renderGallery(slug, md, data);
+    renderDescriptionFromMarkdown(body);
+    await renderGallery(slug, body, data);
   } catch (error) {
     console.error('No se pudo cargar el proyecto', error);
     const description = document.querySelector('.project-description .content');
