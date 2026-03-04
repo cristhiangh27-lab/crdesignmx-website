@@ -1491,23 +1491,62 @@ body.home .hero.hero-video .btn-ghost:hover {
   color: var(--accent);
 }
 
-.testimonials-grid {
+.reviews-grid {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.9rem, 2vw, 1.2rem);
 }
 
-.stars {
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 0.45rem;
+.review-card {
+  display: grid;
+  gap: 0.7rem;
 }
 
-.testimonial-project {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 0.4rem;
+.review-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(150deg, rgba(193, 141, 33, 0.33), rgba(16, 41, 69, 0.84));
+}
+
+.review-meta {
+  min-width: 0;
+}
+
+.review-author {
+  font-weight: 650;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.review-source {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.review-stars {
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+
+.review-text {
+  color: var(--text-muted);
+  white-space: pre-line;
 }
 
 .client-logos {
@@ -1554,7 +1593,7 @@ body.home .hero.hero-video .btn-ghost:hover {
 
 @media (max-width: 980px) {
   .founder-grid,
-  .testimonials-grid {
+  .reviews-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1565,7 +1604,7 @@ body.home .hero.hero-video .btn-ghost:hover {
 
 @media (max-width: 680px) {
   .founder-grid,
-  .testimonials-grid {
+  .reviews-grid {
     grid-template-columns: 1fr;
   }
 }
