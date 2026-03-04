@@ -367,23 +367,11 @@ function createProjectCard(project, lang = getCurrentLang()) {
   const overlayContent = document.createElement('div');
   overlayContent.className = 'project-overlay-content';
 
-  const overlayTitle = document.createElement('p');
-  overlayTitle.className = 'project-overlay-title';
-  overlayTitle.textContent = title;
-
-  const overlayMeta = document.createElement('p');
-  overlayMeta.className = 'project-overlay-meta';
-  overlayMeta.textContent = [location, year, type].filter(Boolean).join(' · ');
-
-  const overlaySummary = document.createElement('p');
-  overlaySummary.className = 'project-overlay-summary';
-  overlaySummary.textContent = summary || '';
-
   const overlayCta = document.createElement('span');
   overlayCta.className = 'project-overlay-cta';
   overlayCta.textContent = translate('project.card.cta', 'View project');
 
-  overlayContent.append(overlayTitle, overlayMeta, overlaySummary, overlayCta);
+  overlayContent.append(overlayCta);
   overlay.append(overlayContent);
   media.append(overlay);
 
