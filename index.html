@@ -114,6 +114,87 @@
       </div>
     </div>
    </section>
+
+   <section id="founder-strip" class="home-section founder-strip reveal" aria-labelledby="founder-strip-title">
+    <div class="section-header">
+      <div>
+        <p class="section-lead" data-i18n="founder.eyebrow">Visión del fundador</p>
+        <h2 id="founder-strip-title" data-i18n="founder.title">Una visión arquitectónica con enfoque humano</h2>
+      </div>
+    </div>
+    <div class="founder-grid">
+      <article class="founder-quote founder-card">
+        <blockquote data-i18n="founder.quote">“No diseñamos para impresionar algoritmos. Diseñamos espacios claros, funcionales y memorables para personas reales.”</blockquote>
+        <p data-i18n="founder.description">CR Collective nace desde una visión arquitectónica enfocada en claridad, narrativa espacial y soluciones que puedan construirse, habitarse y recordarse.</p>
+      </article>
+
+      <article class="founder-photo founder-card" aria-label="Founder profile card">
+        <div class="founder-photo-media" aria-hidden="true">
+          <img src="assets/img/founder.jpg" alt="Cristhian Gómez Hernández" loading="lazy" decoding="async" onerror="this.hidden=true; this.parentElement.classList.add('is-fallback');">
+          <div class="founder-photo-fallback" aria-hidden="true">CR</div>
+        </div>
+        <p class="founder-name" data-i18n="founder.name">Cristhian Gómez Hernández</p>
+        <p class="founder-role" data-i18n="founder.role">Founder / Architect</p>
+      </article>
+
+      <article class="founder-video founder-card">
+        <p class="founder-video-label" data-i18n="founder.videoLabel">Studio Reel</p>
+        <div class="founder-video-placeholder" role="img" aria-label="Video del estudio próximamente">
+          <button class="founder-play" type="button" aria-label="Play preview" disabled>
+            <span aria-hidden="true">▶</span>
+          </button>
+          <p data-i18n="founder.videoSoon">Presentación</p>
+        </div>
+      </article>
+    </div>
+   </section>
+
+   <section id="testimonials" class="home-section testimonials reveal" aria-labelledby="testimonials-title">
+    <div class="section-header">
+      <div>
+        <p class="section-lead" data-i18n="testimonials.eyebrow">Testimonios</p>
+        <h2 id="testimonials-title" data-i18n="testimonials.title">Lo que dicen nuestros clientes</h2>
+        <p data-i18n="testimonials.description">Este espacio mostrará opiniones verificadas, experiencias de proyecto y referencias de clientes que han trabajado con CR Collective.</p>
+      </div>
+    </div>
+
+    <div class="google-reviews-placeholder founder-card reveal">
+      <h3 data-i18n="testimonials.google.title">Opiniones verificadas (Google Reviews)</h3>
+      <p data-i18n="testimonials.google.subtitle">Integración próximamente</p>
+      <!-- TODO: Integrar widget o API reviews -->
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card founder-card reveal">
+        <p class="stars" aria-hidden="true">★★★★★</p>
+        <p class="testimonial-project" data-i18n="testimonials.card1.project">Cliente residencial — Casa habitación</p>
+        <p class="testimonial-quote" data-i18n="testimonials.card1.quote">Excelente claridad en el proceso y gran capacidad para visualizar soluciones reales.</p>
+      </article>
+      <article class="testimonial-card founder-card reveal">
+        <p class="stars" aria-hidden="true">★★★★★</p>
+        <p class="testimonial-project" data-i18n="testimonials.card2.project">Remodelación interior — CDMX</p>
+        <p class="testimonial-quote" data-i18n="testimonials.card2.quote">Orden, entregables limpios y comunicación directa.</p>
+      </article>
+      <article class="testimonial-card founder-card reveal">
+        <p class="stars" aria-hidden="true">★★★★★</p>
+        <p class="testimonial-project" data-i18n="testimonials.card3.project">Proyecto mixto — Desarrollo conceptual</p>
+        <p class="testimonial-quote" data-i18n="testimonials.card3.quote">Acompañamiento profesional y decisiones de diseño bien aterrizadas a presupuesto.</p>
+      </article>
+    </div>
+
+    <section id="client-logos" class="client-logos reveal" aria-labelledby="client-logos-title">
+      <p id="client-logos-title" class="section-lead" data-i18n="clients.title">Clientes y colaboraciones</p>
+      <div class="logo-strip" role="list" aria-label="Client logos placeholder">
+        <span class="logo-chip" role="listitem">CLIENTE 01</span>
+        <span class="logo-chip" role="listitem">CLIENTE 02</span>
+        <span class="logo-chip" role="listitem">CLIENTE 03</span>
+        <span class="logo-chip" role="listitem">CLIENTE 04</span>
+        <span class="logo-chip" role="listitem">CLIENTE 05</span>
+        <span class="logo-chip" role="listitem">CLIENTE 06</span>
+      </div>
+    </section>
+   </section>
+
   </main>
 
   <a
@@ -167,6 +248,7 @@
 
   <script src="assets/js/includes.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/home-reveal.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', async () => {
       await window.SiteIncludes?.loadIncludes();
