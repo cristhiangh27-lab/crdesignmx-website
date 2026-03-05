@@ -1227,14 +1227,18 @@ body.project-page main {
 
 @media (max-width: 760px) {
   .header-inner {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "logo logo"
+      "nav nav"
+      ". lang";
+    align-items: start;
     row-gap: 0.65rem;
   }
 
   .logo {
-    flex: 0 0 100%;
+    grid-area: logo;
   }
 
   .hero {
@@ -1242,16 +1246,17 @@ body.project-page main {
   }
 
   .primary-nav {
-    flex: 1 1 auto;
+    grid-area: nav;
+    width: 100%;
     min-width: 0;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
     gap: clamp(0.5rem, 2.2vw, 0.9rem);
     font-size: clamp(0.74rem, 2.35vw, 0.9rem);
   }
 
   .primary-nav a {
-    white-space: nowrap;
+    white-space: normal;
     line-height: 1.1;
   }
 
@@ -1261,8 +1266,10 @@ body.project-page main {
     flex: 0 0 126px;
     width: 126px;
     flex-shrink: 0;
+    grid-area: lang;
+    justify-self: end;
     align-self: center;
-    margin-left: auto;
+    margin-left: 0;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
