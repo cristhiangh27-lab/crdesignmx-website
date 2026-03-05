@@ -1227,14 +1227,20 @@ body.project-page main {
 
 @media (max-width: 760px) {
   .header-inner {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "logo logo"
+      "nav lang";
     align-items: center;
-    row-gap: 0.65rem;
+    row-gap: 0.75rem;
+    column-gap: 0.75rem;
   }
 
   .logo {
-    flex: 0 0 100%;
+    grid-area: logo;
+    justify-self: center;
+    width: clamp(164px, 50vw, 200px);
   }
 
   .hero {
@@ -1242,17 +1248,26 @@ body.project-page main {
   }
 
   .primary-nav {
-    flex: 1 1 auto;
+    grid-area: nav;
+    width: 100%;
     min-width: 0;
     flex-wrap: nowrap;
     align-items: center;
-    gap: clamp(0.5rem, 2.2vw, 0.9rem);
-    font-size: clamp(0.74rem, 2.35vw, 0.9rem);
+    gap: clamp(0.4rem, 1.8vw, 0.72rem);
+    font-size: clamp(0.68rem, 2vw, 0.82rem);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .primary-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .primary-nav a {
     white-space: nowrap;
     line-height: 1.1;
+    flex-shrink: 0;
   }
 
   .language-selector {
@@ -1261,8 +1276,10 @@ body.project-page main {
     flex: 0 0 126px;
     width: 126px;
     flex-shrink: 0;
+    grid-area: lang;
+    justify-self: end;
     align-self: center;
-    margin-left: auto;
+    margin-left: 0;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
