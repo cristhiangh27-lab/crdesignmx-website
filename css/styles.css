@@ -1265,7 +1265,7 @@ body.project-page main {
   }
 
   .primary-nav a {
-    white-space: nowrap;
+    white-space: normal;
     line-height: 1.1;
     flex-shrink: 0;
   }
