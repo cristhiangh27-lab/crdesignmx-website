@@ -1758,27 +1758,33 @@ body.home .hero.hero-video .btn-ghost:hover {
 }
 
 @media (max-width: 980px) {
-  .founder-strip {
-    width: auto;
+  .founder-strip,
+  .testimonials {
+    width: 100%;
+    max-width: 100%;
     margin-inline: 0;
     padding: clamp(1rem, 2.8vw, 1.5rem);
   }
 
   .founder-grid,
   .reviews-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .founder-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  .founder-grid > *,
+  .reviews-grid > * {
+    min-width: 0;
   }
 
-  .founder-quote {
-    grid-column: 1 / -1;
-  }
-
-  .founder-video {
-    grid-column: 1 / -1;
+  .founder-photo,
+  .founder-photo-media,
+  .founder-video,
+  .founder-video-placeholder {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .founder-video-placeholder {
