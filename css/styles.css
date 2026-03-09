@@ -37,13 +37,14 @@ body.home {
 
 .cc-dot-grid {
   --cc-grid-step: 38px;
-  --cc-grid-dot-color: rgba(232, 233, 228, 0.24);
-  --cc-grid-dot-color-lg: rgba(232, 233, 228, 0.16);
-  --cc-grid-opacity: 0.16;
-  --cc-grid-opacity-lg: 0.12;
   --cc-grid-focal-x: 50%;
   --cc-grid-focal-y: 50%;
-  --cc-grid-focal-size: 26%;
+  --cc-grid-focal-size: 24%;
+  --cc-grid-dot-sm: rgba(232, 233, 228, 0.46);
+  --cc-grid-dot-lg: rgba(232, 233, 228, 0.34);
+  --cc-grid-opacity-sm: 0.28;
+  --cc-grid-opacity-lg: 0.22;
+  --cc-grid-blend-mode: normal;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -61,23 +62,41 @@ body.home {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  mix-blend-mode: difference;
+  mix-blend-mode: var(--cc-grid-blend-mode);
   background-repeat: repeat;
-  -webkit-mask-image: radial-gradient(circle at var(--cc-grid-focal-x) var(--cc-grid-focal-y), transparent 0%, transparent var(--cc-grid-focal-size), rgba(0, 0, 0, 0.84) calc(var(--cc-grid-focal-size) + 14%), #000 68%, transparent 100%);
-  mask-image: radial-gradient(circle at var(--cc-grid-focal-x) var(--cc-grid-focal-y), transparent 0%, transparent var(--cc-grid-focal-size), rgba(0, 0, 0, 0.84) calc(var(--cc-grid-focal-size) + 14%), #000 68%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at var(--cc-grid-focal-x) var(--cc-grid-focal-y), transparent 0%, transparent var(--cc-grid-focal-size), rgba(0, 0, 0, 0.5) calc(var(--cc-grid-focal-size) + 16%), rgba(0, 0, 0, 0.9) 74%, transparent 100%);
+  mask-image: radial-gradient(circle at var(--cc-grid-focal-x) var(--cc-grid-focal-y), transparent 0%, transparent var(--cc-grid-focal-size), rgba(0, 0, 0, 0.5) calc(var(--cc-grid-focal-size) + 16%), rgba(0, 0, 0, 0.9) 74%, transparent 100%);
 }
 
 .cc-dot-grid::before {
-  opacity: var(--cc-grid-opacity);
-  background-image: radial-gradient(circle, var(--cc-grid-dot-color) 0 0.6px, transparent 0.8px);
+  opacity: var(--cc-grid-opacity-sm);
+  background-image: radial-gradient(circle, var(--cc-grid-dot-sm) 0 0.85px, transparent 1.05px);
   background-size: var(--cc-grid-step) var(--cc-grid-step);
 }
 
 .cc-dot-grid::after {
   opacity: var(--cc-grid-opacity-lg);
-  background-image: radial-gradient(circle, var(--cc-grid-dot-color-lg) 0 1px, transparent 1.25px);
+  background-image: radial-gradient(circle, var(--cc-grid-dot-lg) 0 1.25px, transparent 1.55px);
   background-size: calc(var(--cc-grid-step) * 4) calc(var(--cc-grid-step) * 4);
   background-position: calc(var(--cc-grid-step) * 0.5) calc(var(--cc-grid-step) * 0.5);
+}
+
+.cc-dot-grid--blend {
+  --cc-grid-dot-sm: rgba(232, 233, 228, 0.66);
+  --cc-grid-dot-lg: rgba(232, 233, 228, 0.52);
+  --cc-grid-opacity-sm: 0.42;
+  --cc-grid-opacity-lg: 0.34;
+  --cc-grid-blend-mode: difference;
+  --cc-grid-focal-size: 22%;
+}
+
+.cc-dot-grid--solid {
+  --cc-grid-dot-sm: rgba(232, 233, 228, 0.52);
+  --cc-grid-dot-lg: rgba(232, 233, 228, 0.4);
+  --cc-grid-opacity-sm: 0.34;
+  --cc-grid-opacity-lg: 0.26;
+  --cc-grid-blend-mode: normal;
+  --cc-grid-focal-size: 28%;
 }
 
 @media (max-width: 768px) {
@@ -88,16 +107,16 @@ body.home {
 }
 
 .hero-panel.cc-dot-grid {
-  --cc-grid-focal-x: 34%;
-  --cc-grid-focal-y: 48%;
+  --cc-grid-focal-x: 36%;
+  --cc-grid-focal-y: 50%;
 }
 
 .services-panel.cc-dot-grid {
-  --cc-grid-focal-size: 38%;
+  --cc-grid-focal-size: 34%;
 }
 
 .footer.cc-dot-grid {
-  --cc-grid-focal-size: 42%;
+  --cc-grid-focal-size: 38%;
 }
 
 
