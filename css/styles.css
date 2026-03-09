@@ -34,6 +34,51 @@ body.home {
   color: var(--text);
 }
 
+
+.cc-fixed-dot-grid {
+  --cc-fixed-step: 70px;
+  --cc-fixed-dot-sm: rgba(232, 233, 228, 0.66);
+  --cc-fixed-dot-lg: rgba(232, 233, 228, 0.42);
+  --cc-fixed-opacity-sm: 0.2;
+  --cc-fixed-opacity-lg: 0.16;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  mix-blend-mode: difference;
+}
+
+.cc-fixed-dot-grid::before,
+.cc-fixed-dot-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+.cc-fixed-dot-grid::before {
+  opacity: var(--cc-fixed-opacity-sm);
+  background-image: radial-gradient(circle, var(--cc-fixed-dot-sm) 0 1.2px, transparent 1.45px);
+  background-size: var(--cc-fixed-step) var(--cc-fixed-step);
+}
+
+.cc-fixed-dot-grid::after {
+  opacity: var(--cc-fixed-opacity-lg);
+  background-image: radial-gradient(circle, var(--cc-fixed-dot-lg) 0 2.05px, transparent 2.35px);
+  background-size: calc(var(--cc-fixed-step) * 4) calc(var(--cc-fixed-step) * 4);
+  background-position: calc(var(--cc-fixed-step) * 0.5) calc(var(--cc-fixed-step) * 0.5);
+}
+
+@media (max-width: 768px) {
+  .cc-fixed-dot-grid {
+    --cc-fixed-step: 56px;
+    --cc-fixed-opacity-sm: 0.16;
+    --cc-fixed-opacity-lg: 0.12;
+  }
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
