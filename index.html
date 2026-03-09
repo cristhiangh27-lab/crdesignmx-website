@@ -152,33 +152,47 @@
     </div>
    </section>
 
-   <section id="testimonials" class="home-section testimonials reveal" aria-labelledby="testimonials-title">
-    <div class="section-header">
-      <div>
-        <p class="section-lead" data-i18n="testimonials.eyebrow">Testimonios</p>
-        <h2 id="testimonials-title" data-i18n="testimonials.title">Lo que dicen nuestros clientes</h2>
-        <p data-i18n="testimonials.description">Este espacio mostrará opiniones verificadas, experiencias de proyecto y referencias de clientes que han trabajado con CR Collective.</p>
+   <section id="reviews-shell" class="home-section reviews-shell reveal" aria-labelledby="testimonials-title">
+    <div id="testimonials" class="reviews-section">
+      <div class="section-header">
+        <div>
+          <p class="section-lead" data-i18n="testimonials.eyebrow">Testimonios</p>
+          <h2 id="testimonials-title" data-i18n="testimonials.title">Lo que dicen nuestros clientes</h2>
+          <p data-i18n="testimonials.description">Este espacio mostrará opiniones verificadas, experiencias de proyecto y referencias de clientes que han trabajado con CR Collective.</p>
+        </div>
+      </div>
+
+      <div class="google-reviews-placeholder founder-card reveal">
+        <h3 data-i18n="testimonials.google.title">Opiniones verificadas (Google Reviews)</h3>
+        <p data-i18n="testimonials.google.subtitle">Selección de reseñas reales del perfil de negocio de CR Collective.</p>
+      </div>
+
+      <div id="reviews-grid" class="reviews-grid" aria-live="polite"></div>
+    </div>
+   </section>
+
+   <section id="client-logos" class="home-section clients-shell reveal" aria-labelledby="client-logos-title">
+    <div class="clients-section">
+      <div class="section-header">
+        <div>
+          <p id="client-logos-title" class="section-lead" data-i18n="clients.title">Clientes y colaboraciones</p>
+          <p class="clients-support-copy">Marcas, aliados y equipos con quienes hemos colaborado en proyectos residenciales, comerciales e institucionales.</p>
+        </div>
+      </div>
+
+      <div class="logo-marquee" data-logo-marquee aria-label="Client logos carousel">
+        <div class="logo-marquee-track" role="list">
+          <article class="logo-item" role="listitem"><img src="assets/clients/grupo-alcazar.png" alt="Grupo Alcázar" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/nova-hospitality.png" alt="Nova Hospitality" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/altavista-residencial.png" alt="Altavista Residencial" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/origen-desarrollos.png" alt="Origen Desarrollos" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/atelier-urbano.png" alt="Atelier Urbano" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/terra-constructora.png" alt="Terra Constructora" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/puerto-norte-retail.png" alt="Puerto Norte Retail" loading="lazy" decoding="async"></article>
+          <article class="logo-item" role="listitem"><img src="assets/clients/fundacion-casa-abierta.png" alt="Fundación Casa Abierta" loading="lazy" decoding="async"></article>
+        </div>
       </div>
     </div>
-
-    <div class="google-reviews-placeholder founder-card reveal">
-      <h3 data-i18n="testimonials.google.title">Opiniones verificadas (Google Reviews)</h3>
-      <p data-i18n="testimonials.google.subtitle">Selección de reseñas reales del perfil de negocio de CR Collective.</p>
-    </div>
-
-    <div id="reviews-grid" class="reviews-grid" aria-live="polite"></div>
-
-    <section id="client-logos" class="client-logos reveal" aria-labelledby="client-logos-title">
-      <p id="client-logos-title" class="section-lead" data-i18n="clients.title">Clientes y colaboraciones</p>
-      <div class="logo-strip" role="list" aria-label="Client logos placeholder">
-        <span class="logo-chip" role="listitem">CLIENTE 01</span>
-        <span class="logo-chip" role="listitem">CLIENTE 02</span>
-        <span class="logo-chip" role="listitem">CLIENTE 03</span>
-        <span class="logo-chip" role="listitem">CLIENTE 04</span>
-        <span class="logo-chip" role="listitem">CLIENTE 05</span>
-        <span class="logo-chip" role="listitem">CLIENTE 06</span>
-      </div>
-    </section>
    </section>
 
   </main>
