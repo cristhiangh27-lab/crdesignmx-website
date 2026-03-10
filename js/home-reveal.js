@@ -88,23 +88,6 @@ function renderGoogleReviews() {
 }
 
 
-function initClientLogoMarquee() {
-  const marquee = document.querySelector('[data-logo-marquee]');
-  const track = marquee?.querySelector('.logo-marquee-track');
-  if (!marquee || !track || track.dataset.loopReady === 'true') return;
-
-  const items = Array.from(track.children);
-  if (!items.length) return;
-
-  items.forEach((item) => {
-    const clone = item.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
-  });
-
-  track.dataset.loopReady = 'true';
-}
-
 function initRevealAnimations() {
   const revealItems = document.querySelectorAll('.reveal');
   if (!revealItems.length) return;
@@ -134,6 +117,5 @@ function initRevealAnimations() {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderGoogleReviews();
-  initClientLogoMarquee();
   initRevealAnimations();
 });

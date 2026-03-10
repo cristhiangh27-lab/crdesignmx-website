@@ -1830,10 +1830,17 @@ body.home .hero.hero-video .btn-ghost:hover {
 
 .logo-marquee {
   position: relative;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   overflow: hidden;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  line-height: 0;
 }
 
 .logo-marquee::before,
@@ -1858,15 +1865,24 @@ body.home .hero.hero-video .btn-ghost:hover {
 }
 
 .logo-marquee-track {
-  --logo-gap: clamp(1.35rem, 3vw, 2.2rem);
-  --logo-speed: 36s;
+  --logo-gap: clamp(2rem, 4vw, 3.6rem);
+  --logo-speed: 34s;
+  --logo-item-height: clamp(76px, 10vw, 96px);
+  --logo-max-height: clamp(54px, 7.6vw, 68px);
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: clamp(1rem, 2vw, 1.35rem) 0;
+  animation: logo-marquee var(--logo-speed) linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-group {
   display: flex;
   align-items: center;
   gap: var(--logo-gap);
-  width: max-content;
-  padding: clamp(0.9rem, 1.8vw, 1.2rem) var(--logo-gap);
-  animation: logo-marquee var(--logo-speed) linear infinite;
-  will-change: transform;
+  padding-inline: var(--logo-gap);
+  flex: 0 0 auto;
 }
 
 .logo-marquee:hover .logo-marquee-track {
@@ -1875,17 +1891,23 @@ body.home .hero.hero-video .btn-ghost:hover {
 
 .logo-item {
   flex: 0 0 auto;
-  min-width: clamp(120px, 18vw, 180px);
-  height: clamp(52px, 8vw, 66px);
-  display: grid;
-  place-items: center;
-  padding: 0.35rem 0.25rem;
+  width: clamp(170px, 18vw, 240px);
+  height: var(--logo-item-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.35rem;
+  line-height: 0;
 }
 
 .logo-item img {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: var(--logo-max-height);
+  height: auto;
   object-fit: contain;
+  object-position: center;
   opacity: 0.82;
   filter: grayscale(0.1) brightness(0.96);
   transition: opacity 0.3s ease, filter 0.3s ease;
@@ -1897,8 +1919,8 @@ body.home .hero.hero-video .btn-ghost:hover {
 }
 
 @keyframes logo-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 
 .reveal {
@@ -1977,9 +1999,15 @@ body.home .hero.hero-video .btn-ghost:hover {
     gap: 0.85rem;
   }
 
+  .logo-marquee-track {
+    --logo-gap: clamp(1.2rem, 5vw, 1.8rem);
+    --logo-item-height: clamp(68px, 18vw, 84px);
+    --logo-max-height: clamp(46px, 12vw, 58px);
+  }
+
   .logo-item {
-    min-width: 110px;
-    height: 52px;
+    width: clamp(150px, 42vw, 190px);
+    height: var(--logo-item-height);
   }
 
   .founder-grid > *,
