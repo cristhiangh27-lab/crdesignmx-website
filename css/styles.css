@@ -1667,14 +1667,21 @@ body.home .hero.hero-video .btn-ghost:hover {
   position: absolute;
   left: clamp(0.8rem, 1.8vw, 1.2rem);
   right: clamp(0.8rem, 1.8vw, 1.2rem);
-  bottom: clamp(0.8rem, 1.8vw, 1.2rem);
   z-index: 2;
   display: grid;
   gap: 0.2rem;
   padding: 0.65rem 0.8rem;
   border-radius: 12px;
-  background: linear-gradient(160deg, rgba(6, 8, 18, 0.58), rgba(6, 8, 18, 0.32));
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
+}
+
+.founder-photo-caption--top {
+  top: clamp(0.8rem, 1.8vw, 1.2rem);
+}
+
+.founder-photo-caption--bottom {
+  bottom: clamp(0.8rem, 1.8vw, 1.2rem);
 }
 
 .founder-photo-fallback {
@@ -2053,8 +2060,15 @@ body.home .hero.hero-video .btn-ghost:hover {
   .founder-photo-caption {
     left: 0.65rem;
     right: 0.65rem;
-    bottom: 0.65rem;
     padding: 0.55rem 0.7rem;
+  }
+
+  .founder-photo-caption--top {
+    top: 0.65rem;
+  }
+
+  .founder-photo-caption--bottom {
+    bottom: 0.65rem;
   }
 }
 
