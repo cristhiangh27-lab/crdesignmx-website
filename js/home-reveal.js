@@ -88,6 +88,64 @@ function renderGoogleReviews() {
 }
 
 
+
+function initFounderReel() {
+  const reel = document.querySelector('.founder-reel-video');
+  if (!reel) return;
+
+  reel.controls = false;
+  reel.pause();
+
+  const showControls = () => {
+    reel.controls = true;
+  };
+
+  const hideControls = () => {
+    reel.controls = false;
+  };
+
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+  if (hasFinePointer) {
+    reel.addEventListener('mouseenter', showControls);
+    reel.addEventListener('mouseleave', hideControls);
+  } else {
+    let controlsTimeout;
+
+    reel.addEventListener('click', () => {
+      showControls();
+      window.clearTimeout(controlsTimeout);
+      controlsTimeout = window.setTimeout(hideControls, 2600);
+    });
+
+    reel.addEventListener('pause', hideControls);
+    reel.addEventListener('ended', hideControls);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+          reel.play().catch(() => {});
+          return;
+        }
+
+        reel.pause();
+      });
+    },
+    {
+      threshold: [0, 0.55, 0.75],
+      rootMargin: '0px'
+    }
+  );
+
+  observer.observe(reel);
+}
+
 function initRevealAnimations() {
   const revealItems = document.querySelectorAll('.reveal');
   if (!revealItems.length) return;
@@ -118,4 +176,5 @@ function initRevealAnimations() {
 document.addEventListener('DOMContentLoaded', () => {
   renderGoogleReviews();
   initRevealAnimations();
+  initFounderReel();
 });
