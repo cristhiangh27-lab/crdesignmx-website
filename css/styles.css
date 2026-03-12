@@ -1720,14 +1720,13 @@ body.home .hero.hero-video .btn-ghost:hover {
 }
 
 .founder-video {
-  display: grid;
-  gap: 0.85rem;
-  align-content: center;
+  padding: clamp(0.5rem, 1.2vw, 0.8rem);
+  display: flex;
 }
 
 .founder-video-placeholder {
-  min-height: clamp(220px, 25vw, 300px);
-  aspect-ratio: 4 / 3;
+  width: 100%;
+  min-height: clamp(290px, 34vw, 430px);
   border-radius: calc(var(--radius) - 4px);
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: radial-gradient(circle at 20% 20%, rgba(193, 141, 33, 0.22), rgba(10, 11, 26, 0.88));
@@ -1745,6 +1744,7 @@ body.home .hero.hero-video .btn-ghost:hover {
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
   border-radius: inherit;
 }
 
