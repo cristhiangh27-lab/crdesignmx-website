@@ -1967,8 +1967,14 @@ body.home .hero.hero-video .btn-ghost:hover {
     min-width: 0;
   }
 
+  .founder-video {
+    padding: 0.4rem;
+  }
+
   .founder-video-placeholder {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: auto;
+    min-height: clamp(280px, 64vw, 380px);
+    height: clamp(280px, 64vw, 380px);
   }
 }
 
@@ -2019,6 +2025,16 @@ body.home .hero.hero-video .btn-ghost:hover {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .founder-video {
+    padding: 0.35rem;
+  }
+
+  .founder-video-placeholder {
+    aspect-ratio: auto;
+    min-height: clamp(300px, 82vw, 420px);
+    height: clamp(300px, 82vw, 420px);
   }
 
   .founder-photo {
