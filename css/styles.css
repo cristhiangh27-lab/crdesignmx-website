@@ -1432,53 +1432,45 @@ body.project-page main {
   color: var(--muted);
 }
 
-.whatsapp-float {
+.email-float {
   position: fixed;
   right: 1.25rem;
   bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #25d366;
-  color: #fff;
+  background: linear-gradient(140deg, #c7ab6a, #9f844f);
+  color: #0b1220;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
   z-index: 60;
 }
 
-.whatsapp-float:hover,
-.whatsapp-float:focus-visible {
+.email-float:hover,
+.email-float:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.26);
+  filter: saturate(1.08);
 }
 
-.whatsapp-icon {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.email-float-icon {
+  font-size: 1.4rem;
+  line-height: 1;
 }
 
-.site-header .whatsapp,
-.footer .whatsapp,
-.social a.whatsapp {
-  display: none;
-}
-
-.whatsapp-button {
+.contact-button {
   display: none !important;
 }
 
 @media (max-width: 640px) {
-  .whatsapp-float {
+  .email-float {
     width: 52px;
     height: 52px;
-    padding: 13px;
     right: 1rem;
     bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }

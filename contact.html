@@ -22,7 +22,7 @@
   <meta name="theme-color" content="#0b1220">
 
   <title>Contacto — CR Collective</title>
-  <meta name="description" content="Contacta a CR Collective para hablar de tu proyecto y agenda una llamada sobre alcances, tiempos y presupuesto.">
+  <meta name="description" content="Contacta a CR Collective para hablar de tu proyecto por correo y revisar alcances, tiempos y presupuesto.">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contacto — CR Collective">
@@ -32,7 +32,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contacto — CR Collective">
-  <meta name="twitter:description" content="Agenda una llamada con CR Collective para revisar tu proyecto y próximos pasos.">
+  <meta name="twitter:description" content="Escríbenos por correo para revisar tu proyecto y próximos pasos con CR Collective.">
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
 
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
@@ -46,7 +46,7 @@
     <section class="page-hero">
       <p class="section-lead" data-i18n="contact.kicker">Let's talk about your project</p>
       <h1 data-i18n="contact.title">Contact</h1>
-      <p data-i18n="contact.subtitle">Share your goals and schedule a call to review scope, timeline, and budget.</p>
+      <p data-i18n="contact.subtitle">Share your goals and email us to review scope, timeline, and budget.</p>
     </section>
 
     <section class="project-hero" style="margin-bottom:1.5rem;">
@@ -78,7 +78,7 @@
 
       <div class="contact-info">
         <p><strong data-i18n="contact.info.email">Email:</strong> <a href="mailto:crpartners11@gmail.com">crpartners11@gmail.com</a></p>
-        <p><strong data-i18n="contact.info.whatsapp">WhatsApp:</strong> <a href="https://wa.me/525514844480">+52 55 1484 4480</a></p>
+        <p><strong data-i18n="contact.info.direct">Direct email:</strong> <a href="mailto:crpartners11@gmail.com">crpartners11@gmail.com</a></p>
         <p><strong data-i18n="contact.info.instagram">Instagram:</strong> <a href="https://www.instagram.com/cr.designmx/">@cr.designmx</a></p>
       </div>
     </section>
@@ -120,7 +120,7 @@
         window.location.href = `/thank-you?lang=${currentLang}`;
       } catch (err) {
         console.error(err);
-        statusEl.textContent = window.I18n?.t('contact.form.error', '❌ Could not send. Please try again or message us on WhatsApp.');
+        statusEl.textContent = window.I18n?.t('contact.form.error', '❌ Could not send. Please try again or email us directly.');
       } finally {
         submitBtn.disabled = false;
       }
