@@ -400,64 +400,39 @@ function createFeaturedProjectCard(project, lang = getCurrentLang()) {
   const type = getCategoryLabel(project, lang);
   const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
   const link = document.createElement('a');
-  link.className = 'project-card flip-card project-card--featured project-card-featured';
+  link.className = 'project-card project-card--featured project-card--featured-main';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
-
-  const resolvedCover = coverImage ? resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`) : '';
-
-  const inner = document.createElement('div');
-  inner.className = 'flip-inner';
-
-  const front = document.createElement('div');
-  front.className = 'flip-face flip-front';
-
-  const back = document.createElement('div');
-  back.className = 'flip-face flip-back';
-
-  if (resolvedCover) {
-    const absoluteCover = new URL(resolvedCover, window.location.href).href;
-    link.style.setProperty('--card-img', `url("${absoluteCover}")`);
+  const media = document.createElement('div');
+  media.className = 'project-media';
+  if (coverImage) {
     const img = document.createElement('img');
-    img.src = absoluteCover;
     img.alt = title || 'Proyecto';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.width = 640;
-    img.height = 640;
+    img.width = 1280;
+    img.height = 720;
     img.addEventListener('error', () => {
       img.remove();
-      link.classList.add('flip-card--fallback');
-      link.style.removeProperty('--card-img');
-      if (!front.querySelector('.img-fallback')) {
-        front.append(createMediaFallback());
-      }
-      if (!back.querySelector('.img-fallback')) {
-        back.append(createMediaFallback());
-      }
+      if (!media.querySelector('.img-fallback')) media.prepend(createMediaFallback());
     });
-    front.append(img);
+    media.append(img);
   } else {
-    link.classList.add('flip-card--fallback');
-    front.append(createMediaFallback());
+    media.append(createMediaFallback());
   }
 
-  const backContent = document.createElement('div');
-  backContent.className = 'flip-content';
-
-  const backTitle = document.createElement('h3');
-  backTitle.textContent = title || translate('project.card.titleFallback', 'Project');
-
-  const backCta = document.createElement('span');
-  backCta.className = 'flip-cta';
-  backCta.textContent = translate('project.card.cta', 'View project');
-
-  backContent.append(backTitle, backCta);
-  back.append(backContent);
-  if (!resolvedCover) {
-    back.append(createMediaFallback());
-  }
-  inner.append(front, back);
-  link.append(inner);
+  const body = document.createElement('div');
+  body.className = 'card-body';
+  const titleEl = document.createElement('h3');
+  titleEl.textContent = title || translate('project.card.titleFallback', 'Project');
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  meta.textContent = [type, location, year].filter(Boolean).join(' · ');
+  const cta = document.createElement('span');
+  cta.className = 'project-overlay-cta';
+  cta.textContent = translate('project.card.cta', 'View project');
+  body.append(titleEl, meta, cta);
+  link.append(media, body);
 
   return link;
 }
@@ -483,14 +458,11 @@ function getFeaturedProjects(projects) {
 export async function initFeaturedGallery(options = {}) {
   const {
     container = document.getElementById('featured-projects'),
-    prevButton = document.querySelector('.carousel-btn.prev'),
-    nextButton = document.querySelector('.carousel-btn.next'),
     totalVisible = 4,
   } = options;
 
   if (!container) return;
   renderFeaturedSkeleton(container, totalVisible);
-  const viewport = container.closest('.carousel-viewport');
 
   let projects = [];
   try {
@@ -503,67 +475,21 @@ export async function initFeaturedGallery(options = {}) {
   const featuredProjects = getFeaturedProjects(projects).slice(0, 16);
   if (!featuredProjects.length) {
     container.innerHTML = `<p>${translate('featured.empty', 'No projects available.')}</p>`;
-    prevButton?.setAttribute('disabled', 'disabled');
-    nextButton?.setAttribute('disabled', 'disabled');
     return;
   }
+  const curated = featuredProjects.slice(0, 4);
+  const [featuredProject, ...secondaryProjects] = curated;
+  container.innerHTML = '';
+  container.classList.add('featured-layout');
 
-  const pageSize = 4;
-  let totalPages = Math.ceil(featuredProjects.length / pageSize);
-  let currentPage = 0;
+  if (featuredProject) {
+    container.appendChild(createFeaturedProjectCard(featuredProject, lang));
+  }
 
-  const setTrackWidth = () => {
-    const trackWidth = Math.max(totalPages, 1) * 100;
-    container.style.width = `${trackWidth}%`;
-  };
-
-  const buildPages = () => {
-    container.innerHTML = '';
-    totalPages = Math.ceil(featuredProjects.length / pageSize);
-    const pageWidthPct = totalPages ? 100 / totalPages : 100;
-    for (let pageIndex = 0; pageIndex < totalPages; pageIndex += 1) {
-      const page = document.createElement('div');
-      page.className = 'featured-page';
-      page.style.flex = `0 0 ${pageWidthPct}%`;
-      page.style.minWidth = `${pageWidthPct}%`;
-      const startIndex = pageIndex * pageSize;
-      const pageItems = featuredProjects.slice(startIndex, startIndex + pageSize);
-      pageItems.forEach((project) => page.appendChild(createFeaturedProjectCard(project, lang)));
-      container.appendChild(page);
-    }
-    setTrackWidth();
-  };
-
-  const updateTrack = () => {
-    const pageEl = container.querySelector('.featured-page');
-    const pageWidth = pageEl
-      ? pageEl.getBoundingClientRect().width
-      : container.clientWidth;
-    container.style.transform = `translate3d(${-currentPage * pageWidth}px, 0, 0)`;
-  };
-
-  // Circular carousel: move between pages and wrap at the ends.
-  const goToPage = (nextPage) => {
-    if (totalPages === 0) return;
-    currentPage = (nextPage + totalPages) % totalPages;
-    updateTrack();
-  };
-
-  const handlePrev = () => goToPage(currentPage - 1);
-  const handleNext = () => goToPage(currentPage + 1);
-
-  prevButton?.addEventListener('click', handlePrev);
-  nextButton?.addEventListener('click', handleNext);
-
-  buildPages();
-  updateTrack();
-
-  window.addEventListener('resize', () => {
-    totalPages = Math.ceil(featuredProjects.length / pageSize);
-    currentPage = Math.min(currentPage, Math.max(totalPages - 1, 0));
-    buildPages();
-    updateTrack();
-  });
+  const secondaryGrid = document.createElement('div');
+  secondaryGrid.className = 'featured-secondary-grid';
+  secondaryProjects.forEach((project) => secondaryGrid.appendChild(createProjectCard(project, lang)));
+  container.appendChild(secondaryGrid);
 }
 
 export async function renderFeaturedProjects(limit = 4) {
