@@ -9,8 +9,8 @@
   "hero.ctaProjects": "View projects",
   "hero.ctaServices": "Start a Project",
   "featured.title": "Selected Works",
-  "featured.lead": "A living archive of residential, commercial, interior and conceptual projects developed through design, BIM documentation, visualization and site experience.",
-  "featured.viewAll": "View all",
+  "featured.lead": "A curated view of residential, commercial, interior and conceptual projects shaped through design, BIM intelligence and construction logic.",
+  "featured.viewAll": "View all projects",
   "featured.loading": "Loading projects…",
   "featured.prev": "Previous",
   "featured.next": "Next",
@@ -54,7 +54,7 @@
   "servicesPage.title": "A premium design-build journey",
   "servicesPage.subtitle": "From first brief to site strategy, we structure each phase for clear decisions and coordinated execution.",
   "servicesPage.gridAria": "CR Collective services",
-  "servicesPage.card1.title": "Discovery",
+  "servicesPage.card1.title": "Architecture",
   "servicesPage.card1.body": "We begin by understanding the site, the people, the constraints and the ambition behind the project.",
   "servicesPage.card2.title": "Concept Design",
   "servicesPage.card2.body": "We translate ideas into spatial direction, atmosphere, proportion and architectural intent.",
@@ -98,7 +98,7 @@
   "founder.eyebrow": "Founder vision",
   "founder.title": "An architectural vision with a human focus",
   "founder.quote": "We do not design to impress algorithms. We design clear, functional, and memorable spaces for real people.",
-  "founder.description": "Led by Cristhian Gómez Hernández, CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed.",
+  "founder.description": "Led by Cristhian Gómez Hernández, the studio connects architectural design, BIM documentation, visualization and construction-site experience into one clear process.",
   "founder.name": "Cristhian Gómez Hernández",
   "founder.role": "Founder / Architect",
   "founder.videoLabel": "Studio Reel",
@@ -153,5 +153,7 @@
   "footer.hours.3": "Sunday · 9:00–17:00",
   "footer.hours.note": "Hours may vary on holidays.",
   "footer.social": "Social",
-  "footer.privacy": "Privacy notice"
+  "footer.privacy": "Privacy notice",
+  "thesis.eyebrow": "Studio Thesis",
+  "thesis.body": "CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed."
 }

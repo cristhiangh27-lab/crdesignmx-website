@@ -9,8 +9,8 @@
   "hero.ctaProjects": "Projekte ansehen",
   "hero.ctaServices": "Projekt starten",
   "featured.title": "Ausgewählte Arbeiten",
-  "featured.lead": "Ein lebendiges Archiv von Wohn-, Gewerbe-, Innenraum- und Konzeptprojekten, entwickelt durch Entwurf, BIM-Dokumentation, Visualisierung und Baustellenerfahrung.",
-  "featured.viewAll": "Alle ansehen",
+  "featured.lead": "Eine kuratierte Auswahl von Wohn-, Gewerbe-, Innenraum- und Konzeptprojekten, entwickelt durch Entwurf, BIM-Intelligenz und konstruktive Logik.",
+  "featured.viewAll": "Alle Projekte ansehen",
   "featured.loading": "Projekte werden geladen…",
   "featured.prev": "Zurück",
   "featured.next": "Weiter",
@@ -54,7 +54,7 @@
   "servicesPage.title": "Eine hochwertige Design-Build-Reise",
   "servicesPage.subtitle": "Vom ersten Briefing bis zur Baustellenstrategie strukturieren wir jede Phase für klare Entscheidungen und koordinierte Umsetzung.",
   "servicesPage.gridAria": "Leistungen von CR Collective",
-  "servicesPage.card1.title": "Analyse",
+  "servicesPage.card1.title": "Architektur",
   "servicesPage.card1.body": "Wir beginnen mit dem Verständnis des Ortes, der Menschen, der Rahmenbedingungen und der Ambition des Projekts.",
   "servicesPage.card2.title": "Konzeptentwurf",
   "servicesPage.card2.body": "Wir übersetzen Ideen in räumliche Richtung, Atmosphäre, Proportion und architektonische Absicht.",
@@ -98,7 +98,7 @@
   "founder.eyebrow": "Vision des Gründers",
   "founder.title": "Eine architektonische Vision mit menschlichem Fokus",
   "founder.quote": "Wir entwerfen nicht, um Algorithmen zu beeindrucken. Wir entwerfen klare, funktionale und einprägsame Räume für echte Menschen.",
-  "founder.description": "Unter der Leitung von Cristhian Gómez Hernández arbeitet CR Collective zwischen Entwurfsvision und baubarer Präzision — von der Idee bis zur dokumentierten, koordinierten und ausführbaren Architektur.",
+  "founder.description": "Unter der Leitung von Cristhian Gómez Hernández verbindet das Studio architektonischen Entwurf, BIM-Dokumentation, Visualisierung und Baustellenerfahrung zu einem klaren Prozess.",
   "founder.name": "Cristhian Gómez Hernández",
   "founder.role": "Founder / Architect",
   "founder.videoLabel": "Studio Reel",
@@ -153,5 +153,7 @@
   "footer.hours.3": "Sonntag · 9:00–17:00",
   "footer.hours.note": "An Feiertagen können die Zeiten abweichen.",
   "footer.social": "Soziale Netzwerke",
-  "footer.privacy": "Datenschutzhinweis"
+  "footer.privacy": "Datenschutzhinweis",
+  "thesis.eyebrow": "Studio-These",
+  "thesis.body": "CR Collective arbeitet zwischen Entwurfsvision und baubarer Präzision — von der Idee bis zur dokumentierten, koordinierten und ausführbaren Architektur."
 }

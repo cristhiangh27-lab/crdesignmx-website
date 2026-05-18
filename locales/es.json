@@ -9,8 +9,8 @@
   "hero.ctaProjects": "Ver proyectos",
   "hero.ctaServices": "Iniciar un proyecto",
   "featured.title": "Obras seleccionadas",
-  "featured.lead": "Un archivo vivo de proyectos residenciales, comerciales, interiores y conceptuales desarrollados mediante diseño, documentación BIM, visualización y experiencia en obra.",
-  "featured.viewAll": "Ver todos",
+  "featured.lead": "Una selección de proyectos residenciales, comerciales, interiores y conceptuales desarrollados mediante diseño, inteligencia BIM y lógica constructiva.",
+  "featured.viewAll": "Ver todos los proyectos",
   "featured.loading": "Cargando proyectos…",
   "featured.prev": "Anterior",
   "featured.next": "Siguiente",
@@ -54,7 +54,7 @@
   "servicesPage.title": "Un recorrido premium de diseño y ejecución",
   "servicesPage.subtitle": "Desde el brief inicial hasta la estrategia de obra, estructuramos cada etapa para decisiones claras y ejecución coordinada.",
   "servicesPage.gridAria": "Servicios de CR Collective",
-  "servicesPage.card1.title": "Diagnóstico",
+  "servicesPage.card1.title": "Arquitectura",
   "servicesPage.card1.body": "Comenzamos entendiendo el sitio, las personas, las limitantes y la ambición detrás del proyecto.",
   "servicesPage.card2.title": "Diseño conceptual",
   "servicesPage.card2.body": "Traducimos ideas en dirección espacial, atmósfera, proporción e intención arquitectónica.",
@@ -98,7 +98,7 @@
   "founder.eyebrow": "Visión del fundador",
   "founder.title": "Una visión arquitectónica con enfoque humano",
   "founder.quote": "No diseñamos para impresionar algoritmos. Diseñamos espacios claros, funcionales y memorables para personas reales.",
-  "founder.description": "Dirigido por Cristhian Gómez Hernández, CR Collective trabaja entre la visión de diseño y la precisión constructiva: transforma ideas en espacios que pueden imaginarse, documentarse, coordinarse y construirse.",
+  "founder.description": "Dirigido por Cristhian Gómez Hernández, el estudio conecta diseño arquitectónico, documentación BIM, visualización y experiencia de obra en un proceso claro.",
   "founder.name": "Cristhian Gómez Hernández",
   "founder.role": "Founder / Architect",
   "founder.videoLabel": "Studio Reel",
@@ -153,5 +153,7 @@
   "footer.hours.3": "Domingo · 9:00–17:00",
   "footer.hours.note": "Los horarios pueden variar en días festivos.",
   "footer.social": "Redes",
-  "footer.privacy": "Aviso de privacidad"
+  "footer.privacy": "Aviso de privacidad",
+  "thesis.eyebrow": "Tesis del estudio",
+  "thesis.body": "CR Collective trabaja entre la visión de diseño y la precisión constructiva: transforma ideas en espacios que pueden imaginarse, documentarse, coordinarse y construirse."
 }
