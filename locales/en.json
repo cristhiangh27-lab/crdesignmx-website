@@ -155,5 +155,19 @@
   "footer.social": "Social",
   "footer.privacy": "Privacy notice",
   "thesis.eyebrow": "Studio Thesis",
-  "thesis.body": "CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed."
+  "thesis.body": "CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed.",
+  "approach.eyebrow": "Studio Approach",
+  "approach.title": "Architecture with editorial clarity and technical intelligence.",
+  "approach.body": "We structure each project as a narrative: design direction, BIM logic and site intelligence in one coherent process.",
+  "approach.pillar1.title": "Design clarity",
+  "approach.pillar1.body": "Proportion, material intent and spatial hierarchy from the first concept.",
+  "approach.pillar2.title": "BIM documentation",
+  "approach.pillar2.body": "Coordinated information that supports decisions, permits and execution.",
+  "approach.pillar3.title": "Site intelligence",
+  "approach.pillar3.body": "Constructive criteria shaped by context, sequence and real-site conditions.",
+  "approach.cta": "Learn about the studio",
+  "services.cardCtaWork": "See related work",
+  "services.cardCtaStart": "Start a project",
+  "services.cardCtaProcess": "View process",
+  "clients.cta": "Collaborate with us"
 }

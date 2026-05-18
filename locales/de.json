@@ -155,5 +155,19 @@
   "footer.social": "Soziale Netzwerke",
   "footer.privacy": "Datenschutzhinweis",
   "thesis.eyebrow": "Studio-These",
-  "thesis.body": "CR Collective arbeitet zwischen Entwurfsvision und baubarer Präzision — von der Idee bis zur dokumentierten, koordinierten und ausführbaren Architektur."
+  "thesis.body": "CR Collective arbeitet zwischen Entwurfsvision und baubarer Präzision — von der Idee bis zur dokumentierten, koordinierten und ausführbaren Architektur.",
+  "approach.eyebrow": "Studio-Ansatz",
+  "approach.title": "Architektur mit redaktioneller Klarheit und technischer Intelligenz.",
+  "approach.body": "Wir strukturieren jedes Projekt als Erzählung: Entwurfsrichtung, BIM-Logik und Baustellenintelligenz in einem kohärenten Prozess.",
+  "approach.pillar1.title": "Designklarheit",
+  "approach.pillar1.body": "Proportion, Materialintention und räumliche Hierarchie vom ersten Konzept an.",
+  "approach.pillar2.title": "BIM-Dokumentation",
+  "approach.pillar2.body": "Koordinierte Informationen für Entscheidungen, Genehmigungen und Ausführung.",
+  "approach.pillar3.title": "Baustellenintelligenz",
+  "approach.pillar3.body": "Konstruktive Kriterien aus Kontext, Ablauf und realen Bedingungen vor Ort.",
+  "approach.cta": "Mehr über das Studio",
+  "services.cardCtaWork": "Relevante Projekte ansehen",
+  "services.cardCtaStart": "Projekt starten",
+  "services.cardCtaProcess": "Prozess ansehen",
+  "clients.cta": "Mit uns zusammenarbeiten"
 }
