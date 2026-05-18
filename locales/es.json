@@ -155,5 +155,19 @@
   "footer.social": "Redes",
   "footer.privacy": "Aviso de privacidad",
   "thesis.eyebrow": "Tesis del estudio",
-  "thesis.body": "CR Collective trabaja entre la visión de diseño y la precisión constructiva: transforma ideas en espacios que pueden imaginarse, documentarse, coordinarse y construirse."
+  "thesis.body": "CR Collective trabaja entre la visión de diseño y la precisión constructiva: transforma ideas en espacios que pueden imaginarse, documentarse, coordinarse y construirse.",
+  "approach.eyebrow": "Enfoque del estudio",
+  "approach.title": "Arquitectura con claridad editorial e inteligencia técnica.",
+  "approach.body": "Estructuramos cada proyecto como narrativa: dirección de diseño, lógica BIM e inteligencia de obra en un solo proceso coherente.",
+  "approach.pillar1.title": "Claridad de diseño",
+  "approach.pillar1.body": "Proporción, intención material y jerarquía espacial desde el primer concepto.",
+  "approach.pillar2.title": "Documentación BIM",
+  "approach.pillar2.body": "Información coordinada que respalda decisiones, permisos y ejecución.",
+  "approach.pillar3.title": "Inteligencia de obra",
+  "approach.pillar3.body": "Criterio constructivo definido por contexto, secuencia y condiciones reales del sitio.",
+  "approach.cta": "Conoce el estudio",
+  "services.cardCtaWork": "Ver proyectos relacionados",
+  "services.cardCtaStart": "Iniciar un proyecto",
+  "services.cardCtaProcess": "Ver proceso",
+  "clients.cta": "Colabora con nosotros"
 }
