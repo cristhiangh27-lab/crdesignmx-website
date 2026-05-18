@@ -40,78 +40,62 @@
   <div data-include="header"></div>
 
   <main>
-   <section class="above-fold">
-    <div class="above-fold-grid">
-      <div class="hero-panel cc-dot-grid cc-dot-grid--blend">
-        <section class="hero hero-video" aria-labelledby="hero-title">
-          <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="img/proyecto1.jpg">
-            <source src="img/hero/hero-reel.mp4" type="video/mp4">
-          </video>
-
-          <div class="hero-overlay" aria-hidden="true"></div>
-
-          <div class="hero-content">
-            <p class="section-lead" data-i18n="hero.lead">Architecture and visualization</p>
-            <h1 id="hero-title" data-i18n="hero.title">CR Collective designs contemporary, functional, and clear spaces for real people.</h1>
-            <p data-i18n="hero.description">Architecture studio focused on concept design, BIM modeling, documentation, and visualization for residential, renovation, and mixed-use projects.</p>
-
-            <div class="actions" style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a class="btn btn-ghost" href="projects.html" data-i18n="hero.ctaProjects">View projects</a>
-              <a class="btn btn-ghost" href="services.html" data-i18n="hero.ctaServices">Services</a>
-            </div>
+   <section class="above-fold home-hero">
+    <div class="hero-panel hero-panel--full">
+      <section class="hero hero-video" aria-labelledby="hero-title">
+        <video class="hero-bg" autoplay muted loop playsinline preload="metadata" poster="img/proyecto1.jpg">
+          <source src="img/hero/hero-reel.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="section-lead" data-i18n="hero.lead">Architecture · BIM · Visualization · Documentation · Site Strategy</p>
+          <h1 id="hero-title" data-i18n="hero.title">Architecture for spaces that deserve clarity, character and construction intelligence.</h1>
+          <p data-i18n="hero.description">CR Collective designs clear, buildable and emotionally powerful spaces through architecture, BIM documentation, visualization and site experience.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="projects.html" data-i18n="hero.ctaProjects">View projects</a>
+            <a class="btn btn-ghost" href="contact.html" data-i18n="hero.ctaServices">Start a project</a>
           </div>
-        </section>
+        </div>
+      </section>
+    </div>
+   </section>
+
+   <section class="home-section selected-works reveal" aria-labelledby="selected-works-title">
+    <div class="section-header">
+      <div>
+        <h2 id="selected-works-title" data-i18n="featured.title">Selected Works</h2>
+        <p class="section-lead" data-i18n="featured.lead">A curated view of residential, commercial, interior and conceptual projects shaped through design, BIM intelligence and construction logic.</p>
       </div>
+      <a class="btn btn-ghost" href="projects.html" data-i18n="featured.viewAll">View all projects</a>
+    </div>
+    <section class="projects-carousel featured-gallery" aria-live="polite">
+      <button class="carousel-btn prev" type="button" aria-label="Previous" data-i18n-aria-label="featured.prev"><span aria-hidden="true">‹</span></button>
+      <div class="carousel-viewport"><div class="carousel-track" id="featured-projects"><p data-i18n="featured.loading">Loading projects…</p></div></div>
+      <button class="carousel-btn next" type="button" aria-label="Next" data-i18n-aria-label="featured.next"><span aria-hidden="true">›</span></button>
+    </section>
+   </section>
 
-      <aside class="featured-panel" aria-label="Proyectos destacados">
-        <div class="featured-panel__header">
-          <div>
-            <h2 data-i18n="featured.title">Featured projects</h2>
-            <p class="section-lead" data-i18n="featured.lead">Recent selection developed by CR Collective.</p>
-          </div>
-          <a class="btn btn-ghost" href="projects.html" aria-label="View all projects" data-i18n="featured.viewAll">View all</a>
-        </div>
-        <section class="projects-carousel featured-gallery" aria-live="polite">
-          <button class="carousel-btn prev" type="button" aria-label="Previous" data-i18n-aria-label="featured.prev">
-            <span aria-hidden="true">‹</span>
-          </button>
-          <div class="carousel-viewport">
-            <div class="carousel-track" id="featured-projects">
-              <p data-i18n="featured.loading">Loading projects…</p>
-            </div>
-          </div>
-          <button class="carousel-btn next" type="button" aria-label="Next" data-i18n-aria-label="featured.next">
-            <span aria-hidden="true">›</span>
-          </button>
-        </section>
-      </aside>
+   <section class="home-section studio-thesis reveal" aria-labelledby="studio-thesis-title">
+    <p class="section-lead" data-i18n="thesis.eyebrow">Studio Thesis</p>
+    <h2 id="studio-thesis-title" data-i18n="thesis.body">CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed.</h2>
+   </section>
 
-      <div class="services-panel cc-dot-grid cc-dot-grid--solid">
-        <div class="section-header">
-          <div>
-            <h2 data-i18n="services.title">Services</h2>
-            <p class="section-lead" data-i18n="services.lead">We support clients at every project stage with a clear methodology.</p>
-          </div>
-          <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Email for a consultation</a>
+   <section class="home-section services-panel cc-dot-grid cc-dot-grid--solid" aria-labelledby="home-services-title">
+      <div class="section-header">
+        <div>
+          <h2 id="home-services-title" data-i18n="services.title">Studio Services</h2>
+          <p class="section-lead" data-i18n="services.lead">We support clients at every project stage with a clear methodology.</p>
         </div>
-        <section class="services-grid services-grid--light" aria-label="Servicios">
-          <article class="service-card" style="--card-bg: url('./img/services/anteproyecto.jpg');">
-            <h3 data-i18n="services.card1.title">Architectural concept design</h3>
-            <p data-i18n="services.card1.description">Concept development, functional schemes, and spatial narrative aligned with goals and budget.</p>
-          </article>
-          <article class="service-card" style="--card-bg: url('./img/services/bim.jpg');">
-            <h3 data-i18n="services.card2.title">BIM modeling and documentation</h3>
-            <p data-i18n="services.card2.description">Coordinated models and clear technical deliverables for construction and permits.</p>
-          </article>
-          <article class="service-card" style="--card-bg: url('./img/services/renders.jpg');">
-            <h3 data-i18n="services.card3.title">Renders and walkthroughs</h3>
-            <p data-i18n="services.card3.description">Photorealistic visualizations, walkthroughs, and presentation materials for clients and investors.</p>
-          </article>
-          <article class="service-card" style="--card-bg: url('./img/services/asesoria.jpg');">
-            <h3 data-i18n="services.card4.title">Personalized advisory</h3>
-            <p data-i18n="services.card4.description">Strategic guidance for self-builds, renovations, or supplier management.</p>
-          </article>
-        </section>
+        <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Email for a consultation</a>
+      </div>
+      <section class="services-grid services-grid--light" data-i18n-aria="servicesPage.gridAria" aria-label="CR Collective services">
+        <article class="service-card" style="--card-bg: url('./img/services/anteproyecto.jpg');"><h3 data-i18n="servicesPage.card1.title">Architecture</h3><p data-i18n="servicesPage.card1.body"></p></article>
+        <article class="service-card" style="--card-bg: url('./img/services/bim.jpg');"><h3 data-i18n="servicesPage.card3.title">BIM + Documentation</h3><p data-i18n="servicesPage.card3.body"></p></article>
+        <article class="service-card" style="--card-bg: url('./img/services/renders.jpg');"><h3 data-i18n="servicesPage.card4.title">Visualization</h3><p data-i18n="servicesPage.card4.body"></p></article>
+        <article class="service-card" style="--card-bg: url('./img/services/asesoria.jpg');"><h3 data-i18n="servicesPage.card5.title">Site Strategy</h3><p data-i18n="servicesPage.card5.body"></p></article>
+        <article class="service-card"><h3 data-i18n="servicesPage.card6.title">Project Communication</h3><p data-i18n="servicesPage.card6.body"></p></article>
+      </section>
+   </section>
       </div>
     </div>
    </section>
@@ -141,8 +125,8 @@
       </article>
 
       <article class="founder-video founder-card">
-        <div class="founder-video-placeholder" aria-label="Reel del estudio">
-          <video class="founder-reel-video" aria-label="Video de presentación del estudio" autoplay muted loop playsinline preload="metadata">
+        <div class="founder-video-placeholder" data-i18n-aria="founder.videoLabel" aria-label="Studio Reel">
+          <video class="founder-reel-video" data-i18n-aria="founder.videoLabel" aria-label="Studio Reel" autoplay muted loop playsinline preload="metadata">
             <source src="img/brand/REELSTUDIO1.mp4" type="video/mp4">
             Tu navegador no soporta video HTML5.
           </video>

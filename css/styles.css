@@ -2313,3 +2313,23 @@ body.home .hero.hero-video .btn-ghost:hover {
     align-items: flex-start;
   }
 }
+
+/* Homepage composition repair */
+.home-hero{padding-inline:0;background:transparent}
+.hero-panel--full .hero{min-height:78vh;border:1px solid var(--border);overflow:hidden;position:relative}
+.hero-panel--full .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(5,7,10,.74) 15%,rgba(5,7,10,.28) 58%,rgba(5,7,10,.5) 100%)}
+.hero-panel--full .hero-content{position:relative;z-index:2;max-width:760px;padding:clamp(2rem,7vw,5rem)}
+.hero-panel--full .actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+.selected-works .featured-gallery{min-height:430px;background:var(--surface);border:1px solid var(--border)}
+.selected-works .featured-page{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;padding:.25rem}
+.selected-works .flip-face,.selected-works .flip-face img{border-radius:0}
+.selected-works .section-header{margin-top:0}
+.studio-thesis{padding:clamp(2rem,5vw,4rem);border:1px solid var(--border);background:linear-gradient(160deg,rgba(255,255,255,.02),rgba(255,255,255,.005))}
+.studio-thesis h2{max-width:1000px;font-size:clamp(1.5rem,2.8vw,2.5rem);line-height:1.25;letter-spacing:-.02em}
+body.home .cc-fixed-dot-grid{opacity:.22}
+body.home .services-panel{margin-top:1rem}
+body.home .email-float{z-index:70}
+@media (max-width:900px){
+  .hero-panel--full .hero{min-height:68vh}
+  .selected-works .featured-page{grid-template-columns:1fr}
+}
