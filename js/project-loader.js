@@ -437,6 +437,94 @@ function createFeaturedProjectCard(project, lang = getCurrentLang()) {
   return link;
 }
 
+function createFeaturedShowcase(project, lang = getCurrentLang()) {
+  const { slug, year, coverImage, href } = project;
+  const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
+  const location = getLocationLabel(project, lang);
+  const type = getCategoryLabel(project, lang);
+  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const link = href || `${ROOT_PATH}/projects/${slug}/`;
+
+  const showcase = document.createElement('article');
+  showcase.className = 'featured-showcase';
+  showcase.setAttribute('data-featured-slug', slug || '');
+
+  const mediaLink = document.createElement('a');
+  mediaLink.className = 'featured-showcase__media';
+  mediaLink.href = link;
+  mediaLink.setAttribute('aria-label', `${translate('project.card.cta', 'View project')}: ${title}`);
+
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title;
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'eager';
+    img.decoding = 'async';
+    img.width = 1280;
+    img.height = 800;
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!mediaLink.querySelector('.img-fallback')) mediaLink.prepend(createMediaFallback());
+    });
+    mediaLink.append(img);
+  } else {
+    mediaLink.append(createMediaFallback());
+  }
+
+  const panel = document.createElement('div');
+  panel.className = 'featured-showcase__panel';
+  panel.innerHTML = `
+    <span class="featured-showcase__eyebrow">${type || ''}</span>
+    <h3>${title}</h3>
+    <p class="featured-showcase__meta">${[location, year].filter(Boolean).join(' · ')}</p>
+    <p class="featured-showcase__summary">${summary || ''}</p>
+    <a class="btn btn-ghost featured-showcase__cta" href="${link}">${translate('project.card.cta', 'View project')}</a>
+  `;
+
+  showcase.append(mediaLink, panel);
+  return showcase;
+}
+
+function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
+  const { slug, year, coverImage } = project;
+  const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
+  const location = getLocationLabel(project, lang);
+  const type = getCategoryLabel(project, lang);
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'project-selector-card';
+  button.dataset.slug = slug || '';
+  button.setAttribute('aria-label', `${title} · ${[location, year, type].filter(Boolean).join(' · ')}`);
+  button.innerHTML = `
+    <span class="project-selector-card__inner">
+      <span class="project-selector-card__face project-selector-card__face--front">
+        <span class="project-selector-card__media"></span>
+        <span class="project-selector-card__content">
+          <strong>${title}</strong>
+          <span>${[location, year].filter(Boolean).join(' · ')}</span>
+        </span>
+      </span>
+      <span class="project-selector-card__face project-selector-card__face--back">
+        <span class="project-selector-card__back-meta">${[type, location, year].filter(Boolean).join(' · ')}</span>
+        <span class="project-selector-card__back-cta">${translate('project.card.cta', 'View project')}</span>
+      </span>
+    </span>
+  `;
+  const media = button.querySelector('.project-selector-card__media');
+  if (coverImage && media) {
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = index < 3 ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    img.width = 480;
+    img.height = 320;
+    img.addEventListener('error', () => img.remove());
+    media.append(img);
+  }
+  return button;
+}
+
 function renderFeaturedSkeleton(container, count) {
   container.innerHTML = '';
   const page = document.createElement('div');
@@ -477,19 +565,43 @@ export async function initFeaturedGallery(options = {}) {
     container.innerHTML = `<p>${translate('featured.empty', 'No projects available.')}</p>`;
     return;
   }
-  const curated = featuredProjects.slice(0, 4);
+  const curated = featuredProjects.slice(0, 8);
   const [featuredProject, ...secondaryProjects] = curated;
   container.innerHTML = '';
   container.classList.add('featured-layout');
-
-  if (featuredProject) {
-    container.appendChild(createFeaturedProjectCard(featuredProject, lang));
-  }
+  const map = new Map(curated.map((p) => [p.slug, p]));
+  let activeSlug = featuredProject.slug;
+  const showcaseWrap = document.createElement('div');
+  showcaseWrap.className = 'featured-showcase-wrap';
+  const renderShowcase = (slug) => {
+    const project = map.get(slug);
+    if (!project) return;
+    const next = createFeaturedShowcase(project, getCurrentLang());
+    next.classList.add('is-entering');
+    showcaseWrap.innerHTML = '';
+    showcaseWrap.append(next);
+    requestAnimationFrame(() => next.classList.remove('is-entering'));
+  };
+  renderShowcase(activeSlug);
 
   const secondaryGrid = document.createElement('div');
   secondaryGrid.className = 'featured-secondary-grid';
-  secondaryProjects.forEach((project) => secondaryGrid.appendChild(createProjectCard(project, lang)));
-  container.appendChild(secondaryGrid);
+  secondaryProjects.forEach((project, index) => {
+    const selector = createProjectSelectorCard(project, index, lang);
+    selector.addEventListener('click', () => {
+      activeSlug = project.slug;
+      secondaryGrid.querySelectorAll('.project-selector-card').forEach((item) => item.classList.remove('is-active'));
+      selector.classList.add('is-active');
+      renderShowcase(activeSlug);
+    });
+    selector.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') selector.click();
+    });
+    secondaryGrid.append(selector);
+  });
+  const firstSelector = secondaryGrid.querySelector('.project-selector-card');
+  if (firstSelector) firstSelector.classList.add('is-active');
+  container.append(showcaseWrap, secondaryGrid);
 }
 
 export async function renderFeaturedProjects(limit = 4) {
