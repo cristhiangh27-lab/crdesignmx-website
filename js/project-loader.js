@@ -471,29 +471,25 @@ function createFeaturedShowcase(project, lang = getCurrentLang()) {
     mediaLink.append(createMediaFallback());
   }
 
-  const panel = document.createElement('div');
-  panel.className = 'featured-showcase__panel';
-  panel.innerHTML = `
-    <div class="featured-showcase__intro">
-      <h3>${translate('featured.title', 'Selected Works')}</h3>
-      <p>${translate('featured.lead', 'A curated view of residential, commercial, interior and conceptual projects shaped through design, BIM intelligence and construction logic.')}</p>
-      <a class="btn btn-ghost featured-showcase__intro-cta" href="${ROOT_PATH}/projects.html">${translate('featured.viewAll', 'View all projects')}</a>
-    </div>
-    <span class="featured-showcase__eyebrow">${type || ''}</span>
-    <h4>${title}</h4>
-    <p class="featured-showcase__meta">${[location, year].filter(Boolean).join(' · ')}</p>
-    <p class="featured-showcase__summary">${summary || ''}</p>
-    <a class="btn btn-ghost featured-showcase__cta" href="${link}">${translate('project.card.cta', 'View project')}</a>
+  const introOverlay = document.createElement('div');
+  introOverlay.className = 'featured-showcase__intro';
+  introOverlay.innerHTML = `
+    <h3>${translate('featured.title', 'Selected Works')}</h3>
+    <p>${translate('featured.lead', 'A curated view of residential, commercial, interior and conceptual projects shaped through design, BIM intelligence and construction logic.')}</p>
+    <a class="btn btn-ghost featured-showcase__intro-cta" href="${ROOT_PATH}/projects.html">${translate('featured.viewAll', 'View all projects')}</a>
   `;
 
   const mediaOverlay = document.createElement('div');
   mediaOverlay.className = 'featured-showcase__media-overlay';
   mediaOverlay.innerHTML = `
-    <h3>${title}</h3>
-    <p class="featured-showcase__media-meta">${[location, year, type].filter(Boolean).join(' · ')}</p>
+    <span class="featured-showcase__eyebrow">${type || ''}</span>
+    <h4>${title}</h4>
+    <p class="featured-showcase__meta">${[location, year, type].filter(Boolean).join(' · ')}</p>
+    <p class="featured-showcase__summary">${summary || ''}</p>
+    <a class="btn btn-ghost featured-showcase__cta" href="${link}">${translate('project.card.cta', 'View project')}</a>
   `;
-  mediaLink.append(mediaOverlay);
-  showcase.append(mediaLink, panel);
+  mediaLink.append(introOverlay, mediaOverlay);
+  showcase.append(mediaLink);
   return showcase;
 }
 
@@ -519,10 +515,6 @@ function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
           <span class="project-selector-card__summary">${compactSummary}</span>
           <span class="project-selector-card__cta">${translate('project.card.cta', 'View project')}</span>
         </span>
-      </span>
-      <span class="project-selector-card__face project-selector-card__face--back">
-        <span class="project-selector-card__back-meta">${[type, location, year].filter(Boolean).join(' · ')}</span>
-        <span class="project-selector-card__back-cta">${translate('project.card.cta', 'View project')}</span>
       </span>
     </span>
   `;
