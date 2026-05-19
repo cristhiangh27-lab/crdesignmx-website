@@ -1294,26 +1294,27 @@ main {
 }
 
 body.project-page main {
-  max-width: 1100px;
-  padding: 3rem 1.5rem 4rem;
+  max-width: min(1640px, 96vw);
+  padding: 1.2rem 1.2rem 4rem;
 }
 
-.project-hero {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  align-items: center;
-  margin-bottom: 2.5rem;
-}
-
-.project-hero .project-hero-text {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.project-hero h1 {
-  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
-}
+.project-hero.project-hero--immersive{min-height:100vh;margin-bottom:2rem}
+.project-hero--immersive .hero-visual{position:relative;min-height:100vh;padding:0;border-radius:20px;overflow:hidden;background:#0a0c11}
+.project-hero--immersive .hero-visual img{width:100%;height:100%;object-fit:cover;min-height:100vh;filter:saturate(1.03)}
+.project-hero--immersive .hero-visual::before{content:"";position:absolute;inset:0;background:
+linear-gradient(180deg,rgba(8,10,16,.75) 0%,rgba(8,10,16,.18) 34%,rgba(8,10,16,.78) 100%),
+radial-gradient(circle at 12% 18%,rgba(193,141,33,.14),transparent 46%);pointer-events:none;z-index:1}
+.project-hero__intro,.project-hero__card,.project-hero__hotspots{position:absolute;z-index:2}
+.project-hero__intro{left:clamp(1rem,3vw,2.5rem);top:clamp(5rem,12vh,8rem);max-width:min(66ch,60%)}
+.project-hero__intro h1{font-size:clamp(2rem,4.2vw,4.2rem);line-height:1.05}
+.project-hero__card{left:clamp(1rem,3vw,2.5rem);bottom:clamp(1.2rem,3vw,2.2rem);width:min(560px,56%);background:rgba(8,10,16,.66);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:1rem 1.1rem;border-radius:14px}
+.project-hero__card-title{font-size:1.2rem;margin-bottom:.5rem}
+.project-hero__bullets{margin:0 0 .8rem 1rem;display:grid;gap:.25rem;color:rgba(255,255,255,.84)}
+.project-hero__actions{display:flex;flex-wrap:wrap;gap:.55rem}
+.project-hero__hotspots{right:clamp(1rem,2.3vw,2.2rem);top:clamp(6rem,14vh,9rem);display:grid;gap:.6rem;width:min(290px,26vw)}
+.project-hotspot{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:.55rem;padding:.4rem .5rem;background:rgba(8,10,16,.58);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease}
+.project-hotspot:hover{transform:translateY(-3px) scale(1.01);border-color:rgba(193,141,33,.58)}
+.project-hotspot__thumb{width:52px;height:40px;background:linear-gradient(140deg,rgba(193,141,33,.3),rgba(50,60,90,.38));background-size:cover;background-position:center;border-radius:8px}
 
 .project-meta {
   display: flex;
@@ -1354,9 +1355,9 @@ body.project-page main {
 
 .project-description,
 .project-gallery {
-  background: var(--surface);
-  padding: 1.5rem;
-  border-radius: var(--radius);
+  background: linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  padding: 1.7rem;
+  border-radius: 18px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   margin-bottom: 1.6rem;
@@ -1380,13 +1381,14 @@ body.project-page main {
 
 .project-gallery .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+  gap: 1.05rem;
 }
 
 .project-gallery img {
   width: 100%;
-  height: 100%;
+  height: clamp(220px,32vw,360px);
   object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
@@ -2445,4 +2447,13 @@ header.site-header{background:rgba(255,255,255,.88);backdrop-filter:blur(14px)}
   .hero-content h1{font-size:clamp(1.45rem,7vw,2rem);line-height:1.15}
   .hero-content p{font-size:.94rem}
   .services-panel .services-grid{grid-template-columns:1fr}
+}
+@media (max-width: 960px){
+  .project-hero--immersive .hero-visual,.project-hero--immersive .hero-visual img{min-height:76vh}
+  .project-hero__intro{max-width:92%}
+  .project-hero__card{width:min(92%,680px)}
+  .project-hero__hotspots{position:static;width:100%;grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);overflow:auto;padding:0 0 1rem;margin:0 1rem 1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .project-hotspot{transition:none}
 }

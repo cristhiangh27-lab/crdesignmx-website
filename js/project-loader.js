@@ -700,16 +700,22 @@ export function populateFilterOptions(projects, lang = getCurrentLang(), state =
 
 function setHero(data) {
   const titleEl = document.querySelector('.project-hero h1');
+  const cardTitle = document.querySelector('.project-hero__card-title');
   const metaContainer = document.querySelector('.project-hero .project-meta');
   const summaryEl = document.querySelector('.project-hero .summary');
+  const bulletsEl = document.querySelector('.project-hero__bullets');
+  const hotspotsEl = document.querySelector('.project-hero__hotspots');
   const heroImage = document.querySelector('.hero-visual img');
   const heroPlaceholder = document.querySelector('.hero-visual .placeholder');
+  const lang = getCurrentLang();
+  const title = tField(data.title, lang) || 'Project';
 
-  if (titleEl) titleEl.textContent = tField(data.title, getCurrentLang()) || 'Project';
+  if (titleEl) titleEl.textContent = title;
+  if (cardTitle) cardTitle.textContent = title;
 
   if (metaContainer) {
     metaContainer.innerHTML = '';
-    [getLocationLabel(data, getCurrentLang()), data.year, getCategoryLabel(data, getCurrentLang())]
+    [getLocationLabel(data, lang), data.year, getCategoryLabel(data, lang)]
       .filter(Boolean)
       .forEach((label) => {
         const span = document.createElement('span');
@@ -720,12 +726,48 @@ function setHero(data) {
   }
 
   if (summaryEl) {
-    summaryEl.textContent = tField(data.shortDescription, getCurrentLang()) || tField(data.summary, getCurrentLang());
+    summaryEl.textContent = getProjectSummary(data, lang);
+  }
+
+  if (bulletsEl) {
+    const defaults = [
+      translate('project.detail.bullet1', 'Contemporary architectural language'),
+      translate('project.detail.bullet2', 'Programmatic clarity and circulation'),
+      translate('project.detail.bullet3', 'BIM-driven documentation'),
+      translate('project.detail.bullet4', 'Atmosphere, light and material precision'),
+    ];
+    const source = Array.isArray(data.technicalBullets) && data.technicalBullets.length ? data.technicalBullets : defaults;
+    bulletsEl.innerHTML = '';
+    source.slice(0, 5).forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = tField(item, lang) || item;
+      bulletsEl.appendChild(li);
+    });
+  }
+
+  if (hotspotsEl) {
+    const labels = [
+      translate('project.detail.hotspotConcept', 'Concept'),
+      translate('project.detail.hotspotMateriality', 'Materiality'),
+      translate('project.detail.hotspotProgram', 'Program'),
+      translate('project.detail.hotspotBim', 'BIM process'),
+      translate('project.detail.gallery', 'Gallery'),
+    ];
+    const imgs = (data.images || []).slice(0, 5);
+    hotspotsEl.innerHTML = '';
+    labels.forEach((label, i) => {
+      const btn = document.createElement('a');
+      btn.className = 'project-hotspot';
+      btn.href = i === 4 ? '#project-gallery' : '#project-description';
+      const image = imgs[i] ? resolveAsset(imgs[i], '') : (data.coverImage ? resolveAsset(data.coverImage, '') : '');
+      btn.innerHTML = `<span class="project-hotspot__thumb"${image ? ` style="background-image:url('${image}')"` : ''}></span><span>${label}</span>`;
+      hotspotsEl.appendChild(btn);
+    });
   }
 
   if (heroImage && data.coverImage) {
     heroImage.src = resolveAsset(data.coverImage, '');
-    heroImage.alt = tField(data.title, getCurrentLang()) || 'Project hero image';
+    heroImage.alt = tField(data.title, lang) || 'Project hero image';
     heroImage.hidden = false;
     if (heroPlaceholder) heroPlaceholder.hidden = true;
   }
