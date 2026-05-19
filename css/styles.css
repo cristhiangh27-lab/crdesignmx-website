@@ -1294,27 +1294,33 @@ main {
 }
 
 body.project-page main {
-  max-width: min(1640px, 96vw);
-  padding: 1.2rem 1.2rem 4rem;
+  max-width: min(1720px, 98vw);
+  padding: .35rem .9rem 4rem;
 }
 
 .project-hero.project-hero--immersive{min-height:100vh;margin-bottom:2rem}
-.project-hero--immersive .hero-visual{position:relative;min-height:100vh;padding:0;border-radius:20px;overflow:hidden;background:#0a0c11}
+.project-hero--immersive .hero-visual{position:relative;min-height:100vh;padding:0;border-radius:8px;overflow:hidden;background:#0a0c11}
 .project-hero--immersive .hero-visual img{width:100%;height:100%;object-fit:cover;min-height:100vh;filter:saturate(1.03)}
 .project-hero--immersive .hero-visual::before{content:"";position:absolute;inset:0;background:
-linear-gradient(180deg,rgba(8,10,16,.75) 0%,rgba(8,10,16,.18) 34%,rgba(8,10,16,.78) 100%),
-radial-gradient(circle at 12% 18%,rgba(193,141,33,.14),transparent 46%);pointer-events:none;z-index:1}
+linear-gradient(180deg,rgba(8,10,16,.52) 0%,rgba(8,10,16,.08) 34%,rgba(8,10,16,.56) 100%),
+radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-events:none;z-index:1}
 .project-hero__intro,.project-hero__card,.project-hero__hotspots{position:absolute;z-index:2}
 .project-hero__intro{left:clamp(1rem,3vw,2.5rem);top:clamp(5rem,12vh,8rem);max-width:min(66ch,60%)}
 .project-hero__intro h1{font-size:clamp(2rem,4.2vw,4.2rem);line-height:1.05}
-.project-hero__card{left:clamp(1rem,3vw,2.5rem);bottom:clamp(1.2rem,3vw,2.2rem);width:min(560px,56%);background:rgba(8,10,16,.66);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:1rem 1.1rem;border-radius:14px}
+.project-hero__card{left:clamp(1rem,3vw,2.5rem);bottom:clamp(1.2rem,3vw,2.2rem);width:min(520px,48%);background:rgba(8,10,16,.58);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);padding:.85rem 1rem;border-radius:14px}
 .project-hero__card-title{font-size:1.2rem;margin-bottom:.5rem}
-.project-hero__bullets{margin:0 0 .8rem 1rem;display:grid;gap:.25rem;color:rgba(255,255,255,.84)}
+.project-hero__bullets{margin:0 0 .8rem 0;display:grid;gap:.25rem;color:rgba(255,255,255,.84);list-style:none}
+.project-hero__bullets li::before{content:"◦";color:rgba(193,141,33,.9);margin-right:.45rem}
 .project-hero__actions{display:flex;flex-wrap:wrap;gap:.55rem}
-.project-hero__hotspots{right:clamp(1rem,2.3vw,2.2rem);top:clamp(6rem,14vh,9rem);display:grid;gap:.6rem;width:min(290px,26vw)}
-.project-hotspot{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:.55rem;padding:.4rem .5rem;background:rgba(8,10,16,.58);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease}
-.project-hotspot:hover{transform:translateY(-3px) scale(1.01);border-color:rgba(193,141,33,.58)}
-.project-hotspot__thumb{width:52px;height:40px;background:linear-gradient(140deg,rgba(193,141,33,.3),rgba(50,60,90,.38));background-size:cover;background-position:center;border-radius:8px}
+.project-hero__hotspots{inset:0;pointer-events:none}
+.project-hotspot{position:absolute;display:grid;grid-template-columns:44px 1fr;align-items:center;gap:.45rem;padding:.35rem .45rem;background:rgba(8,10,16,.52);border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease;pointer-events:auto;border-radius:10px}
+.project-hotspot:nth-child(1){left:4%;top:14%;width:190px}
+.project-hotspot:nth-child(2){right:6%;top:24%;width:210px}
+.project-hotspot:nth-child(3){left:8%;bottom:24%;width:200px}
+.project-hotspot:nth-child(4){right:13%;top:10%;width:180px}
+.project-hotspot:nth-child(5){right:9%;bottom:17%;width:220px}
+.project-hotspot:hover{transform:translateY(-4px) scale(1.02);border-color:rgba(193,141,33,.58);box-shadow:0 10px 24px rgba(0,0,0,.28)}
+.project-hotspot__thumb{width:44px;height:36px;background:linear-gradient(140deg,rgba(193,141,33,.3),rgba(50,60,90,.38));background-size:cover;background-position:center;border-radius:8px}
 
 .project-meta {
   display: flex;
@@ -1362,6 +1368,10 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.14),transparent 46%);pointer-
   box-shadow: var(--shadow);
   margin-bottom: 1.6rem;
 }
+.project-description{display:grid;grid-template-columns:1.2fr .8fr;gap:1.2rem}
+.project-description .content h2{font-size:1.15rem;margin-top:1.1rem}
+.project-description .content p{max-width:64ch}
+.project-description .content ul{border-left:1px solid rgba(193,141,33,.4);padding-left:.9rem}
 
 .project-description h2,
 .project-gallery h2 {
@@ -1381,11 +1391,14 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.14),transparent 46%);pointer-
 
 .project-gallery .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(6,minmax(0,1fr));
   grid-auto-flow: dense;
   gap: 1.05rem;
 }
-
+.project-gallery .grid img:nth-child(1){grid-column:span 3;grid-row:span 2}
+.project-gallery .grid img:nth-child(2){grid-column:span 2}
+.project-gallery .grid img:nth-child(3){grid-column:span 1}
+.project-gallery .grid img:nth-child(4){grid-column:span 2}
 .project-gallery img {
   width: 100%;
   height: clamp(220px,32vw,360px);
@@ -2452,7 +2465,10 @@ header.site-header{background:rgba(255,255,255,.88);backdrop-filter:blur(14px)}
   .project-hero--immersive .hero-visual,.project-hero--immersive .hero-visual img{min-height:76vh}
   .project-hero__intro{max-width:92%}
   .project-hero__card{width:min(92%,680px)}
-  .project-hero__hotspots{position:static;width:100%;grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);overflow:auto;padding:0 0 1rem;margin:0 1rem 1rem}
+  .project-hero__hotspots{position:static;inset:auto;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);overflow:auto;padding:0 0 1rem;margin:0 1rem 1rem;pointer-events:auto}
+  .project-hotspot{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important}
+  .project-description{grid-template-columns:1fr}
+  .project-gallery .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){
   .project-hotspot{transition:none}
