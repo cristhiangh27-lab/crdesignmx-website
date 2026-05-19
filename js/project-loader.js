@@ -490,6 +490,8 @@ function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
   const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
+  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang) || '';
+  const compactSummary = summary.replace(/\s+/g, ' ').trim();
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'project-selector-card';
@@ -501,7 +503,9 @@ function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
         <span class="project-selector-card__media"></span>
         <span class="project-selector-card__content">
           <strong>${title}</strong>
-          <span>${[location, year].filter(Boolean).join(' · ')}</span>
+          <span class="project-selector-card__meta">${[location, year, type].filter(Boolean).join(' · ')}</span>
+          <span class="project-selector-card__summary">${compactSummary}</span>
+          <span class="project-selector-card__cta">${translate('project.card.cta', 'View project')}</span>
         </span>
       </span>
       <span class="project-selector-card__face project-selector-card__face--back">
@@ -584,6 +588,9 @@ export async function initFeaturedGallery(options = {}) {
   };
   renderShowcase(activeSlug);
 
+  const rail = document.createElement('aside');
+  rail.className = 'featured-rail';
+  rail.setAttribute('aria-label', translate('featured.title', 'Selected Works'));
   const secondaryGrid = document.createElement('div');
   secondaryGrid.className = 'featured-secondary-grid';
   secondaryProjects.forEach((project, index) => {
@@ -601,7 +608,8 @@ export async function initFeaturedGallery(options = {}) {
   });
   const firstSelector = secondaryGrid.querySelector('.project-selector-card');
   if (firstSelector) firstSelector.classList.add('is-active');
-  container.append(showcaseWrap, secondaryGrid);
+  rail.append(secondaryGrid);
+  container.append(showcaseWrap, rail);
 }
 
 export async function renderFeaturedProjects(limit = 4) {
