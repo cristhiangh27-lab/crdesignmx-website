@@ -109,6 +109,12 @@ function getLocationLabel(project, lang) {
   return tField(project.locationLabel, lang) || tField(project.location, lang);
 }
 
+function getProjectSummary(project, lang = getCurrentLang()) {
+  const summaryValue = project?.shortDescription ?? project?.summary ?? '';
+  if (lang === 'de' && typeof summaryValue === 'string') return '';
+  return tField(project.shortDescription, lang) || tField(project.summary, lang) || '';
+}
+
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
@@ -334,7 +340,7 @@ function createProjectCard(project, lang = getCurrentLang()) {
   const title = tField(project.title, lang);
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
-  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const summary = getProjectSummary(project, lang);
   const link = document.createElement('a');
   link.className = 'project-card';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -398,7 +404,7 @@ function createFeaturedProjectCard(project, lang = getCurrentLang()) {
   const title = tField(project.title, lang);
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
-  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const summary = getProjectSummary(project, lang);
   const link = document.createElement('a');
   link.className = 'project-card project-card--featured project-card--featured-main';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -498,7 +504,7 @@ function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
   const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
-  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang) || '';
+  const summary = getProjectSummary(project, lang) || '';
   const compactSummary = summary.replace(/\s+/g, ' ').trim();
   const button = document.createElement('button');
   button.type = 'button';
@@ -629,7 +635,7 @@ export function filterProjects(projects, criteria, lang = getCurrentLang()) {
 
     const searchableFields = [
       tField(project.title, lang),
-      tField(project.shortDescription, lang) || tField(project.summary, lang),
+      getProjectSummary(project, lang),
       getLocationLabel(project, lang),
       getCategoryLabel(project, lang),
     ];
