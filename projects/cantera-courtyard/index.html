@@ -25,25 +25,35 @@
   <div data-include="header"></div>
 
   <main>
-    <section class="project-hero">
-      <div class="project-hero-text">
-        <p class="section-lead" data-i18n="project.detail.kicker">Featured project</p>
-        <h1>Cantera Courtyard</h1>
-        <div class="project-meta"></div>
-        <p class="summary"></p>
-      </div>
+        <section class="project-hero project-hero--immersive" id="project-hero">
       <div class="hero-visual">
         <div class="placeholder" data-i18n="project.detail.gallerySoon">Gallery coming soon</div>
         <img src="" alt="" hidden>
+        <div class="project-hero__intro">
+          <p class="section-lead" data-i18n="project.detail.kicker">Featured project</p>
+          <h1></h1>
+          <div class="project-meta"></div>
+          <p class="summary"></p>
+        </div>
+        <aside class="project-hero__card" aria-label="Project highlights card">
+          <h3 class="project-hero__card-title"></h3>
+          <ul class="project-hero__bullets"></ul>
+          <div class="project-hero__actions">
+            <a class="btn btn-ghost" href="#project-gallery" data-i18n="project.detail.viewGallery">View gallery</a>
+            <a class="btn btn-ghost" href="#project-description" data-i18n="project.detail.readProject">Read project</a>
+            <a class="btn btn-primary" href="../../contact.html" data-i18n="project.detail.contactUs">Contact us</a>
+          </div>
+        </aside>
+        <div class="project-hero__hotspots" aria-label="Project hotspots"></div>
       </div>
     </section>
 
-    <section class="project-description">
+    <section class="project-description" id="project-description">
       <h2 data-i18n="project.detail.description">Description</h2>
       <div class="content"></div>
     </section>
 
-    <section class="project-gallery">
+    <section class="project-gallery" id="project-gallery">
       <h2 data-i18n="project.detail.gallery">Gallery</h2>
       <div class="grid"></div>
     </section>
