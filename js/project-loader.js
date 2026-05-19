@@ -574,7 +574,7 @@ export async function initFeaturedGallery(options = {}) {
     return;
   }
   const curated = featuredProjects.slice(0, 8);
-  const [featuredProject, ...secondaryProjects] = curated;
+  const [featuredProject] = curated;
   container.innerHTML = '';
   container.classList.add('featured-layout');
   const map = new Map(curated.map((p) => [p.slug, p]));
@@ -597,8 +597,9 @@ export async function initFeaturedGallery(options = {}) {
   rail.setAttribute('aria-label', translate('featured.title', 'Selected Works'));
   const secondaryGrid = document.createElement('div');
   secondaryGrid.className = 'featured-secondary-grid';
-  secondaryProjects.forEach((project, index) => {
+  curated.forEach((project, index) => {
     const selector = createProjectSelectorCard(project, index, lang);
+    if (project.slug === activeSlug) selector.classList.add('is-active');
     selector.addEventListener('click', () => {
       activeSlug = project.slug;
       secondaryGrid.querySelectorAll('.project-selector-card').forEach((item) => item.classList.remove('is-active'));
@@ -610,8 +611,6 @@ export async function initFeaturedGallery(options = {}) {
     });
     secondaryGrid.append(selector);
   });
-  const firstSelector = secondaryGrid.querySelector('.project-selector-card');
-  if (firstSelector) firstSelector.classList.add('is-active');
   rail.append(secondaryGrid);
   container.append(showcaseWrap, rail);
 }
