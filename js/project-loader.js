@@ -502,7 +502,8 @@ function createFeaturedShowcase(project, lang = getCurrentLang()) {
 function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
   const { slug, year, coverImage } = project;
   const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
-  const location = getLocationLabel(project, lang);
+  const locationRaw = getLocationLabel(project, lang);
+  const location = (locationRaw || '').split(',')[0].trim();
   const type = getCategoryLabel(project, lang);
   const summary = getProjectSummary(project, lang) || '';
   const compactSummary = summary.replace(/\s+/g, ' ').trim();
@@ -517,7 +518,7 @@ function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
         <span class="project-selector-card__media"></span>
         <span class="project-selector-card__content">
           <strong>${title}</strong>
-          <span class="project-selector-card__meta">${[location, year, type].filter(Boolean).join(' · ')}</span>
+          <span class="project-selector-card__meta">${[location, year].filter(Boolean).join(' · ')}</span>
           <span class="project-selector-card__summary">${compactSummary}</span>
           <span class="project-selector-card__cta">${translate('project.card.cta', 'View project')}</span>
         </span>
@@ -601,6 +602,25 @@ export async function initFeaturedGallery(options = {}) {
   const rail = document.createElement('aside');
   rail.className = 'featured-rail';
   rail.setAttribute('aria-label', translate('featured.title', 'Selected Works'));
+  const railTop = document.createElement('div');
+  railTop.className = 'featured-rail__top';
+  const railCount = document.createElement('span');
+  railCount.className = 'featured-rail__count';
+  const prev = document.createElement('button');
+  prev.className = 'featured-rail__arrow';
+  prev.type = 'button';
+  prev.setAttribute('aria-label', translate('featured.prev', 'Previous'));
+  prev.textContent = '‹';
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'featured-rail__arrow';
+  nextBtn.type = 'button';
+  nextBtn.setAttribute('aria-label', translate('featured.next', 'Next'));
+  nextBtn.textContent = '›';
+  const updateCount = () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    railCount.textContent = `${String(idx + 1).padStart(2, '0')}/${String(curated.length).padStart(2, '0')}`;
+  };
+  railTop.append(railCount, prev, nextBtn);
   const secondaryGrid = document.createElement('div');
   secondaryGrid.className = 'featured-secondary-grid';
   curated.forEach((project, index) => {
@@ -611,13 +631,25 @@ export async function initFeaturedGallery(options = {}) {
       secondaryGrid.querySelectorAll('.project-selector-card').forEach((item) => item.classList.remove('is-active'));
       selector.classList.add('is-active');
       renderShowcase(activeSlug);
+      updateCount();
     });
     selector.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') selector.click();
     });
     secondaryGrid.append(selector);
   });
-  rail.append(secondaryGrid);
+  prev.addEventListener('click', () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    const nextIndex = (idx - 1 + curated.length) % curated.length;
+    secondaryGrid.querySelectorAll('.project-selector-card')[nextIndex]?.click();
+  });
+  nextBtn.addEventListener('click', () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    const nextIndex = (idx + 1) % curated.length;
+    secondaryGrid.querySelectorAll('.project-selector-card')[nextIndex]?.click();
+  });
+  updateCount();
+  rail.append(railTop, secondaryGrid);
   container.append(showcaseWrap, rail);
 }
 
