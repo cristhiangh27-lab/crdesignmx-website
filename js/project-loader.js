@@ -813,11 +813,11 @@ function initCasaLomasExplorer(data) {
   if (!hero || !heroImage || !hotspotsWrap) return;
   const lang = getCurrentLang();
   const nodes = [
-    { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.') },
-    { key: 'bim', label: translate('project.detail.hotspotBim', 'BIM process'), image: 'projects/casa-lomas/img/XMPL1.png', text: translate('project.detail.bimBody', 'Coordinated BIM model to align design intent, documentation and constructability.') },
-    { key: 'materiality', label: translate('project.detail.hotspotMateriality', 'Materiality'), image: 'projects/casa-lomas/img/CALOM5.jpg', text: translate('project.detail.materialityBody', 'Muted materials and robust textures calibrated for warmth, durability and contrast.') },
-    { key: 'program', label: translate('project.detail.hotspotProgram', 'Program'), image: 'projects/casa-lomas/img/CALOM2.jpg', text: translate('project.detail.programBody', 'Social core, double-height living spaces and clear vertical circulation hierarchy.') },
-    { key: 'gallery', label: translate('project.detail.gallery', 'Gallery'), image: 'projects/casa-lomas/img/Miradorlomas01.jpg', text: translate('project.detail.galleryBody', 'A sequence of interior and exterior moments composed as an architectural narrative.') },
+    { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.'), cta1: translate('project.detail.readMemoir', 'Read design memoir'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
+    { key: 'bim', label: translate('project.detail.hotspotBim', 'BIM process'), image: 'projects/casa-lomas/img/XMPL1.png', text: translate('project.detail.bimBody', 'Coordinated BIM model to align design intent, documentation and constructability.'), cta1: translate('project.detail.viewBim', 'View BIM process'), cta2: translate('project.detail.quoteAnteproyecto', 'Quote conceptual phase') },
+    { key: 'materiality', label: translate('project.detail.hotspotMateriality', 'Materiality'), image: 'projects/casa-lomas/img/CALOM5.jpg', text: translate('project.detail.materialityBody', 'Muted materials and robust textures calibrated for warmth, durability and contrast.'), cta1: translate('project.detail.exploreGallery', 'Explore gallery'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
+    { key: 'program', label: translate('project.detail.hotspotProgram', 'Program'), image: 'projects/casa-lomas/img/CALOM2.jpg', text: translate('project.detail.programBody', 'Social core, double-height living spaces and clear vertical circulation hierarchy.'), cta1: translate('project.detail.readProject', 'Read project'), cta2: translate('project.detail.quoteAnteproyecto', 'Quote conceptual phase') },
+    { key: 'gallery', label: translate('project.detail.gallery', 'Gallery'), image: 'projects/casa-lomas/img/Miradorlomas01.jpg', text: translate('project.detail.galleryBody', 'A sequence of interior and exterior moments composed as an architectural narrative.'), cta1: translate('project.detail.exploreGallery', 'Explore gallery'), cta2: translate('project.detail.contactUs', 'Contact us') },
   ];
   const resolved = nodes.map((n) => ({ ...n, src: resolveAsset(n.image, heroImage.src) }));
   let active = 0;
@@ -839,6 +839,15 @@ function initCasaLomasExplorer(data) {
   modal.className = 'explorer-modal';
   const dots = document.createElement('div');
   dots.className = 'explorer-dots';
+  const mainCard = hero.querySelector('.project-hero__card');
+  const mainCardTitle = mainCard?.querySelector('.project-hero__card-title');
+  const mainCardSummary = mainCard?.querySelector('.summary');
+  const actions = mainCard?.querySelector('.project-hero__actions');
+  const original = {
+    title: mainCardTitle?.textContent || '',
+    summary: mainCardSummary?.textContent || '',
+    actions: actions?.innerHTML || '',
+  };
   const activeTitle = document.createElement('span');
   activeTitle.className = 'explorer-topbar__title';
   topbar.innerHTML = '';
@@ -848,15 +857,20 @@ function initCasaLomasExplorer(data) {
     const item = resolved[active];
     activeTitle.textContent = item.label;
     heroImage.src = item.src;
-    modal.innerHTML = `<h4>${item.label}</h4><p>${item.text}</p>`;
+    modal.innerHTML = '';
     dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
     hotspotsWrap.querySelectorAll('.project-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
     hero.classList.add('is-exploring');
-    const mainCard = hero.querySelector('.project-hero__card');
     if (mainCard) {
       mainCard.classList.add('is-node-active');
-      const summary = mainCard.querySelector('.summary');
-      if (summary) summary.textContent = item.text;
+      if (mainCardTitle) mainCardTitle.textContent = item.label;
+      if (mainCardSummary) mainCardSummary.textContent = item.text;
+      if (actions) {
+        actions.innerHTML = `
+          <a class="btn btn-ghost" href="#project-gallery">${item.cta1}</a>
+          <a class="btn btn-primary" href="../../contact.html">${item.cta2}</a>
+        `;
+      }
     }
   };
   resolved.forEach((n, i) => {
@@ -875,8 +889,12 @@ function initCasaLomasExplorer(data) {
   nextBtn.addEventListener('click', () => setActive(active + 1));
   closeBtn.addEventListener('click', () => {
     hero.classList.remove('is-exploring');
-    const mainCard = hero.querySelector('.project-hero__card');
-    if (mainCard) mainCard.classList.remove('is-node-active');
+    if (mainCard) {
+      mainCard.classList.remove('is-node-active');
+      if (mainCardTitle) mainCardTitle.textContent = original.title;
+      if (mainCardSummary) mainCardSummary.textContent = original.summary;
+      if (actions) actions.innerHTML = original.actions;
+    }
   });
   hero.append(topbar, modal, dots);
   setActive(0);
