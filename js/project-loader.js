@@ -811,6 +811,7 @@ function initCasaLomasExplorer(data) {
   const heroImage = hero?.querySelector('img');
   const hotspotsWrap = hero?.querySelector('.project-hero__hotspots');
   if (!hero || !heroImage || !hotspotsWrap) return;
+  hero.querySelectorAll('.explorer-topbar,.explorer-modal,.explorer-dots').forEach((el) => el.remove());
   hotspotsWrap.classList.add('project-section-carousel');
   const lang = getCurrentLang();
   const nodes = [
