@@ -859,7 +859,7 @@ function initCasaLomasExplorer(data) {
     heroImage.src = item.src;
     modal.innerHTML = '';
     dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
-    hotspotsWrap.querySelectorAll('.project-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
+    hotspotsWrap.querySelectorAll('.project-map-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
     hero.classList.add('is-exploring');
     if (mainCard) {
       mainCard.classList.add('is-node-active');
@@ -876,9 +876,17 @@ function initCasaLomasExplorer(data) {
   resolved.forEach((n, i) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `project-node project-hotspot--${n.key}`;
+    btn.className = `project-map-node project-hotspot--${n.key}`;
+    btn.dataset.section = n.key;
+    btn.setAttribute('aria-label', n.label);
     btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
     btn.addEventListener('click', () => setActive(i));
+    btn.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setActive(i);
+      }
+    });
     hotspotsWrap.append(btn);
     const dot = document.createElement('button');
     dot.type = 'button';
