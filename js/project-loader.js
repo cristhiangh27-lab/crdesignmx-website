@@ -811,6 +811,7 @@ function initCasaLomasExplorer(data) {
   const heroImage = hero?.querySelector('img');
   const hotspotsWrap = hero?.querySelector('.project-hero__hotspots');
   if (!hero || !heroImage || !hotspotsWrap) return;
+  hotspotsWrap.classList.add('project-section-carousel');
   const lang = getCurrentLang();
   const nodes = [
     { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.'), cta1: translate('project.detail.readMemoir', 'Read design memoir'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
@@ -823,6 +824,7 @@ function initCasaLomasExplorer(data) {
   let active = 0;
   let resizeRaf = null;
   let hasActiveSection = false;
+  let preselectedKey = null;
   hotspotsWrap.innerHTML = '';
   const topbar = document.createElement('div');
   topbar.className = 'explorer-topbar';
@@ -881,6 +883,8 @@ function initCasaLomasExplorer(data) {
     dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
     hotspotsWrap.querySelectorAll('.project-map-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
     hero.classList.add('is-exploring');
+    hotspotsWrap.classList.add('is-shifting');
+    setTimeout(() => hotspotsWrap.classList.remove('is-shifting'), 380);
     if (mainCard) {
       mainCard.classList.add('is-node-active');
       mainCard.classList.add('is-expanded');
@@ -897,11 +901,19 @@ function initCasaLomasExplorer(data) {
   resolved.forEach((n, i) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `project-map-node project-hotspot--${n.key}`;
+    btn.className = `carousel-node project-hotspot--${n.key}`;
     btn.dataset.section = n.key;
     btn.setAttribute('aria-label', n.label);
     btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
     btn.addEventListener('click', () => setActive(i));
+    btn.addEventListener('mouseenter', () => {
+      preselectedKey = n.key;
+      btn.classList.add('is-preselected');
+    });
+    btn.addEventListener('mouseleave', () => {
+      preselectedKey = null;
+      btn.classList.remove('is-preselected');
+    });
     btn.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -941,7 +953,7 @@ function initCasaLomasExplorer(data) {
   }
   const intersects = (a, b) => !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
   const evaluateLayout = () => {
-    const nodes = [...hotspotsWrap.querySelectorAll('.project-map-node')];
+    const nodes = [...hotspotsWrap.querySelectorAll('.carousel-node')];
     if (!nodes.length || !mainCard) return;
     const cardRect = mainCard.getBoundingClientRect();
     const introRect = hero.querySelector('.project-hero__intro')?.getBoundingClientRect();
