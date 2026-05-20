@@ -812,7 +812,7 @@ function initCasaLomasExplorer(data) {
   const hotspotsWrap = hero?.querySelector('.project-hero__hotspots');
   if (!hero || !heroImage || !hotspotsWrap) return;
   hero.querySelectorAll('.explorer-topbar,.explorer-modal,.explorer-dots').forEach((el) => el.remove());
-  hotspotsWrap.classList.add('project-section-carousel');
+  hotspotsWrap.classList.add('project-section-carousel', 'carousel-3up');
   const lang = getCurrentLang();
   const nodes = [
     { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.'), cta1: translate('project.detail.readMemoir', 'Read design memoir'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
@@ -934,9 +934,13 @@ function initCasaLomasExplorer(data) {
           translate('project.detail.materialityBullet3', 'Mass, shadow and natural light contrast'),
         ],
         program: [
-          translate('project.detail.programBullet1', 'Main access sequence'),
-          translate('project.detail.programBullet2', 'Double-height living room'),
-          translate('project.detail.programBullet3', 'Signature kitchen and roof garden'),
+          translate('project.detail.programBullet1', 'Acceso principal'),
+          translate('project.detail.programBullet2', 'Sala de doble altura'),
+          translate('project.detail.programBullet3', 'Cocina protagonista con barra central'),
+          translate('project.detail.programBullet4', 'Comedor integrado'),
+          translate('project.detail.programBullet5', 'Recámaras familiares'),
+          translate('project.detail.programBullet6', 'Roof garden'),
+          translate('project.detail.programBullet7', 'Área de servicio'),
         ],
         gallery: [
           translate('project.detail.galleryBullet1', 'Visual walkthrough of the project'),
