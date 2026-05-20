@@ -1298,7 +1298,7 @@ body.project-page main {
   padding: .35rem .9rem 4rem;
 }
 
-.project-hero.project-hero--immersive{--header-height:88px;min-height:calc(100vh - var(--header-height));max-height:calc(100vh - var(--header-height));margin-bottom:2rem}
+.project-hero.project-hero--immersive{--header-height:88px;min-height:calc(100vh - var(--header-height));max-height:calc(100vh - var(--header-height));margin-bottom:2rem;overflow:hidden}
 .project-hero--immersive .hero-visual{position:relative;min-height:calc(100vh - var(--header-height));max-height:calc(100vh - var(--header-height));padding:0;border-radius:8px;overflow:hidden;background:#0a0c11}
 .project-hero--immersive .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center 42%;min-height:calc(100vh - var(--header-height));filter:saturate(1.05) contrast(1.02)}
 .project-hero--immersive .hero-visual::before{content:"";position:absolute;inset:0;background:
@@ -1338,7 +1338,7 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-
 .project-page[data-project="casa-lomas"] .project-map-node:active{transform:scale(.97)}
 .project-page[data-project="casa-lomas"] .hero-visual.is-exploring .project-map-node{opacity:.52}
 .project-page[data-project="casa-lomas"] .hero-visual.is-exploring .project-map-node.is-active{opacity:1;transform:translateY(-8px) scale(1.1)}
-.project-page[data-project="casa-lomas"] .hero-visual.nodes-overlap-detected .project-hero__hotspots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:14px;overflow-x:auto;max-width:min(92vw,760px);padding:.2rem .25rem}
+.project-page[data-project="casa-lomas"] .hero-visual.nodes-overlap-detected .project-hero__hotspots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;max-width:min(92vw,760px);padding:.2rem .25rem}
 .project-page[data-project="casa-lomas"] .hero-visual.nodes-overlap-detected .project-map-node{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;flex:0 0 auto}
 .project-page[data-project="casa-lomas"] .project-hotspot{grid-template-columns:1fr;gap:.35rem;width:auto;padding:.32rem;background:transparent;border:0}
 .project-page[data-project="casa-lomas"] .project-hotspot span:last-child{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}

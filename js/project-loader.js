@@ -822,6 +822,7 @@ function initCasaLomasExplorer(data) {
   const resolved = nodes.map((n) => ({ ...n, src: resolveAsset(n.image, heroImage.src) }));
   let active = 0;
   let resizeRaf = null;
+  let hasActiveSection = false;
   hotspotsWrap.innerHTML = '';
   const topbar = document.createElement('div');
   topbar.className = 'explorer-topbar';
@@ -853,7 +854,25 @@ function initCasaLomasExplorer(data) {
   activeTitle.className = 'explorer-topbar__title';
   topbar.innerHTML = '';
   topbar.append(closeBtn, activeTitle, prevBtn, nextBtn);
+  const applyNeutralState = () => {
+    hasActiveSection = false;
+    hero.classList.remove('is-exploring');
+    activeTitle.textContent = translate('project.detail.exploreProject', 'Explore project');
+    dots.querySelectorAll('button').forEach((d) => d.classList.remove('is-active'));
+    hotspotsWrap.querySelectorAll('.project-map-node').forEach((h) => h.classList.remove('is-active'));
+    if (mainCard) {
+      mainCard.classList.remove('is-node-active', 'is-expanded');
+      if (mainCardTitle) mainCardTitle.textContent = original.title;
+      if (mainCardSummary) mainCardSummary.textContent = original.summary;
+      if (actions) actions.innerHTML = original.actions;
+    }
+    if (heroImage && data.coverImage) {
+      heroImage.src = resolveAsset(data.coverImage, heroImage.src);
+    }
+  };
+
   const setActive = (idx) => {
+    hasActiveSection = true;
     active = (idx + resolved.length) % resolved.length;
     const item = resolved[active];
     activeTitle.textContent = item.label;
@@ -895,18 +914,17 @@ function initCasaLomasExplorer(data) {
     dot.addEventListener('click', () => setActive(i));
     dots.append(dot);
   });
-  prevBtn.addEventListener('click', () => setActive(active - 1));
-  nextBtn.addEventListener('click', () => setActive(active + 1));
+  prevBtn.addEventListener('click', () => {
+    if (!hasActiveSection) return;
+    setActive(active - 1);
+  });
+  nextBtn.addEventListener('click', () => {
+    if (!hasActiveSection) return;
+    setActive(active + 1);
+  });
   closeBtn.addEventListener('click', () => {
-    hero.classList.remove('is-exploring');
-    hero.classList.remove('nodes-overlap-detected');
-    if (mainCard) {
-      mainCard.classList.remove('is-node-active');
-      mainCard.classList.remove('is-expanded');
-      if (mainCardTitle) mainCardTitle.textContent = original.title;
-      if (mainCardSummary) mainCardSummary.textContent = original.summary;
-      if (actions) actions.innerHTML = original.actions;
-    }
+    applyNeutralState();
+    evaluateLayout();
   });
   if (mainCard) {
     mainCard.classList.add('is-compact', 'central-project-card');
@@ -932,6 +950,7 @@ function initCasaLomasExplorer(data) {
     const hRect = hero.getBoundingClientRect();
     const overlap = nodes.some((node) => {
       const r = node.getBoundingClientRect();
+      if (![r.left, r.top, r.right, r.bottom].every(Number.isFinite) || r.width === 0 || r.height === 0) return false;
       const edgeClipped = r.left < hRect.left + 8 || r.right > hRect.right - 8 || r.top < hRect.top + 8 || r.bottom > hRect.bottom - 8;
       return edgeClipped
         || intersects(r, cardRect)
@@ -947,8 +966,13 @@ function initCasaLomasExplorer(data) {
   };
   window.addEventListener('resize', onResize, { passive: true });
   hero.append(topbar, modal, dots);
-  setActive(0);
-  evaluateLayout();
+  applyNeutralState();
+  const afterStableLayout = () => requestAnimationFrame(() => requestAnimationFrame(evaluateLayout));
+  if (heroImage && !heroImage.complete) {
+    heroImage.addEventListener('load', afterStableLayout, { once: true });
+  }
+  window.addEventListener('load', afterStableLayout, { once: true });
+  afterStableLayout();
 }
 
 function renderDescriptionFromMarkdown(md, data) {
