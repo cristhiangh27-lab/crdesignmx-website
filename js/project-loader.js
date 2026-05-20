@@ -860,6 +860,7 @@ function initCasaLomasExplorer(data) {
     hasActiveSection = false;
     hero.classList.remove('is-exploring');
     activeTitle.textContent = translate('project.detail.exploreProject', 'Explore project');
+    topbar.dataset.state = 'neutral';
     dots.querySelectorAll('button').forEach((d) => d.classList.remove('is-active'));
     hotspotsWrap.querySelectorAll('.project-map-node').forEach((h) => h.classList.remove('is-active'));
     if (mainCard) {
@@ -878,6 +879,7 @@ function initCasaLomasExplorer(data) {
     active = (idx + resolved.length) % resolved.length;
     const item = resolved[active];
     activeTitle.textContent = item.label;
+    topbar.dataset.state = item.key;
     heroImage.src = item.src;
     modal.innerHTML = '';
     dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
