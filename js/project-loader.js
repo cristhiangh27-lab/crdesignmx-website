@@ -851,7 +851,10 @@ function initCasaLomasExplorer(data) {
   const original = {
     title: mainCardTitle?.textContent || '',
     summary: mainCardSummary?.textContent || '',
-    actions: actions?.innerHTML || '',
+    actions: `
+      <a class="btn btn-ghost" href="#project-gallery">${translate('project.detail.exploreGallery', 'Explore gallery')}</a>
+      <a class="btn btn-ghost" href="#project-description">${translate('project.detail.readProject', 'Read project')}</a>
+    `,
   };
   const activeTitle = document.createElement('span');
   activeTitle.className = 'explorer-topbar__title';
@@ -893,6 +896,35 @@ function initCasaLomasExplorer(data) {
       mainCard.classList.add('is-expanded');
       if (mainCardTitle) mainCardTitle.textContent = item.label;
       if (mainCardSummary) mainCardSummary.textContent = item.text;
+      const bulletsMap = {
+        concept: [
+          translate('project.detail.conceptBullet1', 'Contemporary spatial composition'),
+          translate('project.detail.conceptBullet2', 'Clear volumetric language'),
+          translate('project.detail.conceptBullet3', 'Light, shadow and aperture balance'),
+        ],
+        bim: [
+          translate('project.detail.bimBullet1', 'Coordinated BIM documentation model'),
+          translate('project.detail.bimBullet2', 'Design and constructability control'),
+          translate('project.detail.bimBullet3', 'Technical development baseline'),
+        ],
+        materiality: [
+          translate('project.detail.materialityBullet1', 'Exposed brick as primary texture'),
+          translate('project.detail.materialityBullet2', 'White volumes and restrained concrete'),
+          translate('project.detail.materialityBullet3', 'Mass, shadow and natural light contrast'),
+        ],
+        program: [
+          translate('project.detail.programBullet1', 'Main access sequence'),
+          translate('project.detail.programBullet2', 'Double-height living room'),
+          translate('project.detail.programBullet3', 'Signature kitchen and roof garden'),
+        ],
+        gallery: [
+          translate('project.detail.galleryBullet1', 'Visual walkthrough of the project'),
+          translate('project.detail.galleryBullet2', 'Process and atmospheric imagery'),
+          translate('project.detail.galleryBullet3', 'Selected architectural details'),
+        ],
+      };
+      const bulletList = bulletsMap[item.key] || [];
+      if (bulletsEl) bulletsEl.innerHTML = bulletList.map((b) => `<li>${b}</li>`).join('');
       if (actions) {
         actions.innerHTML = `
           <a class="btn btn-ghost" href="#project-gallery">${item.cta1}</a>
