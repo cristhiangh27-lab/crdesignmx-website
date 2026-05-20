@@ -839,19 +839,26 @@ function initCasaLomasExplorer(data) {
   modal.className = 'explorer-modal';
   const dots = document.createElement('div');
   dots.className = 'explorer-dots';
+  const activeTitle = document.createElement('span');
+  activeTitle.className = 'explorer-topbar__title';
+  topbar.innerHTML = '';
+  topbar.append(closeBtn, activeTitle, prevBtn, nextBtn);
   const setActive = (idx) => {
     active = (idx + resolved.length) % resolved.length;
     const item = resolved[active];
+    activeTitle.textContent = item.label;
     heroImage.src = item.src;
     modal.innerHTML = `<h4>${item.label}</h4><p>${item.text}</p>`;
     dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
-    hotspotsWrap.querySelectorAll('.project-hotspot').forEach((h, i) => h.classList.toggle('is-active', i === active));
+    hotspotsWrap.querySelectorAll('.project-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
     hero.classList.add('is-exploring');
+    const mainCard = hero.querySelector('.project-hero__card');
+    if (mainCard) mainCard.hidden = true;
   };
   resolved.forEach((n, i) => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = `project-hotspot project-hotspot--${n.key}`;
+    btn.className = `project-node project-hotspot--${n.key}`;
     btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
     btn.addEventListener('click', () => setActive(i));
     hotspotsWrap.append(btn);
@@ -862,19 +869,34 @@ function initCasaLomasExplorer(data) {
   });
   prevBtn.addEventListener('click', () => setActive(active - 1));
   nextBtn.addEventListener('click', () => setActive(active + 1));
-  closeBtn.addEventListener('click', () => hero.classList.remove('is-exploring'));
+  closeBtn.addEventListener('click', () => {
+    hero.classList.remove('is-exploring');
+    const mainCard = hero.querySelector('.project-hero__card');
+    if (mainCard) mainCard.hidden = false;
+  });
   hero.append(topbar, modal, dots);
   setActive(0);
 }
 
-function renderDescriptionFromMarkdown(md) {
+function renderDescriptionFromMarkdown(md, data) {
   const container = document.querySelector('.project-description .content');
   if (!container) return;
 
   const galleryIndex = md.search(/^##\s+(Galería|Gallery|Galerie)\b/im);
   const descriptionMd = galleryIndex !== -1 ? md.slice(0, galleryIndex) : md;
   const sanitized = descriptionMd.replace(/^#.+$/m, '').trim();
-  container.innerHTML = markdownToHtml(sanitized);
+  const lang = getCurrentLang();
+  const metaHtml = `
+    <aside class="project-description__meta">
+      <h3>${translate('project.detail.descriptionMeta', 'Project facts')}</h3>
+      <p><strong>${translate('project.detail.metaLocation', 'Location')}:</strong> ${getLocationLabel(data, lang) || '-'}</p>
+      <p><strong>${translate('project.detail.metaYear', 'Year')}:</strong> ${data.year || '-'}</p>
+      <p><strong>${translate('project.detail.metaTypology', 'Typology')}:</strong> ${getCategoryLabel(data, lang) || '-'}</p>
+      <p><strong>${translate('project.detail.metaScope', 'Scope')}:</strong> ${translate('project.detail.metaScopeValue', 'Concept / BIM / Documentation')}</p>
+      <p><strong>${translate('project.detail.metaStatus', 'Status')}:</strong> ${translate('project.detail.metaStatusValue', 'Portfolio project')}</p>
+    </aside>
+  `;
+  container.innerHTML = `${metaHtml}<div class="project-description__body">${markdownToHtml(sanitized)}</div>`;
 }
 
 async function renderGallery(slug, md, data) {
@@ -919,7 +941,7 @@ export async function renderProjectDetail(slug) {
     const { body } = parseFrontmatterMarkdown(md);
     setHero(data);
     initCasaLomasExplorer(data);
-    renderDescriptionFromMarkdown(body);
+    renderDescriptionFromMarkdown(body, data);
     await renderGallery(slug, body, data);
   } catch (error) {
     console.error('No se pudo cargar el proyecto', error);
