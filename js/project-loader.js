@@ -109,6 +109,12 @@ function getLocationLabel(project, lang) {
   return tField(project.locationLabel, lang) || tField(project.location, lang);
 }
 
+function getProjectSummary(project, lang = getCurrentLang()) {
+  const summaryValue = project?.shortDescription ?? project?.summary ?? '';
+  if (lang === 'de' && typeof summaryValue === 'string') return '';
+  return tField(project.shortDescription, lang) || tField(project.summary, lang) || '';
+}
+
 function resolveAsset(path, fallback) {
   if (!path) return fallback;
   if (/^https?:\/\//i.test(path)) return path;
@@ -334,7 +340,7 @@ function createProjectCard(project, lang = getCurrentLang()) {
   const title = tField(project.title, lang);
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
-  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const summary = getProjectSummary(project, lang);
   const link = document.createElement('a');
   link.className = 'project-card';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -398,7 +404,7 @@ function createFeaturedProjectCard(project, lang = getCurrentLang()) {
   const title = tField(project.title, lang);
   const location = getLocationLabel(project, lang);
   const type = getCategoryLabel(project, lang);
-  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const summary = getProjectSummary(project, lang);
   const link = document.createElement('a');
   link.className = 'project-card project-card--featured project-card--featured-main';
   link.href = href || `${ROOT_PATH}/projects/${slug}/`;
@@ -435,6 +441,103 @@ function createFeaturedProjectCard(project, lang = getCurrentLang()) {
   link.append(media, body);
 
   return link;
+}
+
+function createFeaturedShowcase(project, lang = getCurrentLang()) {
+  const { slug, year, coverImage, href } = project;
+  const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
+  const location = getLocationLabel(project, lang);
+  const type = getCategoryLabel(project, lang);
+  const summary = tField(project.shortDescription, lang) || tField(project.summary, lang);
+  const link = href || `${ROOT_PATH}/projects/${slug}/`;
+
+  const showcase = document.createElement('article');
+  showcase.className = 'featured-showcase';
+  showcase.setAttribute('data-featured-slug', slug || '');
+
+  const mediaLink = document.createElement('a');
+  mediaLink.className = 'featured-showcase__media';
+  mediaLink.href = link;
+  mediaLink.setAttribute('aria-label', `${translate('project.card.cta', 'View project')}: ${title}`);
+
+  if (coverImage) {
+    const img = document.createElement('img');
+    img.alt = title;
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = 'eager';
+    img.decoding = 'async';
+    img.width = 1280;
+    img.height = 800;
+    img.addEventListener('error', () => {
+      img.remove();
+      if (!mediaLink.querySelector('.img-fallback')) mediaLink.prepend(createMediaFallback());
+    });
+    mediaLink.append(img);
+  } else {
+    mediaLink.append(createMediaFallback());
+  }
+
+  const introOverlay = document.createElement('div');
+  introOverlay.className = 'featured-showcase__intro';
+  introOverlay.innerHTML = `
+    <h3>${translate('featured.title', 'Selected Works')}</h3>
+    <p>${translate('featured.lead', 'A curated view of residential, commercial, interior and conceptual projects shaped through design, BIM intelligence and construction logic.')}</p>
+    <a class="btn btn-ghost featured-showcase__intro-cta" href="${ROOT_PATH}/projects.html">${translate('featured.viewAll', 'View all projects')}</a>
+  `;
+
+  const mediaOverlay = document.createElement('div');
+  mediaOverlay.className = 'featured-showcase__media-overlay';
+  mediaOverlay.innerHTML = `
+    <span class="featured-showcase__eyebrow">${type || ''}</span>
+    <h4>${title}</h4>
+    <p class="featured-showcase__meta">${[location, year, type].filter(Boolean).join(' · ')}</p>
+    <p class="featured-showcase__summary">${summary || ''}</p>
+    <a class="btn btn-ghost featured-showcase__cta" href="${link}">${translate('project.card.cta', 'View project')}</a>
+  `;
+  mediaLink.append(introOverlay, mediaOverlay);
+  showcase.append(mediaLink);
+  return showcase;
+}
+
+function createProjectSelectorCard(project, index, lang = getCurrentLang()) {
+  const { slug, year, coverImage } = project;
+  const title = tField(project.title, lang) || translate('project.card.titleFallback', 'Project');
+  const locationRaw = getLocationLabel(project, lang);
+  const location = (locationRaw || '').split(',')[0].trim();
+  const type = getCategoryLabel(project, lang);
+  const summary = getProjectSummary(project, lang) || '';
+  const compactSummary = summary.replace(/\s+/g, ' ').trim();
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'project-selector-card';
+  button.dataset.slug = slug || '';
+  button.setAttribute('aria-label', `${title} · ${[location, year, type].filter(Boolean).join(' · ')}`);
+  button.innerHTML = `
+    <span class="project-selector-card__inner">
+      <span class="project-selector-card__face project-selector-card__face--front">
+        <span class="project-selector-card__media"></span>
+        <span class="project-selector-card__content">
+          <strong>${title}</strong>
+          <span class="project-selector-card__meta">${[location, year].filter(Boolean).join(' · ')}</span>
+          <span class="project-selector-card__summary">${compactSummary}</span>
+          <span class="project-selector-card__cta">${translate('project.card.cta', 'View project')}</span>
+        </span>
+      </span>
+    </span>
+  `;
+  const media = button.querySelector('.project-selector-card__media');
+  if (coverImage && media) {
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = resolveAsset(coverImage, `${ROOT_PATH}/img/${slug}/preview.jpg`);
+    img.loading = index < 3 ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    img.width = 480;
+    img.height = 320;
+    img.addEventListener('error', () => img.remove());
+    media.append(img);
+  }
+  return button;
 }
 
 function renderFeaturedSkeleton(container, count) {
@@ -477,19 +580,77 @@ export async function initFeaturedGallery(options = {}) {
     container.innerHTML = `<p>${translate('featured.empty', 'No projects available.')}</p>`;
     return;
   }
-  const curated = featuredProjects.slice(0, 4);
-  const [featuredProject, ...secondaryProjects] = curated;
+  const curated = featuredProjects.slice(0, 8);
+  const [featuredProject] = curated;
   container.innerHTML = '';
   container.classList.add('featured-layout');
+  const map = new Map(curated.map((p) => [p.slug, p]));
+  let activeSlug = featuredProject.slug;
+  const showcaseWrap = document.createElement('div');
+  showcaseWrap.className = 'featured-showcase-wrap';
+  const renderShowcase = (slug) => {
+    const project = map.get(slug);
+    if (!project) return;
+    const next = createFeaturedShowcase(project, getCurrentLang());
+    next.classList.add('is-entering');
+    showcaseWrap.innerHTML = '';
+    showcaseWrap.append(next);
+    requestAnimationFrame(() => next.classList.remove('is-entering'));
+  };
+  renderShowcase(activeSlug);
 
-  if (featuredProject) {
-    container.appendChild(createFeaturedProjectCard(featuredProject, lang));
-  }
-
+  const rail = document.createElement('aside');
+  rail.className = 'featured-rail';
+  rail.setAttribute('aria-label', translate('featured.title', 'Selected Works'));
+  const railTop = document.createElement('div');
+  railTop.className = 'featured-rail__top';
+  const railCount = document.createElement('span');
+  railCount.className = 'featured-rail__count';
+  const prev = document.createElement('button');
+  prev.className = 'featured-rail__arrow';
+  prev.type = 'button';
+  prev.setAttribute('aria-label', translate('featured.prev', 'Previous'));
+  prev.textContent = '‹';
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'featured-rail__arrow';
+  nextBtn.type = 'button';
+  nextBtn.setAttribute('aria-label', translate('featured.next', 'Next'));
+  nextBtn.textContent = '›';
+  const updateCount = () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    railCount.textContent = `${String(idx + 1).padStart(2, '0')}/${String(curated.length).padStart(2, '0')}`;
+  };
+  railTop.append(railCount, prev, nextBtn);
   const secondaryGrid = document.createElement('div');
   secondaryGrid.className = 'featured-secondary-grid';
-  secondaryProjects.forEach((project) => secondaryGrid.appendChild(createProjectCard(project, lang)));
-  container.appendChild(secondaryGrid);
+  curated.forEach((project, index) => {
+    const selector = createProjectSelectorCard(project, index, lang);
+    if (project.slug === activeSlug) selector.classList.add('is-active');
+    selector.addEventListener('click', () => {
+      activeSlug = project.slug;
+      secondaryGrid.querySelectorAll('.project-selector-card').forEach((item) => item.classList.remove('is-active'));
+      selector.classList.add('is-active');
+      renderShowcase(activeSlug);
+      updateCount();
+    });
+    selector.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') selector.click();
+    });
+    secondaryGrid.append(selector);
+  });
+  prev.addEventListener('click', () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    const nextIndex = (idx - 1 + curated.length) % curated.length;
+    secondaryGrid.querySelectorAll('.project-selector-card')[nextIndex]?.click();
+  });
+  nextBtn.addEventListener('click', () => {
+    const idx = curated.findIndex((p) => p.slug === activeSlug);
+    const nextIndex = (idx + 1) % curated.length;
+    secondaryGrid.querySelectorAll('.project-selector-card')[nextIndex]?.click();
+  });
+  updateCount();
+  rail.append(railTop, secondaryGrid);
+  container.append(showcaseWrap, rail);
 }
 
 export async function renderFeaturedProjects(limit = 4) {
@@ -506,7 +667,7 @@ export function filterProjects(projects, criteria, lang = getCurrentLang()) {
 
     const searchableFields = [
       tField(project.title, lang),
-      tField(project.shortDescription, lang) || tField(project.summary, lang),
+      getProjectSummary(project, lang),
       getLocationLabel(project, lang),
       getCategoryLabel(project, lang),
     ];
@@ -571,16 +732,22 @@ export function populateFilterOptions(projects, lang = getCurrentLang(), state =
 
 function setHero(data) {
   const titleEl = document.querySelector('.project-hero h1');
+  const cardTitle = document.querySelector('.project-hero__card-title');
   const metaContainer = document.querySelector('.project-hero .project-meta');
   const summaryEl = document.querySelector('.project-hero .summary');
+  const bulletsEl = document.querySelector('.project-hero__bullets');
+  const hotspotsEl = document.querySelector('.project-hero__hotspots');
   const heroImage = document.querySelector('.hero-visual img');
   const heroPlaceholder = document.querySelector('.hero-visual .placeholder');
+  const lang = getCurrentLang();
+  const title = tField(data.title, lang) || 'Project';
 
-  if (titleEl) titleEl.textContent = tField(data.title, getCurrentLang()) || 'Project';
+  if (titleEl) titleEl.textContent = title;
+  if (cardTitle) cardTitle.textContent = title;
 
   if (metaContainer) {
     metaContainer.innerHTML = '';
-    [getLocationLabel(data, getCurrentLang()), data.year, getCategoryLabel(data, getCurrentLang())]
+    [getLocationLabel(data, lang), data.year, getCategoryLabel(data, lang)]
       .filter(Boolean)
       .forEach((label) => {
         const span = document.createElement('span');
@@ -591,25 +758,302 @@ function setHero(data) {
   }
 
   if (summaryEl) {
-    summaryEl.textContent = tField(data.shortDescription, getCurrentLang()) || tField(data.summary, getCurrentLang());
+    summaryEl.textContent = getProjectSummary(data, lang);
+  }
+
+  if (bulletsEl) {
+    const defaults = [
+      translate('project.detail.bullet1', 'Contemporary architectural language'),
+      translate('project.detail.bullet2', 'Programmatic clarity and circulation'),
+      translate('project.detail.bullet3', 'BIM-driven documentation'),
+      translate('project.detail.bullet4', 'Atmosphere, light and material precision'),
+    ];
+    const source = Array.isArray(data.technicalBullets) && data.technicalBullets.length ? data.technicalBullets : defaults;
+    bulletsEl.innerHTML = '';
+    source.slice(0, 5).forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = tField(item, lang) || item;
+      bulletsEl.appendChild(li);
+    });
+  }
+
+  if (hotspotsEl) {
+    const labels = [
+      translate('project.detail.hotspotConcept', 'Concept'),
+      translate('project.detail.hotspotMateriality', 'Materiality'),
+      translate('project.detail.hotspotProgram', 'Program'),
+      translate('project.detail.hotspotBim', 'BIM process'),
+      translate('project.detail.gallery', 'Gallery'),
+    ];
+    const imgs = (data.images || []).slice(0, 5);
+    hotspotsEl.innerHTML = '';
+    labels.forEach((label, i) => {
+      const btn = document.createElement('a');
+      btn.className = 'project-hotspot';
+      btn.href = i === 4 ? '#project-gallery' : '#project-description';
+      const image = imgs[i] ? resolveAsset(imgs[i], '') : (data.coverImage ? resolveAsset(data.coverImage, '') : '');
+      btn.innerHTML = `<span class="project-hotspot__thumb"${image ? ` style="background-image:url('${image}')"` : ''}></span><span>${label}</span>`;
+      hotspotsEl.appendChild(btn);
+    });
   }
 
   if (heroImage && data.coverImage) {
     heroImage.src = resolveAsset(data.coverImage, '');
-    heroImage.alt = tField(data.title, getCurrentLang()) || 'Project hero image';
+    heroImage.alt = tField(data.title, lang) || 'Project hero image';
     heroImage.hidden = false;
     if (heroPlaceholder) heroPlaceholder.hidden = true;
   }
 }
 
-function renderDescriptionFromMarkdown(md) {
+function initCasaLomasExplorer(data) {
+  if (document.body.dataset.project !== 'casa-lomas') return;
+  const hero = document.querySelector('.project-hero--immersive .hero-visual');
+  const heroImage = hero?.querySelector('img');
+  const hotspotsWrap = hero?.querySelector('.project-hero__hotspots');
+  if (!hero || !heroImage || !hotspotsWrap) return;
+  hero.querySelectorAll('.explorer-topbar,.explorer-modal,.explorer-dots').forEach((el) => el.remove());
+  hotspotsWrap.classList.add('project-section-carousel', 'carousel-3up');
+  const lang = getCurrentLang();
+  const nodes = [
+    { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.'), cta1: translate('project.detail.readMemoir', 'Read design memoir'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
+    { key: 'bim', label: translate('project.detail.hotspotBim', 'BIM process'), image: 'projects/casa-lomas/img/XMPL1.png', text: translate('project.detail.bimBody', 'Coordinated BIM model to align design intent, documentation and constructability.'), cta1: translate('project.detail.viewBim', 'View BIM process'), cta2: translate('project.detail.quoteAnteproyecto', 'Quote conceptual phase') },
+    { key: 'materiality', label: translate('project.detail.hotspotMateriality', 'Materiality'), image: 'projects/casa-lomas/img/CALOM5.jpg', text: translate('project.detail.materialityBody', 'Muted materials and robust textures calibrated for warmth, durability and contrast.'), cta1: translate('project.detail.exploreGallery', 'Explore gallery'), cta2: translate('project.detail.requestSimilar', 'Request similar project') },
+    { key: 'program', label: translate('project.detail.hotspotProgram', 'Program'), image: 'projects/casa-lomas/img/CALOM2.jpg', text: translate('project.detail.programBody', 'Social core, double-height living spaces and clear vertical circulation hierarchy.'), cta1: translate('project.detail.readProject', 'Read project'), cta2: translate('project.detail.quoteAnteproyecto', 'Quote conceptual phase') },
+    { key: 'gallery', label: translate('project.detail.gallery', 'Gallery'), image: 'projects/casa-lomas/img/Miradorlomas01.jpg', text: translate('project.detail.galleryBody', 'A sequence of interior and exterior moments composed as an architectural narrative.'), cta1: translate('project.detail.exploreGallery', 'Explore gallery'), cta2: translate('project.detail.contactUs', 'Contact us') },
+  ];
+  const resolved = nodes.map((n) => ({ ...n, src: resolveAsset(n.image, heroImage.src) }));
+  let active = 0;
+  let resizeRaf = null;
+  let hasActiveSection = false;
+  hotspotsWrap.innerHTML = '';
+  const topbar = document.createElement('div');
+  topbar.className = 'explorer-topbar';
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.textContent = '×';
+  closeBtn.setAttribute('aria-label', 'Close');
+  const prevBtn = document.createElement('button');
+  prevBtn.type = 'button';
+  prevBtn.textContent = '‹';
+  const nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.textContent = '›';
+  topbar.append(closeBtn, prevBtn, nextBtn);
+  const modal = document.createElement('article');
+  modal.className = 'explorer-modal';
+  const dots = document.createElement('div');
+  dots.className = 'explorer-dots';
+  const mainCard = hero.querySelector('.project-hero__card');
+  const mainCardTitle = mainCard?.querySelector('.project-hero__card-title');
+  const mainCardSummary = mainCard?.querySelector('.summary');
+  const actions = mainCard?.querySelector('.project-hero__actions');
+  const original = {
+    title: mainCardTitle?.textContent || '',
+    summary: mainCardSummary?.textContent || '',
+    actions: `
+      <a class="btn btn-ghost" href="#project-gallery">${translate('project.detail.exploreGallery', 'Explore gallery')}</a>
+      <a class="btn btn-ghost" href="#project-description">${translate('project.detail.readProject', 'Read project')}</a>
+    `,
+  };
+  const activeTitle = document.createElement('span');
+  activeTitle.className = 'explorer-topbar__title';
+  topbar.innerHTML = '';
+  topbar.append(closeBtn, activeTitle, prevBtn, nextBtn);
+  const applyNeutralState = () => {
+    hasActiveSection = false;
+    hero.classList.remove('is-exploring');
+    activeTitle.textContent = translate('project.detail.exploreProject', 'Explore project');
+    topbar.dataset.state = 'neutral';
+    dots.querySelectorAll('button').forEach((d) => d.classList.remove('is-active'));
+    if (mainCard) {
+      mainCard.classList.remove('is-node-active', 'is-expanded');
+      if (mainCardTitle) mainCardTitle.textContent = original.title;
+      if (mainCardSummary) mainCardSummary.textContent = original.summary;
+      if (actions) actions.innerHTML = original.actions;
+    }
+    if (heroImage && data.coverImage) {
+      heroImage.src = resolveAsset(data.coverImage, heroImage.src);
+    }
+  };
+
+  const getVisibleIndices = () => {
+    const total = resolved.length;
+    const prev = (active - 1 + total) % total;
+    const next = (active + 1) % total;
+    return { prev, next };
+  };
+
+  const syncCarouselState = () => {
+    const { prev, next } = getVisibleIndices();
+    hotspotsWrap.querySelectorAll('.carousel-node').forEach((node, i) => {
+      const isCenter = i === active;
+      const isPrev = i === prev;
+      const isNext = i === next;
+      node.classList.toggle('is-active', isCenter);
+      node.classList.toggle('is-side-left', isPrev);
+      node.classList.toggle('is-side-right', isNext);
+      node.classList.toggle('is-visible', isCenter || isPrev || isNext);
+      node.classList.toggle('is-hidden', !(isCenter || isPrev || isNext));
+      node.setAttribute('aria-hidden', isCenter || isPrev || isNext ? 'false' : 'true');
+      node.tabIndex = isCenter || isPrev || isNext ? 0 : -1;
+    });
+    dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
+  };
+
+  const setActive = (idx) => {
+    hasActiveSection = true;
+    active = (idx + resolved.length) % resolved.length;
+    const item = resolved[active];
+    activeTitle.textContent = item.label;
+    topbar.dataset.state = item.key;
+    heroImage.src = item.src;
+    modal.innerHTML = '';
+    syncCarouselState();
+    hero.classList.add('is-exploring');
+    hotspotsWrap.classList.add('is-shifting');
+    setTimeout(() => hotspotsWrap.classList.remove('is-shifting'), 380);
+    if (mainCard) {
+      mainCard.classList.add('is-node-active');
+      mainCard.classList.add('is-expanded');
+      if (mainCardTitle) mainCardTitle.textContent = item.label;
+      if (mainCardSummary) mainCardSummary.textContent = item.text;
+      const bulletsMap = {
+        concept: [
+          translate('project.detail.conceptBullet1', 'Contemporary spatial composition'),
+          translate('project.detail.conceptBullet2', 'Clear volumetric language'),
+          translate('project.detail.conceptBullet3', 'Light, shadow and aperture balance'),
+        ],
+        bim: [
+          translate('project.detail.bimBullet1', 'Coordinated BIM documentation model'),
+          translate('project.detail.bimBullet2', 'Design and constructability control'),
+          translate('project.detail.bimBullet3', 'Technical development baseline'),
+        ],
+        materiality: [
+          translate('project.detail.materialityBullet1', 'Exposed brick as primary texture'),
+          translate('project.detail.materialityBullet2', 'White volumes and restrained concrete'),
+          translate('project.detail.materialityBullet3', 'Mass, shadow and natural light contrast'),
+        ],
+        program: [
+          translate('project.detail.programBullet1', 'Acceso principal'),
+          translate('project.detail.programBullet2', 'Sala de doble altura'),
+          translate('project.detail.programBullet3', 'Cocina protagonista con barra central'),
+          translate('project.detail.programBullet4', 'Comedor integrado'),
+          translate('project.detail.programBullet5', 'Recámaras familiares'),
+          translate('project.detail.programBullet6', 'Roof garden'),
+          translate('project.detail.programBullet7', 'Área de servicio'),
+        ],
+        gallery: [
+          translate('project.detail.galleryBullet1', 'Visual walkthrough of the project'),
+          translate('project.detail.galleryBullet2', 'Process and atmospheric imagery'),
+          translate('project.detail.galleryBullet3', 'Selected architectural details'),
+        ],
+      };
+      const bulletList = bulletsMap[item.key] || [];
+      if (bulletsEl) bulletsEl.innerHTML = bulletList.map((b) => `<li>${b}</li>`).join('');
+      if (actions) {
+        actions.innerHTML = `
+          <a class="btn btn-ghost" href="#project-gallery">${item.cta1}</a>
+          <a class="btn btn-primary" href="../../contact.html">${item.cta2}</a>
+        `;
+      }
+    }
+  };
+  resolved.forEach((n, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `carousel-node project-hotspot--${n.key}`;
+    btn.dataset.section = n.key;
+    btn.setAttribute('aria-label', n.label);
+    btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
+    btn.addEventListener('click', () => setActive(i));
+    btn.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setActive(i);
+      }
+    });
+    hotspotsWrap.append(btn);
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.addEventListener('click', () => setActive(i));
+    dots.append(dot);
+  });
+  prevBtn.addEventListener('click', () => setActive(active - 1));
+  nextBtn.addEventListener('click', () => setActive(active + 1));
+  closeBtn.addEventListener('click', () => {
+    applyNeutralState();
+    syncCarouselState();
+    evaluateLayout();
+  });
+  if (mainCard) {
+    mainCard.classList.add('is-compact', 'central-project-card');
+    mainCard.addEventListener('mouseenter', () => mainCard.classList.add('is-expanded'));
+    mainCard.addEventListener('mouseleave', () => {
+      if (!mainCard.classList.contains('is-node-active')) mainCard.classList.remove('is-expanded');
+    });
+    mainCard.addEventListener('focusin', () => mainCard.classList.add('is-expanded'));
+    mainCard.addEventListener('focusout', () => {
+      if (!mainCard.contains(document.activeElement) && !mainCard.classList.contains('is-node-active')) {
+        mainCard.classList.remove('is-expanded');
+      }
+    });
+  }
+  const intersects = (a, b) => !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+  const evaluateLayout = () => {
+    const nodes = [...hotspotsWrap.querySelectorAll('.carousel-node')];
+    if (!nodes.length || !mainCard) return;
+    const cardRect = mainCard.getBoundingClientRect();
+    const introRect = hero.querySelector('.project-hero__intro')?.getBoundingClientRect();
+    const barRect = topbar.getBoundingClientRect();
+    const emailRect = document.querySelector('.email-float')?.getBoundingClientRect();
+    const hRect = hero.getBoundingClientRect();
+    const overlap = nodes.some((node) => {
+      const r = node.getBoundingClientRect();
+      if (![r.left, r.top, r.right, r.bottom].every(Number.isFinite) || r.width === 0 || r.height === 0) return false;
+      const edgeClipped = r.left < hRect.left + 8 || r.right > hRect.right - 8 || r.top < hRect.top + 8 || r.bottom > hRect.bottom - 8;
+      return edgeClipped
+        || intersects(r, cardRect)
+        || (introRect && intersects(r, introRect))
+        || intersects(r, barRect)
+        || (emailRect && intersects(r, emailRect));
+    });
+    hero.classList.toggle('nodes-overlap-detected', overlap || window.innerWidth <= 1100);
+  };
+  const onResize = () => {
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(evaluateLayout);
+  };
+  window.addEventListener('resize', onResize, { passive: true });
+  hero.append(topbar, modal, dots);
+  applyNeutralState();
+  syncCarouselState();
+  const afterStableLayout = () => requestAnimationFrame(() => requestAnimationFrame(evaluateLayout));
+  if (heroImage && !heroImage.complete) {
+    heroImage.addEventListener('load', afterStableLayout, { once: true });
+  }
+  window.addEventListener('load', afterStableLayout, { once: true });
+  afterStableLayout();
+}
+
+function renderDescriptionFromMarkdown(md, data) {
   const container = document.querySelector('.project-description .content');
   if (!container) return;
 
   const galleryIndex = md.search(/^##\s+(Galería|Gallery|Galerie)\b/im);
   const descriptionMd = galleryIndex !== -1 ? md.slice(0, galleryIndex) : md;
   const sanitized = descriptionMd.replace(/^#.+$/m, '').trim();
-  container.innerHTML = markdownToHtml(sanitized);
+  const lang = getCurrentLang();
+  const metaHtml = `
+    <aside class="project-description__meta">
+      <h3>${translate('project.detail.descriptionMeta', 'Project facts')}</h3>
+      <p><strong>${translate('project.detail.metaLocation', 'Location')}:</strong> ${getLocationLabel(data, lang) || '-'}</p>
+      <p><strong>${translate('project.detail.metaYear', 'Year')}:</strong> ${data.year || '-'}</p>
+      <p><strong>${translate('project.detail.metaTypology', 'Typology')}:</strong> ${getCategoryLabel(data, lang) || '-'}</p>
+      <p><strong>${translate('project.detail.metaScope', 'Scope')}:</strong> ${translate('project.detail.metaScopeValue', 'Concept / BIM / Documentation')}</p>
+      <p><strong>${translate('project.detail.metaStatus', 'Status')}:</strong> ${translate('project.detail.metaStatusValue', 'Portfolio project')}</p>
+    </aside>
+  `;
+  container.innerHTML = `${metaHtml}<div class="project-description__body">${markdownToHtml(sanitized)}</div>`;
 }
 
 async function renderGallery(slug, md, data) {
@@ -653,7 +1097,8 @@ export async function renderProjectDetail(slug) {
     const [data, md] = await Promise.all([loadProjectData(slug, lang), loadProjectMarkdown(slug, lang)]);
     const { body } = parseFrontmatterMarkdown(md);
     setHero(data);
-    renderDescriptionFromMarkdown(body);
+    initCasaLomasExplorer(data);
+    renderDescriptionFromMarkdown(body, data);
     await renderGallery(slug, body, data);
   } catch (error) {
     console.error('No se pudo cargar el proyecto', error);
