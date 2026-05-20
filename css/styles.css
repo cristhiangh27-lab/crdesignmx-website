@@ -1329,18 +1329,18 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-
 .project-page[data-project="casa-lomas"] .project-hero__card.is-expanded .project-hero__bullets,.project-page[data-project="casa-lomas"] .project-hero__card:focus-within .project-hero__bullets,.project-page[data-project="casa-lomas"] .project-hero__card.is-node-active .project-hero__bullets{opacity:1;max-height:160px}
 .project-page[data-project="casa-lomas"] .project-hero__card.is-expanded .btn:nth-child(n+3),.project-page[data-project="casa-lomas"] .project-hero__card:focus-within .btn:nth-child(n+3),.project-page[data-project="casa-lomas"] .project-hero__card.is-node-active .btn:nth-child(n+3){opacity:1;max-width:220px;padding-inline:1rem;border-width:1px}
 .project-page[data-project="casa-lomas"] .project-hero__intro{max-width:min(62ch,52%)}
-.project-page[data-project="casa-lomas"] .project-hero__hotspots.project-section-carousel{position:absolute;top:auto;bottom:clamp(138px,20vh,190px);left:50%;transform:translateX(-50%);width:min(760px,68vw);height:auto;display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.4vw,22px);z-index:25;pointer-events:auto}
-.project-page[data-project="casa-lomas"] .hero-visual.is-exploring .project-hero__hotspots.project-section-carousel{top:clamp(88px,12vh,128px);bottom:auto}
-.project-page[data-project="casa-lomas"] .carousel-node{position:relative;display:grid;gap:.3rem;justify-items:center;padding:.22rem;background:transparent;border:0;cursor:pointer;pointer-events:auto;--thumb-size:88px;opacity:.72;transform:scale(.92);transition:transform 320ms cubic-bezier(0.22, 1, 0.36, 1),opacity 240ms ease,filter 240ms ease,box-shadow 280ms ease}
+.project-page[data-project="casa-lomas"] .project-hero__hotspots.project-section-carousel{position:absolute;left:50%;bottom:clamp(132px,18vh,190px);transform:translateX(-50%);width:min(780px,72vw);height:auto;display:flex;align-items:flex-end;justify-content:center;gap:clamp(18px,2vw,28px);z-index:25;pointer-events:auto}
+.project-page[data-project="casa-lomas"] .hero-visual.is-exploring .project-hero__hotspots.project-section-carousel{bottom:clamp(176px,24vh,230px)}
+.project-page[data-project="casa-lomas"] .carousel-node{position:relative;display:grid;gap:.3rem;justify-items:center;padding:.22rem;background:transparent;border:0;cursor:pointer;pointer-events:none;--thumb-size:86px;opacity:0;transform:scale(.84);transition:transform 320ms cubic-bezier(0.22, 1, 0.36, 1),opacity 240ms ease,filter 240ms ease,box-shadow 280ms ease}
 .project-page[data-project="casa-lomas"] .carousel-node .project-hotspot__thumb{width:var(--thumb-size);height:var(--thumb-size);aspect-ratio:1/1;object-fit:cover;object-position:center;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.24)}
 .project-page[data-project="casa-lomas"] .carousel-node span:last-child{font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.84)}
-.project-page[data-project="casa-lomas"] .carousel-node:hover,.project-page[data-project="casa-lomas"] .carousel-node.is-preselected{opacity:1;transform:translateY(-8px) scale(1.16);z-index:14}
-.project-page[data-project="casa-lomas"] .carousel-node:hover .project-hotspot__thumb,.project-page[data-project="casa-lomas"] .carousel-node.is-preselected .project-hotspot__thumb{filter:brightness(1.08) contrast(1.05)}
-.project-page[data-project="casa-lomas"] .carousel-node.is-active{opacity:1;transform:translateY(-10px) scale(1.22);z-index:15}
+.project-page[data-project="casa-lomas"] .carousel-node.is-visible{display:grid;pointer-events:auto}
+.project-page[data-project="casa-lomas"] .carousel-node.is-hidden{display:none;pointer-events:none;opacity:0}
+.project-page[data-project="casa-lomas"] .carousel-node.is-active{opacity:1;transform:translateY(-10px) scale(1);z-index:3;filter:none}
 .project-page[data-project="casa-lomas"] .carousel-node.is-active .project-hotspot__thumb{outline:1px solid rgba(193,141,33,.82);box-shadow:0 12px 26px rgba(193,141,33,.22)}
+.project-page[data-project="casa-lomas"] .carousel-node.is-side-left,.project-page[data-project="casa-lomas"] .carousel-node.is-side-right{opacity:.55;transform:translateY(-2px) scale(.88);z-index:2;filter:saturate(.78)}
+.project-page[data-project="casa-lomas"] .carousel-node:is(.is-side-left,.is-side-right):hover{opacity:.8;transform:translateY(-6px) scale(.92)}
 .project-page[data-project="casa-lomas"] .project-section-carousel.is-shifting .carousel-node{transition-duration:380ms}
-.project-page[data-project="casa-lomas"] .hero-visual.is-exploring .carousel-node{opacity:.58}
-.project-page[data-project="casa-lomas"] .hero-visual.is-exploring .carousel-node.is-active{opacity:1}
 .project-page[data-project="casa-lomas"] .hero-visual.nodes-overlap-detected .project-hero__hotspots{position:absolute;left:50%;bottom:18px;top:auto;transform:translateX(-50%);display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;max-width:min(92vw,760px);width:min(92vw,760px);height:auto;justify-content:flex-start;padding:.2rem .25rem;z-index:28}
 .project-page[data-project="casa-lomas"] .hero-visual.nodes-overlap-detected .carousel-node{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;flex:0 0 auto;transform:scale(1);opacity:.95}
 .project-page[data-project="casa-lomas"] .project-hotspot{grid-template-columns:1fr;gap:.35rem;width:auto;padding:.32rem;background:transparent;border:0}
@@ -2537,7 +2537,7 @@ header.site-header{background:rgba(255,255,255,.88);backdrop-filter:blur(14px)}
   .project-gallery .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:1100px){
-  .project-page[data-project="casa-lomas"] .project-hero__hotspots{position:absolute;left:50%;bottom:18px;top:auto;transform:translateX(-50%);display:flex;gap:14px;overflow-x:auto;width:min(92vw,760px);max-width:min(92vw,760px);height:auto;justify-content:flex-start;padding:.2rem .25rem}
+  .project-page[data-project="casa-lomas"] .project-hero__hotspots{position:absolute;left:50%;bottom:108px;transform:translateX(-50%);display:flex;gap:10px;overflow-x:visible;width:min(92vw,500px);max-width:min(92vw,500px);justify-content:center;padding:.1rem}
   .project-page[data-project="casa-lomas"] .carousel-node{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;flex:0 0 auto;--thumb-size:84px}
 }
 @media (max-width:760px){

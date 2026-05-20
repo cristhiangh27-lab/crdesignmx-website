@@ -825,7 +825,6 @@ function initCasaLomasExplorer(data) {
   let active = 0;
   let resizeRaf = null;
   let hasActiveSection = false;
-  let preselectedKey = null;
   hotspotsWrap.innerHTML = '';
   const topbar = document.createElement('div');
   topbar.className = 'explorer-topbar';
@@ -866,7 +865,6 @@ function initCasaLomasExplorer(data) {
     activeTitle.textContent = translate('project.detail.exploreProject', 'Explore project');
     topbar.dataset.state = 'neutral';
     dots.querySelectorAll('button').forEach((d) => d.classList.remove('is-active'));
-    hotspotsWrap.querySelectorAll('.project-map-node').forEach((h) => h.classList.remove('is-active'));
     if (mainCard) {
       mainCard.classList.remove('is-node-active', 'is-expanded');
       if (mainCardTitle) mainCardTitle.textContent = original.title;
@@ -878,6 +876,30 @@ function initCasaLomasExplorer(data) {
     }
   };
 
+  const getVisibleIndices = () => {
+    const total = resolved.length;
+    const prev = (active - 1 + total) % total;
+    const next = (active + 1) % total;
+    return { prev, next };
+  };
+
+  const syncCarouselState = () => {
+    const { prev, next } = getVisibleIndices();
+    hotspotsWrap.querySelectorAll('.carousel-node').forEach((node, i) => {
+      const isCenter = i === active;
+      const isPrev = i === prev;
+      const isNext = i === next;
+      node.classList.toggle('is-active', isCenter);
+      node.classList.toggle('is-side-left', isPrev);
+      node.classList.toggle('is-side-right', isNext);
+      node.classList.toggle('is-visible', isCenter || isPrev || isNext);
+      node.classList.toggle('is-hidden', !(isCenter || isPrev || isNext));
+      node.setAttribute('aria-hidden', isCenter || isPrev || isNext ? 'false' : 'true');
+      node.tabIndex = isCenter || isPrev || isNext ? 0 : -1;
+    });
+    dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
+  };
+
   const setActive = (idx) => {
     hasActiveSection = true;
     active = (idx + resolved.length) % resolved.length;
@@ -886,8 +908,7 @@ function initCasaLomasExplorer(data) {
     topbar.dataset.state = item.key;
     heroImage.src = item.src;
     modal.innerHTML = '';
-    dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
-    hotspotsWrap.querySelectorAll('.project-map-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
+    syncCarouselState();
     hero.classList.add('is-exploring');
     hotspotsWrap.classList.add('is-shifting');
     setTimeout(() => hotspotsWrap.classList.remove('is-shifting'), 380);
@@ -941,14 +962,6 @@ function initCasaLomasExplorer(data) {
     btn.setAttribute('aria-label', n.label);
     btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
     btn.addEventListener('click', () => setActive(i));
-    btn.addEventListener('mouseenter', () => {
-      preselectedKey = n.key;
-      btn.classList.add('is-preselected');
-    });
-    btn.addEventListener('mouseleave', () => {
-      preselectedKey = null;
-      btn.classList.remove('is-preselected');
-    });
     btn.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -961,16 +974,11 @@ function initCasaLomasExplorer(data) {
     dot.addEventListener('click', () => setActive(i));
     dots.append(dot);
   });
-  prevBtn.addEventListener('click', () => {
-    if (!hasActiveSection) return;
-    setActive(active - 1);
-  });
-  nextBtn.addEventListener('click', () => {
-    if (!hasActiveSection) return;
-    setActive(active + 1);
-  });
+  prevBtn.addEventListener('click', () => setActive(active - 1));
+  nextBtn.addEventListener('click', () => setActive(active + 1));
   closeBtn.addEventListener('click', () => {
     applyNeutralState();
+    syncCarouselState();
     evaluateLayout();
   });
   if (mainCard) {
@@ -1014,6 +1022,7 @@ function initCasaLomasExplorer(data) {
   window.addEventListener('resize', onResize, { passive: true });
   hero.append(topbar, modal, dots);
   applyNeutralState();
+  syncCarouselState();
   const afterStableLayout = () => requestAnimationFrame(() => requestAnimationFrame(evaluateLayout));
   if (heroImage && !heroImage.complete) {
     heroImage.addEventListener('load', afterStableLayout, { once: true });
