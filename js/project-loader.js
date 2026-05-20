@@ -821,6 +821,7 @@ function initCasaLomasExplorer(data) {
   ];
   const resolved = nodes.map((n) => ({ ...n, src: resolveAsset(n.image, heroImage.src) }));
   let active = 0;
+  let resizeRaf = null;
   hotspotsWrap.innerHTML = '';
   const topbar = document.createElement('div');
   topbar.className = 'explorer-topbar';
@@ -863,6 +864,7 @@ function initCasaLomasExplorer(data) {
     hero.classList.add('is-exploring');
     if (mainCard) {
       mainCard.classList.add('is-node-active');
+      mainCard.classList.add('is-expanded');
       if (mainCardTitle) mainCardTitle.textContent = item.label;
       if (mainCardSummary) mainCardSummary.textContent = item.text;
       if (actions) {
@@ -897,15 +899,56 @@ function initCasaLomasExplorer(data) {
   nextBtn.addEventListener('click', () => setActive(active + 1));
   closeBtn.addEventListener('click', () => {
     hero.classList.remove('is-exploring');
+    hero.classList.remove('nodes-overlap-detected');
     if (mainCard) {
       mainCard.classList.remove('is-node-active');
+      mainCard.classList.remove('is-expanded');
       if (mainCardTitle) mainCardTitle.textContent = original.title;
       if (mainCardSummary) mainCardSummary.textContent = original.summary;
       if (actions) actions.innerHTML = original.actions;
     }
   });
+  if (mainCard) {
+    mainCard.classList.add('is-compact', 'central-project-card');
+    mainCard.addEventListener('mouseenter', () => mainCard.classList.add('is-expanded'));
+    mainCard.addEventListener('mouseleave', () => {
+      if (!mainCard.classList.contains('is-node-active')) mainCard.classList.remove('is-expanded');
+    });
+    mainCard.addEventListener('focusin', () => mainCard.classList.add('is-expanded'));
+    mainCard.addEventListener('focusout', () => {
+      if (!mainCard.contains(document.activeElement) && !mainCard.classList.contains('is-node-active')) {
+        mainCard.classList.remove('is-expanded');
+      }
+    });
+  }
+  const intersects = (a, b) => !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+  const evaluateLayout = () => {
+    const nodes = [...hotspotsWrap.querySelectorAll('.project-map-node')];
+    if (!nodes.length || !mainCard) return;
+    const cardRect = mainCard.getBoundingClientRect();
+    const introRect = hero.querySelector('.project-hero__intro')?.getBoundingClientRect();
+    const barRect = topbar.getBoundingClientRect();
+    const emailRect = document.querySelector('.email-float')?.getBoundingClientRect();
+    const hRect = hero.getBoundingClientRect();
+    const overlap = nodes.some((node) => {
+      const r = node.getBoundingClientRect();
+      const edgeClipped = r.left < hRect.left + 8 || r.right > hRect.right - 8 || r.top < hRect.top + 8 || r.bottom > hRect.bottom - 8;
+      return edgeClipped
+        || intersects(r, cardRect)
+        || (introRect && intersects(r, introRect))
+        || intersects(r, barRect)
+        || (emailRect && intersects(r, emailRect));
+    });
+    hero.classList.toggle('nodes-overlap-detected', overlap || window.innerWidth <= 1100);
+  };
+  const onResize = () => {
+    if (resizeRaf) cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(evaluateLayout);
+  };
+  window.addEventListener('resize', onResize, { passive: true });
   hero.append(topbar, modal, dots);
   setActive(0);
+  evaluateLayout();
 }
 
 function renderDescriptionFromMarkdown(md, data) {
