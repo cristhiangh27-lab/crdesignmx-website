@@ -805,6 +805,68 @@ function setHero(data) {
   }
 }
 
+function initCasaLomasExplorer(data) {
+  if (document.body.dataset.project !== 'casa-lomas') return;
+  const hero = document.querySelector('.project-hero--immersive .hero-visual');
+  const heroImage = hero?.querySelector('img');
+  const hotspotsWrap = hero?.querySelector('.project-hero__hotspots');
+  if (!hero || !heroImage || !hotspotsWrap) return;
+  const lang = getCurrentLang();
+  const nodes = [
+    { key: 'concept', label: translate('project.detail.hotspotConcept', 'Concept'), image: 'projects/casa-lomas/img/Vista%20princ2.jpg', text: translate('project.detail.conceptBody', 'Contemporary spatial composition with volumetric clarity and controlled natural light.') },
+    { key: 'bim', label: translate('project.detail.hotspotBim', 'BIM process'), image: 'projects/casa-lomas/img/XMPL1.png', text: translate('project.detail.bimBody', 'Coordinated BIM model to align design intent, documentation and constructability.') },
+    { key: 'materiality', label: translate('project.detail.hotspotMateriality', 'Materiality'), image: 'projects/casa-lomas/img/CALOM5.jpg', text: translate('project.detail.materialityBody', 'Muted materials and robust textures calibrated for warmth, durability and contrast.') },
+    { key: 'program', label: translate('project.detail.hotspotProgram', 'Program'), image: 'projects/casa-lomas/img/CALOM2.jpg', text: translate('project.detail.programBody', 'Social core, double-height living spaces and clear vertical circulation hierarchy.') },
+    { key: 'gallery', label: translate('project.detail.gallery', 'Gallery'), image: 'projects/casa-lomas/img/Miradorlomas01.jpg', text: translate('project.detail.galleryBody', 'A sequence of interior and exterior moments composed as an architectural narrative.') },
+  ];
+  const resolved = nodes.map((n) => ({ ...n, src: resolveAsset(n.image, heroImage.src) }));
+  let active = 0;
+  hotspotsWrap.innerHTML = '';
+  const topbar = document.createElement('div');
+  topbar.className = 'explorer-topbar';
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.textContent = '×';
+  closeBtn.setAttribute('aria-label', 'Close');
+  const prevBtn = document.createElement('button');
+  prevBtn.type = 'button';
+  prevBtn.textContent = '‹';
+  const nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.textContent = '›';
+  topbar.append(closeBtn, prevBtn, nextBtn);
+  const modal = document.createElement('article');
+  modal.className = 'explorer-modal';
+  const dots = document.createElement('div');
+  dots.className = 'explorer-dots';
+  const setActive = (idx) => {
+    active = (idx + resolved.length) % resolved.length;
+    const item = resolved[active];
+    heroImage.src = item.src;
+    modal.innerHTML = `<h4>${item.label}</h4><p>${item.text}</p>`;
+    dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('is-active', i === active));
+    hotspotsWrap.querySelectorAll('.project-hotspot').forEach((h, i) => h.classList.toggle('is-active', i === active));
+    hero.classList.add('is-exploring');
+  };
+  resolved.forEach((n, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `project-hotspot project-hotspot--${n.key}`;
+    btn.innerHTML = `<span class="project-hotspot__thumb" style="background-image:url('${n.src}')"></span><span>${n.label}</span>`;
+    btn.addEventListener('click', () => setActive(i));
+    hotspotsWrap.append(btn);
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.addEventListener('click', () => setActive(i));
+    dots.append(dot);
+  });
+  prevBtn.addEventListener('click', () => setActive(active - 1));
+  nextBtn.addEventListener('click', () => setActive(active + 1));
+  closeBtn.addEventListener('click', () => hero.classList.remove('is-exploring'));
+  hero.append(topbar, modal, dots);
+  setActive(0);
+}
+
 function renderDescriptionFromMarkdown(md) {
   const container = document.querySelector('.project-description .content');
   if (!container) return;
@@ -856,6 +918,7 @@ export async function renderProjectDetail(slug) {
     const [data, md] = await Promise.all([loadProjectData(slug, lang), loadProjectMarkdown(slug, lang)]);
     const { body } = parseFrontmatterMarkdown(md);
     setHero(data);
+    initCasaLomasExplorer(data);
     renderDescriptionFromMarkdown(body);
     await renderGallery(slug, body, data);
   } catch (error) {
