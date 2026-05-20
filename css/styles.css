@@ -1298,9 +1298,9 @@ body.project-page main {
   padding: .35rem .9rem 4rem;
 }
 
-.project-hero.project-hero--immersive{min-height:100vh;margin-bottom:2rem}
-.project-hero--immersive .hero-visual{position:relative;min-height:100vh;padding:0;border-radius:8px;overflow:hidden;background:#0a0c11}
-.project-hero--immersive .hero-visual img{width:100%;height:100%;object-fit:cover;min-height:100vh;filter:saturate(1.03)}
+.project-hero.project-hero--immersive{--header-height:88px;min-height:calc(100vh - var(--header-height));max-height:calc(100vh - var(--header-height));margin-bottom:2rem}
+.project-hero--immersive .hero-visual{position:relative;min-height:calc(100vh - var(--header-height));max-height:calc(100vh - var(--header-height));padding:0;border-radius:8px;overflow:hidden;background:#0a0c11}
+.project-hero--immersive .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center 42%;min-height:calc(100vh - var(--header-height));filter:saturate(1.05) contrast(1.02)}
 .project-hero--immersive .hero-visual::before{content:"";position:absolute;inset:0;background:
 linear-gradient(180deg,rgba(8,10,16,.52) 0%,rgba(8,10,16,.08) 34%,rgba(8,10,16,.56) 100%),
 radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-events:none;z-index:1}
@@ -1322,11 +1322,17 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-
 .project-hotspot:hover{transform:translateY(-4px) scale(1.02);border-color:rgba(193,141,33,.58);box-shadow:0 10px 24px rgba(0,0,0,.28)}
 .project-hotspot__thumb{width:44px;height:36px;background:linear-gradient(140deg,rgba(193,141,33,.3),rgba(50,60,90,.38));background-size:cover;background-position:center;border-radius:8px}
 .project-page[data-project="casa-lomas"] .project-hero__card{width:clamp(520px,31vw,640px);left:50%;transform:translateX(-50%);bottom:5vh}
+.project-page[data-project="casa-lomas"] .project-hero__card{transition:all .45s cubic-bezier(.16,1,.3,1);max-height:150px;overflow:hidden}
+.project-page[data-project="casa-lomas"] .project-hero__card .project-hero__bullets{opacity:0;max-height:0;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.project-page[data-project="casa-lomas"] .project-hero__card:hover,.project-page[data-project="casa-lomas"] .project-hero__card:focus-within,.project-page[data-project="casa-lomas"] .project-hero__card.is-node-active{max-height:300px;background:rgba(8,10,16,.68)}
+.project-page[data-project="casa-lomas"] .project-hero__card:hover .project-hero__bullets,.project-page[data-project="casa-lomas"] .project-hero__card:focus-within .project-hero__bullets,.project-page[data-project="casa-lomas"] .project-hero__card.is-node-active .project-hero__bullets{opacity:1;max-height:140px}
 .project-page[data-project="casa-lomas"] .project-hero__intro{max-width:min(62ch,52%)}
 .project-page[data-project="casa-lomas"] .project-node{position:absolute;display:grid;gap:.3rem;justify-items:start;padding:.22rem;background:transparent;border:0}
 .project-page[data-project="casa-lomas"] .project-node .project-hotspot__thumb{width:74px;height:74px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.24)}
 .project-page[data-project="casa-lomas"] .project-node span:last-child{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.9);padding-left:.12rem}
 .project-page[data-project="casa-lomas"] .project-node.is-active .project-hotspot__thumb{outline:1px solid rgba(193,141,33,.72)}
+.project-page[data-project="casa-lomas"] .project-node{transition:transform .35s cubic-bezier(.16,1,.3,1),filter .35s ease,opacity .35s ease;opacity:.92}
+.project-page[data-project="casa-lomas"] .project-node:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.08) contrast(1.04);opacity:1}
 .project-page[data-project="casa-lomas"] .project-hotspot{grid-template-columns:1fr;gap:.35rem;width:auto;padding:.32rem;background:transparent;border:0}
 .project-page[data-project="casa-lomas"] .project-hotspot span:last-child{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .project-page[data-project="casa-lomas"] .project-hotspot__thumb{width:72px;height:72px;border-radius:10px}
@@ -1339,6 +1345,7 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-
 .project-page[data-project="casa-lomas"] .project-hotspot.is-active{border-color:rgba(193,141,33,.68);box-shadow:0 10px 24px rgba(193,141,33,.22)}
 .explorer-topbar,.explorer-modal,.explorer-dots{position:absolute;z-index:3}
 .explorer-topbar{width:clamp(520px,31vw,640px);left:50%;transform:translateX(-50%);top:32px;min-height:56px;display:grid;grid-template-columns:40px 1fr 40px 40px;align-items:center;gap:.35rem;background:rgba(8,10,16,.58);border:1px solid rgba(255,255,255,.2);padding:.35rem .45rem;border-radius:14px}
+.explorer-topbar{animation:toolbarIn .45s cubic-bezier(.16,1,.3,1)}
 .explorer-topbar__title{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .explorer-topbar button{width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);color:#fff}
 .explorer-modal{right:clamp(1rem,2vw,1.4rem);bottom:clamp(1rem,2vw,1.4rem);max-width:340px;background:rgba(8,10,16,.62);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);padding:.75rem}
@@ -1347,6 +1354,7 @@ radial-gradient(circle at 12% 18%,rgba(193,141,33,.12),transparent 46%);pointer-
 .explorer-dots{right:clamp(1rem,2vw,1.4rem);bottom:clamp(.45rem,1.2vw,.75rem);display:flex;gap:.3rem}
 .explorer-dots button{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.34);border:0}
 .explorer-dots button.is-active{background:rgba(193,141,33,.9)}
+@keyframes toolbarIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 .project-description__meta{display:grid;gap:.35rem;align-content:start;padding:1rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.02)}
 .project-description__meta h3{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(193,141,33,.88)}
 .project-description__meta p{margin:0;font-size:.86rem}
@@ -2498,6 +2506,7 @@ header.site-header{background:rgba(255,255,255,.88);backdrop-filter:blur(14px)}
 }
 @media (max-width: 960px){
   .project-hero--immersive .hero-visual,.project-hero--immersive .hero-visual img{min-height:76vh}
+  .project-hero.project-hero--immersive,.project-hero--immersive .hero-visual{max-height:none}
   .project-hero__intro{max-width:92%}
   .project-hero__card{width:min(92%,680px)}
   .project-hero__hotspots{position:static;inset:auto;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);overflow:auto;padding:0 0 1rem;margin:0 1rem 1rem;pointer-events:auto}

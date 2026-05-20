@@ -853,7 +853,11 @@ function initCasaLomasExplorer(data) {
     hotspotsWrap.querySelectorAll('.project-node').forEach((h, i) => h.classList.toggle('is-active', i === active));
     hero.classList.add('is-exploring');
     const mainCard = hero.querySelector('.project-hero__card');
-    if (mainCard) mainCard.hidden = true;
+    if (mainCard) {
+      mainCard.classList.add('is-node-active');
+      const summary = mainCard.querySelector('.summary');
+      if (summary) summary.textContent = item.text;
+    }
   };
   resolved.forEach((n, i) => {
     const btn = document.createElement('button');
@@ -872,7 +876,7 @@ function initCasaLomasExplorer(data) {
   closeBtn.addEventListener('click', () => {
     hero.classList.remove('is-exploring');
     const mainCard = hero.querySelector('.project-hero__card');
-    if (mainCard) mainCard.hidden = false;
+    if (mainCard) mainCard.classList.remove('is-node-active');
   });
   hero.append(topbar, modal, dots);
   setActive(0);
