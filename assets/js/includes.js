@@ -40,6 +40,31 @@
 
     const year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
+
+    loadProjectEditorialAssets(root);
+  }
+
+  function loadProjectEditorialAssets(root) {
+    const path = window.location.pathname;
+    const isProjectDetail = path.includes('/projects/') && !path.endsWith('/projects.html');
+    const slug = document.body?.dataset?.project;
+    if (!isProjectDetail || slug === 'casa-lomas') return;
+
+    if (!document.querySelector('link[data-project-editorial]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = `${root}/css/project-editorial.css?v=1`;
+      link.dataset.projectEditorial = 'true';
+      document.head.append(link);
+    }
+
+    if (!document.querySelector('script[data-project-editorial]')) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = `${root}/js/project-editorial.js?v=1`;
+      script.dataset.projectEditorial = 'true';
+      document.body.append(script);
+    }
   }
 
   window.SiteIncludes = { resolveRootPath, loadIncludes };
