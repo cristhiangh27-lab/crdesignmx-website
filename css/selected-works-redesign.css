@@ -103,6 +103,12 @@
   letter-spacing: -.055em;
 }
 
+html[lang="es"] .works-console__header h3,
+html[lang="de"] .works-console__header h3 {
+  max-width: 15ch;
+  font-size: clamp(2.1rem, 7.1vw, 5.2rem);
+}
+
 .works-console__header p:last-child {
   margin: 0;
   color: var(--works-muted);
@@ -551,6 +557,12 @@
   .works-console__header h3 {
     max-width: 8.5ch;
     font-size: clamp(2.45rem, 17vw, 4.35rem);
+  }
+
+  html[lang="es"] .works-console__header h3,
+  html[lang="de"] .works-console__header h3 {
+    max-width: 100%;
+    font-size: clamp(2.15rem, 12.4vw, 3.05rem);
   }
 
   .works-console__header p:last-child {
