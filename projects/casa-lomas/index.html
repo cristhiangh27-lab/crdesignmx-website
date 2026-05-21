@@ -18,8 +18,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b1220">
-  <title>Casa Lomas – CR Collective</title>
+  <title>Casa Lomas - CR Collective</title>
   <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/casa-lomas-editorial.css?v=1">
 </head>
 <body class="project-page" data-project="casa-lomas">
   <div data-include="header"></div>
@@ -64,7 +65,7 @@
   <script src="../../assets/js/includes.js"></script>
   <script src="../../js/i18n.js"></script>
   <script type="module">
-    import { renderProjectDetail } from '../../js/project-loader.js';
+    import { renderProjectDetail } from '../../js/project-loader.js?v=casa-lomas-editorial-6';
 
     const slug = document.body.dataset.project;
 
@@ -78,5 +79,6 @@
       renderProjectDetail(slug);
     });
   </script>
+  <script type="module" src="../../js/casa-lomas-editorial.js?v=1"></script>
 </body>
 </html>
