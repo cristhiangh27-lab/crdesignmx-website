@@ -31,9 +31,10 @@
   <meta name="twitter:description" content="Arquitectura y visualización con procesos claros y entregables accionables.">
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
   <link rel="preload" as="style" href="css/styles.css">
-  <link rel="preload" as="script" href="js/project-loader.js">
+  <link rel="modulepreload" href="js/selected-works-redesign.js">
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/selected-works-redesign.css">
 </head>
 <body class="home">
   <div class="cc-fixed-dot-grid" aria-hidden="true"></div>
@@ -193,9 +194,9 @@
     });
   </script>
   <script type="module">
-    import { initFeaturedGallery } from './js/project-loader.js';
+    import { initSelectedWorksRedesign } from './js/selected-works-redesign.js';
     window.addEventListener('site-ready', () => {
-      initFeaturedGallery({ totalVisible: 4 });
+      initSelectedWorksRedesign({ totalVisible: 8 });
     });
   </script>
 
