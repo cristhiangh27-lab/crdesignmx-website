@@ -35,6 +35,7 @@
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/selected-works-redesign.css?v=2">
+  <link rel="stylesheet" href="css/home-editorial-sections.css?v=1">
 </head>
 <body class="home">
   <div class="cc-fixed-dot-grid" aria-hidden="true"></div>
@@ -68,26 +69,89 @@
     </section>
    </section>
 
-   <section class="home-section studio-thesis reveal" aria-labelledby="studio-thesis-title">
-    <p class="section-lead" data-i18n="thesis.eyebrow">Studio Thesis</p>
-    <h2 id="studio-thesis-title" data-i18n="thesis.body">CR Collective operates between design vision and buildable precision — transforming ideas into spaces that can be imagined, documented, coordinated and executed.</h2>
+   <section class="home-section studio-thesis studio-manifesto reveal" aria-labelledby="studio-thesis-title">
+    <div class="studio-manifesto__inner">
+      <div class="studio-manifesto__statement">
+        <p class="section-lead" data-i18n="thesis.eyebrow">Studio Thesis</p>
+        <h2 id="studio-thesis-title" data-i18n="thesis.title">Architecture becomes valuable when spatial character, technical intelligence and site decisions move as one system.</h2>
+        <p data-i18n="thesis.description">We shape each commission as a clear sequence: concept, BIM logic, material atmosphere and execution strategy aligned before the project reaches site.</p>
+      </div>
+      <div class="studio-manifesto__pillars" data-i18n-aria="thesis.pillarsAria" aria-label="Studio thesis pillars">
+        <article class="studio-manifesto__pillar">
+          <span>01</span>
+          <h3 data-i18n="thesis.pillar1.title">Spatial character</h3>
+          <p data-i18n="thesis.pillar1.body">Proportion, light and material intent give each project a memorable architectural identity.</p>
+        </article>
+        <article class="studio-manifesto__pillar">
+          <span>02</span>
+          <h3 data-i18n="thesis.pillar2.title">BIM intelligence</h3>
+          <p data-i18n="thesis.pillar2.body">Coordinated models transform design ambition into information that can be reviewed, priced and built.</p>
+        </article>
+        <article class="studio-manifesto__pillar">
+          <span>03</span>
+          <h3 data-i18n="thesis.pillar3.title">Site strategy</h3>
+          <p data-i18n="thesis.pillar3.body">Construction logic, sequence and real-site constraints inform decisions from the first concept.</p>
+        </article>
+      </div>
+    </div>
    </section>
 
-   <section class="home-section services-panel cc-dot-grid cc-dot-grid--solid" aria-labelledby="home-services-title">
-      <div class="section-header">
-        <div>
+   <section class="home-section services-panel services-index-section" aria-labelledby="home-services-title">
+      <div class="services-index__shell">
+        <div class="services-index__intro">
+          <p class="section-lead" data-i18n="services.indexEyebrow">Service Index</p>
           <h2 id="home-services-title" data-i18n="services.title">Studio Services</h2>
-          <p class="section-lead" data-i18n="services.lead">We support clients at every project stage with a clear methodology.</p>
+          <p data-i18n="services.indexIntro">A compact map of how we move from architectural intent to coordinated, buildable information.</p>
+          <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Email for a consultation</a>
         </div>
-        <a class="btn btn-primary" href="contact.html" data-i18n="services.cta">Email for a consultation</a>
+        <div class="services-index__list" data-i18n-aria="services.indexAria" aria-label="CR Collective service index">
+          <a class="service-index-row" href="projects.html" style="--service-preview: url('./img/services/anteproyecto.jpg');">
+            <span class="service-index-row__number">01</span>
+            <span class="service-index-row__copy">
+              <strong data-i18n="servicesPage.card1.title">Architecture</strong>
+              <span data-i18n="servicesPage.card1.body">We begin by understanding the site, the people, the constraints and the ambition behind the project.</span>
+            </span>
+            <span class="service-index-row__cta" data-i18n="services.cardCtaWork">See related work</span>
+            <span class="service-index-row__preview" aria-hidden="true"></span>
+          </a>
+          <a class="service-index-row" href="projects.html" style="--service-preview: url('./img/TP4.png');">
+            <span class="service-index-row__number">02</span>
+            <span class="service-index-row__copy">
+              <strong data-i18n="servicesPage.card3.title">BIM + Documentation</strong>
+              <span data-i18n="servicesPage.card3.body">We organize the project through models, drawings and information that support decisions and coordination.</span>
+            </span>
+            <span class="service-index-row__cta" data-i18n="services.cardCtaWork">See related work</span>
+            <span class="service-index-row__preview" aria-hidden="true"></span>
+          </a>
+          <a class="service-index-row" href="contact.html" style="--service-preview: url('./img/ALGP2.jpg');">
+            <span class="service-index-row__number">03</span>
+            <span class="service-index-row__copy">
+              <strong data-i18n="servicesPage.card4.title">Visualization</strong>
+              <span data-i18n="servicesPage.card4.body">We create images that help clients understand space before it is built.</span>
+            </span>
+            <span class="service-index-row__cta" data-i18n="services.cardCtaStart">Start a project</span>
+            <span class="service-index-row__preview" aria-hidden="true"></span>
+          </a>
+          <a class="service-index-row" href="services.html" style="--service-preview: url('./img/TIMILPAN INST.jpg');">
+            <span class="service-index-row__number">04</span>
+            <span class="service-index-row__copy">
+              <strong data-i18n="servicesPage.card5.title">Site Strategy</strong>
+              <span data-i18n="servicesPage.card5.body">We connect design decisions with construction logic, sequencing and real-site conditions.</span>
+            </span>
+            <span class="service-index-row__cta" data-i18n="services.cardCtaProcess">View process</span>
+            <span class="service-index-row__preview" aria-hidden="true"></span>
+          </a>
+          <a class="service-index-row" href="contact.html" style="--service-preview: url('./img/POR1.jpg');">
+            <span class="service-index-row__number">05</span>
+            <span class="service-index-row__copy">
+              <strong data-i18n="servicesPage.card6.title">Project Communication</strong>
+              <span data-i18n="servicesPage.card6.body">We structure information so clients, collaborators and builders can move with clarity.</span>
+            </span>
+            <span class="service-index-row__cta" data-i18n="services.indexCtaBrief">Plan the brief</span>
+            <span class="service-index-row__preview" aria-hidden="true"></span>
+          </a>
+        </div>
       </div>
-      <section class="services-grid services-grid--light" data-i18n-aria="servicesPage.gridAria" aria-label="CR Collective services">
-        <article class="service-card" style="--card-bg: url('./img/services/anteproyecto.jpg');"><h3 data-i18n="servicesPage.card1.title">Architecture</h3><p data-i18n="servicesPage.card1.body"></p><a class="service-link" href="projects.html" data-i18n="services.cardCtaWork">See related work</a></article>
-        <article class="service-card" style="--card-bg: url('./img/services/bim.jpg');"><h3 data-i18n="servicesPage.card3.title">BIM + Documentation</h3><p data-i18n="servicesPage.card3.body"></p><a class="service-link" href="projects.html" data-i18n="services.cardCtaWork">See related work</a></article>
-        <article class="service-card" style="--card-bg: url('./img/services/renders.jpg');"><h3 data-i18n="servicesPage.card4.title">Visualization</h3><p data-i18n="servicesPage.card4.body"></p><a class="service-link" href="contact.html" data-i18n="services.cardCtaStart">Start a project</a></article>
-        <article class="service-card" style="--card-bg: url('./img/services/asesoria.jpg');"><h3 data-i18n="servicesPage.card5.title">Site Strategy</h3><p data-i18n="servicesPage.card5.body"></p><a class="service-link" href="services.html" data-i18n="services.cardCtaProcess">View process</a></article>
-        <article class="service-card"><h3 data-i18n="servicesPage.card6.title">Project Communication</h3><p data-i18n="servicesPage.card6.body"></p></article>
-      </section>
    </section>
 
    <section id="studio-approach" class="home-section studio-approach reveal" aria-labelledby="studio-approach-title">
