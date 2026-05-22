@@ -1,15 +1,15 @@
 ---
 title: "Pasaje Algarín"
-location: "CDMX"
-category: "Comercial"
+location: "Mexico City"
+category: "Commercial"
 year: "2022"
-excerpt: "Pasaje urbano con locales flexibles y circulación cubierta."
+excerpt: "An urban passage with flexible retail units and covered circulation."
 ---
 
-# Pasaje Algarín · CDMX · Comercial · 2022
+# Pasaje Algarín - Mexico City - Commercial - 2022
 
-## Descripción
-Pasaje urbano con locales flexibles y circulación cubierta.
+## Description
+An urban passage with flexible retail units and covered circulation.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-06.svg)
+## Gallery
+![Image 1](../../img/placeholders/project-06.svg)

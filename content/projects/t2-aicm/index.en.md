@@ -1,36 +1,36 @@
 ---
-title: "Dedo Norte – Terminal 2 del AICM"
-location: "Ciudad de México"
-category: "Remodelación interior"
+title: "Dedo Norte – Terminal 2, AICM"
+location: "Mexico City"
+category: "Interior renovation"
 year: "2024"
-excerpt: "Actualización conceptual del Dedo Norte con nueva identidad interior, iluminación y materiales."
+excerpt: "Concept update for Dedo Norte with a renewed interior identity, lighting strategy and material language."
 ---
 
-# Dedo Norte – Terminal 2 del AICM · Remodelación Interior · 2024
+# Dedo Norte – Terminal 2, AICM · Interior renovation · 2024
 
-## Descripción general
-Proyecto conceptual desarrollado en colaboración con el arquitecto Guillermo Olvera Jiménez para renovar la imagen interior del Dedo Norte y el ambulatorio principal de la Terminal 2 del Aeropuerto Internacional de la Ciudad de México. Se consideraron lineamientos aeroportuarios, flujo de pasajeros, iluminación, señalización y una nueva lectura espacial acorde al contexto del Mundial 2026.
+## General description
+Conceptual project developed in collaboration with architect Guillermo Olvera Jiménez to renew the interior image of Dedo Norte and the main concourse of Terminal 2 at Mexico City International Airport. The proposal considered airport guidelines, passenger flow, lighting, wayfinding and a renewed spatial reading aligned with the context of the 2026 World Cup.
 
-## Concepto
-La propuesta plantea una actualización estética y funcional mediante:
-- Nuevos materiales
-- Mejoramiento de la iluminación general e indirecta
-- Ejes visuales más claros
-- Integración de patrones y geometrías para dar identidad al espacio
-- Reorganización perceptual sin afectar la operación aeroportuaria
+## Concept
+The proposal introduces an aesthetic and functional update through:
+- New material criteria
+- Improved general and indirect lighting
+- Clearer visual axes
+- Integration of patterns and geometries to give identity to the space
+- A perceptual reorganization that does not interrupt airport operations
 
-## Elementos clave
-- Diseño interior conceptual
-- Texturas, acabados y materialidad sugerida
-- Modelado y representación 3D para presentación a cliente
-- Integración con criterios aeroportuarios
+## Key elements
+- Conceptual interior design
+- Suggested textures, finishes and material palette
+- 3D modeling and visualization for client presentation
+- Integration with airport-design and operational criteria
 
-## Galería
-![Imagen 1](img/AICM01.jpg)
-![Imagen 2](img/AICM02.jpg)
-![Imagen 3](img/AICM03.jpg)
-![Imagen 3](img/AICM04.jpg)
-![Imagen 3](img/AICM05.jpg)
-![Imagen 3](img/AICM06.jpg)
-![Imagen 3](img/AICM07.jpg)
-![Imagen 3](img/AICM08.jpg)
+## Gallery
+![Image 1](img/AICM01.jpg)
+![Image 2](img/AICM02.jpg)
+![Image 3](img/AICM03.jpg)
+![Image 4](img/AICM04.jpg)
+![Image 5](img/AICM05.jpg)
+![Image 6](img/AICM06.jpg)
+![Image 7](img/AICM07.jpg)
+![Image 8](img/AICM08.jpg)

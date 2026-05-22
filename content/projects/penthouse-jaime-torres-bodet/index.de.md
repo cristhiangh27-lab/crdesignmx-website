@@ -1,32 +1,32 @@
 ---
 title: "Penthouse Jaime Torres Bodet"
-location: "CDMX"
-category: "Residencial"
+location: "Mexiko-Stadt"
+category: "Wohnen"
 year: "2024"
-excerpt: "Propuesta arquitectónica de alta gama con énfasis en iluminación natural y materialidad sobria."
+excerpt: "Ein hochwertiges Wohnkonzept, geprägt von natürlichem Licht, ruhiger Materialität und einem hybriden Wohn- und Arbeitsrhythmus."
 ---
 
-# Penthouse Jaime Torres Bodet - CDMX - Residencial - 2024
+# Penthouse Jaime Torres Bodet - Mexiko-Stadt - Wohnen - 2024
 
-Este Penthouse ubicado en Santa María la ribera es un proyecto residencial ubicado en Jaime Torres Bodet 182. Diseñado como un refugio creativo en las alturas, el espacio responde a una vida híbrida entre hogar y taller: un lugar flexible, íntimo y luminoso para un escultor que trabaja desde casa y necesita tanto concentración como inspiración, sin perder la posibilidad de recibir visitas y alojar de forma temporal a su pareja o a su hermana.
+Dieses Penthouse in Santa María la Ribera befindet sich in der Jaime Torres Bodet 182. Es wurde als kreativer Rückzugsort über der Stadt entworfen und reagiert auf ein hybrides Leben zwischen Zuhause und Atelier: flexibel, intim und lichtdurchflutet für einen Bildhauer, der von zu Hause arbeitet und gleichermaßen Konzentration und Inspiration braucht, ohne die Möglichkeit zu verlieren, Gäste zu empfangen oder zeitweise seine Partnerin oder Schwester unterzubringen.
 
-## Concepto arquitectónico
-La propuesta nace del diálogo entre arte, intimidad y ciudad. Se plantea una arquitectura de trazos simples y volúmenes claros, donde la luz natural se vuelve el material principal para acompañar la producción artística y la vida cotidiana. La cubierta, inspirada en la curvatura de las hojas de los árboles, define una silueta suave que se integra al cielo urbano y funciona como un gesto poético hacia lo natural, en relación directa con las vistas hacia la Alameda.
+## Architektonisches Konzept
+Der Entwurf entsteht aus dem Dialog zwischen Kunst, Privatheit und Stadt. Die Architektur setzt auf klare Volumen und einfache Linien, wobei Tageslicht zum wichtigsten Material für künstlerische Produktion und Alltag wird. Das Dach, inspiriert von der Krümmung von Baumblättern, definiert eine weiche Silhouette am Stadthimmel und wirkt als poetische Geste zur Natur, in direkter Beziehung zu den Blicken Richtung Alameda.
 
-## Programa arquitectónico
-- Acceso y transición (llegada controlada al ático)
-- Área social para recibir a 3 o 4 personas cómodamente
-- Cocina compacta pero funcional (enfasis en orden y eficiencia)
-- Espacio de trabajo / producción artística en casa
-- Área de descanso principal para pareja, manteniendo privacidad
-- Espacio de descanso ocasional para la hermana o el compañero (sin comprometer el orden)
-- Terraza / área exterior de contemplación y vistas
+## Raumprogramm
+- Zugang und Übergang mit kontrollierter Ankunft im Penthouse
+- Sozialbereich für drei bis vier Personen
+- Kompakte, funktionale Küche mit Fokus auf Ordnung und Effizienz
+- Arbeitsbereich für künstlerische Produktion zu Hause
+- Hauptschlafbereich für ein Paar mit Wahrung der Privatsphäre
+- Temporärer Schlafbereich für Schwester oder Begleitung, ohne die Ordnung zu beeinträchtigen
+- Terrasse und Außenbereich für Ausblick und Kontemplation
 
-## Notas adicionales
-Este proyecto fue concebido para volverse tangible desde el inicio: se modeló, se cortó y se armó como parte del proceso de diseño, asegurando claridad espacial, proporciones honestas y una materialidad sobria. PH Santa María sintetiza una forma accesible y sensible de habitar la ciudad: una vivienda que entiende que el hogar también puede ser un mundo creativo.
+## Zusätzliche Hinweise
+Das Projekt wurde von Anfang an als greifbarer Entwurf gedacht: Es wurde modelliert, geschnitten und montiert, um räumliche Klarheit, ehrliche Proportionen und eine zurückhaltende Materialität zu sichern. PH Santa María steht für eine zugängliche und sensible Art, die Stadt zu bewohnen: ein Zuhause, das versteht, dass Wohnen auch eine kreative Welt sein kann.
 
-## Galería
-![Vista principal](img/PH2.jpg)
-![Vista principal](img/PH3.jpg)
-![Vista principal](img/PH4.jpg)
-![Vista principal](img/PH5.jpg)
+## Galerie
+![Hauptansicht](img/PH2.jpg)
+![Hauptansicht](img/PH3.jpg)
+![Hauptansicht](img/PH4.jpg)
+![Hauptansicht](img/PH5.jpg)

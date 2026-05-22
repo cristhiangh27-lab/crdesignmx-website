@@ -1,47 +1,47 @@
 ---
 title: "Prisma Office"
-location: "Santa Fe, CDMX"
-category: "Corporativo"
+location: "Santa Fe, Mexico City"
+category: "Corporate"
 year: "2026"
-excerpt: "Intervención integral de acabados para el acceso principal y recepción de Prisma Office dentro de un piso corporativo en Santa Fe."
+excerpt: "A complete finishes intervention for the main access and reception area of Prisma Office inside a corporate floor in Santa Fe."
 ---
 
-# Prisma Office – Corporativo – Santa Fe, CDMX – 2026
+# Prisma Office - Corporate - Santa Fe, Mexico City - 2026
 
-Intervención integral de acabados para el acceso principal y recepción de Prisma Office dentro de un piso corporativo en Santa Fe. El proyecto parte de un espacio en obra gris ya definido por la envolvente existente, y propone una identidad interior contemporánea que combina calidez, precisión geométrica e industrialidad, elevando la experiencia de llegada con una atmósfera sobria y tecnológica.
+A complete finishes intervention for the main access and reception area of Prisma Office inside a corporate floor in Santa Fe. The project starts from a shell space already defined by its existing envelope and proposes a contemporary interior identity that combines warmth, geometric precision, and industrial character, elevating the arrival experience with a sober and technological atmosphere.
 
-La propuesta se enfoca en: control de vistas desde el pasillo de elevadores, lectura clara del acceso, una composición protagonista en el muro de fondo y un plafón escultórico que refuerza el carácter de marca sin saturar el espacio.
+The proposal focuses on controlling views from the elevator lobby, clarifying the entrance sequence, creating a strong back-wall composition, and introducing a sculptural ceiling that reinforces brand character without saturating the space.
 
-## Concepto
-La propuesta conceptual se construye con la idea de onda (flujo / frecuencia / movimiento): una geometría sutil que atraviesa el espacio y se expresa en tres niveles:
+## Concept
+The conceptual proposal is built around the idea of wave, understood as flow, frequency, and movement. This subtle geometry runs through the space and appears on three levels:
 
-- Luz y ritmo: iluminación lineal indirecta y acentos puntuales para resaltar textura y marca.
-- Trama industrial: plafón de rejilla metálica escalonada que evoca mecanicidad y precisión.
-- Calidez orgánica: celosías y listones de madera con variaciones sutiles que filtran luz y generan profundidad.
+- Light and rhythm through indirect linear lighting and focused accents that emphasize texture and brand presence
+- Industrial grid through stepped metal ceiling panels that evoke precision and mechanical order
+- Organic warmth through wood screens and slats with subtle variations that filter light and create depth
 
-## Elementos clave
-- Acceso con cancelería de 4 hojas (2 fijos laterales + 2 deslizables centrales) y película opaca con diseño gráfico.
-- Celosía lateral fija con patrón orgánico que permite el paso de luz y genera privacidad.
-- Celosía lateral móvil (dos hojas) que, al cerrarse, se integra como una sola composición; al abrirse, habilita el acceso a oficinas.
-- Muro de fondo con placas tipo piedra flexible montadas sobre tablaroca existente.
-- Lienzo de marca con tiras de madera que forman una onda, con letras principales al frente e iluminación dirigida.
-- Plafón protagónico: paneles de rejilla metálica en bastidores, organizados en escalonamiento tipo “olas”, enmarcados por un cajillo perimetral de tablaroca.
-- Piso en porcelanato / loseta cerámica tipo madera (formato 20x90 o equivalente según especificación final), para balancear textura mineral + madera.
+## Key elements
+- Entrance with four-panel glazing, including two fixed side panels and two central sliding panels, plus opaque film with custom graphics
+- Fixed side screen with organic patterning to allow light while generating privacy
+- Mobile side screen with two leaves that closes as one composition and opens to enable office access
+- Back wall with flexible stone panels mounted over the existing drywall
+- Brand canvas with wood strips forming a wave, main letters in front, and directed lighting
+- Feature ceiling with metal grid panels in frames, arranged as stepped waves and contained by a perimeter drywall cove
+- Wood-look porcelain or ceramic flooring to balance mineral texture, warmth, and durability
 
-## Alcance del trabajo
-- Diseño conceptual y desarrollo de propuesta de acabados.
-- Modelado 3D y coordinación de elementos especiales (herrería, carpintería, recubrimientos, cancelería).
-- Definición de materiales, especificaciones y criterios de instalación.
-- Entrega de BIMx con vistas, recorridos y láminas del proyecto para aprobación y ejecución.
+## Scope of work
+- Concept design and finishes proposal development
+- 3D modeling and coordination of special elements, including metalwork, millwork, cladding, and glazing
+- Material definition, specifications, and installation criteria
+- BIMx delivery with views, walkthroughs, and project sheets for approval and execution
 
-## Materialidad sugerida
-- Madera: encino natural (acabado semi mate o brillante según selección final).
-- Metal: estructura negra / grafito (bastidores de plafón y herrajes ocultos).
-- Piedra flexible: textura mineral en tonos grises, formato modular.
-- Cristal: cancelería con película (vinil esmerilado / opaco) con diseño a medida.
-- Piso: porcelanato o cerámico tipo madera para calidez y resistencia.
+## Suggested materiality
+- Wood: natural oak with final sheen to be selected
+- Metal: black or graphite structure for ceiling frames and concealed hardware
+- Flexible stone: modular mineral texture in gray tones
+- Glass: glazing with frosted or opaque custom film
+- Flooring: wood-look porcelain or ceramic for warmth and resistance
 
-## Galería
-![Imagen 2](img/PRISMA02.jpg)
-![Imagen 3](img/PRISMA03.jpg)
-![Imagen 4](img/PRISMA04.jpg)
+## Gallery
+![Image 2](img/PRISMA02.jpg)
+![Image 3](img/PRISMA03.jpg)
+![Image 4](img/PRISMA04.jpg)

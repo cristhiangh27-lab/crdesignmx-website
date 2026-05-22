@@ -1,36 +1,36 @@
 ---
-title: "Dedo Norte – Terminal 2 del AICM"
-location: "Ciudad de México"
-category: "Remodelación interior"
+title: "Dedo Norte – Terminal 2, AICM"
+location: "Mexiko-Stadt"
+category: "Innenumbau"
 year: "2024"
-excerpt: "Actualización conceptual del Dedo Norte con nueva identidad interior, iluminación y materiales."
+excerpt: "Konzeptuelle Aktualisierung des Dedo Norte mit neuer Innenraumidentität, Lichtstrategie und Materialität."
 ---
 
-# Dedo Norte – Terminal 2 del AICM · Remodelación Interior · 2024
+# Dedo Norte – Terminal 2, AICM · Innenumbau · 2024
 
-## Descripción general
-Proyecto conceptual desarrollado en colaboración con el arquitecto Guillermo Olvera Jiménez para renovar la imagen interior del Dedo Norte y el ambulatorio principal de la Terminal 2 del Aeropuerto Internacional de la Ciudad de México. Se consideraron lineamientos aeroportuarios, flujo de pasajeros, iluminación, señalización y una nueva lectura espacial acorde al contexto del Mundial 2026.
+## Allgemeine Beschreibung
+Konzeptprojekt in Zusammenarbeit mit dem Architekten Guillermo Olvera Jiménez zur Erneuerung des Innenraumbildes des Dedo Norte und der Haupthalle von Terminal 2 am internationalen Flughafen von Mexiko-Stadt. Berücksichtigt wurden Flughafenrichtlinien, Passagierfluss, Beleuchtung, Orientierung und eine neue räumliche Lesart im Kontext der Fußball-Weltmeisterschaft 2026.
 
-## Concepto
-La propuesta plantea una actualización estética y funcional mediante:
-- Nuevos materiales
-- Mejoramiento de la iluminación general e indirecta
-- Ejes visuales más claros
-- Integración de patrones y geometrías para dar identidad al espacio
-- Reorganización perceptual sin afectar la operación aeroportuaria
+## Konzept
+Der Entwurf schlägt eine ästhetische und funktionale Aktualisierung vor durch:
+- Neue Materialkriterien
+- Verbesserung der allgemeinen und indirekten Beleuchtung
+- Klarere Sichtachsen
+- Integration von Mustern und Geometrien zur Identitätsbildung
+- Eine wahrnehmbare Neuordnung ohne Beeinträchtigung des Flughafenbetriebs
 
-## Elementos clave
-- Diseño interior conceptual
-- Texturas, acabados y materialidad sugerida
-- Modelado y representación 3D para presentación a cliente
-- Integración con criterios aeroportuarios
+## Schlüsselelemente
+- Konzeptueller Innenraumentwurf
+- Vorgeschlagene Texturen, Oberflächen und Materialität
+- 3D-Modellierung und Darstellung für die Präsentation beim Auftraggeber
+- Integration mit flughafenspezifischen Entwurfs- und Betriebskriterien
 
-## Galería
-![Imagen 1](img/AICM01.jpg)
-![Imagen 2](img/AICM02.jpg)
-![Imagen 3](img/AICM03.jpg)
-![Imagen 3](img/AICM04.jpg)
-![Imagen 3](img/AICM05.jpg)
-![Imagen 3](img/AICM06.jpg)
-![Imagen 3](img/AICM07.jpg)
-![Imagen 3](img/AICM08.jpg)
+## Galerie
+![Bild 1](img/AICM01.jpg)
+![Bild 2](img/AICM02.jpg)
+![Bild 3](img/AICM03.jpg)
+![Bild 4](img/AICM04.jpg)
+![Bild 5](img/AICM05.jpg)
+![Bild 6](img/AICM06.jpg)
+![Bild 7](img/AICM07.jpg)
+![Bild 8](img/AICM08.jpg)
