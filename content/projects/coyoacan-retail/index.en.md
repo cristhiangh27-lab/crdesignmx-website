@@ -1,35 +1,37 @@
 ---
 title: "Coyoacán Retail"
-location: "CDMX"
-category: "Comercial"
+location: "Mexico City"
+category: "Commercial"
 year: "2023"
-excerpt: "Nodo retail con imagen contemporánea y recorridos lineales."
+excerpt: "A neighborhood retail node with a contemporary image, clear linear routes and an expressive structural identity."
 ---
 
-# Coyoacán Small Retail Complex - CDMX - Comercial - 2022
+# Coyoacán Small Retail Complex · Mexico City · Commercial · 2023
 
-Coyoacán Small Retail Complex es una propuesta de plaza comercial ubicada en Amp. Candelaria, Coyoacán, CDMX. El proyecto parte de la intención de transformar un terreno en esquina en un punto de encuentro urbano: un lugar que, además de albergar actividad económica, promueve la convivencia mediante una organización clara de recorridos, visuales amplias y espacios de estancia. La propuesta integra un frente contemporáneo con presencia nocturna y una imagen arquitectónica reconocible dentro del contexto inmediato.
+Coyoacán Small Retail Complex is a commercial proposal located in Amp. Candelaria, Coyoacán, Mexico City. The project turns a corner lot into an urban meeting point: a place that supports economic activity while encouraging social interaction through clear routes, open views and areas for staying.
 
-## Concepto arquitectónico
-El diseño se construye a partir de una idea central: convertir la estructura en parte del lenguaje del proyecto. En lugar de ocultarse, la estructura aparece como un elemento expresivo que define la identidad del conjunto y ordena los espacios interiores. La envolvente combina transparencias y filtros (celosías/lamas) para controlar luz, privacidad y temperatura, generando un edificio que se percibe ligero, abierto y dinámico.
+The proposal integrates a contemporary frontage with nighttime presence and a recognizable architectural image within its immediate context.
 
-El corazón del proyecto es un espacio de circulación y estancia con iluminación natural, pensado como un pequeño “atrio” comercial que articula los locales, genera orientaciones claras y permite que el visitante recorra, mire y permanezca. La cubierta y los elementos estructurales de geometría orgánica aportan carácter y una lectura contemporánea, con un guiño a soluciones paramétricas y a la arquitectura como experiencia espacial.
+## Architectural concept
+The design is built around a central idea: making the structure part of the architectural language. Instead of hiding it, the structure becomes an expressive element that defines the identity of the complex and organizes the interior spaces.
 
-## Programa arquitectónico
-- Acceso peatonal principal desde esquina (plaza/antesala urbana)
-- Pasillo comercial / circulación principal con doble altura y luz cenital
-- Locales comerciales (orientados a cafetería/abarrotes/servicios de barrio)
-- Área de estancia / terraza para consumo (mesas y convivencia)
-- Conexiones visuales entre niveles (barandales y vacíos interiores)
-- Sanitarios y servicios para operación del conjunto
-- Área de carga/descarga y cuartos técnicos (según operación)
-- Estacionamiento (resuelto en perímetro o frente, con control de accesos)
-- Señalética e imagen nocturna (letrero / iluminación arquitectónica)
+The envelope combines transparency and filtering elements to control light, privacy and temperature, generating a building that feels light, open and dynamic. At the center, a naturally lit circulation and stay area operates as a small commercial atrium that connects the retail units and gives visitors clear orientation.
 
-## Notas adicionales
-El proyecto propone una solución comercial de escala contenida, pero con una identidad fuerte: estructura metálica expuesta, grandes claros, transparencias y una envolvente que trabaja como filtro climático y visual. Se privilegia la experiencia del usuario (recorridos, luz, orientación) y la viabilidad constructiva mediante un sistema estructural claro y repetible.
+## Architectural program
+- Main pedestrian entrance from the corner
+- Commercial corridor with double height and natural light
+- Retail units for neighborhood services, cafe or convenience uses
+- Stay area or terrace for consumption and gathering
+- Visual connections between levels
+- Restrooms and operational services
+- Loading, storage and technical rooms according to operation
+- Parking resolved through perimeter or front access control
+- Signage and nighttime identity
 
-## Galería
-![Vista principal](img/COYO2.jpg)
-![Vista principal](img/COYO3.jpg)
-![Vista principal](img/COYO4.jpg)
+## Additional notes
+The project proposes a compact commercial solution with a strong identity: exposed steel structure, wide spans, transparency and an envelope that works as a climatic and visual filter. User experience and construction feasibility are prioritized through a clear, repeatable structural system.
+
+## Gallery
+![Main view](img/COYO2.jpg)
+![Main view](img/COYO3.jpg)
+![Main view](img/COYO4.jpg)

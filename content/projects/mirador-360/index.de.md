@@ -1,36 +1,36 @@
 ---
 title: "Zicatela Surf Retreat"
-location: "Oaxaca, México"
-category: "Hospitalidad"
+location: "Oaxaca, Mexiko"
+category: "Gastgewerbe"
 year: "2018"
-excerpt: "Refugio tropical con vistas panorámicas y terrazas escalonadas."
+excerpt: "Ein tropischer Rückzugsort mit Panoramablick, verschatteten Terrassen und starker Verbindung zwischen Innen- und Außenraum."
 ---
 
-# Zicatela Surf Retreat · Oaxaca, México · Hospitalidad · 2019
+# Zicatela Surf Retreat - Oaxaca, Mexiko - Gastgewerbe - 2019
 
-Complejo de cabañas tropicales frente al mar, concebido como un retiro de playa con atmósfera relajada y fuerte conexión interior–exterior. El proyecto organiza volúmenes de un nivel con terrazas y porches sombreados, integrando circulación peatonal sobre arena y vegetación costera para enmarcar vistas y recorridos hacia el paisaje.
+Ein Ensemble tropischer Strandhütten am Meer, konzipiert als entspannter Rückzugsort mit enger Verbindung zwischen Innen- und Außenraum. Das Projekt ordnet eingeschossige Volumen mit Terrassen und verschatteten Vorbereichen, integriert Fußwege über Sand und Küstenvegetation und rahmt dabei Ausblicke und Wege durch die Landschaft.
 
-## Concepto
-La propuesta busca un equilibrio entre simplicidad constructiva y experiencia sensorial de playa, priorizando:
-- Vida al exterior: terrazas, pórticos y áreas de estancia abiertas
-- Sombra y confort térmico mediante cubiertas, volados y elementos filtrantes
-- Relación visual constante con el entorno (mar / vegetación) a través de grandes vanos
-- Implantación ligera sobre el terreno con recorridos claros y zonas de reunión
+## Konzept
+Der Entwurf sucht ein Gleichgewicht zwischen konstruktiver Einfachheit und der sinnlichen Erfahrung des Strandes. Priorisiert werden:
+- Leben im Freien mit Terrassen, Portiken und offenen Aufenthaltsbereichen
+- Schatten und thermischer Komfort durch Dächer, Auskragungen und filternde Elemente
+- Ständige visuelle Beziehung zur Umgebung durch große Öffnungen
+- Eine leichte Setzung im Gelände mit klaren Wegen und Treffpunkten
 
-## Estrategias de diseño
-- Volumetría modular: unidades alineadas y conectadas por pórticos para ordenar el conjunto
-- Materialidad cálida: madera aparente, acabados neutros y cubiertas en tonos tierra para armonizar con el sitio
-- Transparencia controlada: cancelería amplia para iluminación natural y sensación de amplitud
-- Paisajismo costero: vegetación baja como filtro, borde y transición entre arena y arquitectura
-- Espacios comunes: palapa / pabellón abierto como punto social y de sombra
+## Entwurfsstrategien
+- Modulare Volumetrie mit ausgerichteten Einheiten, verbunden durch Portiken
+- Warme Materialität mit sichtbarem Holz, neutralen Oberflächen und erdigen Dachfarben
+- Kontrollierte Transparenz durch breite Verglasung für Tageslicht und Weite
+- Küstenbepflanzung als Filter, Rand und Übergang zwischen Sand und Architektur
+- Gemeinschaftsflächen mit offener Palapa als sozialem und verschattetem Mittelpunkt
 
-## Elementos clave
-- Diseño conceptual arquitectónico
-- Implantación y organización del conjunto
-- Definición de materialidad y acabados (madera, tonos arena, cubiertas)
-- Modelado 3D y representación para presentación
-- Ambientación y propuesta de mobiliario exterior (terrazas / palapa)
+## Schlüsselelemente
+- Architektonischer Konzeptentwurf
+- Setzung und Organisation des Ensembles
+- Definition von Materialität und Oberflächen, einschließlich Holz, Sandtönen und Dachpalette
+- 3D-Modellierung und Präsentationsbilder
+- Atmosphäre und Möblierungsvorschlag für Terrassen und Palapa
 
-## Galería
-![Imagen 1](img/ZICA2.jpg)
-![Imagen 2](img/ZICA3.jpg)
+## Galerie
+![Bild 1](img/ZICA2.jpg)
+![Bild 2](img/ZICA3.jpg)

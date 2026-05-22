@@ -1,15 +1,15 @@
 ---
 title: "Lago Atelier"
-location: "Guadalajara, México"
-category: "Cultural"
+location: "Guadalajara, Mexiko"
+category: "Kultur"
 year: "2023"
-excerpt: "Atelier artístico con iluminación cenital y espacios flexibles."
+excerpt: "Ein Kunst-Atelier mit Oberlicht und flexiblen Arbeits- und Ausstellungsräumen."
 ---
 
-# Lago Atelier · Guadalajara, México · Cultural · 2023
+# Lago Atelier - Guadalajara, Mexiko - Kultur - 2023
 
-## Descripción
-Atelier artístico con iluminación cenital y espacios flexibles.
+## Beschreibung
+Ein Kunst-Atelier mit Oberlicht und flexiblen Arbeits- und Ausstellungsräumen.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-09.svg)
+## Galerie
+![Bild 1](../../img/placeholders/project-09.svg)

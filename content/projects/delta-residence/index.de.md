@@ -1,15 +1,15 @@
 ---
 title: "Delta Residence"
-location: "Mérida, México"
-category: "Residencial"
+location: "Mérida, Mexiko"
+category: "Wohnen"
 year: "2022"
-excerpt: "Vivienda tropical con patios sombreados y ventilación cruzada."
+excerpt: "Ein tropisches Wohnhaus mit verschatteten Höfen und Querlüftung."
 ---
 
-# Delta Residence · Mérida, México · Residencial · 2022
+# Delta Residence - Mérida, Mexiko - Wohnen - 2022
 
-## Descripción
-Vivienda tropical con patios sombreados y ventilación cruzada.
+## Beschreibung
+Ein tropisches Wohnhaus mit verschatteten Höfen und Querlüftung.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-13.svg)
+## Galerie
+![Bild 1](../../img/placeholders/project-13.svg)

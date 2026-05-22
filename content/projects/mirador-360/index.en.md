@@ -1,36 +1,36 @@
 ---
 title: "Zicatela Surf Retreat"
-location: "Oaxaca, México"
-category: "Hospitalidad"
+location: "Oaxaca, Mexico"
+category: "Hospitality"
 year: "2018"
-excerpt: "Refugio tropical con vistas panorámicas y terrazas escalonadas."
+excerpt: "A tropical retreat with panoramic views, shaded terraces, and a strong indoor-outdoor connection."
 ---
 
-# Zicatela Surf Retreat · Oaxaca, México · Hospitalidad · 2019
+# Zicatela Surf Retreat - Oaxaca, Mexico - Hospitality - 2019
 
-Complejo de cabañas tropicales frente al mar, concebido como un retiro de playa con atmósfera relajada y fuerte conexión interior–exterior. El proyecto organiza volúmenes de un nivel con terrazas y porches sombreados, integrando circulación peatonal sobre arena y vegetación costera para enmarcar vistas y recorridos hacia el paisaje.
+A seaside complex of tropical cabins conceived as a beach retreat with a relaxed atmosphere and a strong indoor-outdoor connection. The project organizes single-level volumes with shaded terraces and porches, integrating pedestrian circulation over sand and coastal vegetation to frame views and movement through the landscape.
 
-## Concepto
-La propuesta busca un equilibrio entre simplicidad constructiva y experiencia sensorial de playa, priorizando:
-- Vida al exterior: terrazas, pórticos y áreas de estancia abiertas
-- Sombra y confort térmico mediante cubiertas, volados y elementos filtrantes
-- Relación visual constante con el entorno (mar / vegetación) a través de grandes vanos
-- Implantación ligera sobre el terreno con recorridos claros y zonas de reunión
+## Concept
+The proposal balances constructive simplicity with the sensory experience of the beach, prioritizing:
+- Outdoor living through terraces, porches, and open lounge areas
+- Shade and thermal comfort through roofs, overhangs, and filtering elements
+- Constant visual connection with the surroundings through generous openings
+- A light site strategy with clear routes and gathering areas
 
-## Estrategias de diseño
-- Volumetría modular: unidades alineadas y conectadas por pórticos para ordenar el conjunto
-- Materialidad cálida: madera aparente, acabados neutros y cubiertas en tonos tierra para armonizar con el sitio
-- Transparencia controlada: cancelería amplia para iluminación natural y sensación de amplitud
-- Paisajismo costero: vegetación baja como filtro, borde y transición entre arena y arquitectura
-- Espacios comunes: palapa / pabellón abierto como punto social y de sombra
+## Design strategies
+- Modular massing with aligned units connected by porches to organize the complex
+- Warm materiality with exposed wood, neutral finishes, and earth-toned roofs
+- Controlled transparency through broad glazing for daylight and openness
+- Coastal planting as filter, edge, and transition between sand and architecture
+- Shared areas including an open palapa pavilion as a social and shaded point
 
-## Elementos clave
-- Diseño conceptual arquitectónico
-- Implantación y organización del conjunto
-- Definición de materialidad y acabados (madera, tonos arena, cubiertas)
-- Modelado 3D y representación para presentación
-- Ambientación y propuesta de mobiliario exterior (terrazas / palapa)
+## Key elements
+- Architectural concept design
+- Site placement and organization of the complex
+- Definition of materiality and finishes, including wood, sand tones, and roof palette
+- 3D modeling and presentation imagery
+- Exterior atmosphere and furniture proposal for terraces and palapa
 
-## Galería
-![Imagen 1](img/ZICA2.jpg)
-![Imagen 2](img/ZICA3.jpg)
+## Gallery
+![Image 1](img/ZICA2.jpg)
+![Image 2](img/ZICA3.jpg)

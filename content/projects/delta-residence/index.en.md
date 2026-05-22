@@ -1,15 +1,15 @@
 ---
 title: "Delta Residence"
-location: "Mérida, México"
-category: "Residencial"
+location: "Mérida, Mexico"
+category: "Residential"
 year: "2022"
-excerpt: "Vivienda tropical con patios sombreados y ventilación cruzada."
+excerpt: "A tropical home with shaded patios and cross ventilation."
 ---
 
-# Delta Residence · Mérida, México · Residencial · 2022
+# Delta Residence - Mérida, Mexico - Residential - 2022
 
-## Descripción
-Vivienda tropical con patios sombreados y ventilación cruzada.
+## Description
+A tropical home with shaded patios and cross ventilation.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-13.svg)
+## Gallery
+![Image 1](../../img/placeholders/project-13.svg)
