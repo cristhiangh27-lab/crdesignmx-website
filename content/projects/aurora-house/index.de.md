@@ -1,36 +1,36 @@
 ---
 title: "Aurora House"
-location: "Querétaro, México"
-category: "Residencial"
+location: "Querétaro, Mexiko"
+category: "Wohnen"
 year: "2024"
-excerpt: "Residencia contemporánea con patios luminosos y conexión interior-exterior."
+excerpt: "Eine zeitgenössische Residenz mit hellen Höfen, kontrollierten Öffnungen und starker Innen-Außen-Beziehung."
 ---
 
-# Aurora House · Querétaro · Residencial · 2024
+# Aurora House · Querétaro · Wohnen · 2024
 
-Aurora House es una vivienda contemporánea diseñada para maximizar el aprovechamiento de un terreno con condicionantes reales. Debido a la presencia de muros medianeros que limitan la apertura de vanos en planta baja, el proyecto desplaza el protagonismo hacia el segundo nivel, integrando luz y ventilación de manera más eficiente y mejorando el confort interior.
+Aurora House ist ein zeitgenössisches Wohnhaus, das die Möglichkeiten eines Grundstücks mit realen Einschränkungen nutzt. Da Brand- und Nachbarwände Öffnungen im Erdgeschoss begrenzen, verlagert das Projekt die Hauptstrategie für Licht und Lüftung auf die zweite Ebene und verbessert so Komfort und Privatheit.
 
-La propuesta busca una conexión clara entre interior y exterior mediante patios y aperturas controladas, generando espacios luminosos y habitables. En la cubierta, el roof garden transforma el techo en un espacio de esparcimiento y relajación, pensado como una extensión funcional de la casa.
+Die Lösung schafft über Höfe und kontrollierte Öffnungen eine klare Beziehung zwischen Innen und Außen. Dadurch entstehen helle, bewohnbare Räume. Auf dem Dach verwandelt ein Dachgarten die obere Ebene in einen Bereich für Aufenthalt und Erholung, gedacht als funktionale Erweiterung des Hauses.
 
-El sistema constructivo con losacero permite una estructura resistente y ligera, favoreciendo soluciones viables y preparadas para futuras adaptaciones.
+Das Losacero-Tragsystem ermöglicht eine robuste und leichte Konstruktion und unterstützt realisierbare Lösungen sowie spätere Anpassungen.
 
-## Concepto arquitectónico
-El diseño responde a restricciones de fachada y colindancias mediante una estrategia de elevación: reducir dependencias de iluminación frontal en planta baja y aprovechar el segundo nivel para capturar iluminación natural, ventilación y privacidad. La volumetría se mantiene sobria y contemporánea, priorizando claridad espacial, funcionalidad y una relación interior–exterior basada en patios y recorridos simples.
+## Architektonisches Konzept
+Der Entwurf reagiert auf Fassaden- und Grenzbedingungen mit einer Strategie der Erhöhung: weniger Abhängigkeit von frontaler Belichtung im Erdgeschoss und Nutzung der oberen Ebene für Tageslicht, Lüftung und Privatheit. Die Volumetrie bleibt zurückhaltend und zeitgenössisch, mit Fokus auf räumliche Klarheit, Funktion und eine Innen-Außen-Beziehung über Höfe.
 
-## Programa arquitectónico
-- Acceso principal
-- Área social (sala / estancia)
-- Cocina y comedor integrados
-- Patio(s) como fuente de iluminación y ventilación
-- Recámara(s) y servicios en niveles superiores
-- Roof garden (terraza habitable)
-- Área de servicio / almacenamiento (según requerimientos del cliente)
+## Raumprogramm
+- Haupteingang
+- Sozialbereich / Wohnraum
+- Integrierte Küche und Essbereich
+- Höfe als Quellen für Tageslicht und Lüftung
+- Schlafzimmer und Nebenräume auf oberen Ebenen
+- Dachgarten
+- Service- und Lagerbereiche nach Anforderungen des Bauherrn
 
-## Notas adicionales
-Proyecto residencial desarrollado por CR Collective con enfoque en soluciones reales: responder a las limitaciones del sitio, optimizar el presupuesto y generar espacios contemporáneos con potencial de crecimiento y adaptación a futuro.
+## Zusätzliche Hinweise
+Dieses Wohnprojekt wurde von CR Collective mit Fokus auf reale Lösungen entwickelt: auf Grundstücksgrenzen reagieren, Budget optimieren und zeitgenössische Räume mit Potenzial für Wachstum und Anpassung schaffen.
 
-## Galería
-![Imagen 1](img/AURORA2.jpg)
-![Imagen 1](img/AURORA3.jpg)
-![Imagen 1](img/AURORA4.jpg)
-![Imagen 1](img/AURORA5.jpg)
+## Galerie
+![Bild 1](img/AURORA2.jpg)
+![Bild 2](img/AURORA3.jpg)
+![Bild 3](img/AURORA4.jpg)
+![Bild 4](img/AURORA5.jpg)

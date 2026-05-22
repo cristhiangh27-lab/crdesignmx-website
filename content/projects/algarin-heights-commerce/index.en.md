@@ -1,57 +1,52 @@
 ---
 title: "Algarín Heights & Commerce"
-location: "CDMX"
-category: "Uso mixto"
+location: "Mexico City"
+category: "Mixed use"
 year: "2024"
-excerpt: "Complejo comercial con estrategias de circulación clara y fachadas contemporáneas."
+excerpt: "A mixed-use complex with clear circulation strategies, an active commercial passage and contemporary facades."
 ---
 
-# Algarín Heights & Commerce — CDMX | Uso mixto | 2024
+# Algarín Heights & Commerce — Mexico City · Mixed use · 2024
 
-Algarín Heights & Commerce es un proyecto de uso mixto ubicado en la Colonia Algarín, Ciudad de México, concebido como un conjunto que integra departamentos habitacionales, un pasaje comercial y un sótano de estacionamiento, con el objetivo de activar la vida urbana a nivel de calle y optimizar la relación entre vivienda y comercio.
+Algarín Heights & Commerce is a mixed-use project in Colonia Algarín, Mexico City, conceived as a complex that integrates housing, a commercial passage and underground parking. Its objective is to activate street life while optimizing the relationship between residential and commercial uses.
 
-El planteamiento parte de una planta baja abierta y activa, donde se incorporan locales comerciales y comercios ancla con frentes hacia sus respectivas calles, fortaleciendo la seguridad, la permanencia y el flujo peatonal en el entorno inmediato.
+The proposal starts with an open and active ground floor, incorporating commercial spaces and anchor tenants with street-facing fronts to strengthen safety, permanence and pedestrian flow around the site.
 
-## Colaboración
-Proyecto desarrollado en colaboración con:
+## Collaboration
+Project developed in collaboration with:
 - Arq. Guillermo Olvera Jiménez
 - Arq. David Alexis Flores Ventura
 - Arq. Andre Eduardo Miranda Nava
 
-## Ficha del proyecto
-- Ubicación: Colonia Algarín, CDMX  
-- Tipología: Uso mixto (vivienda + comercio)  
-- Programa: Departamentos + pasaje comercial + locales en PB + sótano de estacionamiento  
-- Estrategia urbana: Activación de banqueta y conexión peatonal mediante pasaje  
-- Enfoque: Integración de flujos, claridad de circulaciones y fachadas contemporáneas
+## Project facts
+- Location: Colonia Algarín, Mexico City
+- Typology: Mixed use (housing + commerce)
+- Program: Apartments, commercial passage, ground-floor retail and underground parking
+- Urban strategy: Sidewalk activation and pedestrian connection through a passage
+- Focus: Flow integration, circulation clarity and contemporary facades
 
-## Concepto urbano–arquitectónico
-El proyecto se organiza como un pasaje que articula el conjunto y funciona como “columna vertebral” del comercio, conectando los accesos desde calle y distribuyendo a los locales. Sobre esta base, la vivienda se plantea como un volumen eficiente, con circulaciones claras y un sistema de accesos que separa adecuadamente lo público (comercio) de lo privado (departamentos).
+## Urban and architectural concept
+The project is organized around a passage that acts as the commercial spine of the complex, connecting the street access points and distributing visitors toward the retail units. Above this base, the residential volume is designed as an efficient body with clear circulation and an access system that separates public commerce from private housing.
 
-La propuesta busca equilibrar:
-- Actividad urbana (frentes comerciales y anclas hacia calle)
-- Habitabilidad (privacidad, iluminación y ventilación)
-- Operación (estacionamiento en sótano y servicios organizados)
+The proposal balances:
+- Urban activity through commercial fronts and anchor tenants
+- Habitability through privacy, daylight and ventilation
+- Operation through organized parking and service areas
 
-## Organización del conjunto
-- Sótano: Estacionamiento y áreas técnicas/servicio (según criterios de operación del conjunto)  
-- Planta baja: Pasaje comercial + locales + comercios ancla orientados a sus calles  
-- Niveles superiores: Departamentos habitacionales con circulación controlada  
-- Azotea (si aplica): Servicios y/o amenidades (según desarrollo del esquema final)
+## Complex organization
+- Basement: Parking and technical/service areas according to operational criteria
+- Ground floor: Commercial passage, retail units and anchor tenants facing the street
+- Upper levels: Apartments with controlled circulation
+- Roof level: Services or amenities according to the final scheme
 
-## Elementos clave
-- Pasaje comercial como organizador de flujos y activador urbano  
-- Locales con frentes claros, ritmo de fachada y puntos de atracción (anclas)  
-- Separación funcional entre accesos comerciales y acceso habitacional  
-- Lectura contemporánea de fachada con control de vanos y jerarquía de accesos  
-- Priorización de recorridos peatonales y claridad de orientación
+## Key elements
+- Commercial passage as a flow organizer and urban activator
+- Retail fronts with clear rhythm and attraction points
+- Functional separation between commercial and residential access
+- Contemporary facade language with controlled openings and access hierarchy
+- Prioritization of pedestrian routes and clear orientation
 
-## Galería
-
+## Gallery
 ![Render 1](img/COYO2.jpg)
 ![Render 2](img/COYO3.jpg)
 ![Render 3](img/COYO4.jpg)
-
-<!-- Alternativa con placeholder general (si todavía no hay imágenes):
-![Imagen 1](../../img/placeholders/project-02.svg)
--->

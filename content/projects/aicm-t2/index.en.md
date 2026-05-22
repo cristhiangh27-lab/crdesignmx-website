@@ -1,39 +1,39 @@
 ---
 title: "Star Médica Santa Fe"
-location: "Ciudad de México, México"
-category: "Hospitalario"
+location: "Mexico City, Mexico"
+category: "Healthcare"
 year: "2024"
-excerpt: "Diseño y canalización de subestaciones eléctricas para el edificio: Sistema de Alimentadores generales y conexión a tierras"
+excerpt: "Electrical substation routing and grounding documentation for a highly coordinated healthcare building."
 ---
 
-# Star Médica Santa Fe · Ciudad de México · Hospitalario · 2024
+# Star Médica Santa Fe · Mexico City · Healthcare · 2024
 
-Star Médica Santa Fe es un proyecto hospitalario de alta complejidad desarrollado en Ciudad de México, donde CR Collective participó en la coordinación BIM y documentación técnica de instalaciones, enfocándose en la integración entre diseño, modelado y ejecución en sitio. El trabajo se centró en convertir información dispersa y cambios constantes en un sistema ordenado: modelos 3D confiables, cuantificación precisa y documentación clara para construcción, priorizando trazos eficientes, compatibilización con arquitectura/estructura y toma de decisiones basada en datos.
+Star Médica Santa Fe is a high-complexity healthcare project in Mexico City. CR Collective participated in BIM coordination and technical documentation for building systems, focusing on the integration between design, modeling and on-site execution. The work transformed dispersed information and constant changes into an ordered system: reliable 3D models, accurate quantities and clear construction documents.
 
-## Concepto arquitectónico
-La prioridad del proyecto fue lograr instalaciones ejecutables y verificables, no solo “bonitas en 3D”. Se trabajó con un enfoque de control técnico: rutas óptimas, jerarquías de líneas, validación de interferencias y criterios de montaje. El modelo se utilizó como herramienta de coordinación y como base para cuantificar, programar y documentar, asegurando coherencia entre lo que se diseña, lo que se compra y lo que se instala.
+## Technical concept
+The priority was to create installations that could be executed and verified, not only represented in 3D. The workflow focused on optimized routes, hierarchy of lines, clash validation and installation criteria. The model became a coordination tool and a basis for quantifying, scheduling and documenting the work, aligning what is designed, purchased and installed.
 
-## Alcance de CR Collective
-- Modelado BIM de instalaciones (trazos, accesorios, conexiones y criterios de montaje).
-- Diseño y ajuste de rutas de tubería y canalizaciones conforme a restricciones reales de obra.
-- Compatibilización interdisciplinaria (detección y corrección de interferencias).
-- Generación y actualización de planos para construcción (plantas, isométricos, detalles y notas).
-- Cuantificación de materiales (longitudes, diámetros, accesorios y elementos asociados).
-- Soporte a ejecución: revisión en sitio, validación de cambios y documentación “as-built” cuando aplica.
-- Estandarización de entregables para asegurar lectura clara por cuadrillas y supervisión.
+## CR Collective scope
+- BIM modeling of systems, routes, accessories, connections and installation criteria
+- Design and adjustment of pipe and conduit routes according to real site restrictions
+- Interdisciplinary coordination, clash detection and correction
+- Generation and updating of construction drawings, plans, isometrics, details and notes
+- Material takeoffs for lengths, diameters, accessories and associated elements
+- Site support, change validation and as-built documentation where applicable
+- Standardization of deliverables for clear reading by crews and supervision teams
 
-## Programa / entregables típicos
-- Planos de instalación por nivel y por sistema
-- Isométricos por áreas críticas
-- Detalles de cruces, cambios de nivel y pasos técnicos
-- Cuadros de cuantificación y listados de materiales
-- Coordinación de ajustes por compatibilidad y obra
-- Registro de modificaciones y control de versiones
+## Typical deliverables
+- Installation drawings by level and system
+- Isometrics for critical areas
+- Details for crossings, level changes and technical passages
+- Quantity schedules and material lists
+- Coordination of adjustments for compatibility and site conditions
+- Change records and version control
 
-## Notas adicionales
-Proyecto desarrollado en entorno hospitalario con alta demanda de precisión y coordinación. Se priorizó un flujo de trabajo ágil, capaz de absorber cambios sin perder control del modelo ni de las cuantificaciones, manteniendo consistencia entre documentación, suministro y montaje.
+## Additional notes
+The project was developed in a healthcare environment with a high demand for precision and coordination. The workflow prioritized agility, allowing changes to be absorbed without losing control of the model, quantities, supply information or installation sequence.
 
-## Galería
-![Imagen 1](img/SMELE01.jpg)
-![Imagen 2](img/SMELE02.jpg)
-![Imagen 3](img/03.jpg)
+## Gallery
+![Image 1](img/SMELE01.jpg)
+![Image 2](img/SMELE02.jpg)
+![Image 3](img/03.jpg)

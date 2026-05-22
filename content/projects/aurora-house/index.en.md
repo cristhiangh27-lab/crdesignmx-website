@@ -1,36 +1,36 @@
 ---
 title: "Aurora House"
-location: "Querétaro, México"
-category: "Residencial"
+location: "Querétaro, Mexico"
+category: "Residential"
 year: "2024"
-excerpt: "Residencia contemporánea con patios luminosos y conexión interior-exterior."
+excerpt: "A contemporary residence with bright patios, controlled openings and a strong indoor-outdoor connection."
 ---
 
-# Aurora House · Querétaro · Residencial · 2024
+# Aurora House · Querétaro · Residential · 2024
 
-Aurora House es una vivienda contemporánea diseñada para maximizar el aprovechamiento de un terreno con condicionantes reales. Debido a la presencia de muros medianeros que limitan la apertura de vanos en planta baja, el proyecto desplaza el protagonismo hacia el segundo nivel, integrando luz y ventilación de manera más eficiente y mejorando el confort interior.
+Aurora House is a contemporary home designed to make the most of a site with real constraints. Because party walls limit the possibility of opening windows at ground level, the project shifts the main lighting and ventilation strategy toward the second floor, improving comfort and privacy.
 
-La propuesta busca una conexión clara entre interior y exterior mediante patios y aperturas controladas, generando espacios luminosos y habitables. En la cubierta, el roof garden transforma el techo en un espacio de esparcimiento y relajación, pensado como una extensión funcional de la casa.
+The proposal creates a clear indoor-outdoor relationship through patios and controlled apertures, generating bright and livable spaces. On the roof, a roof garden transforms the top of the house into a leisure and relaxation area, conceived as a functional extension of the home.
 
-El sistema constructivo con losacero permite una estructura resistente y ligera, favoreciendo soluciones viables y preparadas para futuras adaptaciones.
+The losacero structural system provides a strong and lightweight construction strategy, supporting feasible solutions and future adaptations.
 
-## Concepto arquitectónico
-El diseño responde a restricciones de fachada y colindancias mediante una estrategia de elevación: reducir dependencias de iluminación frontal en planta baja y aprovechar el segundo nivel para capturar iluminación natural, ventilación y privacidad. La volumetría se mantiene sobria y contemporánea, priorizando claridad espacial, funcionalidad y una relación interior–exterior basada en patios y recorridos simples.
+## Architectural concept
+The design responds to facade and boundary restrictions through an elevated strategy: reducing dependence on front-facing daylight at ground level and using the upper floor to capture natural light, ventilation and privacy. The volumetry remains restrained and contemporary, prioritizing spatial clarity, function and a patio-based indoor-outdoor relationship.
 
-## Programa arquitectónico
-- Acceso principal
-- Área social (sala / estancia)
-- Cocina y comedor integrados
-- Patio(s) como fuente de iluminación y ventilación
-- Recámara(s) y servicios en niveles superiores
-- Roof garden (terraza habitable)
-- Área de servicio / almacenamiento (según requerimientos del cliente)
+## Architectural program
+- Main entrance
+- Social area / living room
+- Integrated kitchen and dining room
+- Patios as sources of daylight and ventilation
+- Bedrooms and services on upper levels
+- Roof garden
+- Service and storage areas according to client requirements
 
-## Notas adicionales
-Proyecto residencial desarrollado por CR Collective con enfoque en soluciones reales: responder a las limitaciones del sitio, optimizar el presupuesto y generar espacios contemporáneos con potencial de crecimiento y adaptación a futuro.
+## Additional notes
+This residential project was developed by CR Collective with a focus on real solutions: responding to site limitations, optimizing budget and creating contemporary spaces with growth and adaptation potential.
 
-## Galería
-![Imagen 1](img/AURORA2.jpg)
-![Imagen 1](img/AURORA3.jpg)
-![Imagen 1](img/AURORA4.jpg)
-![Imagen 1](img/AURORA5.jpg)
+## Gallery
+![Image 1](img/AURORA2.jpg)
+![Image 2](img/AURORA3.jpg)
+![Image 3](img/AURORA4.jpg)
+![Image 4](img/AURORA5.jpg)

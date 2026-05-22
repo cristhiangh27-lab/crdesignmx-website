@@ -1,57 +1,52 @@
 ---
 title: "Algarín Heights & Commerce"
-location: "CDMX"
-category: "Uso mixto"
+location: "Mexiko-Stadt"
+category: "Mischnutzung"
 year: "2024"
-excerpt: "Complejo comercial con estrategias de circulación clara y fachadas contemporáneas."
+excerpt: "Ein Mischnutzungsprojekt mit klarer Wegeführung, aktivem Gewerbepassage-Konzept und zeitgenössischen Fassaden."
 ---
 
-# Algarín Heights & Commerce — CDMX | Uso mixto | 2024
+# Algarín Heights & Commerce — Mexiko-Stadt · Mischnutzung · 2024
 
-Algarín Heights & Commerce es un proyecto de uso mixto ubicado en la Colonia Algarín, Ciudad de México, concebido como un conjunto que integra departamentos habitacionales, un pasaje comercial y un sótano de estacionamiento, con el objetivo de activar la vida urbana a nivel de calle y optimizar la relación entre vivienda y comercio.
+Algarín Heights & Commerce ist ein Mischnutzungsprojekt in der Colonia Algarín in Mexiko-Stadt. Es integriert Wohnungen, eine Gewerbepassage und eine Tiefgarage, mit dem Ziel, das Straßenleben zu aktivieren und das Verhältnis zwischen Wohnen und Handel zu optimieren.
 
-El planteamiento parte de una planta baja abierta y activa, donde se incorporan locales comerciales y comercios ancla con frentes hacia sus respectivas calles, fortaleciendo la seguridad, la permanencia y el flujo peatonal en el entorno inmediato.
+Der Entwurf beginnt mit einem offenen und aktiven Erdgeschoss. Ladenflächen und Ankermieter erhalten Fronten zur Straße, um Sicherheit, Aufenthalt und Fußgängerfluss im direkten Umfeld zu stärken.
 
-## Colaboración
-Proyecto desarrollado en colaboración con:
+## Zusammenarbeit
+Projekt entwickelt in Zusammenarbeit mit:
 - Arq. Guillermo Olvera Jiménez
 - Arq. David Alexis Flores Ventura
 - Arq. Andre Eduardo Miranda Nava
 
-## Ficha del proyecto
-- Ubicación: Colonia Algarín, CDMX  
-- Tipología: Uso mixto (vivienda + comercio)  
-- Programa: Departamentos + pasaje comercial + locales en PB + sótano de estacionamiento  
-- Estrategia urbana: Activación de banqueta y conexión peatonal mediante pasaje  
-- Enfoque: Integración de flujos, claridad de circulaciones y fachadas contemporáneas
+## Projektdaten
+- Standort: Colonia Algarín, Mexiko-Stadt
+- Typologie: Mischnutzung (Wohnen + Handel)
+- Programm: Wohnungen, Gewerbepassage, Ladenflächen im Erdgeschoss und Tiefgarage
+- Stadtstrategie: Aktivierung des Gehwegs und fußläufige Verbindung durch eine Passage
+- Fokus: Integration von Flüssen, klare Erschließung und zeitgenössische Fassaden
 
-## Concepto urbano–arquitectónico
-El proyecto se organiza como un pasaje que articula el conjunto y funciona como “columna vertebral” del comercio, conectando los accesos desde calle y distribuyendo a los locales. Sobre esta base, la vivienda se plantea como un volumen eficiente, con circulaciones claras y un sistema de accesos que separa adecuadamente lo público (comercio) de lo privado (departamentos).
+## Städtebaulich-architektonisches Konzept
+Das Projekt organisiert sich um eine Passage, die als kommerzielles Rückgrat des Ensembles funktioniert. Sie verbindet die Straßenzugänge und verteilt Besucher zu den Ladenflächen. Darüber wird das Wohnen als effizienter Baukörper mit klarer Erschließung und einem Zugangssystem organisiert, das öffentliche Handelsbereiche und private Wohnungen trennt.
 
-La propuesta busca equilibrar:
-- Actividad urbana (frentes comerciales y anclas hacia calle)
-- Habitabilidad (privacidad, iluminación y ventilación)
-- Operación (estacionamiento en sótano y servicios organizados)
+Die Lösung balanciert:
+- Städtische Aktivität durch Gewerbefronten und Ankermieter
+- Wohnqualität durch Privatheit, Tageslicht und Lüftung
+- Betrieb durch geordnete Park- und Servicebereiche
 
-## Organización del conjunto
-- Sótano: Estacionamiento y áreas técnicas/servicio (según criterios de operación del conjunto)  
-- Planta baja: Pasaje comercial + locales + comercios ancla orientados a sus calles  
-- Niveles superiores: Departamentos habitacionales con circulación controlada  
-- Azotea (si aplica): Servicios y/o amenidades (según desarrollo del esquema final)
+## Organisation des Ensembles
+- Untergeschoss: Stellplätze sowie Technik- und Serviceflächen nach Betriebskriterien
+- Erdgeschoss: Gewerbepassage, Ladenflächen und Ankermieter mit Straßenbezug
+- Obergeschosse: Wohnungen mit kontrollierter Erschließung
+- Dachbereich: Services oder Amenities je nach finalem Schema
 
-## Elementos clave
-- Pasaje comercial como organizador de flujos y activador urbano  
-- Locales con frentes claros, ritmo de fachada y puntos de atracción (anclas)  
-- Separación funcional entre accesos comerciales y acceso habitacional  
-- Lectura contemporánea de fachada con control de vanos y jerarquía de accesos  
-- Priorización de recorridos peatonales y claridad de orientación
+## Schlüsselelemente
+- Gewerbepassage als Flussorganisator und urbaner Aktivator
+- Ladenfronten mit klarem Rhythmus und Anziehungspunkten
+- Funktionale Trennung zwischen Gewerbe- und Wohnzugängen
+- Zeitgenössische Fassadenlesart mit kontrollierten Öffnungen und Zugangshierarchie
+- Priorisierung von Fußwegen und klarer Orientierung
 
-## Galería
-
+## Galerie
 ![Render 1](img/COYO2.jpg)
 ![Render 2](img/COYO3.jpg)
 ![Render 3](img/COYO4.jpg)
-
-<!-- Alternativa con placeholder general (si todavía no hay imágenes):
-![Imagen 1](../../img/placeholders/project-02.svg)
--->

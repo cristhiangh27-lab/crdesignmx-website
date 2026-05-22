@@ -1,15 +1,15 @@
 ---
 title: "Alfarería Lofts"
-location: "Puebla, México"
-category: "Residencial"
+location: "Puebla, Mexiko"
+category: "Wohnen"
 year: "2024"
-excerpt: "Lofts con patios interiores y terrazas compartidas."
+excerpt: "Loft-Wohnungen, organisiert um Innenhöfe und gemeinschaftliche Terrassen."
 ---
 
-# Alfarería Lofts · Puebla, México · Residencial · 2024
+# Alfarería Lofts - Puebla, Mexiko - Wohnen - 2024
 
-## Descripción
-Lofts con patios interiores y terrazas compartidas.
+## Beschreibung
+Loft-Wohnungen, organisiert um Innenhöfe und gemeinschaftliche Terrassen.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-08.svg)
+## Galerie
+![Bild 1](../../img/placeholders/project-08.svg)
