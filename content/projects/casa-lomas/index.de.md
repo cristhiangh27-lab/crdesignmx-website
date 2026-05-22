@@ -1,36 +1,36 @@
 ---
 title: "Casa Lomas"
-location: "Veracruz, México"
-category: "Residencial"
+location: "Veracruz, Mexiko"
+category: "Wohnen"
 year: "2024"
-excerpt: "Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior."
+excerpt: "Eine zeitgenössische Residenz mit markanter Küche und sozialen Räumen, die mit dem Außenraum verbunden sind."
 ---
 
-# Casa Lomas · Veracruz · Residencial · 2024
+# Casa Lomas · Veracruz · Wohnen · 2024
 
-Casa Lomas es un proyecto residencial ubicado en Veracruz, México, diseñado para una familia que buscaba un espacio contemporáneo, funcional y con identidad arquitectónica. El proyecto se basa en darle protagonismo a los espacios sociales —particularmente la cocina y el comedor— integrándolos con el exterior mediante aperturas controladas, geometrías limpias y una lectura volumétrica clara.
+Casa Lomas ist ein Wohnprojekt in Veracruz, Mexiko, entworfen für eine Familie, die ein zeitgenössisches, funktionales Zuhause mit klarer architektonischer Identität suchte. Das Projekt priorisiert die sozialen Räume, insbesondere Küche und Essbereich, und verbindet sie über kontrollierte Öffnungen, klare Geometrien und eine deutliche Volumetrie mit dem Außenraum.
 
-## Concepto arquitectónico
-El diseño parte de la intención de generar dobles alturas, una circulación vertical ordenada y una envolvente con equilibrio entre luz natural, privacidad y expresión arquitectónica contemporánea. Las geometrías se definen con planos limpios y contrastes entre sólidos y aperturas, priorizando materialidad sobria y durabilidad en clima cálido.
+## Architektonisches Konzept
+Der Entwurf beginnt mit der Absicht, doppelhohe Räume, eine geordnete vertikale Erschließung und eine Gebäudehülle zu schaffen, die Tageslicht, Privatheit und zeitgenössischen Ausdruck ausbalanciert. Klare Ebenen und der Kontrast zwischen geschlossenen Volumen und Öffnungen prägen die Geometrie, mit Fokus auf zurückhaltende Materialien und Dauerhaftigkeit im warmen Klima.
 
-## Programa arquitectónico
-- Acceso principal
-- Sala de doble altura
-- Cocina protagonista con barra central
-- Comedor integrado
-- Recámaras familiares
-- Roof garden
-- Área de servicio
+## Raumprogramm
+- Haupteingang
+- Doppelhoher Wohnraum
+- Markante Küche mit zentraler Insel
+- Integrierter Essbereich
+- Familienzimmer
+- Dachgarten
+- Servicebereich
 
-## Notas adicionales
-Este proyecto forma parte del portafolio profesional de CR Collective, modelado en BIM y con representación arquitectónica detallada, privilegiando procesos claros y viables para el cliente.
+## Zusätzliche Hinweise
+Dieses Projekt ist Teil des professionellen Portfolios von CR Collective. Es wurde mit BIM-Modellierung und detaillierter architektonischer Darstellung entwickelt, mit klaren und realisierbaren Prozessen für den Bauherrn.
 
-## Galería
-![Vista principal](img/Vista%20princ2.jpg)
-![Vista principal](img/Miradorlomas01.jpg)
-![Vista principal](img/CALOM1.jpg)
-![Vista principal](img/CALOM2.jpg)
-![Vista principal](img/CALOM3.jpg)
-![Vista principal](img/CALOM4.jpg)
-![Vista principal](img/CALOM5.jpg)
-![Vista principal](img/CALOM6.jpg)
+## Galerie
+![Hauptansicht](img/Vista%20princ2.jpg)
+![Hauptansicht](img/Miradorlomas01.jpg)
+![Hauptansicht](img/CALOM1.jpg)
+![Hauptansicht](img/CALOM2.jpg)
+![Hauptansicht](img/CALOM3.jpg)
+![Hauptansicht](img/CALOM4.jpg)
+![Hauptansicht](img/CALOM5.jpg)
+![Hauptansicht](img/CALOM6.jpg)

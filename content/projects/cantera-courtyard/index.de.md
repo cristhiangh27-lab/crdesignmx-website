@@ -1,15 +1,15 @@
 ---
 title: "Cantera Courtyard"
 location: "San Luis Potosí"
-category: "Residencial"
+category: "Wohnen"
 year: "2024"
-excerpt: "Conjunto residencial articulado por patios y piedra local."
+excerpt: "Ein Wohnensemble, gegliedert durch Höfe und lokalen Stein."
 ---
 
-# Cantera Courtyard · San Luis Potosí · Residencial · 2024
+# Cantera Courtyard - San Luis Potosí - Wohnen - 2024
 
-## Descripción
-Conjunto residencial articulado por patios y piedra local.
+## Beschreibung
+Ein Wohnensemble, gegliedert durch Höfe und lokalen Stein.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-12.svg)
+## Galerie
+![Bild 1](../../img/placeholders/project-12.svg)

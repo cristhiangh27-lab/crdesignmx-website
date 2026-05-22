@@ -1,51 +1,51 @@
 ---
 title: "Casa Carmona"
 location: "Cuautla, Morelos"
-category: "Casa de descanso"
+category: "Vacation home"
 year: "2024"
-excerpt: "Proyecto integral para el Ing. Ricardo Carmona con cocina central y crecimiento por polígonos funcionales."
+excerpt: "A complete vacation-home project for Ricardo Carmona, organized around a central kitchen and future growth by functional zones."
 ---
 
-# Casa Carmona · Cuautla, Morelos · Casa de descanso · 2024
+# Casa Carmona · Cuautla, Morelos · Vacation home · 2024
 
-## Descripción general
-Casa Carmona es un proyecto integral de vivienda de descanso desarrollado para el Ing. Ricardo Carmona en un terreno dividido en polígonos funcionales. El diseño se centró en las necesidades específicas del cliente: una cocina protagonista por su gusto por la gastronomía, áreas amplias y ventiladas, integración de cristal templado reciclado disponible, y la posibilidad futura de crecimiento.
+## General description
+Casa Carmona is a comprehensive vacation-home project developed for Ricardo Carmona on a site divided into functional polygons. The design responds to very specific client needs: a generous kitchen as the heart of the house, open and ventilated social areas, the reuse of available tempered-glass panels, and the possibility of future expansion.
 
-El proyecto se desarrolló mediante levantamiento completo del sitio, modelado BIM 3D y coordinación arquitectónica. Forma parte de los proyectos recientes de CR Collective, combinando diseño arquitectónico, documentación técnica y propuestas de interiorismo.
+The project was developed through a full site survey, 3D BIM modeling and architectural coordination. It forms part of CR Collective's recent residential work, combining architectural design, technical documentation and interior-design proposals.
 
-## Requerimientos del cliente
-- Cocina amplia como espacio central
-- Cuatro cuartos para nietos en el polígono rojo
-- Capilla ecuménica pequeña en el polígono verde
-- Estacionamiento y área de servicio en el mismo polígono verde
-- Integración de 24 paneles de cristal templado reciclado en fachada e iluminación natural
-- Preferencia por estilo contemporáneo (no rústico)
-- Considerar dificultades logísticas para transportar acero o chapa
+## Client requirements
+- A spacious kitchen as the central living space
+- Four rooms for grandchildren within the red polygon
+- A small ecumenical chapel within the green polygon
+- Parking and service area within the same green polygon
+- Integration of 24 recycled tempered-glass panels for facade composition and natural light
+- A contemporary architectural language instead of a rustic style
+- Consideration of logistical constraints for transporting steel or sheet metal
 
-## Concepto arquitectónico
-El proyecto se concibe como un conjunto articulado por patios y recorridos. La casa principal dialoga con los volúmenes independientes de los cuartos, generando una relación entre privacidad, conexión visual y sombra. La cocina es el corazón del proyecto, diseñada como un espacio cálido y funcional con una alacena protagonista.
+## Architectural concept
+The project is conceived as a set of volumes connected by patios and circulation paths. The main house dialogues with independent room volumes, creating a balance between privacy, visual connection and shade. The kitchen becomes the heart of the project: a warm, functional space with a pantry as a key feature.
 
-El uso de cristal templado reciclado permite crear juegos de luz y texturas, integrándolo estratégicamente dentro de la composición contemporánea preferida por el cliente.
+The recycled tempered glass introduces light effects and texture, integrated strategically within the contemporary composition preferred by the client.
 
-## Elementos clave
-- Lambrines en áreas sociales
-- Cajillos de tablaroca con luz indirecta
-- Diseño de cocina y barra (diseñado por la Arq. Brenda González Aguilar)
-- Difusores lineales integrados al soffit del sistema de fancoils
-- Modelado completo BIM en ArchiCAD
+## Key elements
+- Wall paneling in social areas
+- Drywall coves with indirect lighting
+- Kitchen and bar design by Arq. Brenda González Aguilar
+- Linear diffusers integrated into the fan-coil soffit
+- Complete BIM model developed in ArchiCAD
 
-## Zonas del proyecto
-- Casa principal
-- Polígono rojo: habitaciones independientes para nietos
-- Polígono verde: capilla, estacionamiento y posible cuarto de servicio
-- Áreas exteriores y circulaciones
+## Project zones
+- Main house
+- Red polygon: independent rooms for grandchildren
+- Green polygon: chapel, parking and possible service room
+- Outdoor areas and circulation paths
 
-## Galería
+## Gallery
 ![Render 1](img/CC1.jpg)
 ![Render 2](img/CC2.jpg)
 ![Render 3](img/CC3.jpg)
-![Render 3](img/CC4.jpg)
-![Render 3](img/CC5.jpg)
-![Render 3](img/CC6.jpg)
-![Render 3](img/CC7.jpg)
-![Render 3](img/CC8.jpg)
+![Render 4](img/CC4.jpg)
+![Render 5](img/CC5.jpg)
+![Render 6](img/CC6.jpg)
+![Render 7](img/CC7.jpg)
+![Render 8](img/CC8.jpg)

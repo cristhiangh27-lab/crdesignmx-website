@@ -1,15 +1,15 @@
 ---
 title: "Brisa Pavilion"
 location: "Riviera Nayarit"
-category: "Hospitalidad"
+category: "Gastgewerbe"
 year: "2022"
-excerpt: "Pabellón ligero con cubiertas ventiladas y vistas al mar."
+excerpt: "Ein leichter Pavillon mit belüfteten Dächern und Blick aufs Meer."
 ---
 
-# Brisa Pavilion · Riviera Nayarit · Hospitalidad · 2022
+# Brisa Pavilion - Riviera Nayarit - Gastgewerbe - 2022
 
-## Descripción
-Pabellón ligero con cubiertas ventiladas y vistas al mar.
+## Beschreibung
+Ein leichter Pavillon mit belüfteten Dächern und Blick aufs Meer.
 
-## Galería
-![Imagen 1](../../img/placeholders/project-10.svg)
+## Galerie
+![Bild 1](../../img/placeholders/project-10.svg)
