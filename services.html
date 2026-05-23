@@ -32,24 +32,171 @@
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/services-about-redesign.css">
 </head>
-<body>
+<body class="services-page">
   <div data-include="header"></div>
 
-  <main>
-    <section class="page-hero">
-      <p class="section-lead" data-i18n="servicesPage.kicker">Services</p>
-      <h1 data-i18n="servicesPage.title">Architecture, BIM, and visualization for confident decisions</h1>
-      <p data-i18n="servicesPage.subtitle">CR Collective supports clients with clear processes, actionable deliverables, and direct communication at every stage.</p>
+  <main class="services-main">
+    <section class="services-hero services-reveal">
+      <div class="services-hero__content">
+        <p class="section-lead" data-i18n="servicesPage.kicker">Services</p>
+        <h1 data-i18n="servicesPage.title">A design-build journey shaped by clarity, BIM intelligence and site strategy.</h1>
+        <p data-i18n="servicesPage.subtitle">CR Collective structures architecture, documentation, visualization and construction thinking into one legible path from brief to buildable decisions.</p>
+        <div class="services-hero__actions" aria-label="Service actions" data-i18n-aria="servicesPage.heroActionsAria">
+          <a class="btn btn-primary" href="contact.html" data-i18n="servicesPage.primaryCta">Start a project</a>
+          <a class="btn btn-ghost" href="projects.html" data-i18n="servicesPage.secondaryCta">View related work</a>
+        </div>
+      </div>
+
+      <aside class="services-hero__notes" aria-label="Studio method signals" data-i18n-aria="servicesPage.heroNotesAria">
+        <div class="services-hero__note">
+          <span data-i18n="servicesPage.heroNote1Label">Method</span>
+          <strong>01-05</strong>
+          <small data-i18n="servicesPage.heroNote1Text">Brief to construction strategy</small>
+        </div>
+        <div class="services-hero__note">
+          <span data-i18n="servicesPage.heroNote2Label">Core</span>
+          <strong>BIM</strong>
+          <small data-i18n="servicesPage.heroNote2Text">Coordinated model logic</small>
+        </div>
+        <div class="services-hero__note">
+          <span data-i18n="servicesPage.heroNote3Label">Output</span>
+          <strong data-i18n="servicesPage.heroNote3Value">Clarity</strong>
+          <small data-i18n="servicesPage.heroNote3Text">Decisions clients can act on</small>
+        </div>
+      </aside>
     </section>
 
-    <section class="services-grid" aria-label="CR Collective services" data-i18n-aria="servicesPage.gridAria">
-      <article class="service-card"><h3 data-i18n="servicesPage.card1.title">Discovery</h3><p data-i18n="servicesPage.card1.body"></p></article>
-      <article class="service-card"><h3 data-i18n="servicesPage.card2.title">Concept Design</h3><p data-i18n="servicesPage.card2.body"></p></article>
-      <article class="service-card"><h3 data-i18n="servicesPage.card3.title">BIM + Documentation</h3><p data-i18n="servicesPage.card3.body"></p></article>
-      <article class="service-card"><h3 data-i18n="servicesPage.card4.title">Visualization</h3><p data-i18n="servicesPage.card4.body"></p></article>
-      <article class="service-card"><h3 data-i18n="servicesPage.card5.title">Site Strategy</h3><p data-i18n="servicesPage.card5.body"></p></article>
-      <article class="service-card"><h3 data-i18n="servicesPage.card6.title">Project Communication</h3><p data-i18n="servicesPage.card6.body"></p></article>
+    <section class="services-index" aria-labelledby="services-index-title" data-i18n-aria="servicesPage.indexAria">
+      <div class="services-index__intro services-reveal">
+        <p class="section-lead" data-i18n="servicesPage.indexEyebrow">Services Index</p>
+        <h2 id="services-index-title" data-i18n="servicesPage.indexTitle">A technical sequence, not a menu of isolated tasks.</h2>
+        <p data-i18n="servicesPage.indexCopy">Each service is designed to connect with the next one, keeping intent, information and execution aligned as the project moves forward.</p>
+        <a class="services-index__cta" href="contact.html" data-i18n="servicesPage.indexCta">Discuss the right scope</a>
+      </div>
+
+      <div class="services-index__list">
+        <article class="service-row services-reveal" style="--service-accent: 14%; --service-depth: 28%; --service-image: url('img/services/anteproyecto.jpg'); --service-position: center 58%;">
+          <span class="service-row__number">01</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service1.title">Architecture</h3>
+            <p data-i18n="servicesPage.service1.body">Spatial strategy, program and architectural direction shaped around site, use and ambition.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service1.output">Design criteria, program logic, spatial direction</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+
+        <article class="service-row services-reveal" style="--service-accent: 30%; --service-depth: 44%; --service-image: url('../projects/aurora-house/img/AURORA1.jpg'); --service-position: center center;">
+          <span class="service-row__number">02</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service2.title">Concept Design</h3>
+            <p data-i18n="servicesPage.service2.body">Early massing, atmosphere and layout decisions translated into a clear conceptual direction.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service2.output">Concept package, diagrams, mood and volumetric studies</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+
+        <article class="service-row services-reveal" style="--service-accent: 46%; --service-depth: 36%; --service-image: url('img/services/bim.jpg'); --service-position: center 42%;">
+          <span class="service-row__number">03</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service3.title">BIM + Documentation</h3>
+            <p data-i18n="servicesPage.service3.body">Coordinated models and drawing sets that make the project understandable, measurable and buildable.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service3.output">BIM model, drawings, schedules and coordination notes</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+
+        <article class="service-row services-reveal" style="--service-accent: 62%; --service-depth: 50%; --service-image: url('img/services/renders.jpg'); --service-position: center center;">
+          <span class="service-row__number">04</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service4.title">Visualization</h3>
+            <p data-i18n="servicesPage.service4.body">Images and walkthrough logic that help clients, collaborators and decision makers read the space before construction.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service4.output">Renders, visual studies and presentation sequences</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+
+        <article class="service-row services-reveal" style="--service-accent: 78%; --service-depth: 40%; --service-image: url('../projects/t2-aicm/img/AICM03.jpg'); --service-position: center center;">
+          <span class="service-row__number">05</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service5.title">Site Strategy</h3>
+            <p data-i18n="servicesPage.service5.body">Construction logic, sequencing and site constraints reviewed before they become expensive surprises.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service5.output">Execution criteria, site priorities and buildability review</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+
+        <article class="service-row services-reveal" style="--service-accent: 90%; --service-depth: 58%; --service-image: url('img/services/asesoria.jpg'); --service-position: center center;">
+          <span class="service-row__number">06</span>
+          <div class="service-row__main">
+            <h3 data-i18n="servicesPage.service6.title">Project Communication</h3>
+            <p data-i18n="servicesPage.service6.body">A clear rhythm of updates, documents and decisions so every participant understands what changes and why.</p>
+          </div>
+          <div class="service-row__output">
+            <span data-i18n="servicesPage.outputLabel">Output</span>
+            <p data-i18n="servicesPage.service6.output">Decision records, review notes and client-facing summaries</p>
+          </div>
+          <a class="service-row__link" href="contact.html" data-i18n="servicesPage.exploreCta">Explore</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="services-method services-reveal" aria-labelledby="services-method-title" data-i18n-aria="servicesPage.methodAria">
+      <div class="services-method__header">
+        <p class="section-lead" data-i18n="servicesPage.methodEyebrow">Process / Method</p>
+        <h2 id="services-method-title" data-i18n="servicesPage.methodTitle">A disciplined path from first conversation to site strategy.</h2>
+      </div>
+
+      <ol class="method-timeline">
+        <li class="method-step">
+          <span>01</span>
+          <h3 data-i18n="servicesPage.method1.title">Brief</h3>
+          <p data-i18n="servicesPage.method1.body">We define scope, location, project stage, constraints and the decisions that must be resolved first.</p>
+        </li>
+        <li class="method-step">
+          <span>02</span>
+          <h3 data-i18n="servicesPage.method2.title">Concept</h3>
+          <p data-i18n="servicesPage.method2.body">We establish spatial direction, priorities, atmosphere and the main design criteria.</p>
+        </li>
+        <li class="method-step">
+          <span>03</span>
+          <h3 data-i18n="servicesPage.method3.title">BIM model</h3>
+          <p data-i18n="servicesPage.method3.body">We organize the project into coordinated information that supports drawings, quantities and reviews.</p>
+        </li>
+        <li class="method-step">
+          <span>04</span>
+          <h3 data-i18n="servicesPage.method4.title">Visualization</h3>
+          <p data-i18n="servicesPage.method4.body">We test how the project is read through material, light, scale and presentation imagery.</p>
+        </li>
+        <li class="method-step">
+          <span>05</span>
+          <h3 data-i18n="servicesPage.method5.title">Construction strategy</h3>
+          <p data-i18n="servicesPage.method5.body">We translate design decisions into sequencing, site priorities and practical next steps.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="services-final-cta services-reveal" aria-labelledby="services-final-title">
+      <p class="section-lead" data-i18n="servicesPage.finalEyebrow">Start with the brief</p>
+      <h2 id="services-final-title" data-i18n="servicesPage.finalTitle">Tell us what you want to build.</h2>
+      <p data-i18n="servicesPage.finalCopy">The first contact happens by email so we can review scope, location, project stage and the kind of support your project needs.</p>
+      <a class="btn btn-primary" href="contact.html" data-i18n="servicesPage.finalCta">Start a project</a>
     </section>
   </main>
 
@@ -58,6 +205,7 @@
 
   <script src="assets/js/includes.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/services.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', async () => {
       await window.SiteIncludes?.loadIncludes();

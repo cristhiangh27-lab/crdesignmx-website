@@ -32,41 +32,120 @@
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/services-about-redesign.css">
 </head>
-<body>
+<body class="about-page">
   <div data-include="header"></div>
 
-  <main>
-    <section class="page-hero">
-      <p class="section-lead" data-i18n="about.kicker">Design + Execution + Supervision</p>
-      <h1 data-i18n="about.title">CR Collective</h1>
-      <p><span data-i18n="about.intro">We are a collaborative architecture and visualization studio. We design and coordinate contemporary projects with BIM methodology to ensure coherence between concept, documentation, and execution. We operate as a work network with architects and civil engineers, integrating structure and MEP to deliver buildable, efficient solutions aligned with budget. Our approach: clear scope, orderly processes, and constant communication with the client.</span></p>
+  <main class="about-main">
+    <section class="about-hero" aria-labelledby="about-hero-title">
+      <div class="about-hero__content">
+        <p class="section-lead" data-i18n="about.kicker">Design + Execution + Supervision</p>
+        <h1 id="about-hero-title" data-i18n="about.title">CR Collective</h1>
+        <p class="about-hero__statement" data-i18n="about.statement">A founder-led architecture studio connecting design intent, BIM documentation, visualization and site intelligence.</p>
+        <p class="about-hero__intro" data-i18n="about.intro">We are a collaborative architecture and visualization studio. We design and coordinate contemporary projects with BIM methodology to ensure coherence between concept, documentation, and execution. We operate as a work network with architects and civil engineers, integrating structure and MEP to deliver buildable, efficient solutions aligned with budget. Our approach: clear scope, orderly processes, and constant communication with the client.</p>
+        <div class="about-hero__actions">
+          <a class="btn btn-primary" href="contact.html" data-i18n="about.ctaContact">Start a conversation</a>
+          <a class="btn btn-ghost" href="projects.html" data-i18n="about.ctaProjects">View selected work</a>
+        </div>
+      </div>
+
+      <aside class="about-hero__profile" aria-label="Founder profile" data-i18n-aria="about.profileAria">
+        <figure class="about-profile-card">
+          <img src="assets/img/CristhianGHPROFIL.jpg" alt="Cristhian Gómez Hernández" loading="eager">
+          <figcaption>
+            <span data-i18n="founder.role">Founder / Architect</span>
+            <strong data-i18n="founder.name">Cristhian Gómez Hernández</strong>
+          </figcaption>
+        </figure>
+        <dl class="about-profile-facts">
+          <div>
+            <dt data-i18n="about.fact1.label">Focus</dt>
+            <dd data-i18n="about.fact1.value">Architecture + BIM + visualization</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact2.label">Base</dt>
+            <dd data-i18n="about.fact2.value">Mexico City</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact3.label">Model</dt>
+            <dd data-i18n="about.fact3.value">Collaborative technical network</dd>
+          </div>
+        </dl>
+      </aside>
     </section>
 
-    <section class="project-description">
-      <h2 data-i18n="about.mission.title">Mission</h2>
-      <div class="content">
-        <p><span data-i18n="about.mission.body">Create contemporary spaces that respond to real needs through transparent processes, constant communication, and informed decisions.</span></p>
+    <section class="about-manifesto" aria-labelledby="about-manifesto-title">
+      <p class="section-lead" data-i18n="about.manifesto.kicker">Studio position</p>
+      <h2 id="about-manifesto-title" data-i18n="about.manifesto.title">We do not separate the image of architecture from the intelligence required to build it.</h2>
+      <p data-i18n="about.manifesto.body">CR Collective works at the intersection of concept, documentation and execution. Each project is treated as a set of decisions that must remain clear for clients, consultants and builders.</p>
+    </section>
+
+    <section class="about-operating" aria-labelledby="about-operating-title">
+      <div class="about-section-heading">
+        <p class="section-lead" data-i18n="about.values.title">Values</p>
+        <h2 id="about-operating-title" data-i18n="about.values.heading">How the studio keeps projects legible.</h2>
+      </div>
+
+      <div class="about-principles">
+        <article class="about-principle">
+          <span>01</span>
+          <h3 data-i18n="about.value1.title">Clear scope</h3>
+          <p data-i18n="about.value1.body">We define scope, costs, deliverables and responsibilities before the project gains speed.</p>
+        </article>
+        <article class="about-principle">
+          <span>02</span>
+          <h3 data-i18n="about.value2.title">Collaborative precision</h3>
+          <p data-i18n="about.value2.body">We coordinate with clients, consultants and builders through structured information instead of assumptions.</p>
+        </article>
+        <article class="about-principle">
+          <span>03</span>
+          <h3 data-i18n="about.value3.title">BIM responsibility</h3>
+          <p data-i18n="about.value3.body">We use BIM and precise documentation to reduce ambiguity and support buildable decisions.</p>
+        </article>
+        <article class="about-principle">
+          <span>04</span>
+          <h3 data-i18n="about.value4.title">Context intelligence</h3>
+          <p data-i18n="about.value4.body">We design with attention to climate, operation, site constraints and the future life of the project.</p>
+        </article>
       </div>
     </section>
 
-    <section class="project-description">
-      <h2 data-i18n="about.values.title">Values</h2>
-      <div class="content">
-        <ul>
-          <li>Claridad en alcances, costos y entregables.</li>
-          <li>Colaboración con clientes y consultores especializados.</li>
-          <li>Responsabilidad técnica apoyada en BIM y documentación precisa.</li>
-          <li>Diseño sensible al contexto, clima y operación futura.</li>
-        </ul>
+    <section class="about-team-method" aria-labelledby="about-team-title">
+      <div class="about-team-method__copy">
+        <p class="section-lead" data-i18n="about.team.title">Team</p>
+        <h2 id="about-team-title" data-i18n="about.team.heading">A compact studio with an expandable technical network.</h2>
+        <p data-i18n="about.team.body">CR Collective is a multidisciplinary team that brings together architecture, design, visualization, and technical development to shape clear, well-considered, and carefully executed projects. Under the direction of Cristhian Gómez Hernández, the studio coordinates diverse collaborative capabilities to respond to each project with a contemporary vision, technical precision, and spatial sensitivity.</p>
+      </div>
+
+      <div class="about-capability-grid" aria-label="Studio capabilities" data-i18n-aria="about.capabilitiesAria">
+        <article>
+          <span>ARQ</span>
+          <h3 data-i18n="about.capability1.title">Architecture</h3>
+          <p data-i18n="about.capability1.body">Concept, program, space and material criteria.</p>
+        </article>
+        <article>
+          <span>BIM</span>
+          <h3 data-i18n="about.capability2.title">Documentation</h3>
+          <p data-i18n="about.capability2.body">Models, drawings and technical coordination.</p>
+        </article>
+        <article>
+          <span>VIS</span>
+          <h3 data-i18n="about.capability3.title">Visualization</h3>
+          <p data-i18n="about.capability3.body">Images and sequences that clarify decisions.</p>
+        </article>
+        <article>
+          <span>SITE</span>
+          <h3 data-i18n="about.capability4.title">Site logic</h3>
+          <p data-i18n="about.capability4.body">Construction criteria, sequencing and practical review.</p>
+        </article>
       </div>
     </section>
 
-    <section class="project-description">
-      <h2 data-i18n="about.team.title">Team</h2>
-      <div class="content">
-        <p><span data-i18n="about.team.body">CR Collective es un equipo multidisciplinario que integra arquitectura, diseño, visualización y desarrollo técnico para dar forma a proyectos claros, bien pensados y cuidadosamente ejecutados. Bajo la dirección de Cristhian Gómez Hernández, el estudio articula distintas capacidades de colaboración para responder a las necesidades de cada proyecto con una visión contemporánea, precisión técnica y sensibilidad espacial.</span></p>
-      </div>
+    <section class="about-closing" aria-labelledby="about-closing-title">
+      <p class="section-lead" data-i18n="about.mission.title">Mission</p>
+      <h2 id="about-closing-title" data-i18n="about.mission.body">Create contemporary spaces that respond to real needs through transparent processes, constant communication, and informed decisions.</h2>
+      <a class="btn btn-primary" href="contact.html" data-i18n="about.ctaContact">Start a conversation</a>
     </section>
   </main>
 
