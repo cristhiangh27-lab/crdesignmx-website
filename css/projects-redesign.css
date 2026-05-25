@@ -103,9 +103,7 @@ body.projects-page {
   grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
   min-height: 440px;
   border: 1px solid var(--projects-line-strong);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.015)),
-    rgba(8, 10, 18, 0.58);
+  background: rgba(8, 10, 18, 0.72);
   overflow: hidden;
 }
 
@@ -114,11 +112,14 @@ body.projects-page {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(193, 141, 33, 0.12), transparent 34%),
+    linear-gradient(90deg, rgba(6, 8, 15, 0.78), rgba(6, 8, 15, 0.52) 46%, rgba(6, 8, 15, 0.84)),
+    linear-gradient(180deg, rgba(6, 8, 15, 0.18), rgba(6, 8, 15, 0.78)),
+    linear-gradient(115deg, rgba(193, 141, 33, 0.16), transparent 36%),
     linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: auto, 80px 100%;
-  opacity: 0.78;
+  background-size: auto, auto, auto, 80px 100%;
+  opacity: 0.94;
   pointer-events: none;
+  z-index: 1;
 }
 
 .projects-editorial-hero::after {
@@ -131,12 +132,86 @@ body.projects-page {
   background: linear-gradient(90deg, transparent, rgba(193, 141, 33, 0.75), transparent);
   transform: scaleX(var(--projects-hero-line, 1));
   transform-origin: left;
+  z-index: 3;
+}
+
+.projects-hero__media {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.projects-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(6, 8, 15, 0.18), rgba(6, 8, 15, 0.72) 68%),
+    linear-gradient(180deg, transparent 60%, rgba(6, 8, 15, 0.7));
+  z-index: 2;
+}
+
+.projects-hero__frame {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  animation: projectsHeroCrossfade 32s infinite;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.projects-hero__frame--lomas {
+  background-image: url("../projects/casa-lomas/img/CALOM1.jpg");
+}
+
+.projects-hero__frame--prisma {
+  animation-delay: 6.4s;
+  background-image: url("../projects/prisma-office/img/PRISMA01.jpg");
+}
+
+.projects-hero__frame--aicm {
+  animation-delay: 12.8s;
+  background-image: url("../projects/t2-aicm/img/AICM03.jpg");
+}
+
+.projects-hero__frame--mirador {
+  animation-delay: 19.2s;
+  background-image: url("../projects/mirador-360/img/ZICA1.jpg");
+}
+
+.projects-hero__frame--aurora {
+  animation-delay: 25.6s;
+  background-image: url("../projects/aurora-house/img/AURORA1.jpg");
+}
+
+@keyframes projectsHeroCrossfade {
+  0% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+
+  6%,
+  18% {
+    opacity: 0.34;
+  }
+
+  28% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
 }
 
 .projects-hero__content,
 .projects-hero__panel {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .projects-hero__content {
@@ -170,8 +245,9 @@ body.projects-page {
   align-content: end;
   border-left: 1px solid var(--projects-line);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.01)),
-    rgba(8, 10, 18, 0.22);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
+    rgba(8, 10, 18, 0.54);
+  backdrop-filter: blur(10px);
 }
 
 .projects-hero__fact {
@@ -653,6 +729,7 @@ body.projects-page {
   }
 
   .projects-scroll-backdrop::before,
+  .projects-hero__frame,
   .projects-reveal,
   .projects-reveal.is-visible,
   .projects-page .project-card,
@@ -661,6 +738,15 @@ body.projects-page {
     transition: none;
     transform: none;
     will-change: auto;
+  }
+
+  .projects-hero__frame {
+    animation: none;
+    opacity: 0;
+  }
+
+  .projects-hero__frame--lomas {
+    opacity: 0.28;
   }
 
   .projects-page .project-card,
