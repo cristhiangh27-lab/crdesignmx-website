@@ -31,30 +31,64 @@
   <meta name="twitter:description" content="Revisa el portafolio de CR Collective: vivienda, remodelación y conceptos con BIM.">
   <meta name="twitter:image" content="https://crcollective.mx/img/brand/logo-cr-collective.png">
   <link rel="preload" as="image" href="img/brand/logo-cr-collective.png">
+  <link rel="preload" as="image" href="projects/t2-aicm/img/AICM03.jpg">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/projects-redesign.css">
 </head>
-<body>
+<body class="projects-page">
   <div data-include="header"></div>
+  <div class="projects-scroll-backdrop" aria-hidden="true"></div>
 
-  <main>
-    <section class="page-hero">
-      <p class="section-lead" data-i18n="projects.kicker">Portfolio</p>
-      <h1 data-i18n="projects.title">Projects by CR Collective</h1>
-      <p data-i18n="projects.subtitle">Explore residences, renovations, and concepts developed with a BIM-focused approach, visualization, and clear architectural storytelling.</p>
+  <main class="projects-main">
+    <section class="projects-editorial-hero projects-reveal">
+      <div class="projects-hero__content">
+        <p class="section-lead" data-i18n="projects.kicker">Portfolio</p>
+        <h1 data-i18n="projects.title">Selected Works</h1>
+        <p data-i18n="projects.subtitle">A living archive of residential, commercial, interior and conceptual projects developed through design, BIM documentation, visualization and site experience.</p>
+      </div>
+
+      <aside class="projects-hero__panel" aria-label="Archive summary" data-i18n-aria="projects.heroPanelAria">
+        <div class="projects-hero__fact">
+          <span data-i18n="projects.heroMetaLabel">Indexed archive</span>
+          <strong data-i18n="projects.heroMetaValue">16 live records</strong>
+          <p data-i18n="projects.heroMetaCopy">Images, drawings and descriptions are curated as each project file is completed.</p>
+        </div>
+        <div class="projects-hero__fact">
+          <span data-i18n="projects.heroScopeLabel">Method</span>
+          <strong data-i18n="projects.heroScopeValue">Design + BIM + visualization</strong>
+        </div>
+        <div class="projects-hero__fact">
+          <span data-i18n="projects.heroRegionLabel">Base</span>
+          <strong data-i18n="projects.heroRegionValue">Mexico + international collaborations</strong>
+        </div>
+      </aside>
     </section>
 
-    <div class="filter-bar" aria-label="Project filters" data-i18n-aria="projects.filters.aria">
-      <select id="filter-type" aria-label="Filter by category" data-i18n-aria="projects.filters.type"></select>
-      <select id="filter-location" aria-label="Filter by location" data-i18n-aria="projects.filters.location"></select>
-      <input type="search" id="filter-search" data-i18n-placeholder="projects.search.placeholder" placeholder="Search by title, location, or keyword" aria-label="Search projects" data-i18n-aria="projects.search.aria" />
-    </div>
+    <section class="projects-archive-head projects-reveal" aria-labelledby="projects-archive-title">
+      <div>
+        <p class="section-lead" data-i18n="projects.archiveEyebrow">Project Archive</p>
+        <h2 id="projects-archive-title" data-i18n="projects.archiveTitle">A sharper way to read the work.</h2>
+        <p data-i18n="projects.archiveCopy">Filter by typology or location, then open the project file that matches the scale, phase and atmosphere you want to explore.</p>
+      </div>
 
-    <section class="projects-grid" id="projects-grid" aria-live="polite"></section>
+      <p class="projects-archive-note" data-i18n="projects.toolbarNote">Curated records; some visual files are still being expanded.</p>
+    </section>
+
+    <section class="projects-toolbar projects-reveal" aria-label="Project filters" data-i18n-aria="projects.filters.aria">
+      <div class="filter-bar">
+        <select id="filter-type" aria-label="Filter by category" data-i18n-aria="projects.filters.type"></select>
+        <select id="filter-location" aria-label="Filter by location" data-i18n-aria="projects.filters.location"></select>
+        <input type="search" id="filter-search" data-i18n-placeholder="projects.search.placeholder" placeholder="Search archive by title, location, type, or keyword" aria-label="Search projects" data-i18n-aria="projects.search.aria" />
+      </div>
+    </section>
+
+    <section class="projects-grid" id="projects-grid" aria-live="polite" aria-busy="true"></section>
   </main>
 
 
   <div data-include="footer"></div>
   <script type="module" src="js/filter.js"></script>
+  <script src="js/projects.js" defer></script>
   <script src="assets/js/includes.js"></script>
   <script src="js/i18n.js"></script>
   <script>
