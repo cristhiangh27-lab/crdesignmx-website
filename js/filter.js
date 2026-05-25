@@ -3,7 +3,7 @@ import {
   filterProjects,
   renderProjects,
   populateFilterOptions,
-} from './project-loader.js';
+} from './project-loader.js?v=9f7a5e1';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('projects-grid');
@@ -23,6 +23,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     search: searchInput?.value || '',
   });
 
+  const readSummaryFallback = (value, lang) => {
+    if (typeof value === 'string') return value;
+    if (!value || typeof value !== 'object') return '';
+    return value[lang] || value.es || value.en || Object.values(value).find((entry) => typeof entry === 'string') || '';
+  };
+
+  const restoreEmptySummaries = (items, lang) => {
+    const cards = [...grid.querySelectorAll('.project-card')];
+    cards.forEach((card, index) => {
+      const summary = card.querySelector('.card-body p');
+      if (!summary || summary.textContent.trim()) return;
+      const project = items[index];
+      const text = readSummaryFallback(project?.shortDescription, lang) || readSummaryFallback(project?.summary, lang);
+      if (text) summary.textContent = text;
+    });
+  };
+
   const rerenderProjects = (lang = getLang(), incomingState = getState()) => {
     populateFilterOptions(projects, lang, incomingState);
     if (searchInput && typeof incomingState.search === 'string') {
@@ -36,6 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, lang);
 
     renderProjects(grid, filtered, lang);
+    restoreEmptySummaries(filtered, lang);
   };
 
   const applyFilters = () => {
