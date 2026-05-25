@@ -159,7 +159,8 @@ body.projects-page {
   opacity: 0;
   transform: scale(1.04);
   animation: projectsHeroCrossfade 32s infinite;
-  filter: saturate(0.92) contrast(1.04);
+  filter: saturate(1.04) contrast(1.08) brightness(1.1);
+  will-change: opacity, transform;
 }
 
 .projects-hero__frame--lomas {
@@ -189,22 +190,23 @@ body.projects-page {
 @keyframes projectsHeroCrossfade {
   0% {
     opacity: 0;
-    transform: scale(1.03);
+    transform: scale(1.04);
   }
 
-  6%,
-  18% {
-    opacity: 0.34;
+  7%,
+  22% {
+    opacity: 0.62;
+    transform: scale(1.02);
   }
 
-  28% {
+  31% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   100% {
     opacity: 0;
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 }
 
@@ -223,7 +225,7 @@ body.projects-page {
 }
 
 .projects-page .section-lead {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .projects-hero__content h1 {
@@ -236,10 +238,9 @@ body.projects-page {
 
 .projects-hero__content p:not(.section-lead) {
   max-width: 76ch;
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 1.08rem;
 }
-
 .projects-hero__panel {
   display: grid;
   align-content: end;
