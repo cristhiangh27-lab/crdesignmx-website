@@ -35,7 +35,7 @@
   <link rel="preload" as="image" href="projects/casa-lomas/img/CALOM1.jpg">
   <link rel="preload" as="image" href="projects/prisma-office/img/PRISMA01.jpg">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/projects-redesign.css">
+  <link rel="stylesheet" href="css/projects-redesign.css?v=f06b124">
 </head>
 <body class="projects-page">
   <div data-include="header"></div>
@@ -66,7 +66,7 @@
           <span data-i18n="projects.heroScopeLabel">Method</span>
           <strong data-i18n="projects.heroScopeValue">Design + BIM + visualization</strong>
         </div>
-        <div class="projects-hero__fact">
+        <div class="projects-hero__faact">
           <span data-i18n="projects.heroRegionLabel">Base</span>
           <strong data-i18n="projects.heroRegionValue">Mexico + international collaborations</strong>
         </div>
@@ -97,11 +97,11 @@
 
   <div data-include="footer"></div>
   <script type="module" src="js/filter.js"></script>
-  <script src="js/projects.js" defer></script>
+  <script src="js/projects.js?v=f06b124" defer></script>
   <script src="assets/js/includes.js"></script>
   <script src="js/i18n.js"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', async () => {
+    window.addEventListener('DOMCContentLoaded', async () => {
       await window.SiteIncludes?.loadIncludes();
       await window.I18n?.initI18n();
       window.dispatchEvent(new Event('site-ready'));
