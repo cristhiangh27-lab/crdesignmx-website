@@ -1,0 +1,52 @@
+{
+  "title": {
+    "en": "Helenia Atelier",
+    "es": "Helenia Atelier",
+    "de": "Helenia Atelier"
+  },
+  "location": {
+    "en": "Calzada de Taxqueña, Mexico City",
+    "es": "Calzada de Taxqueña, Ciudad de México",
+    "de": "Calzada de Taxqueña, Mexiko-Stadt"
+  },
+  "locationLabel": {
+    "en": "Calzada de Taxqueña, Mexico City",
+    "es": "Calzada de Taxqueña, Ciudad de México",
+    "de": "Calzada de Taxqueña, Mexiko-Stadt"
+  },
+  "year": "2023",
+  "type": {
+    "en": "Social atelier",
+    "es": "Atelier social",
+    "de": "Sozialatelier"
+  },
+  "categoryKey": "cultural",
+  "area": {
+    "en": "Training and production space",
+    "es": "Espacio de capacitación y producción",
+    "de": "Schulungs- und Produktionsraum"
+  },
+  "summary": {
+    "en": "Training and production atelier for vulnerable women, shaped by a triangulated steel facade inspired by textile folds.",
+    "es": "Atelier de capacitación y producción para mujeres en situación de vulnerabilidad, articulado por una fachada de acero inspirada en los pliegues textiles.",
+    "de": "Schulungs- und Produktionsatelier für Frauen in vulnerablen Situationen, geprägt durch eine triangulierte Stahlfassade, inspiriert von textilen Faltungen."
+  },
+  "shortDescription": {
+    "en": "Training and production atelier for vulnerable women, shaped by a triangulated steel facade inspired by textile folds.",
+    "es": "Atelier de capacitación y producción para mujeres en situación de vulnerabilidad, articulado por una fachada de acero inspirada en los pliegues textiles.",
+    "de": "Schulungs- und Produktionsatelier für Frauen in vulnerablen Situationen, geprägt durch eine triangulierte Stahlfassade, inspiriert von textilen Faltungen."
+  },
+  "coverImage": "projects/helenia-atelier/img/HELENIA_RENDER_MAIN.jpg",
+  "images": [
+    "projects/helenia-atelier/img/HELENIA_RENDER_MAIN.jpg",
+    "projects/helenia-atelier/img/HELENIA_RENDER_INTERIOR.jpg",
+    "projects/helenia-atelier/img/HELENIA_CORTE_TRANSVERSAL.jpg",
+    "projects/helenia-atelier/img/PLANTA_BAJA.jpg",
+    "projects/helenia-atelier/img/PLANTA_1ER_NIVEL.jpg",
+    "projects/helenia-atelier/img/PLANTA_2DO_NIVEL.jpg",
+    "projects/helenia-atelier/img/PLANTA_AZOTEA.jpg",
+    "projects/helenia-atelier/img/FACHADA_NORTE.jpg",
+    "projects/helenia-atelier/img/FACHADA_ORIENTE.jpg",
+    "projects/helenia-atelier/img/FACHADA_SUR.jpg"
+  ]
+}

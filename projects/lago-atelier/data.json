@@ -1,8 +1,35 @@
 {
-  "title": "Lago Atelier",
-  "location": "Guadalajara, México",
+  "title": {
+    "en": "Helenia Atelier",
+    "es": "Helenia Atelier",
+    "de": "Helenia Atelier"
+  },
+  "location": {
+    "en": "Calzada de Taxqueña, Mexico City",
+    "es": "Calzada de Taxqueña, Ciudad de México",
+    "de": "Calzada de Taxqueña, Mexiko-Stadt"
+  },
   "year": "2023",
-  "type": "Cultural",
-  "summary": "Atelier artístico con iluminación cenital y espacios flexibles.",
-  "coverImage": "/img/placeholders/project-09.svg"
+  "type": {
+    "en": "Social atelier",
+    "es": "Atelier social",
+    "de": "Sozialatelier"
+  },
+  "categoryKey": "cultural",
+  "summary": {
+    "en": "This former Lago Atelier route now points to Helenia Atelier.",
+    "es": "Esta antigua ruta de Lago Atelier ahora apunta a Helenia Atelier.",
+    "de": "Diese frühere Lago-Atelier-Route verweist jetzt auf Helenia Atelier."
+  },
+  "shortDescription": {
+    "en": "Training and production atelier for vulnerable women, shaped by a triangulated steel facade inspired by textile folds.",
+    "es": "Atelier de capacitación y producción para mujeres en situación de vulnerabilidad, articulado por una fachada de acero inspirada en los pliegues textiles.",
+    "de": "Schulungs- und Produktionsatelier für Frauen in vulnerablen Situationen, geprägt durch eine triangulierte Stahlfassade, inspiriert von textilen Faltungen."
+  },
+  "coverImage": "projects/helenia-atelier/img/HELENIA_RENDER_MAIN.jpg",
+  "images": [
+    "projects/helenia-atelier/img/HELENIA_RENDER_MAIN.jpg",
+    "projects/helenia-atelier/img/HELENIA_RENDER_INTERIOR.jpg",
+    "projects/helenia-atelier/img/HELENIA_CORTE_TRANSVERSAL.jpg"
+  ]
 }

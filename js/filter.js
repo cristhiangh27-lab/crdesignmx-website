@@ -3,7 +3,7 @@ import {
   filterProjects,
   renderProjects,
   populateFilterOptions,
-} from './project-loader.js?v=9f7a5e1';
+} from './project-loader.js?v=helenia1';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('projects-grid');
@@ -40,13 +40,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   };
 
+  const normalizeDescriptions = (items, lang) => items.map((project) => {
+    const source = project?.shortDescription ?? project?.summary ?? '';
+    const fallback = readSummaryFallback(source, lang);
+
+    if (!fallback || (source && typeof source === 'object')) {
+      return project;
+    }
+
+    const localizedFallback = {
+      en: fallback,
+      es: fallback,
+      de: fallback,
+    };
+
+    return {
+      ...project,
+      shortDescription: localizedFallback,
+      summary: project?.summary && typeof project.summary === 'object'
+        ? project.summary
+        : localizedFallback,
+    };
+  });
+
   const rerenderProjects = (lang = getLang(), incomingState = getState()) => {
-    populateFilterOptions(projects, lang, incomingState);
+    const localizedProjects = normalizeDescriptions(projects, lang);
+
+    populateFilterOptions(localizedProjects, lang, incomingState);
     if (searchInput && typeof incomingState.search === 'string') {
       searchInput.value = incomingState.search;
     }
 
-    const filtered = filterProjects(projects, {
+    const filtered = filterProjects(localizedProjects, {
       type: incomingState.type,
       location: incomingState.location,
       search: incomingState.search,

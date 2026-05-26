@@ -1,7 +1,3 @@
-# Lago Atelier · Guadalajara, México · Cultural · 2023
+# Helenia Atelier · Calzada de Taxqueña, Ciudad de México · Atelier social · 2023
 
-## Descripción
-Atelier artístico con iluminación cenital y espacios flexibles.
-
-## Galería
-![Imagen 1](../../img/placeholders/project-09.svg)
+Esta ruta conserva compatibilidad con el enlace anterior del proyecto. La ficha activa está en `projects/helenia-atelier/`.
