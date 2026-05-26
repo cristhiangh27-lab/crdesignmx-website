@@ -259,7 +259,7 @@ function renderShowcaseGallery(images) {
   clear(grid);
 
   const h1 = plainText(document.querySelector('h1')) || 'Project';
-  const visibleImages = images.slice(0, 8);
+  const visibleImages = images.slice(0, 10);
   const totalLabel = String(visibleImages.length).padStart(2, '0');
   const feature = make('figure', 'project-gallery__feature');
   const featureImage = document.createElement('img');
