@@ -515,7 +515,11 @@ function initLightbox() {
   window.setTimeout(enhanceGallery, 1100);
 }
 
-window.addEventListener('DOMContentLoaded', initLightbox);
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initLightbox);
+} else {
+  initLightbox();
+}
 window.addEventListener('load', () => scheduleEnhance(150));
 window.addEventListener('langchange', () => {
   updateTriggerText();
