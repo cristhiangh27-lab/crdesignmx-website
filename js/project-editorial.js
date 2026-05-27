@@ -1,5 +1,23 @@
 const APPLY_DELAYS = [180, 520, 1000, 1800];
 
+function ensureProjectGalleryLightboxAssets() {
+  const slug = document.body?.dataset?.project;
+  if (slug !== 'casa-carmona') return;
+
+  const root = window.__SITE_ROOT__ || (window.location.pathname.includes('/projects/') ? '../..' : '.');
+  if (!document.querySelector('link[href*="project-gallery-lightbox.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `${root}/css/project-gallery-lightbox.css?v=3`;
+    link.dataset.projectGalleryLightbox = 'true';
+    document.head.append(link);
+  }
+
+  if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
+    import('./project-gallery-lightbox.js?v=3');
+  }
+}
+
 function isProjectDetail() {
   return document.body?.classList.contains('project-page')
     && document.body?.dataset?.project
@@ -315,6 +333,7 @@ function applyProjectEditorial() {
   makeDescriptionEditorial();
   renderProjectSections(images);
   renderShowcaseGallery(images);
+  ensureProjectGalleryLightboxAssets();
 }
 
 function scheduleEditorialApply() {
