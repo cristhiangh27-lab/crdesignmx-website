@@ -15,6 +15,7 @@ const LIGHTBOX_PROJECTS = {
   'casa-carmona': {
     title: 'Casa Carmona',
     images: [
+      ['projects/casa-carmona/img/Propuesta 1 Katalonia-Kroma.png', 'Kitchen proposal and interior atmosphere', 'Propuesta de cocina y atmosfera interior', 'Kuechenvorschlag und Innenraumatmosphaere'],
       ['projects/casa-carmona/img/CC1.jpg', 'Central kitchen and main bar', 'Cocina central y barra principal', 'Zentrale Kueche und Hauptbar'],
       ['projects/casa-carmona/img/CC2.jpg', 'Social area and warm finishes', 'Area social y acabados calidos', 'Sozialbereich und warme Oberflaechen'],
       ['projects/casa-carmona/img/CC3.jpg', 'Dining room and interior continuity', 'Comedor y continuidad interior', 'Essbereich und Innenraumkontinuitaet'],
