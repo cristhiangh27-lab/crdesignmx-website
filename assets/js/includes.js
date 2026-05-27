@@ -62,7 +62,7 @@
     if (!document.querySelector('script[data-project-editorial]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-editorial.js?v=helenia1`;
+      script.src = `${root}/js/project-editorial.js?v=helenia2`;
       script.dataset.projectEditorial = 'true';
       document.body.append(script);
     }
@@ -75,15 +75,15 @@
     const enabled = slug === 'casa-lomas' || slug === 'casa-carmona';
     if (!isProjectDetail || !enabled) return;
 
-    if (!document.querySelector('link[href*="project-gallery-lightbox.css"], link[href*="casa-lomas-lightbox.css"]')) {
+    if (!document.querySelector('link[href*="project-gallery-lightbox.css"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = `${root}/css/project-gallery-lightbox.css?v=2`;
+      link.href = `${root}/css/project-gallery-lightbox.css?v=3`;
       link.dataset.projectGalleryLightbox = 'true';
       document.head.append(link);
     }
 
-    if (!document.querySelector('script[src*="project-gallery-lightbox.js"], script[src*="casa-lomas-lightbox.js"]')) {
+    if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
       const script = document.createElement('script');
       script.type = 'module';
       script.src = `${root}/js/project-gallery-lightbox.js?v=3`;
