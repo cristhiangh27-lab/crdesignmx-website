@@ -26,6 +26,21 @@ const LIGHTBOX_PROJECTS = {
       ['projects/casa-carmona/img/CC8.jpg', 'Project visual sequence', 'Secuencia visual del proyecto', 'Visuelle Projektsequenz'],
     ],
   },
+  'helenia-atelier': {
+    title: 'Helenia Atelier',
+    images: [
+      ['projects/helenia-atelier/img/HELENIA_RENDER_MAIN.jpg', 'Exterior render and triangulated steel facade', 'Render exterior y fachada de acero triangulada', 'Aussenrendering und triangulierte Stahlfassade'],
+      ['projects/helenia-atelier/img/HELENIA_RENDER_INTERIOR.jpg', 'Interior workshop and training atmosphere', 'Atelier interior y atmosfera de capacitacion', 'Innenatelier und Schulungsatmosphaere'],
+      ['projects/helenia-atelier/img/HELENIA_CORTE_TRANSVERSAL.jpg', 'Transverse section and spatial relationship', 'Corte transversal y relacion espacial', 'Querschnitt und raeumliche Beziehung'],
+      ['projects/helenia-atelier/img/PLANTA_BAJA.jpg', 'Ground floor plan and access sequence', 'Planta baja y secuencia de acceso', 'Erdgeschossplan und Zugangssequenz'],
+      ['projects/helenia-atelier/img/PLANTA_1ER_NIVEL.jpg', 'First level plan and learning areas', 'Planta primer nivel y areas de aprendizaje', 'Plan erstes Niveau und Lernbereiche'],
+      ['projects/helenia-atelier/img/PLANTA_2DO_NIVEL.jpg', 'Second level plan and productive program', 'Planta segundo nivel y programa productivo', 'Plan zweites Niveau und produktives Programm'],
+      ['projects/helenia-atelier/img/PLANTA_AZOTEA.jpg', 'Roof plan and upper envelope strategy', 'Planta de azotea y estrategia de envolvente superior', 'Dachplan und Strategie der oberen Huelle'],
+      ['projects/helenia-atelier/img/FACHADA_NORTE.jpg', 'North facade and textile-inspired rhythm', 'Fachada norte y ritmo inspirado en la tela', 'Nordfassade und textil inspirierter Rhythmus'],
+      ['projects/helenia-atelier/img/FACHADA_ORIENTE.jpg', 'East facade and folded metal skin', 'Fachada oriente y piel metalica plegada', 'Ostfassade und gefaltete Metallhaut'],
+      ['projects/helenia-atelier/img/FACHADA_SUR.jpg', 'South facade and structural expression', 'Fachada sur y expresion estructural', 'Suedfassade und struktureller Ausdruck'],
+    ],
+  },
 };
 
 const LIGHTBOX_COPY = {

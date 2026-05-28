@@ -62,7 +62,7 @@
     if (!document.querySelector('script[data-project-editorial]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-editorial.js?v=helenia5`;
+      script.src = `${root}/js/project-editorial.js?v=helenia6`;
       script.dataset.projectEditorial = 'true';
       document.body.append(script);
     }
@@ -72,13 +72,13 @@
     const path = window.location.pathname;
     const isProjectDetail = path.includes('/projects/') && !path.endsWith('/projects.html');
     const slug = document.body?.dataset?.project;
-    const enabled = slug === 'casa-lomas' || slug === 'casa-carmona';
+    const enabled = slug === 'casa-lomas' || slug === 'casa-carmona' || slug === 'helenia-atelier';
     if (!isProjectDetail || !enabled) return;
 
     if (!document.querySelector('link[href*="project-gallery-lightbox.css"]')) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = `${root}/css/project-gallery-lightbox.css?v=5`;
+      link.href = `${root}/css/project-gallery-lightbox.css?v=6`;
       link.dataset.projectGalleryLightbox = 'true';
       document.head.append(link);
     }
