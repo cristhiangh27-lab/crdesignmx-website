@@ -8,13 +8,13 @@ function ensureProjectGalleryLightboxAssets() {
   if (!document.querySelector('link[href*="project-gallery-lightbox.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = `${root}/css/project-gallery-lightbox.css?v=3`;
+    link.href = `${root}/css/project-gallery-lightbox.css?v=5`;
     link.dataset.projectGalleryLightbox = 'true';
     document.head.append(link);
   }
 
   if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
-    import('./project-gallery-lightbox.js?v=3');
+    import('./project-gallery-lightbox.js?v=5');
   }
 }
 
@@ -52,10 +52,19 @@ function plainText(node) {
   return (node?.textContent || '').trim().replace(/\s+/g, ' ');
 }
 
+function isUsableImageSrc(src = '') {
+  try {
+    const { pathname } = new URL(src, window.location.href);
+    return /\.(avif|gif|jpe?g|png|svg|webp)$/i.test(decodeURIComponent(pathname));
+  } catch (error) {
+    return false;
+  }
+}
+
 function uniqueImages(images) {
   const seen = new Set();
   return images.filter((image) => {
-    if (!image.src || seen.has(image.src)) return false;
+    if (!image.src || !isUsableImageSrc(image.src) || seen.has(image.src)) return false;
     seen.add(image.src);
     return true;
   });
