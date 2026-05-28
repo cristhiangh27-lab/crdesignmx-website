@@ -19,7 +19,9 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b1220">
   <title>Brisa Pavilion – CR Collective</title>
+  <link rel="preload" as="image" href="img/PAVILION_MAIN_RENDER.jpg">
   <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/project-gallery-lightbox.css?v=6">
 </head>
 <body class="project-page" data-project="brisa-pavilion">
   <div data-include="header"></div>
@@ -61,10 +63,10 @@
 
   <div data-include="footer"></div>
 
-  <script src="../../assets/js/includes.js"></script>
+  <script src="../../assets/js/includes.js?v=brisa1"></script>
   <script src="../../js/i18n.js"></script>
   <script type="module">
-    import { renderProjectDetail } from '../../js/project-loader.js';
+    import { renderProjectDetail } from '../../js/project-loader.js?v=hotspot-filter-1';
 
     const slug = document.body.dataset.project;
 
@@ -78,5 +80,6 @@
       renderProjectDetail(slug);
     });
   </script>
+  <script type="module" src="../../js/project-gallery-lightbox.js?v=8"></script>
 </body>
 </html>

@@ -1,8 +1,69 @@
 {
-  "title": "Brisa Pavilion",
-  "location": "Riviera Nayarit",
+  "title": {
+    "en": "Brisa Pavilion",
+    "es": "Brisa Pavilion",
+    "de": "Brisa Pavilion"
+  },
+  "location": {
+    "en": "Riviera Nayarit, Mexico",
+    "es": "Riviera Nayarit, Mexico",
+    "de": "Riviera Nayarit, Mexiko"
+  },
+  "locationLabel": {
+    "en": "Riviera Nayarit, Mexico",
+    "es": "Riviera Nayarit, Mexico",
+    "de": "Riviera Nayarit, Mexiko"
+  },
   "year": "2022",
-  "type": "Hospitalidad",
-  "summary": "Pabellón ligero con cubiertas ventiladas y vistas al mar.",
-  "coverImage": "/img/placeholders/project-10.svg"
+  "type": {
+    "en": "Hospitality",
+    "es": "Hospitalidad",
+    "de": "Gastgewerbe"
+  },
+  "categoryKey": "hospitality",
+  "area": {
+    "en": "Coastal pavilion",
+    "es": "Pabellon costero",
+    "de": "Kuestenpavillon"
+  },
+  "summary": {
+    "en": "A lightweight coastal pavilion with a radial hypar-inspired roof, designed for shade, gathering and ocean-facing contemplation.",
+    "es": "Pabellon costero ligero con una cubierta radial inspirada en superficies hypar, pensado para sombra, reunion y contemplacion frente al mar.",
+    "de": "Ein leichter Kuestenpavillon mit radialer, von Hypar-Flaechen inspirierter Dachform, konzipiert fuer Schatten, Aufenthalt und den Blick zum Meer."
+  },
+  "shortDescription": {
+    "en": "A lightweight coastal pavilion with a radial hypar-inspired roof, designed for shade, gathering and ocean-facing contemplation.",
+    "es": "Pabellon costero ligero con una cubierta radial inspirada en superficies hypar, pensado para sombra, reunion y contemplacion frente al mar.",
+    "de": "Ein leichter Kuestenpavillon mit radialer, von Hypar-Flaechen inspirierter Dachform, konzipiert fuer Schatten, Aufenthalt und den Blick zum Meer."
+  },
+  "technicalBullets": [
+    {
+      "en": "Radial roof geometry inspired by hypar surfaces",
+      "es": "Geometria radial inspirada en superficies hypar",
+      "de": "Radiale Dachgeometrie, inspiriert von Hypar-Flaechen"
+    },
+    {
+      "en": "Mixed steel and timber structural strategy",
+      "es": "Estrategia estructural mixta de acero y madera",
+      "de": "Gemischte Tragwerksstrategie aus Stahl und Holz"
+    },
+    {
+      "en": "Open 360-degree circulation and coastal views",
+      "es": "Circulacion abierta de 360 grados y vistas costeras",
+      "de": "Offene 360-Grad-Erschliessung und Kuestenblicke"
+    },
+    {
+      "en": "Lightweight assembly calibrated for climate and maintenance",
+      "es": "Sistema ligero calibrado para clima y mantenimiento",
+      "de": "Leichtes System, abgestimmt auf Klima und Instandhaltung"
+    }
+  ],
+  "coverImage": "projects/brisa-pavilion/img/PAVILION_MAIN_RENDER.jpg",
+  "images": [
+    "projects/brisa-pavilion/img/PAVILION_MAIN_RENDER.jpg",
+    "projects/brisa-pavilion/img/STRUCTURE_MOD_3D_BLENDER.jpg",
+    "projects/brisa-pavilion/img/PLANTA_GENERAL.jpg",
+    "projects/brisa-pavilion/img/PLANTA_ESTRUCTURAL.jpg",
+    "projects/brisa-pavilion/img/CORTE_ESTRUCTURAL.jpg"
+  ]
 }

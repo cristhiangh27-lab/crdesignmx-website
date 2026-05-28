@@ -41,6 +41,16 @@ const LIGHTBOX_PROJECTS = {
       ['projects/helenia-atelier/img/FACHADA_SUR.jpg', 'South facade and structural expression', 'Fachada sur y expresion estructural', 'Suedfassade und struktureller Ausdruck'],
     ],
   },
+  'brisa-pavilion': {
+    title: 'Brisa Pavilion',
+    images: [
+      ['projects/brisa-pavilion/img/PAVILION_MAIN_RENDER.jpg', 'Main pavilion render and coastal canopy', 'Render principal y cubierta costera', 'Hauptrendering und Kuestendach'],
+      ['projects/brisa-pavilion/img/STRUCTURE_MOD_3D_BLENDER.jpg', 'Radial structural model', 'Modelo estructural radial', 'Radiales Tragwerksmodell'],
+      ['projects/brisa-pavilion/img/PLANTA_GENERAL.jpg', 'General plan and circular platform', 'Planta general y plataforma circular', 'Gesamtplan und kreisfoermige Plattform'],
+      ['projects/brisa-pavilion/img/PLANTA_ESTRUCTURAL.jpg', 'Structural plan and radial ribs', 'Planta estructural y costillas radiales', 'Tragwerksplan und radiale Rippen'],
+      ['projects/brisa-pavilion/img/CORTE_ESTRUCTURAL.jpg', 'Structural section and roof profile', 'Corte estructural y perfil de cubierta', 'Tragwerksschnitt und Dachprofil'],
+    ],
+  },
 };
 
 const LIGHTBOX_COPY = {
