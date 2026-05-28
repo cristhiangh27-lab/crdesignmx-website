@@ -14,7 +14,7 @@ function ensureProjectGalleryLightboxAssets() {
   }
 
   if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
-    import('./project-gallery-lightbox.js?v=5');
+    import('./project-gallery-lightbox.js?v=6');
   }
 }
 

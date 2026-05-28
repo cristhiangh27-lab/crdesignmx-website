@@ -316,18 +316,25 @@ function pointerCenter() {
   };
 }
 
+function isZoomToolTarget(target) {
+  return target instanceof Element && Boolean(target.closest('.cr-lightbox__tools'));
+}
+
 function bindStage(stage) {
   stage.addEventListener('wheel', (event) => {
+    if (isZoomToolTarget(event.target)) return;
     event.preventDefault();
     const factor = event.deltaY < 0 ? WHEEL_ZOOM_FACTOR : 1 / WHEEL_ZOOM_FACTOR;
     setZoom(state.zoom * factor, { x: event.clientX, y: event.clientY });
   }, { passive: false });
 
   stage.addEventListener('dblclick', (event) => {
+    if (isZoomToolTarget(event.target)) return;
     setZoom(state.zoom > MIN_ZOOM + 0.01 ? MIN_ZOOM : MAX_ZOOM, { x: event.clientX, y: event.clientY });
   });
 
   stage.addEventListener('pointerdown', (event) => {
+    if (isZoomToolTarget(event.target)) return;
     state.pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     stage.setPointerCapture(event.pointerId);
 

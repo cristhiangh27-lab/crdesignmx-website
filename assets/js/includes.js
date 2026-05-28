@@ -86,7 +86,7 @@
     if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-gallery-lightbox.js?v=5`;
+      script.src = `${root}/js/project-gallery-lightbox.js?v=6`;
       script.dataset.projectGalleryLightbox = 'true';
       document.body.append(script);
     }
