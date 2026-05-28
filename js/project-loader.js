@@ -122,6 +122,10 @@ function resolveAsset(path, fallback) {
   return new URL(`${ROOT_PATH}/${path}`, window.location.href).toString();
 }
 
+function isDirectImagePath(path = '') {
+  return /^https?:\/\//i.test(path) || /\.(avif|gif|jpe?g|png|svg|webp)(\?.*)?$/i.test(path);
+}
+
 async function fetchJSON(path) {
   const url = new URL(path, window.location.href).toString();
   const response = await fetch(url);
@@ -791,7 +795,10 @@ function setHero(data) {
       const btn = document.createElement('a');
       btn.className = 'project-hotspot';
       btn.href = i === 4 ? '#project-gallery' : '#project-description';
-      const image = imgs[i] ? resolveAsset(imgs[i], '') : (data.coverImage ? resolveAsset(data.coverImage, '') : '');
+      const sourceImage = imgs[i] && isDirectImagePath(imgs[i])
+        ? imgs[i]
+        : (data.coverImage && isDirectImagePath(data.coverImage) ? data.coverImage : '');
+      const image = sourceImage ? resolveAsset(sourceImage, '') : '';
       btn.innerHTML = `<span class="project-hotspot__thumb"${image ? ` style="background-image:url('${image}')"` : ''}></span><span>${label}</span>`;
       hotspotsEl.appendChild(btn);
     });
