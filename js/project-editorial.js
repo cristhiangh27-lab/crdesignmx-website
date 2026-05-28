@@ -14,7 +14,7 @@ function ensureProjectGalleryLightboxAssets() {
   }
 
   if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
-    import('./project-gallery-lightbox.js?v=6');
+    import('./project-gallery-lightbox.js?v=7');
   }
 }
 
@@ -325,6 +325,8 @@ function renderShowcaseGallery(images) {
   });
 
   grid.append(feature, thumbs);
+  window.ProjectGalleryLightbox?.schedule?.(60);
+  window.dispatchEvent(new CustomEvent('projectgalleryrender'));
 }
 
 function readyToApply() {

@@ -62,7 +62,7 @@
     if (!document.querySelector('script[data-project-editorial]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-editorial.js?v=helenia6`;
+      script.src = `${root}/js/project-editorial.js?v=helenia7`;
       script.dataset.projectEditorial = 'true';
       document.body.append(script);
     }
@@ -86,7 +86,7 @@
     if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-gallery-lightbox.js?v=6`;
+      script.src = `${root}/js/project-gallery-lightbox.js?v=7`;
       script.dataset.projectGalleryLightbox = 'true';
       document.body.append(script);
     }

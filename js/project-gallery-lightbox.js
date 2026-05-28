@@ -520,6 +520,10 @@ function scheduleEnhance(delay = 0) {
   enhanceTimer = window.setTimeout(enhanceGallery, delay);
 }
 
+function scheduleEnhancePasses() {
+  [120, 500, 1100, 1900, 3000].forEach((delay) => window.setTimeout(enhanceGallery, delay));
+}
+
 function observeGallery() {
   const gallery = document.querySelector('#project-gallery');
   if (!gallery || galleryObserver) return;
@@ -533,8 +537,7 @@ function initLightbox() {
   if (!dialog) dialog = createLightbox();
   observeGallery();
   scheduleEnhance(120);
-  window.setTimeout(enhanceGallery, 500);
-  window.setTimeout(enhanceGallery, 1100);
+  scheduleEnhancePasses();
 }
 
 if (document.readyState === 'loading') {
@@ -543,8 +546,14 @@ if (document.readyState === 'loading') {
   initLightbox();
 }
 window.addEventListener('load', () => scheduleEnhance(150));
+window.addEventListener('projectgalleryrender', () => scheduleEnhance(60));
 window.addEventListener('langchange', () => {
   updateTriggerText();
   updateImage();
   scheduleEnhance(260);
 });
+
+window.ProjectGalleryLightbox = {
+  enhance: enhanceGallery,
+  schedule: scheduleEnhance,
+};
