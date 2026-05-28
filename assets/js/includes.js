@@ -62,7 +62,7 @@
     if (!document.querySelector('script[data-project-editorial]')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `${root}/js/project-editorial.js?v=helenia4`;
+      script.src = `${root}/js/project-editorial.js?v=helenia5`;
       script.dataset.projectEditorial = 'true';
       document.body.append(script);
     }
