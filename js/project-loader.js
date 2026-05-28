@@ -110,8 +110,6 @@ function getLocationLabel(project, lang) {
 }
 
 function getProjectSummary(project, lang = getCurrentLang()) {
-  const summaryValue = project?.shortDescription ?? project?.summary ?? '';
-  if (lang === 'de' && typeof summaryValue === 'string') return '';
   return tField(project.shortDescription, lang) || tField(project.summary, lang) || '';
 }
 

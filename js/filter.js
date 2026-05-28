@@ -3,7 +3,7 @@ import {
   filterProjects,
   renderProjects,
   populateFilterOptions,
-} from './project-loader.js?v=helenia1';
+} from './project-loader.js?v=summary-fix-1';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('projects-grid');
