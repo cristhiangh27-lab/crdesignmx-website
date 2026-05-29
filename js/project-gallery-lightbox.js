@@ -51,6 +51,20 @@ const LIGHTBOX_PROJECTS = {
       ['projects/brisa-pavilion/img/CORTE_ESTRUCTURAL.jpg', 'Structural section and roof profile', 'Corte estructural y perfil de cubierta', 'Tragwerksschnitt und Dachprofil'],
     ],
   },
+  't2-aicm': {
+    title: 'Dedo Norte - Terminal 2 AICM',
+    images: [
+      ['projects/t2-aicm/img/AICM01.jpg', 'Passenger concourse and renewed lighting', 'Ambulatorio de pasajeros e iluminacion renovada', 'Passagierhalle und erneuerte Beleuchtung'],
+      ['projects/t2-aicm/img/AICM02.jpg', 'Interior material palette and ceiling rhythm', 'Paleta interior y ritmo de plafon', 'Innenmaterialien und Deckenrhythmus'],
+      ['projects/t2-aicm/img/AICM03.jpg', 'Circulation axis through Dedo Norte', 'Eje de circulacion del Dedo Norte', 'Erschliessungsachse im Nordfinger'],
+      ['projects/t2-aicm/img/AICM04.jpg', 'Airport concourse identity update', 'Actualizacion de identidad en el ambulatorio', 'Identitaetsaktualisierung der Flughafenhalle'],
+      ['projects/t2-aicm/img/AICM05.jpg', 'Waiting area and indirect light', 'Zona de espera e iluminacion indirecta', 'Wartebereich und indirekte Beleuchtung'],
+      ['projects/t2-aicm/img/AICM06.jpg', 'Wayfinding and spatial depth', 'Senaletica y profundidad espacial', 'Orientierung und raeumliche Tiefe'],
+      ['projects/t2-aicm/img/AICM07.jpg', 'Material transition and visual axis', 'Transicion material y eje visual', 'Materialuebergang und Sichtachse'],
+      ['projects/t2-aicm/img/AICM08.jpg', 'Terminal atmosphere and final frame', 'Atmosfera de terminal y encuadre final', 'Terminalatmosphaere und finaler Blick'],
+      ['projects/t2-aicm/img/AICMT2POR.jpg', 'Dedo Norte cover view and terminal atmosphere', 'Vista de portada del Dedo Norte y atmosfera de terminal', 'Titelansicht des Nordfingers und Terminalatmosphaere'],
+    ],
+  },
 };
 
 const LIGHTBOX_COPY = {

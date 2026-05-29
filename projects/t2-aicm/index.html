@@ -19,7 +19,9 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#0b1220">
   <title>Dedo Norte – Terminal 2 del AICM – CR Collective</title>
+  <link rel="preload" as="image" href="img/AICMT2POR.jpg">
   <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/project-gallery-lightbox.css?v=6">
 </head>
 <body class="project-page" data-project="t2-aicm">
   <div data-include="header"></div>
@@ -61,7 +63,7 @@
 
   <div data-include="footer"></div>
 
-  <script src="../../assets/js/includes.js"></script>
+  <script src="../../assets/js/includes.js?v=t2-gallery-1"></script>
   <script src="../../js/i18n.js"></script>
   <script type="module">
     import { renderProjectDetail } from '../../js/project-loader.js';
@@ -78,5 +80,6 @@
       renderProjectDetail(slug);
     });
   </script>
+  <script type="module" src="../../js/project-gallery-lightbox.js?v=9"></script>
 </body>
 </html>

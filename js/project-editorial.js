@@ -2,7 +2,7 @@ const APPLY_DELAYS = [180, 520, 1000, 1800];
 
 function ensureProjectGalleryLightboxAssets() {
   const slug = document.body?.dataset?.project;
-  if (slug !== 'casa-carmona' && slug !== 'helenia-atelier' && slug !== 'brisa-pavilion') return;
+  if (slug !== 'casa-carmona' && slug !== 'helenia-atelier' && slug !== 'brisa-pavilion' && slug !== 't2-aicm') return;
 
   const root = window.__SITE_ROOT__ || (window.location.pathname.includes('/projects/') ? '../..' : '.');
   if (!document.querySelector('link[href*="project-gallery-lightbox.css"]')) {
@@ -14,7 +14,7 @@ function ensureProjectGalleryLightboxAssets() {
   }
 
   if (!document.querySelector('script[src*="project-gallery-lightbox.js"]')) {
-    import('./project-gallery-lightbox.js?v=8');
+    import('./project-gallery-lightbox.js?v=9');
   }
 }
 

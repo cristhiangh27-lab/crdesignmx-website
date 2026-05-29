@@ -6,5 +6,15 @@
   "area": "Equipamiento aeroportuario",
   "summary": "Actualización conceptual del Dedo Norte con nueva identidad interior, iluminación y materiales.",
   "coverImage": "projects/t2-aicm/img/AICMT2POR.jpg",
-  "images": ["01", "02", "03", "preview"]
+  "images": [
+    "projects/t2-aicm/img/AICMT2POR.jpg",
+    "projects/t2-aicm/img/AICM01.jpg",
+    "projects/t2-aicm/img/AICM02.jpg",
+    "projects/t2-aicm/img/AICM03.jpg",
+    "projects/t2-aicm/img/AICM04.jpg",
+    "projects/t2-aicm/img/AICM05.jpg",
+    "projects/t2-aicm/img/AICM06.jpg",
+    "projects/t2-aicm/img/AICM07.jpg",
+    "projects/t2-aicm/img/AICM08.jpg"
+  ]
 }
