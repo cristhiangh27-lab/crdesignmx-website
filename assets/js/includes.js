@@ -25,6 +25,8 @@
     const root = resolveRootPath();
     window.__SITE_ROOT__ = root;
 
+    loadContentProtectionAssets(root);
+
     const includeNodes = document.querySelectorAll('[data-include]');
     await Promise.all([...includeNodes].map(async (node) => {
       const partial = node.dataset.include;
@@ -43,6 +45,15 @@
 
     loadProjectEditorialAssets(root);
     loadProjectGalleryLightboxAssets(root);
+  }
+
+  function loadContentProtectionAssets(root) {
+    if (document.querySelector('script[src*="content-protection.js"]')) return;
+
+    const script = document.createElement('script');
+    script.src = `${root}/assets/js/content-protection.js?v=1`;
+    script.dataset.contentProtection = 'true';
+    document.head.append(script);
   }
 
   function loadProjectEditorialAssets(root) {
