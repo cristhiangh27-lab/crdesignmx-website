@@ -9,7 +9,7 @@ const CASA_LOMAS_IMAGES = [
   { src: 'projects/casa-lomas/img/CALOM6.jpg', key: 'upperVolume' },
 ];
 
-const CASA_LOMAS_MODEL = 'projects/casa-lomas/models/casa_lomas_optimizado.glb';
+const CASA_LOMAS_MODEL = 'projects/casa-lomas/models/casa_lomas_optimizado.glb?v=colors-1';
 
 const CASA_LOMAS_COPY = {
   en: {
