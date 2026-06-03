@@ -166,6 +166,10 @@ body.project-page[data-project="brisa-pavilion"] main {
 }
 
 @media (max-width: 760px) {
+  .brisa-pavilion-model-stage {
+    display: none;
+  }
+
   .project-page[data-project="brisa-pavilion"] .project-hero.project-hero--immersive,
   .project-page[data-project="brisa-pavilion"] .project-hero--immersive .hero-visual,
   .project-page[data-project="brisa-pavilion"] .project-hero--immersive .hero-visual img {
