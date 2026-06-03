@@ -21,6 +21,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'A contemporary residence organized around a social kitchen and living spaces connected to the exterior.',
     readProject: 'Read project',
     viewGallery: 'View gallery',
+    viewModel: 'View 3D model',
     modelAlt: 'Interactive 3D model of Casa Lomas',
     sectionsKicker: 'Project sections',
     sectionsTitle: 'Project sections',
@@ -165,6 +166,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.',
     readProject: 'Leer proyecto',
     viewGallery: 'Ver galería',
+    viewModel: 'Ver modelo 3D',
     modelAlt: 'Modelo 3D interactivo de Casa Lomas',
     sectionsKicker: 'Secciones del proyecto',
     sectionsTitle: 'Secciones del proyecto',
@@ -309,6 +311,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'Ein zeitgenössisches Wohnhaus mit prägnanter Küche und sozialen Räumen, die sich zum Außenraum verbinden.',
     readProject: 'Projekt lesen',
     viewGallery: 'Galerie ansehen',
+    viewModel: '3D-Modell ansehen',
     modelAlt: 'Interaktives 3D-Modell von Casa Lomas',
     sectionsKicker: 'Projektabschnitte',
     sectionsTitle: 'Projektabschnitte',
@@ -447,6 +450,7 @@ const CASA_LOMAS_COPY = {
 };
 
 let activeSectionIndex = 0;
+let modelHashScrollDone = false;
 
 function getRootPath() {
   if (window.__SITE_ROOT__) return window.__SITE_ROOT__;
@@ -529,6 +533,28 @@ function renderMobileModel(copy) {
   hero.insertAdjacentElement('afterend', section);
 }
 
+function syncModelAnchor() {
+  const stage = document.querySelector('.casa-lomas-model-stage');
+  const mobile = document.querySelector('.casa-lomas-model-mobile');
+  if (!stage || !mobile) return;
+
+  const compact = window.matchMedia('(max-width: 760px)').matches;
+  stage.id = compact ? '' : 'project-3d-model';
+  mobile.id = compact ? 'project-3d-model' : '';
+  scrollToModelIfRequested();
+}
+
+function scrollToModelIfRequested(force = false) {
+  if (window.location.hash !== '#project-3d-model') return;
+  if (modelHashScrollDone && !force) return;
+
+  const target = document.getElementById('project-3d-model');
+  if (!target) return;
+
+  modelHashScrollDone = true;
+  window.setTimeout(() => target.scrollIntoView({ block: 'start', behavior: 'smooth' }), 80);
+}
+
 function renderHero(copy) {
   const hero = document.querySelector('#project-hero');
   const visual = hero?.querySelector('.hero-visual');
@@ -569,6 +595,7 @@ function renderHero(copy) {
   actions.append(
     makeLink(copy.readProject, '#project-description', 'btn btn-primary'),
     makeLink(copy.viewGallery, '#project-gallery', 'btn btn-ghost'),
+    makeLink(copy.viewModel, '#project-3d-model', 'btn btn-ghost'),
   );
 }
 
@@ -769,6 +796,7 @@ function applyCasaLomasEditorial() {
   renderHero(copy);
   renderSections(copy);
   renderMobileModel(copy);
+  syncModelAnchor();
   renderDescription(copy);
   renderGallery(copy);
 }
@@ -786,4 +814,9 @@ window.addEventListener('load', () => scheduleApply(200));
 window.addEventListener('langchange', () => {
   scheduleApply(180);
   scheduleApply(520);
+});
+window.addEventListener('resize', () => syncModelAnchor());
+window.addEventListener('hashchange', () => {
+  modelHashScrollDone = false;
+  scrollToModelIfRequested(true);
 });
