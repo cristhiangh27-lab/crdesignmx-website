@@ -9,6 +9,8 @@ const CASA_LOMAS_IMAGES = [
   { src: 'projects/casa-lomas/img/CALOM6.jpg', key: 'upperVolume' },
 ];
 
+const CASA_LOMAS_MODEL = 'projects/casa-lomas/models/casa_lomas_optimizado.glb';
+
 const CASA_LOMAS_COPY = {
   en: {
     title: 'Casa Lomas',
@@ -19,6 +21,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'A contemporary residence organized around a social kitchen and living spaces connected to the exterior.',
     readProject: 'Read project',
     viewGallery: 'View gallery',
+    modelAlt: 'Interactive 3D model of Casa Lomas',
     sectionsKicker: 'Project sections',
     sectionsTitle: 'Project sections',
     activeLabel: 'Active section',
@@ -162,6 +165,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'Residencia contemporánea con cocina protagonista y espacios sociales integrados al exterior.',
     readProject: 'Leer proyecto',
     viewGallery: 'Ver galería',
+    modelAlt: 'Modelo 3D interactivo de Casa Lomas',
     sectionsKicker: 'Secciones del proyecto',
     sectionsTitle: 'Secciones del proyecto',
     activeLabel: 'Sección activa',
@@ -305,6 +309,7 @@ const CASA_LOMAS_COPY = {
     heroSummary: 'Ein zeitgenössisches Wohnhaus mit prägnanter Küche und sozialen Räumen, die sich zum Außenraum verbinden.',
     readProject: 'Projekt lesen',
     viewGallery: 'Galerie ansehen',
+    modelAlt: 'Interaktives 3D-Modell von Casa Lomas',
     sectionsKicker: 'Projektabschnitte',
     sectionsTitle: 'Projektabschnitte',
     activeLabel: 'Aktiver Abschnitt',
@@ -475,6 +480,55 @@ function makeLink(label, href, variant = 'btn btn-ghost') {
   return link;
 }
 
+function createModelViewer(copy) {
+  const model = document.createElement('model-viewer');
+  model.className = 'casa-lomas-model';
+  model.setAttribute('src', asset(CASA_LOMAS_MODEL));
+  model.setAttribute('alt', copy.modelAlt);
+  model.setAttribute('camera-controls', '');
+  model.setAttribute('touch-action', 'pan-y');
+  model.setAttribute('auto-rotate', '');
+  model.setAttribute('auto-rotate-delay', '1200');
+  model.setAttribute('rotation-per-second', '16deg');
+  model.setAttribute('ar', '');
+  model.setAttribute('ar-modes', 'scene-viewer webxr');
+  model.setAttribute('shadow-intensity', '0.72');
+  model.setAttribute('exposure', '0.9');
+  model.setAttribute('environment-image', 'neutral');
+  model.setAttribute('camera-orbit', '38deg 66deg auto');
+  model.setAttribute('min-camera-orbit', 'auto 16deg auto');
+  model.setAttribute('max-camera-orbit', 'auto 86deg auto');
+
+  const arButton = makeElement('button', 'casa-lomas-model__ar', 'AR');
+  arButton.type = 'button';
+  arButton.slot = 'ar-button';
+  arButton.setAttribute('aria-label', 'Open Casa Lomas in augmented reality');
+  model.append(arButton);
+
+  return model;
+}
+
+function renderModelStage(visual, copy) {
+  visual.querySelector('.casa-lomas-model-stage')?.remove();
+
+  const stage = makeElement('div', 'casa-lomas-model-stage');
+  stage.setAttribute('aria-label', copy.modelAlt);
+  stage.append(createModelViewer(copy));
+  visual.append(stage);
+}
+
+function renderMobileModel(copy) {
+  document.querySelector('.casa-lomas-model-mobile')?.remove();
+  const hero = document.querySelector('#project-hero');
+  if (!hero) return;
+
+  const section = makeElement('section', 'casa-lomas-model-mobile');
+  section.id = 'project-3d-model';
+  section.setAttribute('aria-label', copy.modelAlt);
+  section.append(createModelViewer(copy));
+  hero.insertAdjacentElement('afterend', section);
+}
+
 function renderHero(copy) {
   const hero = document.querySelector('#project-hero');
   const visual = hero?.querySelector('.hero-visual');
@@ -482,6 +536,7 @@ function renderHero(copy) {
   if (!hero || !visual || !intro) return;
 
   hero.querySelectorAll('.explorer-topbar, .explorer-modal, .explorer-dots, .project-hero__hotspots, .project-hero__card').forEach((node) => node.remove());
+  renderModelStage(visual, copy);
 
   const image = visual.querySelector('img');
   const placeholder = visual.querySelector('.placeholder');
@@ -713,6 +768,7 @@ function applyCasaLomasEditorial() {
   document.body.classList.add('casa-lomas-editorial-ready');
   renderHero(copy);
   renderSections(copy);
+  renderMobileModel(copy);
   renderDescription(copy);
   renderGallery(copy);
 }
