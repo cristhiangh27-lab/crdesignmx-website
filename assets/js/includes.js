@@ -26,6 +26,7 @@
     window.__SITE_ROOT__ = root;
 
     loadContentProtectionAssets(root);
+    loadHexLoaderAssets(root);
 
     const includeNodes = document.querySelectorAll('[data-include]');
     await Promise.all([...includeNodes].map(async (node) => {
@@ -45,6 +46,24 @@
 
     loadProjectEditorialAssets(root);
     loadProjectGalleryLightboxAssets(root);
+  }
+
+  function loadHexLoaderAssets(root) {
+    if (!document.querySelector('link[data-cr-hex-loader]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = `${root}/css/hex-loader.css?v=1`;
+      link.dataset.crHexLoader = 'true';
+      document.head.append(link);
+    }
+
+    if (!document.querySelector('script[data-cr-hex-loader]')) {
+      const script = document.createElement('script');
+      script.src = `${root}/js/hex-loader.js?v=1`;
+      script.defer = true;
+      script.dataset.crHexLoader = 'true';
+      document.body.append(script);
+    }
   }
 
   function loadContentProtectionAssets(root) {
