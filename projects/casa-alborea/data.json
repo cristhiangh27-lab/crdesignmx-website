@@ -1,0 +1,74 @@
+{
+  "title": {
+    "en": "Casa Alborea",
+    "es": "Casa Alborea",
+    "de": "Casa Alborea"
+  },
+  "location": {
+    "en": "Mexico",
+    "es": "México",
+    "de": "Mexiko"
+  },
+  "locationLabel": {
+    "en": "Mexico",
+    "es": "México",
+    "de": "Mexiko"
+  },
+  "year": "2024",
+  "type": {
+    "en": "Residential collaboration",
+    "es": "Colaboración residencial",
+    "de": "Wohnbau-Kollaboration"
+  },
+  "categoryKey": "residential",
+  "area": {
+    "en": "BIM, systems coordination and visualization",
+    "es": "BIM, coordinación de instalaciones y visualización",
+    "de": "BIM, TGA-Koordination und Visualisierung"
+  },
+  "summary": {
+    "en": "Technical development and visualization for a courtyard house organized around stone volumes, gardens and shaded terraces.",
+    "es": "Desarrollo técnico y visualización de una casa-patio organizada entre volúmenes pétreos, jardines y terrazas sombreadas.",
+    "de": "Technische Entwicklung und Visualisierung eines Hofhauses aus Steinvolumen, Gärten und verschatteten Terrassen."
+  },
+  "shortDescription": {
+    "en": "Technical development and visualization for a courtyard house organized around stone volumes, gardens and shaded terraces.",
+    "es": "Desarrollo técnico y visualización de una casa-patio organizada entre volúmenes pétreos, jardines y terrazas sombreadas.",
+    "de": "Technische Entwicklung und Visualisierung eines Hofhauses aus Steinvolumen, Gärten und verschatteten Terrassen."
+  },
+  "technicalBullets": [
+    {
+      "en": "Coordinated residential BIM model",
+      "es": "Modelo BIM residencial coordinado",
+      "de": "Koordiniertes BIM-Wohnmodell"
+    },
+    {
+      "en": "MEP documentation and systems diagrams",
+      "es": "Documentación MEP y esquemas de instalaciones",
+      "de": "TGA-Dokumentation und Anlagenschemata"
+    },
+    {
+      "en": "Exterior visualization with landscape studies",
+      "es": "Visualización exterior con estudios de paisaje",
+      "de": "Außenvisualisierung mit Landschaftsstudien"
+    },
+    {
+      "en": "Architectural authorship: D.arqs / Delgado Arquitectos",
+      "es": "Autoría arquitectónica: D.arqs / Delgado Arquitectos",
+      "de": "Architektonische Urheberschaft: D.arqs / Delgado Arquitectos"
+    }
+  ],
+  "coverImage": "projects/casa-alborea/img/alborea-01-access.jpg",
+  "images": [
+    "projects/casa-alborea/img/alborea-01-access.jpg",
+    "projects/casa-alborea/img/alborea-02-garden.jpg",
+    "projects/casa-alborea/img/alborea-03-terrace.jpg",
+    "projects/casa-alborea/img/alborea-04-pool-wing.jpg",
+    "projects/casa-alborea/img/alborea-05-street-corner.jpg",
+    "projects/casa-alborea/img/alborea-06-pavilion.jpg",
+    "projects/casa-alborea/img/alborea-07-courtyard.jpg",
+    "projects/casa-alborea/img/alborea-08-tree-court.jpg",
+    "projects/casa-alborea/img/alborea-09-pool.jpg",
+    "projects/casa-alborea/img/alborea-10-plans.jpg"
+  ]
+}
