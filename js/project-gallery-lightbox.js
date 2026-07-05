@@ -41,6 +41,45 @@ const LIGHTBOX_PROJECTS = {
       ['projects/helenia-atelier/img/FACHADA_SUR.jpg', 'South facade and structural expression', 'Fachada sur y expresion estructural', 'Suedfassade und struktureller Ausdruck'],
     ],
   },
+  'casa-alborea': {
+    title: 'Casa Alborea',
+    images: [
+      ['projects/casa-alborea/img/alborea-01-access.jpg', 'Main access and stone volumes', 'Acceso principal y volúmenes pétreos', 'Haupteingang und Steinvolumen'],
+      ['projects/casa-alborea/img/alborea-02-garden.jpg', 'Garden approach', 'Aproximación desde el jardín', 'Annäherung durch den Garten'],
+      ['projects/casa-alborea/img/alborea-03-terrace.jpg', 'Terrace and landscape edge', 'Terraza y borde de paisaje', 'Terrasse und Landschaftskante'],
+      ['projects/casa-alborea/img/alborea-04-pool-wing.jpg', 'Pool wing and upper volume', 'Ala de alberca y volumen superior', 'Poolflügel und oberes Volumen'],
+      ['projects/casa-alborea/img/alborea-05-street-corner.jpg', 'Street corner and covered parking', 'Esquina urbana y estacionamiento cubierto', 'Straßenecke und überdecktes Parken'],
+      ['projects/casa-alborea/img/alborea-06-pavilion.jpg', 'Social pavilion and garden steps', 'Pabellón social y escalinata de jardín', 'Sozialpavillon und Gartentreppe'],
+      ['projects/casa-alborea/img/alborea-07-courtyard.jpg', 'Courtyard and shaded gallery', 'Patio y galería sombreada', 'Hof und verschattete Galerie'],
+      ['projects/casa-alborea/img/alborea-08-tree-court.jpg', 'Tree court and interior threshold', 'Patio arbolado y umbral interior', 'Baumhof und innerer Übergang'],
+      ['projects/casa-alborea/img/alborea-09-pool.jpg', 'Pool and stone enclosure', 'Alberca y cerramiento de piedra', 'Pool und Steineinfassung'],
+      ['projects/casa-alborea/img/alborea-10-plans.jpg', 'Coordinated architectural plans', 'Plantas arquitectónicas coordinadas', 'Koordinierte Grundrisse'],
+    ],
+  },
+  'pixel-berg': {
+    title: 'Pixel-Berg',
+    images: [
+      ['projects/pixel-berg/img/pixelberg-01-concept.jpg', 'Concept, location and main volume', 'Concepto, localización y volumen principal', 'Konzept, Lage und Hauptvolumen'],
+      ['projects/pixel-berg/img/pixelberg-02-plans.jpg', 'Site plan and program distribution', 'Planta de conjunto y distribución programática', 'Lageplan und Programmverteilung'],
+      ['projects/pixel-berg/img/pixelberg-03-section-model.jpg', 'Section and urban axonometric', 'Sección y axonometría urbana', 'Schnitt und städtische Axonometrie'],
+      ['projects/pixel-berg/img/pixelberg-04-urban-sketch.jpg', 'Urban relationship sketch', 'Croquis de relación urbana', 'Skizze der städtischen Beziehung'],
+      ['projects/pixel-berg/img/pixelberg-05-form-sketch.jpg', 'Folded block form study', 'Estudio de forma del bloque plegado', 'Formstudie des gefalteten Baukörpers'],
+      ['projects/pixel-berg/img/pixelberg-06-site-study.jpg', 'Site and public-space study', 'Estudio de sitio y espacio público', 'Standort- und Freiraumstudie'],
+    ],
+  },
+  'pabellon-kubito': {
+    title: 'Pabellón Kúbito',
+    images: [
+      ['projects/pabellon-kubito/img/kubito-01-concept.jpg', 'Pavilion concept and folding envelope', 'Concepto del pabellón y envolvente plegable', 'Pavillonkonzept und faltbare Hülle'],
+      ['projects/pabellon-kubito/img/kubito-02-assembly.jpg', 'Dry assembly sequence and simultaneous uses', 'Secuencia de montaje en seco y usos simultáneos', 'Trockenmontage und parallele Nutzungen'],
+      ['projects/pabellon-kubito/img/kubito-03-model-board.jpg', 'Presentation model and constructive elements', 'Maqueta de presentación y elementos constructivos', 'Präsentationsmodell und Bauelemente'],
+      ['projects/pabellon-kubito/img/kubito-04-roof-system.jpg', 'Folding roof positions', 'Posiciones de la cubierta plegable', 'Positionen des Faltdachs'],
+      ['projects/pabellon-kubito/img/kubito-05-site-strategy.jpg', 'Campus site strategy', 'Estrategia de implantación en campus', 'Campus-Standortstrategie'],
+      ['projects/pabellon-kubito/img/kubito-06-exploded-system.jpg', 'Exploded modular system', 'Sistema modular explotado', 'Explodiertes Modulsystem'],
+      ['projects/pabellon-kubito/img/kubito-07-physical-model.jpg', 'Physical presentation model', 'Maqueta física de presentación', 'Physisches Präsentationsmodell'],
+      ['projects/pabellon-kubito/img/kubito-08-folding-study.jpg', 'Folding surface study', 'Estudio de superficie plegable', 'Studie der Faltfläche'],
+    ],
+  },
   'brisa-pavilion': {
     title: 'Brisa Pavilion',
     images: [

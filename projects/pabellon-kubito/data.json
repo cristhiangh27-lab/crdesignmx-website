@@ -1,0 +1,72 @@
+{
+  "title": {
+    "en": "Kúbito Pavilion",
+    "es": "Pabellón Kúbito",
+    "de": "Kúbito-Pavillon"
+  },
+  "location": {
+    "en": "Ciudad Universitaria, Mexico City",
+    "es": "Ciudad Universitaria, Ciudad de México",
+    "de": "Ciudad Universitaria, Mexiko-Stadt"
+  },
+  "locationLabel": {
+    "en": "Ciudad Universitaria, Mexico City",
+    "es": "Ciudad Universitaria, Ciudad de México",
+    "de": "Ciudad Universitaria, Mexiko-Stadt"
+  },
+  "year": "2022",
+  "type": {
+    "en": "Academic pavilion",
+    "es": "Pabellón académico",
+    "de": "Akademischer Pavillon"
+  },
+  "categoryKey": "cultural",
+  "area": {
+    "en": "Flexible campus infrastructure",
+    "es": "Infraestructura flexible de campus",
+    "de": "Flexible Campus-Infrastruktur"
+  },
+  "summary": {
+    "en": "Honorable-mention pavilion with a modular frame and folding envelope that extends academic life into the campus courtyard.",
+    "es": "Pabellón con mención honorífica, estructura modular y envolvente plegable que extiende la vida académica al patio.",
+    "de": "Ausgezeichneter Pavillon mit modularem Tragwerk und faltbarer Hülle, der das akademische Leben in den Hof erweitert."
+  },
+  "shortDescription": {
+    "en": "Honorable-mention pavilion with a modular frame and folding envelope that extends academic life into the campus courtyard.",
+    "es": "Pabellón con mención honorífica, estructura modular y envolvente plegable que extiende la vida académica al patio.",
+    "de": "Ausgezeichneter Pavillon mit modularem Tragwerk und faltbarer Hülle, der das akademische Leben in den Hof erweitert."
+  },
+  "technicalBullets": [
+    {
+      "en": "Honorable mention, Intertalleres competition, FA UNAM",
+      "es": "Mención honorífica, concurso Intertalleres, FA UNAM",
+      "de": "Lobende Erwähnung, Intertalleres-Wettbewerb, FA UNAM"
+    },
+    {
+      "en": "Modular dry-assembly structural frame",
+      "es": "Estructura modular de montaje en seco",
+      "de": "Modulares Tragwerk in Trockenbauweise"
+    },
+    {
+      "en": "Folding roof and wall panels adapt to simultaneous uses",
+      "es": "Cubierta y paneles plegables adaptables a usos simultáneos",
+      "de": "Faltbare Dach- und Wandpaneele für parallele Nutzungen"
+    },
+    {
+      "en": "Bioclimatic shade and cross-ventilation strategy",
+      "es": "Estrategia bioclimática de sombra y ventilación cruzada",
+      "de": "Bioklimatische Strategie für Schatten und Querlüftung"
+    }
+  ],
+  "coverImage": "projects/pabellon-kubito/img/kubito-01-concept.jpg",
+  "images": [
+    "projects/pabellon-kubito/img/kubito-01-concept.jpg",
+    "projects/pabellon-kubito/img/kubito-02-assembly.jpg",
+    "projects/pabellon-kubito/img/kubito-03-model-board.jpg",
+    "projects/pabellon-kubito/img/kubito-04-roof-system.jpg",
+    "projects/pabellon-kubito/img/kubito-05-site-strategy.jpg",
+    "projects/pabellon-kubito/img/kubito-06-exploded-system.jpg",
+    "projects/pabellon-kubito/img/kubito-07-physical-model.jpg",
+    "projects/pabellon-kubito/img/kubito-08-folding-study.jpg"
+  ]
+}
