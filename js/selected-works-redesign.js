@@ -279,7 +279,7 @@ function getProjectImage(project) {
   return resolveAsset(project.coverImage, `${ROOT_PATH}/projects/${project.slug}/img/preview.jpg`);
 }
 
-function renderConsole(container, projects, activeSlug) {
+function renderConsole(container, projects, activeSlug, selectorScrollLeft = 0) {
   const lang = getCurrentLang();
   const activeProject = projects.find((project) => project.slug === activeSlug) || projects[0];
   const activeIndex = projects.findIndex((project) => project.slug === activeProject.slug);
@@ -355,14 +355,13 @@ function renderConsole(container, projects, activeSlug) {
     </div>
   `;
 
+  const selector = container.querySelector('.works-console__selector');
+  if (selector) selector.scrollLeft = selectorScrollLeft;
+
   container.querySelectorAll('[data-slug]').forEach((button) => {
     button.addEventListener('click', () => {
-      renderConsole(container, projects, button.dataset.slug);
-      container.querySelector(`[data-slug="${CSS.escape(button.dataset.slug)}"]`)?.scrollIntoView({
-        inline: 'center',
-        block: 'nearest',
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      });
+      const currentScrollLeft = container.querySelector('.works-console__selector')?.scrollLeft || 0;
+      renderConsole(container, projects, button.dataset.slug, currentScrollLeft);
     });
   });
 
@@ -370,7 +369,8 @@ function renderConsole(container, projects, activeSlug) {
     button.addEventListener('click', () => {
       const direction = Number(button.dataset.direction) || 1;
       const nextIndex = (activeIndex + direction + projects.length) % projects.length;
-      renderConsole(container, projects, projects[nextIndex].slug);
+      const currentScrollLeft = container.querySelector('.works-console__selector')?.scrollLeft || 0;
+      renderConsole(container, projects, projects[nextIndex].slug, currentScrollLeft);
     });
   });
 }

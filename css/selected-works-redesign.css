@@ -492,9 +492,29 @@ html[lang="de"] .works-console__header h3 {
   to { opacity: 1; transform: translateY(-4px); }
 }
 
+@media (min-width: 1121px) {
+  .works-console__stage {
+    min-height: 0;
+    aspect-ratio: 40 / 23;
+    max-height: 820px;
+  }
+
+  .works-console__media,
+  .works-console__media img {
+    min-height: 0;
+  }
+
+  .works-console__panel {
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
 @media (max-width: 1120px) {
   .works-console__stage {
     grid-template-columns: minmax(0, 1fr);
+    aspect-ratio: auto;
+    max-height: none;
   }
 
   .works-console__media,
